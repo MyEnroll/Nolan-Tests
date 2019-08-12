@@ -23,6 +23,7 @@ $(document).on('keyup', '#librarySearch', function () {
 
 $(document).on('change', '#editMode', function () {
     if ($(this).is(':checked')) {
+        $('.me-card').css('transform','scale(1)');
 
         console.log('on');
         $('.me-palette').fadeIn();
@@ -39,6 +40,14 @@ $(document).on('change', '#editMode', function () {
         UIkit.update($('#libraryCards'), type = 'update');
     } else {
         console.log('off');
+        $('.me-card').css('transform','scale(1)');
+        UIkit.notification({
+            message: 'Changes Saved',
+            status: 'primary',
+            pos: 'top-right',
+            timeout: 2000
+        });
+        $('.me-card').removeAttr('style');
         $('.me-palette').fadeOut();
         $('#libraryCards').removeAttr('uk-sortable');
         $('.me-library-card').css('cursor', 'auto');
@@ -64,10 +73,11 @@ $(document).on('change', '#editMode', function () {
 // new card  
 
 $(document).on('click', '.me-add-card', function () {
-    $('<div data-type="" style="display:none" class="uk-grid-margin me-library-card-new"><div class="uk-card uk-card-default uk-border-rounded uk-box-shadow-medium uk-overflow-auto me-card uk-card-hover"><div class="uk-card-media-top me-card-top"></div><div class="uk-card-body uk-background-default uk-position-relative"><h3 class="uk-card-title"><span style="display:none"></span><input type="text" class="uk-input" placeholder="Category Name"></h3><ul class="uk-list uk-list-divider"><li><a href="" target="_blank"></a><input type="text" class="me-link-input-title uk-input uk-display-block" placeholder="Document Title"><input type="text" class="me-link-input-url uk-input uk-display-block" placeholder="URL/Link"></li><li><button type="button" class="uk-border-pill  uk-button-primary me-add-new-link"><i class="fal fa-plus"></i> Add Link</button></li></ul></div></div></div>')
+    $('<div data-type="" style="display:none" class="uk-grid-margin me-library-card-new"><div class="uk-card uk-card-default uk-border-rounded uk-box-shadow-medium uk-overflow-auto me-card uk-card-hover"><div class="uk-card-media-top me-card-top"><div class="uk-position-top-right"><div class="btn-group"> <button type="button" class="btn btn-sm dropdown-toggle " data-toggle="dropdown"> <icon class="me-palette fa-palette fad"></icon> </button><div class="dropdown-menu me-color-picker"><div class="popover-title"><h6 class="dropdown-header">Card Header Color</h6></div><div class="popover-body"> <a class="dropdown-item"> <span class="me-card-color-icon me-blue"></span> <span>Blue</span> </a> <a class="dropdown-item"> <span class="me-card-color-icon me-indigo"></span> <span>Indigo</span> </a> <a class="dropdown-item"> <span class="me-card-color-icon me-purple"></span> <span>Purple</span> </a> <a class="dropdown-item"> <span class="me-card-color-icon me-pink"></span> <span>Pink</span> </a> <a class="dropdown-item"> <span class="me-card-color-icon me-red"></span> <span>Red</span> </a> <a class="dropdown-item"> <span class="me-card-color-icon me-orange"></span> <span>Orange</span> </a> <a class="dropdown-item"> <span class="me-card-color-icon me-yellow"></span> <span>Yellow</span> </a> <a class="dropdown-item"> <span class="me-card-color-icon me-green"></span> <span>Green</span> </a> <a class="dropdown-item"> <span class="me-card-color-icon me-teal"></span> <span>Teal</span> </a> <a class="dropdown-item"> <span class="me-card-color-icon me-cyan"></span> <span>Cyan</span> </a></div></div></div><div class="btn-group"><button type="button" class="icp icp-opts btn btn-sm dropdown-toggle iconpicker-component" data-toggle="dropdown"> <icon class="me-palette fa-icons fad"></icon> <i style="display:none" class="fa fa-fw"></i> <span class="caret"></span> </button><div class="dropdown-menu"></div></div></div> <i class="longShadow-FA fad fa-book-medical picker-target"></i></div><div class="uk-card-body uk-background-default uk-position-relative"><h3 class="uk-card-title"><span style="display:none"></span><input type="text" class="uk-input" placeholder="Category Name"></h3><ul class="uk-list uk-list-divider"><li><a href="" target="_blank"></a><input type="text" class="me-link-input-title uk-input uk-display-block" placeholder="Document Title"><input type="text" class="me-link-input-url uk-input uk-display-block" placeholder="URL/Link"></li><li><button type="button" class="uk-border-pill uk-button-primary me-add-new-link"><i class="fal fa-plus"></i> Add Link</button></li></ul></div></div></div>')
         .insertBefore($(this).parent());
     $('.me-library-card-new:last').show('slow', function () {
         UIkit.update($('#libraryCards'), type = 'update');
+        $('.me-card').css('transform','scale(1)');
     });
 });
 $(document).on('click', '.me-add-new-link', function () {
@@ -85,37 +95,46 @@ $(document).ready(function () {
             case 'medical':
                 $(this).find('.me-card-top').css('background', '#1e87f0');
                 $(this).find('.me-card-top').append(
-                    '<i class="longShadow-FA fad fa-book-medical"></i>');
+                    '<i class="longShadow-FA fad fa-book-medical picker-target"></i>');
                 break;
             case 'dental':
                 $(this).find('.me-card-top').css('background', '#6f42c1');
                 $(this).find('.me-card-top').append(
-                    '<i class="longShadow-FA fad fa-toothbrush fa-swap-opacity"></i>'
+                    '<i class="longShadow-FA fad fa-toothbrush fa-swap-opacity picker-target"></i>'
                 );
                 break;
             case 'vision':
                 $(this).find('.me-card-top').css('background', '#e83e8c');
                 $(this).find('.me-card-top').append(
-                    '<i class="longShadow-FA fad fa-eye"></i>');
+                    '<i class="longShadow-FA fad fa-eye picker-target"></i>');
                 break;
             case 'life':
                 $(this).find('.me-card-top').css('background', '#20c997');
                 $(this).find('.me-card-top').append(
-                    '<i class="longShadow-FA fad fa-hands-heart fa-swap-opacity"></i>'
+                    '<i class="longShadow-FA fad fa-hands-heart fa-swap-opacity picker-target"></i>'
                 );
                 break;
             case 'disability':
                 $(this).find('.me-card-top').css('background', '#17a2b8');
                 $(this).find('.me-card-top').append(
-                    '<i class="longShadow-FA fad fa-crutches"></i>');
+                    '<i class="longShadow-FA fad fa-crutches picker-target"></i>');
                 break;
 
             default:
                 $(this).find('.me-card-top').css('background', '#dc3545');
                 $(this).find('.me-card-top').append(
-                    '<i class="longShadow-FA fad fa-star-of-life"></i>');
+                    '<i class="longShadow-FA fad fa-star-of-life picker-target"></i>');
         }
     });
+
+    $('.me-color-picker').find('a').click(function() {
+       
+     })
+     $(document).on('click','.me-color-picker a',function() {
+        var colorChoice = $(this).children('.me-card-color-icon').css('background-color')
+        console.log(colorChoice);
+         $(this).closest('.me-card-top').css('background-color',colorChoice);
+     })
 
 
     $('.uk-list li a').attr('data-toggle', 'tooltip');

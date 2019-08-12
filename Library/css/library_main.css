@@ -1,6 +1,11 @@
 button {
     outline: none !important;
 }
+
+.dropdown-toggle::after {
+    content: none;
+}
+
 .me-card {
     transition: .2s ease;
 }
@@ -11,7 +16,6 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
 }
 
 .me-card:hover {
@@ -67,6 +71,7 @@ li a {
 }
 
 .longShadow-FA {
+    font-size: 4rem;
     color: #fff;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.01),
         2px 2px rgba(0, 0, 0, 0.03),
@@ -130,6 +135,63 @@ li a {
         28px 28px rgba(0, 0, 0, 0.01);
 }
 
+.me-card-color-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 6px;
+}
+.dropdown-item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.dropdown-menu {
+    max-height: 350px;
+    overflow: scroll;
+}
+
+.me-blue {
+    background-color: #007bff;
+}
+
+.me-indigo {
+    background-color: #6610f2;
+}
+
+.me-purple {
+    background-color: #6f42c1;
+}
+
+.me-pink {
+    background-color: #e83e8c;
+}
+
+.me-red {
+    background-color: #dc3545;
+}
+
+.me-orange {
+    background-color: #fd7e14;
+}
+
+.me-yellow {
+    background-color: #ffc107;
+}
+
+.me-green {
+    background-color: #28a745;
+}
+
+.me-teal {
+    background-color: #20c997;
+}
+
+.me-cyan {
+    background-color: #17a2b8;
+}
+
 li em {
     background: #ff6;
     font-weight: bold;
@@ -150,7 +212,7 @@ li em {
 
 .me-palette {
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 10px;
     cursor: pointer;
     display: none;
