@@ -12,7 +12,3 @@ $(document).on('click','.me-palette',function() {
 });
 
 // icon picker
-$('.icp-dd').iconpicker({
-    //title: 'Dropdown with picker',
-    //component:'.btn > i'
-  });
