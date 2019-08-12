@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>COBRA Dashboard</title>
+
+
+    <!-- CSS -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <!-- FontAweseome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
+    <!-- BAS Custom -->
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- UIKit -->
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="./styles/cobraDB.css">
+
+
+</head>
+
+<body>
+    <div>
+
+        <div class="me-main">
+            <div class="uk-section-small uk-section-primary">
+                <ul uk-tab>
+                    <li class="uk-active"><a href="#">QELs</a></li>
+                    <li><a href="#">CINs</a></li>
+
+                </ul>
+            </div>
+
+            <div class="uk-section uk-section-large uk-section-default">
+                <div id="cobraGraph">
+                    <template>
+                        <div>
+                                <base-chart id="chart" type="chartType" :data="data" :options="options"></base-chart>
+
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div class="uk-section uk-section-large uk-section-muted">
+
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/nolanStuff.js"></script>
+
+
+    <script>
+       import VueChartjs from 'chartjs-web-components/dist/vue.js'
+
+    </script>
+</body>
+
+</html>

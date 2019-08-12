@@ -1,0 +1,20 @@
+.me-sidebar-left {
+    width: 240px;
+    position: fixed;
+    overflow: auto;
+    left: 0;
+}
+.me-main {
+    
+}
+
+
+
+/* media queries */
+
+@media only screen and (max-width:640px) {
+    .me-main {
+        padding-left: 0;
+    }
+
+}
