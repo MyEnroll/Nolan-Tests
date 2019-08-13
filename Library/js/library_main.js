@@ -81,9 +81,10 @@ $(document).on('click', '.me-add-card', function () {
     });
 });
 $(document).on('click', '.me-add-new-link', function () {
+    console.log('adding new link');
     $('<li style="display:none" class="me-link-sect"><a href="" target="_blank"></a><input type="text" class="me-link-input-title uk-input uk-display-block" placeholder="Document Title"><input type="text" class="me-link-input-url uk-input uk-display-block" placeholder="URL/Link"></li>')
         .insertBefore($(this).parent());
-    $('.me-link-sect:last').slideDown('slow');
+    $(this).parent().prev().slideDown('slow');
 })
 
 
@@ -149,4 +150,10 @@ $(document).ready(function () {
     })
     $('body').removeClass('uk-hidden');
     $('.me-library-card').addClass('uk-grid-margin');
+    $('.me-link-input-title').each(function (e) {
+        $(this).siblings('a').text($(this).val().toString()).show();
+    })
+    $('.me-link-input-url').each(function (e) {
+        $(this).siblings('a').attr('href', $(this).val().toString()).show();
+    })
 })
