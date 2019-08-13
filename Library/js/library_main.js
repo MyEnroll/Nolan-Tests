@@ -19,7 +19,9 @@ $(document).on('keyup', '#librarySearch', function () {
     // $("#libraryCards .me-library-card").addClass('uk-margin');
 });
 
-
+$(document).on('click','#saveChanges',function() {
+    $('#editMode').click();
+})
 
 $(document).on('change', '#editMode', function () {
     if ($(this).is(':checked')) {
@@ -36,6 +38,7 @@ $(document).on('change', '#editMode', function () {
 
         });
         $('.me-add-new-link').show();
+        $('#saveChanges').fadeIn('fast');
 
         UIkit.update($('#libraryCards'), type = 'update');
     } else {
@@ -65,6 +68,7 @@ $(document).on('change', '#editMode', function () {
             $(this).siblings('a').attr('href', $(this).val().toString()).show();
         })
         $('.me-add-new-link').hide();
+        $('#saveChanges').fadeOut('fast');
 
     }
 });
