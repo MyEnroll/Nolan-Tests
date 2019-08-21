@@ -1,4 +1,8 @@
+
+
 $(document).ready(function () {
+
+    // remove this to not shohw the modal on ready.. only here for demo
     UIkit.modal('#obResources').show();
 })
 
