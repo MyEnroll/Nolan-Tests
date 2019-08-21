@@ -1,0 +1,35 @@
+.remove-resource {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 6px;
+}
+.me-table  thead  tr {
+    background: #333;
+    color: white;
+}
+.me-table th {
+    color: white;
+    font-weight: bold;
+}
+.me-table {
+    border-radius: 5px;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+.confirm-remove-block {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: #ff00002e;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    display:none;
+}
+.confirm-remove-block button {
+    min-width:90px;
+}
