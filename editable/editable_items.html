@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <!-- FontAweseome -->
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- UIKit -->
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="styles/employee_profile.css">
+    <link rel="stylesheet" href="styles/style3.css">
+    <script>
+        $(document).ready(function () {
+            $('#nonEditable').modal('show');
+        })
+    </script>
+</head>
+
+<body>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nonEditable">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="nonEditable" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content uk-background-muted">
+                <div class="modal-header">
+                    <h3 class="modal-title">Field Cannot be Modified</h3>
+                    <button type="button" class="dismiss2" data-dismiss="modal"><i class="fal fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="uk-section uk-section-small uk-section-default uk-padding-remove">
+                        <div class="uk-container-expand">
+                            <div class="uk-text-bold uk-text-danger uk-margin-medium-bottom">
+                                Aw nuts! Looks like you can&apos;t edit that field. Here are the other fields that
+                                can&apos;t be edited on this page.
+                            </div>
+                            <div>
+                                <ul class="uk-list ">
+                                    <li>Social Security Number</li>
+                                    <li>Work Email Address</li>
+                                    <li>Work Phone Number</li>
+                                    <li>Work Address</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="uk-divider-icon">
+                    <div class="uk-section uk-section-small uk-section-default uk-padding-remove">
+                        <h4 class="uk-margin-small-bottom">Message from Employer</h4>
+                        <div class="uk-container-expand">
+                            <div class="uk-card uk-card-default uk-padding-small uk-border-rounded uk-width-1-1">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque pariatur aspernatur sequi architecto earum voluptatibus asperiores consequatur deleniti beatae ullam.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer" style="background:#fff">
+                    <button type="button" class="uk-button uk-button-primary uk-border-pill" data-dismiss="modal">Close</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
