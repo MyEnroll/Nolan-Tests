@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Client Service Manager</title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <!-- FontAweseome -->
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- UIKit -->
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="styles/cs_manager.css">
+</head>
+
+<body>
+
+    <div class="uk-section uk-section-small">
+        <div class="uk-container-expand">
+
+            <ul
+                uk-tab="connect: #contentTabs; animation: uk-animation-slide-top-small, uk-animation-slide-bottom-small">
+                <li><a href="#">Compose</a></li>
+                <li><a href="#">Pending Items</a></li>
+                <li><a href="#">History</a></li>
+            </ul>
+
+
+        </div>
+        <div class="uk-container">
+            <ul id="contentTabs" class="uk-switcher uk-margin">
+                <li>
+                    <div class="uk-placeholder">
+                        search and inquery input boxes go here
+                    </div>
+                    <div class="uk-child-width-1-1" uk-grid>
+                        <div>
+                            <div uk-grid>
+                                <div class="uk-width-auto@m">
+                                    <ul class="uk-tab-left"
+                                        uk-tab="media: 0; connect: #component-tab-left; animation: uk-animation-fade">
+                                        <li><a href="#">Active</a></li>
+                                        <li><a href="#">Item</a></li>
+                                        <li><a href="#">Item</a></li>
+                                    </ul>
+                                </div>
+                                <div class="uk-width-expand@m">
+                                    <ul id="component-tab-left" class="uk-switcher">
+                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.</li>
+                                        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                            aliquip ex ea commodo consequat.</li>
+                                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                            eu fugiat nulla pariatur, sed do eiusmod.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+</body>
+
+</html>

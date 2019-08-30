@@ -1,0 +1,25 @@
+.stickyNavTop {
+    position:sticky;
+    top: 0;
+    background:  #fff;
+}
+.uk-tab>.uk-active>a {
+    color: #333;
+    border-color: #1e87f0;
+    border-top: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    border-bottom: 0;
+    border-radius: 5px 5px 0px 0px;
+}
+.uk-tab>*>a {
+    display: block;
+    text-align: center;
+    padding: 5px 10px;
+    color: #999;
+    border-bottom: 1px solid transparent;
+    font-size: .875rem;
+    text-transform: uppercase;
+    transition: color .1s ease-in-out;
+    padding: 10px 25px;
+}
