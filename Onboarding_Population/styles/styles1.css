@@ -1,0 +1,264 @@
+﻿.demo-container .RadWizard {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    *border: 1px solid #ddd;
+}
+
+.demo-container .RadWizard_BlackMetroTouch {
+    border: 1px solid #333;
+}
+
+.demo-container .RadWizard_Black,
+.demo-container .RadWizard_Glow,
+.demo-container .RadWizard_Office2010Black {
+    *border: 0;
+}
+
+.demo-container .rwzStep {
+    padding: 35px 0 0;
+}
+    .demo-container .rwzStep label {
+        width: 300px;
+        display: block;
+        margin: 10px auto 0;
+    }
+
+.demo-container .loginStep {
+    padding-top: 8px;
+}
+
+.demo-container .ruFakeInput {
+    width: 220px !important;
+}
+
+.demo-container .riSingle,
+.demo-container .RadAsyncUpload,
+.demo-container .RadComboBox,
+.demo-container .rwzStep .RadInput {
+    display: block;
+    width: 300px !important;
+    margin: 0 auto;
+}
+
+.demo-container .RadUpload {
+    width: auto;
+    text-align: center;
+}
+
+.demo-container label {
+    white-space: nowrap;
+}
+input#basAccSearch_rsbSearchBox_Input {
+    width: 100% !important;
+}
+
+.demo-container .RadUpload .ruSelectWrap {
+    margin: 0 auto;
+}
+
+.demo-container .RadWizard {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    *border: 1px solid #ddd;
+}
+
+.demo-container .RadWizard_BlackMetroTouch {
+    border: 1px solid #333;
+}
+
+.demo-container .RadWizard_Black,
+.demo-container .RadWizard_Glow,
+.demo-container .RadWizard_Office2010Black {
+    *border: 0;
+}
+
+.demo-container .rwzContent {
+    margin: 0 -10px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.demo-container .RadWizard_Sunset .rwzContent {
+    background: #f1ebe0;
+}
+
+.demo-container .riSingle {
+    margin: 10px 0 0;
+}
+
+.demo-container .rwzContent .RadInput,
+.demo-container .rwzContent .riLabel {
+    margin: 5px 0;
+}
+
+/*.classDivR {
+    float: left;
+    width: 300px;
+    margin-top: 30px;
+}
+
+.classDivR {
+    float: left;
+    width: 500px;
+    margin-top: 0px;
+}*/
+
+.LblText {
+    word-wrap: break-word;
+}
+
+.RadComboBox .rcbInputCell .rcbInput {
+    text-align: center !important;
+}
+
+.auto-style1 {
+    width: 150px;
+}
+
+.auto-style2 {
+    width: 300px;
+    padding-right:20px;
+}
+
+/* Pattern styles */
+.container_my {
+  display: table;
+  width: 80%!important;
+}
+
+.left-half {
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  width: 50%;
+  /*padding: 1rem;*/
+}
+
+.right-half {
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  width: 50%;
+  /*padding: 1rem;*/
+}
+
+.left-half-below {  
+  left: 0px;
+  width: 100%;
+}
+
+.resizeImage {
+    height: 95%;
+    width: 80%;
+    text-align: center;
+}
+
+.winCustom{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#example {
+    text-align: center;
+}
+ 
+#example .upl-container {
+    display: inline-block;
+    text-align: left;
+    width: 800px;
+}
+ 
+.upl-container .RadUpload .ruUploadProgress {
+    width: 110px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+}
+ 
+html .upl-container .ruFakeInput {
+    width: 140px;
+}
+
+#header {
+    position: fixed;
+    top: 0px;
+    height: 80px;
+    width: 100%;
+    background-color: white;
+}
+
+#body
+{ margin-top: 30px; height: 99%; overflow: auto; }
+
+/* new styles */
+
+.me-accordion-card {
+    border: 1px solid #c1c1c1;
+}
+.me-accordion-title {
+    background: #343a40;
+    color: #fff;
+}
+.me-accordion-content {
+    margin-top: 0px;
+}
+.uk-accordion-title:focus, .uk-accordion-title:hover {
+    color: white;
+}
+.loader {
+    border: 10px solid #909ADC;
+    /*#97E6FF; ;*/
+    /*#CCCCCC;*/
+    /*#f3f3f3;*/
+    border-radius: 70%;
+    border-top: 10px solid #273473;
+    /*#33CCFF;*/
+    /*#273473*/
+    /*border-right: 10px solid #33CCFF; 
+  border-bottom: 10px solid #33CCFF;*/
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fontall {
+    font-size: 9pt;
+    font-family: Verdana, Arial;
+}
+.uk-accordion-title:before {
+    content: "\f078";
+    font-family: "Font Awesome 5 Pro";
+    width: 1.4em;
+    height: 1.4em;
+    float: right;
+    background-image: none;
+    transition: .2s ease;
+    margin: 0;
+    text-align:center;
+}
+.uk-open>.uk-accordion-title:before {
+    background-image: none;
+    transform: rotate(180deg);
+}

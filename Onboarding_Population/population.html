@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Client Service Manager</title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <!-- FontAweseome -->
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- UIKit -->
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="./styles/styles1.css">
+    <script>
+        $(document).ready(function () {
+            UIkit.modal('#populationSel').show();
+        })
+        $(document).on('click','#audSelmdBack',function() {
+            $('#audSelBack').click();
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <button class="uk-button uk-button-primary" uk-toggle="target: #populationSel">
+            Open Modal
+        </button>
+    </div>
+    <div id="populationSel" uk-modal="bg-close: false">
+        <div class="uk-modal-dialog ">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">Audience Selection</h2>
+            </div>
+            <div class="uk-modal-body uk-padding-remove-top" uk-overflow-auto>
+                <ul class="uk-subnav uk-subnav-pill uk-hidden"
+                    uk-switcher="animation: uk-animation-slide-right-medium, uk-animation-slide-left-medium ">
+                    <li><a href="#">Audience Selection</a></li>
+                    <li><a href="#">Custom Audience</a></li>
+                </ul>
+
+                <ul class="uk-switcher uk-margin-small">
+                    <li id="audSelHome" class="uk-margin-medium-top">
+                        <div class="uk-grid-small uk-child-width-1-2 uk-text-center uk-grid-match" uk-grid>
+                            <div>
+                                <div class="uk-card uk-card-primary uk-card-body uk-card-hover uk-border-rounded"
+                                    style="cursor:pointer">
+                                    <h3>
+                                        Default
+                                    </h3>
+                                    <div class="uk-text-meta">
+                                        Entire Employee Population
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="customSel" uk-switcher-item="1">
+                                <div class="uk-card uk-card-primary uk-card-body uk-card-hover uk-border-rounded"
+                                    style="cursor:pointer">
+                                    <h3>
+                                        Custom
+                                    </h3>
+                                    <div class="uk-text-meta">
+                                        Define your own audience requirements.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="customAudCnt">
+                        <div class="uk-margin-small-bottom">
+                            <button id="audSelBack" class="uk-hidden uk-button uk-button-primary uk-border-pill"
+                                uk-switcher-item="0">
+                                <i class="fad fa-arrow-left"></i> Back
+                            </button>
+
+                        </div>
+                        <ul uk-accordion="collapsible: false">
+                            <li
+                                class="me-accordion-card uk-border-rounded uk-box-shadow-large uk-open uk-overflow-auto">
+                                <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Include</a>
+                                <div
+                                    class="uk-accordion-content uk-card uk-card-default uk-padding-small uk-border-rounded me-accordion-content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                            </li>
+                            <li class="me-accordion-card uk-border-rounded uk-box-shadow-large uk-overflow-auto">
+                                <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Exclude</a>
+                                <div
+                                    class="uk-accordion-content uk-card uk-card-default uk-padding-small uk-border-rounded me-accordion-content">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam numquam quas magnam est voluptatibus consequuntur quibusdam illum odio facilis eaque aperiam cum ipsam reprehenderit autem delectus corporis qui temporibus recusandae laborum, alias sit in? Temporibus voluptatem quasi architecto minus hic dolor cupiditate eveniet odio maxime illum quaerat nemo reiciendis ipsum, dolorem, consequuntur neque sequi illo molestiae repellendus quo! Quae, totam pariatur nostrum ipsam nesciunt nobis molestiae vel reiciendis nemo, debitis enim quia ipsum illum? Veniam obcaecati corporis culpa tenetur, enim ullam veritatis, fuga quos quam magnam quisquam nemo est consectetur odio accusantium nam facilis provident quidem nisi voluptatibus voluptates. Obcaecati doloremque, minima magnam expedita maiores autem enim repellendus quibusdam officia, consectetur harum! Voluptatum consequuntur impedit recusandae esse officiis excepturi perferendis at, tempore ipsum, vel inventore earum. Dolorum ipsum, quas placeat quod dignissimos asperiores sed eaque magnam labore in architecto rerum voluptates fuga id cum voluptate possimus mollitia enim, similique saepe temporibus blanditiis! Iste, minus reprehenderit nam ea nisi praesentium? Amet aperiam odit perferendis a saepe. Porro minus magnam dolorem doloribus reiciendis, et repellat vero velit dolores incidunt recusandae amet, cupiditate at asperiores consequatur ducimus magni sapiente sint nobis placeat saepe aliquid totam repellendus? Deleniti voluptatem soluta neque, dolor repellat possimus voluptas optio sint magnam autem dolorem, perferendis aspernatur maxime beatae asperiores atque ad illum debitis ipsa cumque quia excepturi! Nesciunt ducimus vero illo deserunt enim nemo officiis ex cum sequi, consectetur cupiditate aspernatur quod vel incidunt repellendus voluptates magni voluptate molestiae. Quaerat, corrupti aspernatur? Corporis enim repellat qui debitis voluptate culpa laudantium id nemo, accusantium voluptatum fugit temporibus dignissimos sint ducimus repudiandae eum est natus tenetur ut doloremque. Rem et iusto maiores, quibusdam, sunt culpa reiciendis quasi incidunt aut rerum aspernatur non sapiente aperiam dolores voluptatum fugit eveniet provident ab odio a officiis totam eos! At deleniti, incidunt, laboriosam laudantium debitis, architecto adipisci mollitia laborum odio facilis iusto dolores soluta. Dolor deleniti voluptates, consequuntur totam labore esse laudantium! Quidem error, perferendis nihil fugiat ducimus eum corrupti omnis modi tempora sint at quo rem ab dolor nisi ex. Velit sit, recusandae maiores veniam aperiam temporibus sed tempore impedit dignissimos quia fugiat beatae rerum quibusdam minima distinctio! Illum rem laborum dolor ea rerum beatae et delectus esse ullam explicabo. Corporis, maxime totam ad excepturi debitis quia a tempore amet adipisci cum ab obcaecati laboriosam dolores voluptas nam. Voluptas saepe porro itaque perferendis, minus doloribus. Voluptate aliquam blanditiis fuga distinctio ducimus similique rem ab enim, id fugiat cumque repellat eius asperiores, totam aliquid! Nostrum quod esse corrupti sit, natus consequatur at incidunt quia illo a voluptates accusamus ex quas repellendus inventore sint eius explicabo eum! Quidem at ab eaque eveniet fuga consequuntur facilis suscipit adipisci ea ad. Repellendus debitis dolore aut assumenda distinctio nostrum tempore unde, voluptas tenetur expedita aliquid ab. Soluta deserunt pariatur cumque vel hic deleniti eum dolor. Placeat, eum vitae, excepturi veritatis ab explicabo nobis consequuntur assumenda cumque velit officiis quibusdam delectus deserunt a beatae commodi accusantium iure ex enim praesentium? Voluptate culpa dolor alias possimus laborum delectus deserunt vel?</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="uk-modal-footer uk-text-right uk-animation-fade uk-animation-fast" style="display:none">
+                <button id="audSelmdBack" class="uk-button uk-button-default uk-border-pill" uk-switcher-item="0">
+                    <i class="fad fa-arrow-left"></i> Back
+                </button>
+                <button class="uk-button uk-button-primary uk-border-pill" type="button">Save</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        UIkit.util.on('#customAudCnt', 'shown', function () {
+            $('.uk-subnav').attr('uk-switcher',
+                'animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium');
+        });
+        UIkit.util.on('#audSelHome', 'shown', function () {
+            $('.uk-subnav').attr('uk-switcher',
+                'animation: uk-animation-slide-right-medium, uk-animation-slide-left-medium');
+        })
+        UIkit.util.on('#audSelHome', 'hidden', function () {
+            $('.uk-modal-footer').slideDown('fast');
+        });
+        UIkit.util.on('#audSelHome', 'beforeshow', function () {
+            $('.uk-modal-footer').slideUp('fast');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+﻿/** Customize the demo canvas */
+#example .demo-container {
+    padding: 75px 0 0 0 !important;
+    width: 750px;
+    background: #588a4d url('images/tstore.jpg') 1px 1px no-repeat ;
+}
+ 
+.demo-container .top-offers {}
+.demo-container .top-offers .RadMenu {
+    float: left;
+    z-index: 2900;
+}
+.demo-container .top-offers .special-offer {
+    float: right;
+    position: relative;
+    top: 4px;
+    right: 2px;
+}
+ 
+ 
+.linksPanel {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    width: 200px;
+    height: 30px;
+    text-align: right;
+}
+ 
+.RadPanelBar .rpFirst .rpTemplate {
+    zoom: 1;
+    height: 94px;
+    width: 100%;
+}
+ 
+.linksPanel a {
+    color: White;
+}
+ 
+/* styling of template contents */
+.rpTemplate .productList {
+    padding: 0;
+    width: 662px;
+    margin: 0 auto;
+    display: block;
+}
+ 
+.rpTemplate .productList:after {
+    content: ".";
+    display: block;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    height: 0;
+    clear: both;
+}
+ 
+.rpTemplate .productList li {
+    list-style-type: none;
+    float: left;
+    text-align: center;
+    width: 220px;
+    margin: 15px 0 0;
+    padding: 0;
+    border-right: 1px solid #bec7cb;
+}
+ 
+.rpTemplate .productList li.last {
+    border-right-width: 0;
+}
+ 
+.rpTemplate .productList li div {
+    font: normal 12px Arial,sans-serif;
+    text-decoration: underline;
+    color: #333;
+}
+ 
+div.RadPanelBar .rpTemplate {
+    background: #EDF9FE;
+    overflow: hidden !important;
+}
+.rpHeaderTemplate {
+    overflow: hidden;
+    height: 26px;
+}
+
+.myStyle {
+    font: normal 10px Verdana,sans-serif;
+    text-decoration: underline;
+    color: #333;
+}
