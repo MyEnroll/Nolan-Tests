@@ -763,20 +763,23 @@ html .uk-card {
     font-size: .8rem !important;
     transition: .3s ease;
 }
+.erContactsAction {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+.erContactsHdr {
+    font-size: 1.2rem;
+}
 
 .uk-subnav-pill>.uk-active>a {
     border-radius: 500px;
 }
 
 .uk-card-default {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 600;
     border: 1px solid #d2d2d2;
     border-radius: 5px;
-    padding: 20px;
 }
 
 .uk-table-small td, .uk-table-small th {

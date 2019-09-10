@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Emergency Contacts</title>
-        <link rel="stylesheet"
-            href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
-        <!-- UIKit -->
-        <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
-        <!-- FontAweseome -->
-        <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
-        <!-- JQuery -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <!-- Bootstrap -->
-        <script
-            src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
-        </script>
-        <!-- UIKit -->
-        <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
-        <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
-        <link rel="stylesheet" href="../editable/styles/style3.css">
-        <link rel="stylesheet" href="../editable/styles/employee_profile.css">
-        
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Emergency Contacts</title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <!-- FontAweseome -->
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- UIKit -->
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="../editable/styles/style3.css">
+    <link rel="stylesheet" href="../editable/styles/employee_profile.css">
+
+</head>
+
 <body>
     <div>
         <button class="uk-button uk-button-link" data-target="#erContacts" data-toggle="modal">
             Emergency Contacts
         </button>
     </div>
-    <div class="modal fade" id="erContacts" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal fade" id="erContacts" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content uk-background-muted">
                 <div class="modal-header">
@@ -41,55 +43,116 @@
                 <div class="modal-body">
                     <div class="uk-section uk-section-small uk-section-default uk-padding-remove">
                         <div class="uk-container-expand">
-                            <div class="uk-grid-small uk-child-width-1-1" uk-grid>
-                                <div>
-                                    <div class="uk-card uk-card-body uk-card-default">
-                                        <div class="uk-flex uk-flex-between">
-                                            <div class="uk-width-1-1">
-                                                <span>
-                                                    John Doe
-                                                </span>
-                                                <span>
-                                                     - 
-                                                </span>
-                                                <span>
-                                                    Father
-                                                </span>
-                                            </div>
-                                            <div class="uk-grid-small uk-width-expand" uk-grid>
+                            <div class="uk-margin-small-bottom uk-text-right">
+                                <button id="addContact" class="uk-button uk-button-link uk-border-pill uk-button-small">
+                                    <i class="fal fa-plus"></i> Add
+                                </button>
+                            </div>
+                            <div id="contactContainer" class="uk-grid-small uk-child-width-1-1" uk-grid>
+                                <div class="erContactCard">
+                                    <div class="uk-card uk-card-default uk-card-body uk-padding-small">
+                                        <h3 class="uk-card-title erContactsHdr">Robert Doe - <span
+                                                id="erContRel">Spouse</span></h3>
+                                        <div class="erContactsAction">
+                                            <div class="uk-grid-small uk-grid-divider uk-child-width-1-2" uk-grid>
                                                 <div>
-                                                    
+                                                    <button class="uk-button uk-button-link contactEdit">
+                                                        Edit
+                                                    </button>
                                                 </div>
                                                 <div>
+                                                    <button class="uk-button uk-button-link contactDel">
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="uk-grid-small uk-child-width-1-2@s uk-margin-small-top" uk-grid>
+                                            <div>
+                                                <div>
+                                                    test
+                                                </div>
+                                                <div>
+                                                    test
+                                                </div>
+                                                <div>
+                                                    test
+                                                </div>
+                                                <div>
+                                                    test
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="uk-grid-collapse uk-child-width-1-2" uk-grid>
+                                                    <div class="uk-text-bold">
+                                                        Home Ph#
+                                                    </div>
+                                                    <div>
+                                                        test
+                                                    </div>
+                                                    <div class="uk-text-bold">
+                                                        Cell Ph#
+                                                    </div>
+                                                    <div>
+                                                        test
+                                                    </div>
+                                                    <div class="uk-text-bold">
+                                                        Work Ph#
+                                                    </div>
+                                                    <div>
+                                                        test
+                                                    </div>
+                                                    <div class="uk-text-bold">
+                                                        Email
+                                                    </div>
+                                                    <div>
+                                                        test
+                                                    </div>
 
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 
+
+
                             </div>
                         </div>
 
                     </div>
-                    
+
 
 
                 </div>
                 <div class="modal-footer" style="background:#fff">
-                    <button type="button" class="uk-button uk-button-primary uk-border-pill" data-dismiss="modal">Close</button>
-                   
+                    <button type="button" class="uk-button uk-button-primary uk-border-pill"
+                        data-dismiss="modal">Close</button>
+
                 </div>
             </div>
         </div>
     </div>
     <script>
-        $('#erContacts').on('show.bs.modal',function() {
-            setTimeout(function(){
+        $(document).ready(function () {
+            UIkit.modal('#erContacts').show();
+        })
+        $('#erContacts').on('show.bs.modal', function () {
+            setTimeout(function () {
                 UIkit.update(element = document.body, type = 'update');
-            },150)
+            }, 150)
 
         });
+        $(document).on('click','#addContact',function() {
+            $('<div class="erContactCard uk-animation-slide-left-medium"><div class="uk-card uk-card-default uk-card-body uk-padding-small"><h3 class="uk-card-title erContactsHdr">Robert Doe - <span id="erContRel">Spouse</span></h3><div class="erContactsAction"><div class="uk-grid-small uk-grid-divider uk-child-width-1-2" uk-grid><div> <button class="uk-button uk-button-link contactEdit"> Edit </button></div><div> <button class="uk-button uk-button-link contactDel"> Delete </button></div></div></div><div class="uk-grid-small uk-child-width-1-2@s uk-margin-small-top" uk-grid><div><div> test</div><div> test</div><div> test</div><div> test</div></div><div><div class="uk-grid-collapse uk-child-width-1-2" uk-grid><div class="uk-text-bold"> Home Ph#</div><div> test</div><div class="uk-text-bold"> Cell Ph#</div><div> test</div><div class="uk-text-bold"> Work Ph#</div><div> test</div><div class="uk-text-bold"> Email</div><div> test</div></div></div></div></div></div>').appendTo('#contactContainer');
+        });
+        $(document).on('click','.contactDel',function() {
+            console.log('test')
+            $(this).closest('.erContactCard').slideUp('slow');
+        })
     </script>
 </body>
+
 </html>
