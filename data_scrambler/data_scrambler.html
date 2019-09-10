@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Scrambler</title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <!-- FontAweseome -->
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- UIKit -->
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <style>
+        .me-accordion-card {
+            border: 1px solid #c1c1c1;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .me-accordion-title {
+            background: #343a40;
+            color: #fff;
+        }
+
+        .me-accordion-content {
+            margin-top: 0px;
+        }
+
+        .uk-accordion-title:focus,
+        .uk-accordion-title:hover {
+            color: white;
+        }
+
+        .uk-accordion-title:before {
+            content: "\f078";
+            font-family: "Font Awesome 5 Pro";
+            width: 1.4em;
+            height: 1.4em;
+            float: right;
+            background-image: none;
+            transition: .2s ease;
+            margin: 0;
+            text-align: center;
+        }
+
+        .uk-open>.uk-accordion-title:before {
+            background-image: none;
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="uk-section-large uk-section-primary uk-position-fixed uk-width-1-1">
+
+        </div>
+        <div class="uk-section uk-section-small uk-position-relative">
+            <div class="uk-container">
+                <ul uk-accordion="multiple: true">
+                    <li class="uk-open me-accordion-card uk-border-rounded uk-box-shadow-medium">
+                        <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Scramble</a>
+                        <div class="uk-accordion-content me-accordion-content uk-padding-small">
+                            <div class="uk-placeholder uk-text-center">
+                                Account Search Goes Here
+                            </div>
+                        </div>
+                    </li>
+                    <li class="uk-open me-accordion-card uk-border-rounded uk-box-shadow-medium">
+                        <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Test User</a>
+                        <div class="uk-accordion-content me-accordion-content uk-padding-small">
+                            <div class="uk-placeholder uk-text-center">
+                                Program Type, Master Account, Location, User Type, Class Selection goes here
+                            </div>
+                            <div class="uk-margin-small-top">
+                                <div class="uk-placeholder uk-text-center">
+                                    Result list goes here. Fields should include first name, middle initial, last name,
+                                    user type, location, class, username, password, one blank field for "copy to
+                                    clipboard" button
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
