@@ -24,6 +24,18 @@
     <link rel="stylesheet" href="../editable/styles/style3.css">
     <link rel="stylesheet" href="../editable/styles/employee_profile.css">
 
+    <style>
+        .erContactsAction {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+        }
+
+        .erContactsHdr {
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,7 +53,7 @@
                     <button type="button" class="dismiss2" data-dismiss="modal"><i class="fal fa-times"></i></button>
                 </div>
                 <div class="modal-body">
-                    <div class="uk-section uk-section-small uk-section-default uk-padding-remove">
+                    <div id="cardWrapper" class="uk-section uk-section-small uk-section-default uk-padding-remove">
                         <div class="uk-container-expand">
                             <div class="uk-margin-small-bottom uk-text-right">
                                 <button id="addContact" class="uk-button uk-button-link uk-border-pill uk-button-small">
@@ -116,7 +128,7 @@
                                     </div>
 
                                 </div>
-                                
+
 
 
                             </div>
@@ -145,10 +157,16 @@
             }, 150)
 
         });
-        $(document).on('click','#addContact',function() {
-            $('<div class="erContactCard uk-animation-slide-left-medium"><div class="uk-card uk-card-default uk-card-body uk-padding-small"><h3 class="uk-card-title erContactsHdr">Robert Doe - <span id="erContRel">Spouse</span></h3><div class="erContactsAction"><div class="uk-grid-small uk-grid-divider uk-child-width-1-2" uk-grid><div> <button class="uk-button uk-button-link contactEdit"> Edit </button></div><div> <button class="uk-button uk-button-link contactDel"> Delete </button></div></div></div><div class="uk-grid-small uk-child-width-1-2@s uk-margin-small-top" uk-grid><div><div> test</div><div> test</div><div> test</div><div> test</div></div><div><div class="uk-grid-collapse uk-child-width-1-2" uk-grid><div class="uk-text-bold"> Home Ph#</div><div> test</div><div class="uk-text-bold"> Cell Ph#</div><div> test</div><div class="uk-text-bold"> Work Ph#</div><div> test</div><div class="uk-text-bold"> Email</div><div> test</div></div></div></div></div></div>').appendTo('#contactContainer');
+        $(document).on('click', '#addContact', function () {
+            $('<div class="erContactCard uk-animation-slide-left-medium"><div class="uk-card uk-card-default uk-card-body uk-padding-small"><h3 class="uk-card-title erContactsHdr">Robert Doe - <span id="erContRel">Spouse</span></h3><div class="erContactsAction"><div class="uk-grid-small uk-grid-divider uk-child-width-1-2" uk-grid><div> <button class="uk-button uk-button-link contactEdit"> Edit </button></div><div> <button class="uk-button uk-button-link contactDel"> Delete </button></div></div></div><div class="uk-grid-small uk-child-width-1-2@s uk-margin-small-top" uk-grid><div><div> test</div><div> test</div><div> test</div><div> test</div></div><div><div class="uk-grid-collapse uk-child-width-1-2" uk-grid><div class="uk-text-bold"> Home Ph#</div><div> test</div><div class="uk-text-bold"> Cell Ph#</div><div> test</div><div class="uk-text-bold"> Work Ph#</div><div> test</div><div class="uk-text-bold"> Email</div><div> test</div></div></div></div></div></div>')
+                .appendTo('#contactContainer');
+            setTimeout(function () {
+                $(".modal-body").animate({
+                    scrollTop: $("#cardWrapper").height()
+                }, "slow");
+            }, 200);
         });
-        $(document).on('click','.contactDel',function() {
+        $(document).on('click', '.contactDel', function () {
             console.log('test')
             $(this).closest('.erContactCard').slideUp('slow');
         })
