@@ -22,6 +22,13 @@
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+        }
+
         .me-card {
             box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
             border-radius: 5px;
@@ -31,9 +38,249 @@
         }
 
         .me-card-primary {
-            border-top: 4px solid #FD7E13;
+            border-top-color: #FD7E13;
+        }
+
+        .me-card-money {
+            border-top-color: #28a745;
+        }
+
+        .me-card-info {
+            border-top-color: #17a2b8;
+        }
+
+        .me-card-danger {
+            border-top-color: #dc3545;
+        }
+
+        .badge {
+            width: 90%;
+        }
+
+        .me-accordion-card {
+            border: 1px solid #c1c1c1;
+        }
+
+        .me-accordion-title {
+            background: #fff;
+            color: #000 !important;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+        }
+
+        .me-accordion-content {
+            margin-top: 0px;
+        }
+
+        .uk-open>.uk-accordion-title:before {
+            background-image: none;
+            transform: rotate(90deg);
+        }
+
+        .uk-accordion-title:before {
+            content: "\f054";
+            font-family: "Font Awesome 5 Pro";
+            width: 1.4em;
+            height: 1.4em;
+            float: right;
+            background-image: none;
+            transition: .25s ease;
+            margin: 0;
+            text-align: center;
+        }
+
+        .cardHdr {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.25rem;
+            color: #fd7e14;
+            z-index: 1;
+        }
+
+        .cardHdr2 {
+            color: #343a40;
+            margin-bottom: 5px;
+        }
+
+        .dismiss2 {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: transparent;
+            position: relative;
+            right: 10px;
+            cursor: pointer;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+            border-radius: 50%;
+            display: block;
+            border: none;
+            right: 0;
+            color: inherit;
+            font-size: 1.25rem;
+        }
+
+        .dismiss2:hover {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .modal-header {
+            padding: 10px 15px !important;
+            background-color: #343a40;
+            color: #fff;
+            align-items: center;
+            border: none;
+            box-shadow: 0px 0px 5px #4f4f4f;
+            z-index: 1;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: inherit;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0 !important;
+            line-height: unset !important;
+        }
+
+        .modal-dialog {
+            max-width: 500px;
+            border-radius: 5px;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        .modal-content {
+            background-color: transparent;
+            border: none;
+        }
+
+        .modal-body {
+            background: #fff;
+        }
+
+        .modal-footer {
+            background: #fff;
+        }
+
+        .me-close-btn {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .me-card-group {
+            border: 1px solid #c1c1c1;
+            border-radius: 5px;
+            padding: 15px 10px 30px 10px;
+            margin-bottom: 10px;
+        }
+
+        .me-card-group td {
+            white-space: nowrap;
+        }
+
+        .me-label {
+            font-weight: 600;
+        }
+
+        .me-stats-grid>div:first-child {
+            border-right: 0;
+            color: #1e87f0;
+            padding-left: 1.3rem;
+        }
+
+        .me-stats-grid>div {
+            border-right: 1px solid;
+            text-align: center;
+            font-weight: bold;
+            cursor: help;
+        }
+
+        .me-stats-grid>div:last-child {
+            border-right: 0;
+        }
+
+        .me-stats-grid>div:nth-child(3)>div {
+            color: var(--red);
+            cursor: pointer;
+        }
+
+        .me-stats-grid>div:last-child>div {
+            color: var(--green);
+        }
+
+        .me-stats-grid h3 {
+            font-weight: 300;
+        }
+
+        .me-stats-grid div {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (max-width:960px) {
+            .me-stats-grid div {
+                font-size: 1rem;
+            }
+
+            .me-stats-grid>div:first-child {
+                padding-left: .5rem;
+            }
         }
     </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Used', 'Remaining'],
+                ['Used', 2500],
+                ['Remaining', 1500]
+            ]);
+            var formatter = new google.visualization.NumberFormat({
+                prefix: '$'
+            });
+            formatter.format(data, 1);
+
+            var options = {
+
+                pieSliceText: 'value',
+                legend: {
+                    position: 'bottom'
+                },
+                pieStartAngle: 180
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+    <script>
+        // $(document).on('click', '.dropdown-toggle', function () {
+        //     $('.dropdown-menu').hide(100);
+        //     $(this).siblings('.dropdown-menu').toggle(100);
+        // });
+    </script>
 </head>
 
 <body>
@@ -46,40 +293,996 @@
         </div>
     </div>
     <div class="uk-section uk-section-default ">
-        <div
-            class="uk-container uk-background-default uk-position-relative uk-border-rounded uk-box-shadow-medium uk-padding-small">
-            <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
-                <div>
-                    <div class="me-card me-card-primary">
-                        <div class="uk-card-title">
-                            Training Requests
+        <div class="uk-container ">
+            <div
+                class="uk-background-default uk-position-relative uk-border-rounded uk-box-shadow-medium uk-padding-small">
+                <div class="uk-grid-small uk-child-width-1-2@s uk-grid-match" uk-grid>
+                    <div>
+                        <div class="me-card me-card-primary">
+                            <div class="uk-card-title cardHdr cardHdr2 uk-flex uk-flex-between uk-flex-top">
+                                <div>
+                                    Training Requests
+                                </div>
+                                <button type="button" class="uk-button uk-button-link" data-toggle="modal"
+                                    data-target="#newTraining">
+                                    New Training
+                                </button>
+                                <div class="uk-sortable-handle uk-margin-small-right uk-flex uk-flex-middle"
+                                    style="touch-action: none; user-select: none; display: none;">
+                                    <!-- <span class="uk-sortable-handle uk-margin-small-right" uk-icon="icon: table" />  -->
+                                    <button class="uk-button uk-button-link cardSize" type="button">
+                                        <i class="fal fa-expand-wide" aria-hidden="true"></i>
+                                    </button>
+                                    <i class="fad fa-arrows-alt"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <table class="uk-table uk-table-divider uk-table-middle uk-text-center">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Course Title 1
+                                            </td>
+                                            <td>
+                                                <span class="badge p-2 badge-pill badge-success">Complete</span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-primary rounded-pill dropdown-toggle"
+                                                        data-toggle="dropdown" data-display="static"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        Actions
+                                                    </button>
+                                                    <div
+                                                        class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+                                                        <button class="dropdown-item" type="button">Summary</button>
+                                                        <button class="dropdown-item" type="button">History</button>
+                                                        <button class="dropdown-item"
+                                                            type="button">Communications</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Course Title 2
+                                            </td>
+                                            <td>
+                                                <span class="badge p-2 badge-pill badge-danger">Declined</span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-primary rounded-pill dropdown-toggle"
+                                                        data-toggle="dropdown" data-display="static"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        Actions
+                                                    </button>
+                                                    <div
+                                                        class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+                                                        <button class="dropdown-item" type="button">Summary</button>
+                                                        <button class="dropdown-item" type="button">History</button>
+                                                        <button class="dropdown-item"
+                                                            type="button">Communications</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Course Title 3
+                                            </td>
+                                            <td>
+                                                <span class="badge p-2 badge-pill badge-warning">Cancelled</span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-primary rounded-pill dropdown-toggle"
+                                                        data-toggle="dropdown" data-display="static"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        Actions
+                                                    </button>
+                                                    <div
+                                                        class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+                                                        <button class="dropdown-item" type="button">Summary</button>
+                                                        <button class="dropdown-item" type="button">History</button>
+                                                        <button class="dropdown-item"
+                                                            type="button">Communications</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Course Title 4
+                                            </td>
+                                            <td>
+                                                <span class="badge p-2 badge-pill badge-info">Paid</span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button"
+                                                        class="btn btn-sm btn-primary rounded-pill dropdown-toggle"
+                                                        data-toggle="dropdown" data-display="static"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        Actions
+                                                    </button>
+                                                    <div
+                                                        class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+                                                        <button class="dropdown-item" type="button">Summary</button>
+                                                        <button class="dropdown-item" type="button">History</button>
+                                                        <button class="dropdown-item"
+                                                            type="button">Communications</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="me-card me-card-money">
+                            <div class="uk-card-title cardHdr cardHdr2 uk-flex uk-flex-between uk-flex-top">
+                                <div>
+                                    Budget
+                                </div>
+                                <button type="button" class="uk-button uk-button-link" data-toggle="modal"
+                                    data-target="#budgetDetails">
+                                    Details
+                                </button>
+                                <div class="uk-sortable-handle uk-margin-small-right uk-flex uk-flex-middle"
+                                    style="touch-action: none; user-select: none; display: none;">
+                                    <!-- <span class="uk-sortable-handle uk-margin-small-right" uk-icon="icon: table" />  -->
+                                    <button class="uk-button uk-button-link cardSize" type="button">
+                                        <i class="fal fa-expand-wide" aria-hidden="true"></i>
+                                    </button>
+                                    <i class="fad fa-arrows-alt"></i>
+                                </div>
+                            </div>
+                            <div class="uk-container-expand">
+                                <div class="me-card-group me-stats-grid uk-grid-small uk-grid-collapse uk-child-width-expand"
+                                    uk-grid>
+                                    <div class="uk-width-1-1 text-left d-flex align-items-center mb-3">
+                                        <i class="fad fa-lightbulb-dollar"> </i>
+                                        <h3 class="pl-2">
+                                            Budget Breakdown
+                                        </h3>
+                                    </div>
+                                    <div
+                                        uk-tooltip="title: Amount allocated to you in the beginning of the year; delay: 250; pos: bottom">
+                                        <h3>
+                                            Allocated
+                                        </h3>
+                                        <div>
+                                            $4,000.00
+                                        </div>
+                                    </div>
+                                    <div uk-tooltip="title: Amount you&apos;ve used to date.; delay: 250; pos: bottom"
+                                        data-toggle="modal" data-target="#budgetDetails">
+                                        <h3>
+                                            Used
+                                        </h3>
+                                        <div>
+                                            $2,000.00
+                                        </div>
+                                    </div>
+                                    <div uk-tooltip="title: Amount you have left to use for this year; delay: 250; pos: bottom"">
+                                                <h3>
+                                                    Remaining
+                                                </h3>
+                                                <div>
+                                                    $2,000.00
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class=" me-card me-card-info">
+                                        <div class="uk-card-title cardHdr cardHdr2 uk-flex uk-flex-between uk-flex-top">
+                                            <div>
+                                                CDP
+                                            </div>
+                                            <div class="uk-sortable-handle uk-margin-small-right uk-flex uk-flex-middle"
+                                                style="touch-action: none; user-select: none; display: none;">
+                                                <!-- <span class="uk-sortable-handle uk-margin-small-right" uk-icon="icon: table" />  -->
+                                                <button class="uk-button uk-button-link cardSize" type="button">
+                                                    <i class="fal fa-expand-wide" aria-hidden="true"></i>
+                                                </button>
+                                                <i class="fad fa-arrows-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="uk-grid uk-child-width-expand uk-grid-small uk-text-center"
+                                                uk-grid>
+                                                <div>
+                                                    <button type="button"
+                                                        class="uk-width-1-1 uk-button uk-button-small uk-button-primary uk-border-pill"
+                                                        data-toggle="modal" data-target="#newCDP">
+                                                        New Item
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <button type="button"
+                                                        class="uk-width-1-1 uk-button uk-button-small uk-border-pill uk-button-default">
+                                                        History
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <button type="button"
+                                                        class="uk-width-1-1 uk-button uk-button-small uk-border-pill uk-button-secondary">
+                                                        Advanced
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                            <ul uk-accordion="multiple: true" class="uk-accordion">
+                                                <li class=" me-accordion-card uk-border-rounded uk-overflow-auto">
+                                                    <a class="uk-accordion-title me-accordion-title uk-padding-small"
+                                                        href="#">2019</a>
+                                                    <div class="me-accordion-content uk-accordion-content uk-container uk-padding-small"
+                                                        style="padding-left:15px" aria-hidden="false">
+                                                        <div class="uk-grid-small" uk-grid>
+                                                            <div class="uk-width-1-1">
+                                                                <div class="uk-grid-small uk-child-width-expand uk-text-center uk-grid-collapse"
+                                                                    uk-grid>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Edit
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Remove
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Copy
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Needs
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Project Management
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Type of Development
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Other - (Project Management)
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Activities
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Training Course
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Resources
+                                                                </b>
+                                                            </div>
+
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Tuition
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Employee&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Job Duties - (I would like to attend a PMP
+                                                                    Certification training course and sit for the PMP
+                                                                    exam.)
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Supervisor&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class=" me-accordion-card uk-border-rounded uk-overflow-auto">
+                                                    <a class="uk-accordion-title me-accordion-title uk-padding-small"
+                                                        href="#">2018</a>
+                                                    <div class="me-accordion-content uk-accordion-content uk-container uk-padding-small"
+                                                        style="padding-left:15px" aria-hidden="false">
+                                                        <div class="uk-grid-small" uk-grid>
+                                                            <div class="uk-width-1-1">
+                                                                <div class="uk-grid-small uk-child-width-expand uk-text-center uk-grid-collapse"
+                                                                    uk-grid>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Edit
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Remove
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Copy
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Needs
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Myers Briggs Type Indicator certification
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Type of Development
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Other - (Career Planning)
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Activities
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Training Course
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Resources
+                                                                </b>
+                                                            </div>
+
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Time, Tuition
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Employee&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Job Duties - (Having the MBTI certification will
+                                                                    allow me to serve as a back-up to our career
+                                                                    counseling staff.)
+
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Supervisor&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class=" me-accordion-card uk-border-rounded uk-overflow-auto">
+                                                    <a class="uk-accordion-title me-accordion-title uk-padding-small"
+                                                        href="#">2017</a>
+                                                    <div class="me-accordion-content uk-accordion-content uk-container uk-padding-small"
+                                                        style="padding-left:15px" aria-hidden="false">
+                                                        <div class="uk-grid-small" uk-grid>
+                                                            <div class="uk-width-1-1">
+                                                                <div class="uk-grid-small uk-child-width-expand uk-text-center uk-grid-collapse"
+                                                                    uk-grid>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Edit
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Remove
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Copy
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Needs
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    SHRM-SCP certification
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Type of Development
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Other - (Human Resources)
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Activities
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Training Course
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Resources
+                                                                </b>
+                                                            </div>
+
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Time, Tuition
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Employee&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Job Duties - (I would like to take a prep course to
+                                                                    sit for the SHRM-CP exam.)
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Supervisor&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class=" me-accordion-card uk-border-rounded uk-overflow-auto">
+                                                    <a class="uk-accordion-title me-accordion-title uk-padding-small"
+                                                        href="#">2016</a>
+                                                    <div class="me-accordion-content uk-accordion-content uk-container uk-padding-small"
+                                                        style="padding-left:15px" aria-hidden="false">
+                                                        <div class="uk-grid-small" uk-grid>
+                                                            <div class="uk-width-1-1">
+                                                                <div class="uk-grid-small uk-child-width-expand uk-text-center uk-grid-collapse"
+                                                                    uk-grid>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Edit
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Remove
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Copy
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Needs
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Pursuing Human Resources Certificate with Graduate
+                                                                    School.
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Type of Development
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Other - (Human Resources)
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Activities
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Training Course
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Resources
+                                                                </b>
+                                                            </div>
+
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Time, Tuition
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Employee&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Job Duties - (This certificate will enhance my
+                                                                    current job duties.)
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Supervisor&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class=" me-accordion-card uk-border-rounded uk-overflow-auto">
+                                                    <a class="uk-accordion-title me-accordion-title uk-padding-small"
+                                                        href="#">2015</a>
+                                                    <div class="me-accordion-content uk-accordion-content uk-container uk-padding-small"
+                                                        style="padding-left:15px" aria-hidden="false">
+                                                        <div class="uk-grid-small" uk-grid>
+                                                            <div class="uk-width-1-1">
+                                                                <div class="uk-grid-small uk-child-width-expand uk-text-center uk-grid-collapse"
+                                                                    uk-grid>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Edit
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Remove
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Copy
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Needs
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Project Management
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Type of Development
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Other - (Project Management)
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Activities
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Training Course
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Resources
+                                                                </b>
+                                                            </div>
+
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Tuition
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Employee&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Job Duties - (I would like to attend a PMP
+                                                                    Certification training course and sit for the PMP
+                                                                    exam.)
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Supervisor&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class=" me-accordion-card uk-border-rounded uk-overflow-auto">
+                                                    <a class="uk-accordion-title me-accordion-title uk-padding-small"
+                                                        href="#">2014</a>
+                                                    <div class="me-accordion-content uk-accordion-content uk-container uk-padding-small"
+                                                        style="padding-left:15px" aria-hidden="false">
+                                                        <div class="uk-grid-small" uk-grid>
+                                                            <div class="uk-width-1-1">
+                                                                <div class="uk-grid-small uk-child-width-expand uk-text-center uk-grid-collapse"
+                                                                    uk-grid>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Edit
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Remove
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="uk-button uk-button-link">
+                                                                            Copy
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Needs
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Project Management
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Type of Development
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Other - (Project Management)
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Activities
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Training Course
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Resources
+                                                                </b>
+                                                            </div>
+
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Tuition
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Employee&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+                                                                    Job Duties - (I would like to attend a PMP
+                                                                    Certification training course and sit for the PMP
+                                                                    exam.)
+
+                                                                </span>
+                                                            </div>
+                                                            <hr class="uk-width-1-1">
+                                                            <div class="uk-width-1-4@m">
+                                                                <b>
+                                                                    Supervisor&apos;s Comments
+                                                                </b>
+                                                            </div>
+                                                            <div class="uk-width-3-4@m">
+                                                                <span>
+
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="me-card">
+                                        <div class="uk-card-title cardHdr cardHdr2 uk-flex uk-flex-between uk-flex-top">
+                                            <div>
+                                                Contacts
+                                            </div>
+                                            <div class="uk-sortable-handle uk-margin-small-right uk-flex uk-flex-middle"
+                                                style="touch-action: none; user-select: none; display: none;">
+                                                <!-- <span class="uk-sortable-handle uk-margin-small-right" uk-icon="icon: table" />  -->
+                                                <button class="uk-button uk-button-link cardSize" type="button">
+                                                    <i class="fal fa-expand-wide" aria-hidden="true"></i>
+                                                </button>
+                                                <i class="fad fa-arrows-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="me-card-group">
+
+                                            <div class="uk-grid-small" uk-grid>
+
+                                                <div class="uk-width-1-4@m">
+                                                    <b>
+                                                        Supervisor
+                                                    </b>
+                                                </div>
+                                                <div class="uk-width-3-4@m">
+                                                    <span>
+                                                        John Smith
+                                                    </span>
+                                                </div>
+                                                <div class="uk-width-1-4@m">
+                                                    <b>
+                                                        Supervisor Phone
+                                                    </b>
+                                                </div>
+                                                <div class="uk-width-3-4@m">
+                                                    <span>
+                                                        <a href="tel:123-456-7891">123-456-7891</a>
+                                                    </span>
+                                                </div>
+                                                <div class="uk-width-1-4@m">
+                                                    <b>
+                                                        Supervisor Email
+                                                    </b>
+                                                </div>
+                                                <div class="uk-width-3-4@m">
+                                                    <span>
+                                                        <a
+                                                            href="mailto:SupervisorEmail@FDIC.gov?subject=Question%20about%20PLA">SupervisorEmail@FDIC.gov</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="me-card-group">
+
+                                            <div class="uk-grid-small" uk-grid>
+
+                                                <div class="uk-width-1-4@m">
+                                                    <b>
+                                                        Administrator
+                                                    </b>
+                                                </div>
+                                                <div class="uk-width-3-4@m">
+                                                    <span>
+                                                        Jane Smith
+                                                    </span>
+                                                </div>
+                                                <div class="uk-width-1-4@m">
+                                                    <b>
+                                                        Administrator Phone
+                                                    </b>
+                                                </div>
+                                                <div class="uk-width-3-4@m">
+                                                    <span>
+                                                        <a href="tel:123-456-7891">123-456-7891</a>
+                                                    </span>
+                                                </div>
+                                                <div class="uk-width-1-4@m">
+                                                    <b>
+                                                        Administrator Email
+                                                    </b>
+                                                </div>
+                                                <div class="uk-width-3-4@m">
+                                                    <span>
+                                                        <a
+                                                            href="mailto:AdminEmail@FDIC.gov?subject=Question%20about%20PLA">AdminEmail@FDIC.gov</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal fade" id="budgetDetails" role="dialog" aria-modal="true">
+                    <div class="modal-dialog biggerModal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Budget Details</h3>
+                                <button type="button" class="dismiss2" data-dismiss="modal"><i class="fal fa-times"
+                                        aria-hidden="true"></i></button>
+                            </div>
+                            <div class="modal-body">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="uk-button me-close-btn rounded-pill"
+                                    data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="me-card">
-                        <div class="uk-card-title">
-                            CDPs
+                <div class="modal fade" id="newCDP" role="dialog" aria-modal="true">
+                    <div class="modal-dialog biggerModal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">New Development Item</h3>
+                                <button type="button" class="dismiss2" data-dismiss="modal"><i class="fal fa-times"
+                                        aria-hidden="true"></i></button>
+                            </div>
+                            <div class="modal-body">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="uk-button me-close-btn rounded-pill"
+                                    data-dismiss="modal">Close</button>
+                                <button type="button" class="uk-button uk-button-primary rounded-pill"
+                                    data-dismiss="modal">Save</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="me-card">
-                        <div class="uk-card-title">
-                            Remaining Budget
+                <div class="modal fade" id="newTraining" role="dialog" aria-modal="true">
+                    <div class="modal-dialog biggerModal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">New Training Request</h3>
+                                <button type="button" class="dismiss2" data-dismiss="modal"><i class="fal fa-times"
+                                        aria-hidden="true"></i></button>
+                            </div>
+                            <div class="modal-body">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="uk-button me-close-btn rounded-pill"
+                                    data-dismiss="modal">Close</button>
+                                <button type="button" class="uk-button uk-button-primary rounded-pill"
+                                    data-dismiss="modal">Save</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="me-card">
-                        <div class="uk-card-title">
-                            Training Requests
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </body>
 

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PLA Home Page</title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <!-- FontAweseome -->
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- UIKit -->
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <style>
+        .me-card {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+            border-radius: 5px;
+            border: 1px solid #e4e4e4;
+            padding: 10px 20px;
+            border-top: 4px solid #1e87f0;
+        }
+
+        .me-card-primary {
+            border-top-color: #FD7E13;
+        }
+
+        .me-card-money {
+            border-top-color: #28a745;
+        }
+
+        .me-card-info {
+            border-top-color: #17a2b8;
+        }
+
+        .me-card-danger {
+            border-top-color: #dc3545;
+        }
+
+        .badge {
+            width: 90%;
+        }
+
+        .me-accordion-card {
+            border: 1px solid #c1c1c1;
+        }
+
+        .me-accordion-title {
+            background: #fff;
+            color: #000 !important;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+        }
+
+        .me-accordion-content {
+            margin-top: 0px;
+        }
+
+        .uk-open>.uk-accordion-title:before {
+            background-image: none;
+            transform: rotate(90deg);
+        }
+
+        .uk-accordion-title:before {
+            content: "\f054";
+            font-family: "Font Awesome 5 Pro";
+            width: 1.4em;
+            height: 1.4em;
+            float: right;
+            background-image: none;
+            transition: .25s ease;
+            margin: 0;
+            text-align: center;
+        }
+
+        .cardHdr {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.25rem;
+            color: #fd7e14;
+            z-index: 1;
+        }
+
+        .cardHdr2 {
+            color: #343a40;
+            margin-bottom: 5px;
+        }
+
+        .dismiss2 {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: transparent;
+            position: relative;
+            right: 10px;
+            cursor: pointer;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+            border-radius: 50%;
+            display: block;
+            border: none;
+            right: 0;
+            color: inherit;
+            font-size: 1.25rem;
+        }
+
+        .dismiss2:hover {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .modal-header {
+            padding: 10px 15px !important;
+            background-color: #343a40;
+            color: #fff;
+            align-items: center;
+            border: none;
+            box-shadow: 0px 0px 5px #4f4f4f;
+            z-index: 1;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: inherit;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0 !important;
+            line-height: unset !important;
+        }
+
+        .modal-dialog {
+            max-width: 500px;
+            border-radius: 5px;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        .modal-content {
+            background-color: transparent;
+            border: none;
+        }
+
+        .modal-body {
+            background: #fff;
+        }
+
+        .modal-footer {
+            background: #fff;
+        }
+
+        .me-close-btn {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .me-card-group {
+            border: 1px solid #c1c1c1;
+            border-radius: 5px;
+            padding: 15px 10px 30px 10px;
+            margin-bottom: 10px;
+        }
+
+        .me-card-group td {
+            white-space: nowrap;
+        }
+
+        .me-label {
+            font-weight: 600;
+        }
+
+        .me-stats-grid>div:first-child {
+            border-right: 0;
+            color: #1e87f0;
+            padding-left: 1.5rem;
+        }
+
+        .me-stats-grid>div {
+            border-right: 1px solid;
+            text-align: center;
+            font-weight: bold;
+            cursor: help;
+        }
+
+        .me-stats-grid>div:last-child {
+            border-right: 0;
+        }
+
+        .me-stats-grid>div:nth-child(3)>div {
+            color: var(--red);
+            cursor: pointer;
+        }
+
+        .me-stats-grid>div:last-child>div {
+            color: var(--green);
+        }
+
+        .me-stats-grid h3 {
+            font-weight: 300;
+        }
+
+        .me-stats-grid div {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (max-width:960px) {
+            .me-stats-grid div {
+                font-size: 1rem;
+            }
+
+            .me-stats-grid>div:first-child {
+                padding-left: .5rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="uk-section uk-section-large uk-section-primary uk-width-1-1 uk-position-fixed"></div>
+    <div class="uk-section uk-section-small uk-position-z-index uk-position-relative">
+        <div class="uk-container ">
+            <h3 class="text-light">
+                Employee Class Code Manager
+            </h3>
+        </div>
+    </div>
+    <div class="uk-section uk-section-default ">
+       <div class="uk-container">
+            <div class="uk-grid-small uk-grid-match uk-child-width-expand" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-body uk-card-default uk-border-rounded uk-card-hover">
+                        Change Class &amp; Effective Date
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-body uk-card-default uk-border-rounded uk-card-hover">
+                            Change Class but keep Effective Date
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-body uk-card-default uk-border-rounded uk-card-hover">
+                            Change Effective Date but Change Class
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+
+</body>
+
+</html>
