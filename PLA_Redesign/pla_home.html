@@ -324,7 +324,7 @@
     </script>
 </head>
 
-<body>
+<body class="uk-animation-fade">
     <div class="uk-section uk-section-large uk-section-primary uk-width-1-1 uk-position-fixed"></div>
     <div class="uk-section uk-section-small uk-position-z-index uk-position-relative">
         <div class="uk-container ">
@@ -1713,11 +1713,13 @@
                                 All Set!
                             </div>
 
-                            <div>
-                                Your Supervisor has this request in their queue.
-                            </div>
-                            <div>
-                                Thanks for using the PLA Request System!
+                            <div class="uk-animation-slide-bottom-medium">
+                                <div>
+                                    Your Supervisor has this request in their queue.
+                                </div>
+                                <div>
+                                    Thanks for using the PLA Request System!
+                                </div>
                             </div>
 
                         </div>
@@ -1773,13 +1775,16 @@
 
             var plaSubSteps = setInterval(function () {
                 var plaSubIndex = $('#plaSubStatus li.uk-active').index();
+                var plaTotal = $('#plaSubStatus li').length - 2;
                 UIkit.switcher('#plaSubStatus').show(plaSubIndex + 1);
-                console.log(plaSubIndex);
-                if (plaSubIndex == 2) {
+                console.log(plaSubIndex + 1);
+                if (plaSubIndex == plaTotal) {
                     console.log('end reached');
                     $('#plaLoader').fadeOut();
                     clearInterval(plaSubSteps);
                     setTimeout(function () {
+                        UIkit.switcher('#plaSubStatus').show(0);
+                        UIkit.switcher('#me-wiz-steps').show(0);
                         UIkit.modal('#plaSubmission').hide();
                         $('#newTraining').modal('hide');
                     }, 3000);
@@ -1789,6 +1794,12 @@
         }
         $(document).on('click', '.me-wiz-submit', function () {
             submitPLA();
+        });
+        $('#newTraining').on('show.bs.modal',function() {
+            var wizIndexer = $('#me-wiz-steps li.uk-active').index();
+            if (wizIndexer == 0) {
+                $('.me-wiz-next').show();
+            }
         });
     </script>
 </body>
