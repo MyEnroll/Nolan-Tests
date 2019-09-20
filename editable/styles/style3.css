@@ -384,12 +384,6 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background-color: rgb(241, 244, 247);
-    ;
-}
 
 ul.CTAs {
     padding: 20px;
