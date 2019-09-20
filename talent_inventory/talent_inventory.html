@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Emergency Contacts</title>
+    <title>Talent Inventory</title>
     <link rel="stylesheet"
         href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
     <!-- UIKit -->
@@ -25,18 +25,20 @@
     <link rel="stylesheet" href="../editable/styles/employee_profile.css">
 
     <style>
-        .erContactsAction {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1;
-        }
+      
 
-        .erContactsHdr {
+        .talentCat {
             font-size: 1.2rem;
         }
+
         .uk-notification {
             z-index: 1051;
+        }
+        .biggerModal {
+            max-width: 800px;
+        }
+        .talentCatHdr {
+            color: var(--cyan);
         }
     </style>
 </head>
@@ -44,18 +46,48 @@
 <body>
     <div>
         <button class="uk-button uk-button-link" data-target="#erContacts" data-toggle="modal">
-            Emergency Contacts
+            Talent Inventory
         </button>
     </div>
-    <div class="modal fade" id="erContacts" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+    <div class="modal fade biggerModal" id="erContacts" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content uk-background-muted">
                 <div class="modal-header">
                     <h3 class="modal-title emergContPopHdr">Emergency Contacts</h3>
-                    <button type="button" class="dismiss2 mixModalDis" data-dismiss="modal"><i class="fal fa-times"></i></button>
+                    <button type="button" class="dismiss2 mixModalDis" data-dismiss="modal"><i
+                            class="fal fa-times"></i></button>
                 </div>
                 <div class="modal-body">
+                    <div class="uk-container-expand">
+                        <div class="uk-grid-small uk-child-width-expand" uk-grid>
+                            <div>
+                                <h3 class="uk-text-primary">
+                                    John Smith
+                                </h3>
+                            </div>
+                            <div>
+                                <div class="uk-grid-small uk-flex-right" uk-grid>
+                                    <div>
+                                        <button id="addContact" class="uk-button uk-button-link uk-border-pill ">
+                                            <i class="fad fa-print"></i> Print
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button id="addContact" class="uk-button uk-button-link uk-border-pill ">
+                                            <i class="fal fa-plus"></i> Add
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
                     <ul id="emergContactContain" class="uk-subnav uk-subnav-pill uk-hidden"
                         uk-switcher="animation: uk-animation-slide-right-medium, uk-animation-slide-left-medium">
                         <li><a href="#">Contacts</a></li>
@@ -69,28 +101,23 @@
                             <div id="cardWrapper"
                                 class="uk-section uk-section-small uk-section-default uk-padding-remove">
                                 <div class="uk-container-expand">
-                                    <div class="uk-margin-small-bottom uk-text-right">
-                                        <button id="addContact"
-                                            class="uk-button uk-button-link uk-border-pill uk-button-small">
-                                            <i class="fal fa-plus"></i> Add
-                                        </button>
-                                    </div>
+
                                     <div id="contactContainer" class="uk-grid-small uk-child-width-1-1" uk-grid>
                                         <div class="erContactCard">
                                             <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                                                 <h3 class="uk-card-title erContactsHdr">
-                                                    <span class="emergName">
-                                                        Robert Doe
+                                                    <span class="talentCatHdr">
+                                                        Education
                                                     </span>
                                                     <span>
                                                         -
                                                     </span>
-                                                    <span id="erContRel">
-                                                        Spouse
+                                                    <span id="talentCatDet">
+                                                            Harriton High School
                                                     </span>
                                                 </h3>
-                                                <div class="erContactsAction">
-                                                    <div class="uk-grid-small uk-grid-divider uk-child-width-1-2"
+                                                <div class="uk-position-relative">
+                                                    <div class="uk-position-right uk-grid-small uk-grid-divider uk-child-width-1-2"
                                                         uk-grid>
                                                         <div>
                                                             <button class="uk-button uk-button-link contactEdit">
@@ -107,49 +134,7 @@
 
                                                 <div class="uk-grid-small uk-child-width-1-2@s uk-margin-small-top"
                                                     uk-grid>
-                                                    <div>
-                                                        <div>
-                                                            test
-                                                        </div>
-                                                        <div>
-                                                            test
-                                                        </div>
-                                                        <div>
-                                                            test
-                                                        </div>
-                                                        <div>
-                                                            test
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div class="uk-grid-collapse uk-child-width-1-2" uk-grid>
-                                                            <div class="uk-text-bold">
-                                                                Home Ph#
-                                                            </div>
-                                                            <div>
-                                                                test
-                                                            </div>
-                                                            <div class="uk-text-bold">
-                                                                Cell Ph#
-                                                            </div>
-                                                            <div>
-                                                                test
-                                                            </div>
-                                                            <div class="uk-text-bold">
-                                                                Work Ph#
-                                                            </div>
-                                                            <div>
-                                                                test
-                                                            </div>
-                                                            <div class="uk-text-bold">
-                                                                Email
-                                                            </div>
-                                                            <div>
-                                                                test
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
+                                                   
                                                 </div>
                                             </div>
 
@@ -248,7 +233,7 @@
                                 <span id="editingEmerg">
 
                                 </span>
-                                
+
                                 <span id="emergEmpl">
 
                                 </span>
@@ -342,7 +327,8 @@
                 <div class="modal-footer" style="background:#fff">
                     <button type="button"
                         class="emergContBack uk-button uk-button-default uk-border-pill uk-animation-fade uk-hidden ">Back</button>
-                    <button type="button" class="uk-button uk-button-secondary uk-border-pill mixModalDis">Close</button>
+                    <button type="button"
+                        class="uk-button uk-button-secondary uk-border-pill mixModalDis">Close</button>
                     <button type="button"
                         class="mixModalDis emergContSave uk-button uk-button-primary uk-border-pill uk-animation-fade uk-hidden">Save</button>
 
@@ -355,7 +341,7 @@
             $('#erContacts').modal('show');
         });
         $('#erContacts').on('show.bs.modal', function () {
-           
+
             setTimeout(function () {
                 UIkit.update(element = document.body, type = 'update');
             }, 150)
@@ -389,15 +375,15 @@
                 });
             }
         });
-        $(document).on('click','.mixModalDis',function(){
+        $(document).on('click', '.mixModalDis', function () {
             UIkit.switcher('#emergContactContain').show(0);
             $('.emergContPopHdr').text('Emergency Contacts');
             $('#erContacts').modal('hide');
         })
         $(document).on('click', '.contactEdit', function () {
-            var editEmergCont = $.trim($(this).closest('.erContactCard').find('.emergName').text());
+            var editEmergCont = $.trim($.trim($(this).closest('.erContactCard').find('.talentCatHdr').text()) + $.trim($(this).closest('.erContactCard').find('.talentCatDet').text()));
             $('#editingEmerg').text(editEmergCont);
-            
+
 
         })
         $(document).on('click', '.contactDel', function () {
@@ -424,8 +410,6 @@
             $('.emergContSave').addClass('uk-hidden');
             $('.emergContPopHdr').text('Emergency Contacts');
         });
-
-        
     </script>
 </body>
 
