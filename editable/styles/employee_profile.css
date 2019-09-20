@@ -760,7 +760,6 @@ html .form-control {
 
 /* other overrides */
 html .uk-card {
-    font-size: .8rem !important;
     transition: .3s ease;
 }
 .erContactsAction {

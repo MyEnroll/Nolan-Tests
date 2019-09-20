@@ -25,20 +25,22 @@
     <link rel="stylesheet" href="../editable/styles/employee_profile.css">
 
     <style>
-      
-
+       @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700&display=swap');
+        body {
+            font-family: 'Montserrat',sans-serif;
+            font-size: 14px;
+        }
         .talentCat {
             font-size: 1.2rem;
+            color: var(--cyan);
         }
 
         .uk-notification {
             z-index: 1051;
         }
-        .biggerModal {
-            max-width: 800px;
-        }
-        .talentCatHdr {
-            color: var(--cyan);
+
+        .pr-15 {
+            padding-right: 15px;
         }
     </style>
 </head>
@@ -49,12 +51,12 @@
             Talent Inventory
         </button>
     </div>
-    <div class="modal fade biggerModal" id="erContacts" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal fade" id="erContacts" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="biggerModal modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content uk-background-muted">
                 <div class="modal-header">
-                    <h3 class="modal-title emergContPopHdr">Emergency Contacts</h3>
+                    <h3 class="modal-title emergContPopHdr">Talent Inventory</h3>
                     <button type="button" class="dismiss2 mixModalDis" data-dismiss="modal"><i
                             class="fal fa-times"></i></button>
                 </div>
@@ -62,9 +64,9 @@
                     <div class="uk-container-expand">
                         <div class="uk-grid-small uk-child-width-expand" uk-grid>
                             <div>
-                                <h3 class="uk-text-primary">
+                                <div class="uk-text-primary" style="font-size: 1.3rem">
                                     John Smith
-                                </h3>
+                                </div>
                             </div>
                             <div>
                                 <div class="uk-grid-small uk-flex-right" uk-grid>
@@ -82,9 +84,6 @@
 
                                 </div>
                             </div>
-
-
-
                         </div>
 
                     </div>
@@ -105,36 +104,46 @@
                                     <div id="contactContainer" class="uk-grid-small uk-child-width-1-1" uk-grid>
                                         <div class="erContactCard">
                                             <div class="uk-card uk-card-default uk-card-body uk-padding-small">
-                                                <h3 class="uk-card-title erContactsHdr">
+                                                <h3 class="talentCat">
                                                     <span class="talentCatHdr">
                                                         Education
                                                     </span>
                                                     <span>
                                                         -
                                                     </span>
-                                                    <span id="talentCatDet">
-                                                            Harriton High School
+                                                    <span class="talentCatDet">
+                                                        Harriton High School
                                                     </span>
                                                 </h3>
-                                                <div class="uk-position-relative">
-                                                    <div class="uk-position-right uk-grid-small uk-grid-divider uk-child-width-1-2"
-                                                        uk-grid>
-                                                        <div>
-                                                            <button class="uk-button uk-button-link contactEdit">
-                                                                Edit
-                                                            </button>
+                                                <div class="uk-grid-small uk-child-width-1-1@s" uk-grid>
+                                                    <div style="font-size:1rem">
+                                                        <div class="uk-text-bold uk-margin-small-top">
+                                                            Graduation 1/2010
                                                         </div>
-                                                        <div>
-                                                            <button class="uk-button uk-button-link contactDel">
-                                                                Delete
-                                                            </button>
+                                                        <div class="uk-flex uk-flex-between uk-margin-small-top">
+                                                            <div class="">
+                                                                <a href="#">Notes</a>
+                                                            </div>
+                                                            <div>
+                                                                <div class="uk-grid-small pr-15 uk-child-width-1-2"
+                                                                    uk-grid>
+                                                                    <div>
+                                                                        <button
+                                                                            class="uk-button uk-button-link contactEdit">
+                                                                            Edit
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button
+                                                                            class="uk-button uk-button-link contactDel">
+                                                                            Delete
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="uk-grid-small uk-child-width-1-2@s uk-margin-small-top"
-                                                    uk-grid>
-                                                   
                                                 </div>
                                             </div>
 
@@ -230,11 +239,7 @@
                         </li>
                         <li id="editEmergCont">
                             <div class="mb-2 uk-text-bold uk-text-danger">
-                                <span id="editingEmerg">
-
-                                </span>
-
-                                <span id="emergEmpl">
+                                <span id="editTalentGrp">
 
                                 </span>
                             </div>
@@ -349,11 +354,11 @@
         });
         $(document).on('click', '#addContact', function () {
             UIkit.switcher('#emergContactContain').show(1);
-            $('.emergContPopHdr').append(' - Add Contact');
+            $('.emergContPopHdr').append(' - Add Item');
         });
         $(document).on('click', '.contactEdit', function () {
             UIkit.switcher('#emergContactContain').show(2);
-            $('.emergContPopHdr').append(' - Update Contact');
+            $('.emergContPopHdr').append(' - Update Item');
         });
         $(document).on('click', '.emergContBack', function () {
             UIkit.switcher('#emergContactContain').show(0);
@@ -381,8 +386,8 @@
             $('#erContacts').modal('hide');
         })
         $(document).on('click', '.contactEdit', function () {
-            var editEmergCont = $.trim($.trim($(this).closest('.erContactCard').find('.talentCatHdr').text()) + $.trim($(this).closest('.erContactCard').find('.talentCatDet').text()));
-            $('#editingEmerg').text(editEmergCont);
+            var talentGrp = $.trim($('.talentCatHdr').text()) + ' - ' + $.trim($('.talentCatDet').text());
+            $('#editTalentGrp').text(talentGrp);
 
 
         })
