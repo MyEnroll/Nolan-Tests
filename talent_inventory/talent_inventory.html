@@ -21,8 +21,8 @@
     <!-- UIKit -->
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
-    <link rel="stylesheet" href="../editable/styles/style3.css">
-    <link rel="stylesheet" href="../editable/styles/employee_profile.css">
+    <link rel="stylesheet" href="styles/style3.css">
+    <link rel="stylesheet" href="styles/employee_profile.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700&display=swap');
@@ -57,6 +57,7 @@
         .uk-button {
             border-radius: 500px;
         }
+
         .me-tal-type {
             font-size: 1.5rem;
             position: absolute;
@@ -64,6 +65,11 @@
             right: 15px;
         }
     </style>
+    <script>
+        $('#talInvPop').on('show.bs.modal', function () {
+            UIkit.update(element = document.body, type = 'update');
+        });
+    </script>
 </head>
 
 <body>
@@ -542,82 +548,46 @@
                         <li id="addEmergCont">
                             <form>
                                 <div class="mb-2 uk-text-bold uk-text-warning">
-                                    First and last name required
+                                    Select a Talent Category
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="">First name</label>
-                                        <input type="text" class="form-control" id="" placeholder="First name" value=""
-                                            required>
+                                        <label for="">Category</label>
+                                        <select class="uk-select" name="talCatSel" id="">
+                                            <option value="education">Education</option>
+                                            <option value="training">Training</option>
+                                            <option value="skill">Skill</option>
+                                            <option value="language">Language</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="">Last name</label>
-                                        <input type="text" class="form-control" id="" placeholder="Last name" value=""
-                                            required>
+                                        <label for="">Talent Item</label>
+                                        <input type="text" class="uk-input" id="" placeholder="Enter more detail..."
+                                            value="" required>
                                     </div>
 
                                 </div>
                                 <hr>
                                 <div class="mb-2 uk-text-bold uk-text-warning">
-                                    At least 1 phone number required
+                                    When did you complete this item?
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-md-4 mb-3">
-                                        <label for="">Home Ph#</label>
-                                        <input type="text" class="form-control" id="" placeholder="Home Ph#" required>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="">Cell Ph#</label>
-                                        <input type="text" class="form-control" id="" placeholder="Cell Ph#" required>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="">Work Ph#</label>
-                                        <input type="text" class="form-control" id="" placeholder="Work Ph#" required>
-                                    </div>
-
-                                </div>
-                                <hr>
-                                <div class="mb-2 uk-text-bold uk-text-warning">
-                                    Address not required
-                                </div>
-                                <div class="form-row">
-
                                     <div class="col-md-6 mb-3">
-                                        <label for="">Home Address</label>
-                                        <input type="text" class="form-control" id="" placeholder="Address 1" required>
+                                        <label for="talCat">Completion Type</label>
+                                        <select class="uk-select" name="talCatSel" id="">
+                                            <option value="education">Certificate</option>
+                                            <option value="training">Graduation</option>
+                                            <option value="skill">Fluency</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="">Addt&apos;l Address</label>
-                                        <input type="text" class="form-control" id="" placeholder="Address 2" required>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-
-                                    <div class="col-md-6 mb-3">
-                                        <label for="">City</label>
-                                        <input type="text" class="form-control" id="" placeholder="City" required>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="">State</label>
-                                        <input type="text" class="form-control" id="" placeholder="State" required>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="">Zip</label>
-                                        <input type="text" class="form-control" id="" placeholder="Zip" required>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="mb-2 uk-text-bold uk-text-warning">
-                                    Employer not required
-                                </div>
-                                <div class="form-row">
-
-                                    <div class="col-md-12 mb-3">
-                                        <label for="">Employer</label>
-                                        <input type="text" class="form-control" id="" placeholder="Employer" required>
+                                        <label for="">Talent Level</label>
+                                        <input type="text" class="uk-input" id="" placeholder="Enter more detail..."
+                                            value="" required>
                                     </div>
 
                                 </div>
+
                             </form>
                         </li>
                         <li id="editEmergCont">
@@ -630,83 +600,46 @@
 
                             <form>
                                 <div class="mb-2 uk-text-bold uk-text-warning">
-                                    First and last name required
+                                    Select a Talent Category
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="">First name</label>
-                                        <input type="text" class="form-control" id="" placeholder="First name" value=""
-                                            required>
+                                        <label for="">Category</label>
+                                        <select class="uk-select" name="talCatSel" id="">
+                                            <option value="education">Education</option>
+                                            <option value="training">Training</option>
+                                            <option value="skill">Skill</option>
+                                            <option value="language">Language</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="">Last name</label>
-                                        <input type="text" class="form-control" id="" placeholder="Last name" value=""
-                                            required>
-                                    </div>
-
-                                </div>
-                                <!-- test -->
-                                <hr>
-                                <div class="mb-2 uk-text-bold uk-text-warning">
-                                    At least 1 phone number required
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-4 mb-3">
-                                        <label for="">Home Ph#</label>
-                                        <input type="text" class="form-control" id="" placeholder="Home Ph#" required>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="">Cell Ph#</label>
-                                        <input type="text" class="form-control" id="" placeholder="Cell Ph#" required>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="">Work Ph#</label>
-                                        <input type="text" class="form-control" id="" placeholder="Work Ph#" required>
+                                        <label for="">Talent Item</label>
+                                        <input type="text" class="uk-input" id="" placeholder="Enter more detail..."
+                                            value="" required>
                                     </div>
 
                                 </div>
                                 <hr>
                                 <div class="mb-2 uk-text-bold uk-text-warning">
-                                    Address not required
+                                    When did you complete this item?
                                 </div>
                                 <div class="form-row">
-
                                     <div class="col-md-6 mb-3">
-                                        <label for="">Home Address</label>
-                                        <input type="text" class="form-control" id="" placeholder="Address 1" required>
+                                        <label for="talCat">Completion Type</label>
+                                        <select class="uk-select" name="talCatSel" id="">
+                                            <option value="education">Certificate</option>
+                                            <option value="training">Graduation</option>
+                                            <option value="skill">Fluency</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="">Addt&apos;l Address</label>
-                                        <input type="text" class="form-control" id="" placeholder="Address 2" required>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-
-                                    <div class="col-md-6 mb-3">
-                                        <label for="">City</label>
-                                        <input type="text" class="form-control" id="" placeholder="City" required>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="">State</label>
-                                        <input type="text" class="form-control" id="" placeholder="State" required>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="">Zip</label>
-                                        <input type="text" class="form-control" id="" placeholder="Zip" required>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="mb-2 uk-text-bold uk-text-warning">
-                                    Employer not required
-                                </div>
-                                <div class="form-row">
-
-                                    <div class="col-md-12 mb-3">
-                                        <label for="">Employer</label>
-                                        <input type="text" class="form-control" id="" placeholder="Employer" required>
+                                        <label for="">Talent Level</label>
+                                        <input type="text" class="uk-input" id="" placeholder="Enter more detail..."
+                                            value="" required>
                                     </div>
 
                                 </div>
+
                             </form>
                         </li>
                     </ul>
@@ -729,8 +662,8 @@
         $(document).ready(function () {
             $('#talInvPop').modal('show');
             UIkit.update(element = document.body, type = 'update');
-            $('.talInvCard').each(function(e) {
-                
+            $('.talInvCard').each(function (e) {
+
             });
         });
         $('#talInvPop').on('show.bs.modal', function () {
@@ -774,7 +707,7 @@
             $('#talInvPop').modal('hide');
         })
         $(document).on('click', '.contactEdit', function () {
-            var talentGrp = $.trim($('.talentCatHdr').text()) + ' - ' + $.trim($('.talentCatDet').text());
+            var talentGrp = $(this).closest('.talInvCard').find('.talentCat').text();
             $('#editTalentGrp').text(talentGrp);
 
 
