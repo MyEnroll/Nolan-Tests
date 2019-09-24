@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700&display=swap');
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+}
+
+
+.uk-card-primary.uk-card-body .uk-text-lead,
+.uk-card-primary>:not([class*=uk-card-media]) .uk-text-lead,
+.uk-card-secondary.uk-card-body .uk-text-lead,
+.uk-card-secondary>:not([class*=uk-card-media]) .uk-text-lead,
+.uk-light .uk-text-lead,
+.uk-offcanvas-bar .uk-text-lead,
+.uk-overlay-primary .uk-text-lead,
+.uk-section-primary:not(.uk-preserve-color) .uk-text-lead,
+.uk-section-secondary:not(.uk-preserve-color) .uk-text-lead,
+.uk-tile-primary:not(.uk-preserve-color) .uk-text-lead,
+.uk-tile-secondary:not(.uk-preserve-color) .uk-text-lead,
+.uk-section-primary p {
+    color: #fff;
+}
+
+.retaColor {
+    color: #b02317;
+}
+
+.retaBlue {
+    color: rgb(77, 105, 158);
+}
+
+.obTitle {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.obTitle p:first-of-type {
+    margin-bottom: .2rem;
+}
+
+.me-subnav li {
+    padding-left: 0;
+}
+
+.me-subnav li:first-of-type {
+    padding-left: 20px;
+}
+
+.me-subnav>li>a {
+    padding: 10px 30px !important;
+}
+
+.me-subnav>.uk-active>a {
+    background: #b02317;
+}
+
+.uk-tab-left a {
+    padding: 10px;
+}
+
+.uk-tab-left li {
+    min-width: 210px;
+}
+
+.uk-tab>*>a {
+    font-weight: 400;
+}
+
+.uk-tab>.uk-active>a {
+    border-right-width: 1px;
+    transition: .2s ease;
+    background: var(--green);
+    color: #fff;
+}
+
+.me-sticky-nav-side {
+    position: sticky;
+    top: 41px;
+}
+
+.me-sticky-nav {
+    position: sticky;
+    top: 0;
+    background: #fff;
+
+}
+
+.obMainContent {
+    border: 1px solid #c1c1c1;
+    border-radius: 0px 5px 5px 5px;
+    padding: 15px;
+}
+
+.textCallout {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+li>ol {
+    list-style-type: lower-alpha;
+}
+
+sup {
+    position: relative;
+    z-index: -1;
+}
