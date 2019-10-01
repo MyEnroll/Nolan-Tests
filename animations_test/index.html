@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/css/uikit.min.css" />
+
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit-icons.min.js">
+    </script>
+    <style>
+        .me-card {
+            -webkit-transition: -webkit-flex 250ms ease;
+            -webkit-flex: 1 0 auto;
+        }
+
+        .me-flex-main {
+            flex: 1;
+            flex-grow: 1;
+            flex-shrink: 1;
+            transition: .4s ease;
+        }
+
+        .me-flex-collapse {
+            flex-grow: .75;
+        }
+
+        .me-flex-panel {
+            flex-grow: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="">
+        <div>
+            <div class="uk-section uk-section-large uk-section-primary uk-width-1-1 uk-position-fixed"></div>
+            <div class="uk-section uk-section-small uk-section-primary uk-position-relative">
+                <div class="uk-container">
+                    <div class="uk-text-lead">
+                        Test
+                    </div>
+                </div>
+            </div>
+            <div id="testContainer" class="uk-section uk-position-relative uk-section-small uk-flex">
+                <div class="uk-container me-flex-main" id="mainArea">
+                    <div class="uk-border-rounded">
+                        <div class="uk-grid-small uk-child-width-expand" uk-grid="animation: true">
+                            <div id="card1" class="me-card">
+                                <div
+                                    class="uk-card uk-card-secondary uk-border-rounded uk-card-hover uk-card-body uk-box-shadow-large uk-animation-slide-left">
+                                    This is a test
+                                </div>
+                            </div>
+                            <div id="card2" class="me-card">
+                                <div
+                                    class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-card-body uk-box-shadow-large uk-animation-slide-right">
+                                    This is a test
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-section uk-section-small uk-position-relative">
+                        <div class="uk-container">
+                            <div class="uk-border-rounded uk-box-shadow-large">
+                                <div class="uk-grid-small uk-child-width-expand uk-padding uk-text-center" uk-grid>
+                                    <div>
+                                        <button id="btn1" class="uk-button uk-button-secondary uk-border-pill"
+                                            type="button"
+                                            uk-toggle="target: #card1; animation: uk-animation-slide-left-medium ">Toggle
+                                            Left</button>
+                                    </div>
+                                    <div>
+                                        <button id="btn2" class="uk-button uk-button-secondary uk-border-pill"
+                                            type="button"
+                                            uk-toggle="target: #card2; animation: uk-animation-slide-right-medium uk-animation-reverse, uk-animation-slide-right">Toggle
+                                            Left</button>
+                                    </div>
+                                    <div>
+                                        <button id="btn3" class="uk-button uk-button-secondary uk-border-pill"
+                                            type="button">Toggle
+                                            right</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="sidePanel" class="me-flex-panel me-flex-main uk-border-rounded uk-box-shadow-large uk-position-fixed uk-position-left"
+                    style="max-width:450px;height:100vh;position:relative;background:#000">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+        $(document).on('click', '#btn3', function () {
+            $('#mainArea').toggleClass('me-flex-collapse');
+            $('#sidePanel').toggleClass('me-flex-panel');
+        });
+    </script>
+
+</body>
+
+</html>
