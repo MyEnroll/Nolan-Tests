@@ -27,6 +27,28 @@
         href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
     <style>
+        .me-sidebar-right {
+            border-left: 1px solid #e6e6e6;
+        }
+
+        .me-sidebar-left {
+            border-right: 1px solid #e6e6e6;
+            position: fixed;
+            width: 280px;
+            overflow: auto;
+            top: 0;
+            bottom: 0;
+        }
+
+        .me-sticky-section {
+            position: sticky;
+            top: 0;
+        }
+
+        .me-main-content {
+            margin-left: 280px;
+        }
+
         .me-floating-button {
             bottom: 40px;
             right: 40px;
@@ -43,7 +65,6 @@
 
         .me-task {
             padding: 10px 20px;
-            border: 1px solid #cccccc;
         }
 
         .me-task-hdr {
@@ -52,6 +73,7 @@
 
         .me-field-hdr {
             font-weight: 700;
+            padding-bottom: 20px;
         }
 
         .me-field-dtl {
@@ -75,10 +97,7 @@
         .me-nav-task p {
             color: #4f4f4f;
             font-weight: 500;
-            ;
         }
-
-        .me-nav-task p {}
 
         .me-nav-task-footer span {
             font-weight: 600;
@@ -90,12 +109,42 @@
             display: flex;
             padding: 10px 0px;
         }
-        .me-comment-user {
-            padding: 0px 20px 0px 0px;
-            font-size: 1.5rem ;
-            border-radius: 500px;
+
+        .me-comment-hdr {
+            padding-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .me-comment-wrap {
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px #e6e6e6;
+            padding: 10px 15px;
+        }
+
+        .me-comment-user i {
+            padding: 14px;
+            font-size: 1.5rem;
+            border-radius: 50%;
             background: #1e87f0;
             text-align: center;
+            color: #fff;
+            margin: 0px 20px 0px 0px;
+        }
+
+        .me-label {
+            color: rgb(114, 114, 114);
+            font-weight: 500;
+        }
+
+        .dropdown-menu {
+            box-shadow: 0px 2px 14px rgba(0, 0, 0, .18);
+            overflow: auto;
+        }
+
+        @media only screen and (max-width:960px) {
+            .me-main-content {
+                margin-left: 0;
+            }
         }
     </style>
 
@@ -104,9 +153,225 @@
 
 <body>
     <div class="uk-grid-collapse" uk-grid>
-        <div class="uk-width-1-5 uk-background-muted uk-height-viewport uk-visible@m">
-            <div class="uk-container uk-padding-small">
+        <div class="me-sidebar-left uk-width-1-5 uk-background-muted uk-height-viewport uk-visible@m">
+            <div class="me-sticky-section uk-container uk-padding-small">
                 <ul class="me-nav me-nav-task uk-nav uk-nav-default">
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                        <a href="#">
+                            <div>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
+                                </p>
+                                <hr>
+                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                    <span>
+                                        ME-1234
+                                    </span>
+                                    <span>
+                                        <i class="fad fa-user text-primary"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
                     <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
                         <a href="#">
                             <div>
@@ -128,7 +393,7 @@
                 </ul>
             </div>
         </div>
-        <div class="uk-width-expand">
+        <div class="me-main-content uk-width-expand">
             <div class="uk-grid-collapse" uk-grid>
                 <div class="uk-width-expand me-task">
                     <p>
@@ -172,18 +437,75 @@
                                     <div class="me-comment-user">
                                         <i class="fad fa-user"></i>
                                     </div>
-                                    <div class="me-comment-hdr">
-                                        <span>
-                                            Nolan Hughes
-                                        </span>
-                                        <span>
-                                            11:15pm 10/15/2019
-                                        </span>
+                                    <div class="me-comment-wrap">
+                                        <div class="me-comment-hdr">
+                                            <span>
+                                                Nolan Hughes
+                                            </span>
+                                            <span>
+                                                11:15pm 10/15/2019
+                                            </span>
+                                        </div>
+                                        <div class="me-comment-content">
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis corrupti
+                                                quod libero non laborum? Quaerat accusamus iure magnam ratione quae
+                                                maxime facilis, adipisci dolorum, neque, harum laborum doloribus fuga
+                                                nihil quisquam. Dicta modi est fuga tenetur sapiente distinctio
+                                                asperiores consequuntur consectetur sequi cum maxime, aspernatur vel
+                                                nemo similique veniam atque.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="me-comment-content">
-                                        <p>
-
-                                        </p>
+                                </div>
+                                <div class="me-comment">
+                                    <div class="me-comment-user">
+                                        <i class="fad fa-user"></i>
+                                    </div>
+                                    <div class="me-comment-wrap">
+                                        <div class="me-comment-hdr">
+                                            <span>
+                                                Nolan Hughes
+                                            </span>
+                                            <span>
+                                                11:15pm 10/15/2019
+                                            </span>
+                                        </div>
+                                        <div class="me-comment-content">
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis corrupti
+                                                quod libero non laborum? Quaerat accusamus iure magnam ratione quae
+                                                maxime facilis, adipisci dolorum, neque, harum laborum doloribus fuga
+                                                nihil quisquam. Dicta modi est fuga tenetur sapiente distinctio
+                                                asperiores consequuntur consectetur sequi cum maxime, aspernatur vel
+                                                nemo similique veniam atque.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="me-comment">
+                                    <div class="me-comment-user">
+                                        <i class="fad fa-user"></i>
+                                    </div>
+                                    <div class="me-comment-wrap">
+                                        <div class="me-comment-hdr">
+                                            <span>
+                                                Nolan Hughes
+                                            </span>
+                                            <span>
+                                                11:15pm 10/15/2019
+                                            </span>
+                                        </div>
+                                        <div class="me-comment-content">
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis corrupti
+                                                quod libero non laborum? Quaerat accusamus iure magnam ratione quae
+                                                maxime facilis, adipisci dolorum, neque, harum laborum doloribus fuga
+                                                nihil quisquam. Dicta modi est fuga tenetur sapiente distinctio
+                                                asperiores consequuntur consectetur sequi cum maxime, aspernatur vel
+                                                nemo similique veniam atque.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -193,12 +515,100 @@
 
                     </div>
                 </div>
-                <div class="uk-width-1-3 uk-padding-small">
-                    test
+
+            </div>
+
+        </div>
+        <div class="me-sidebar-right uk-width-1-5 uk-padding-small">
+            <div class="me-sticky-section ">
+                <div class="uk-grid-small uk-child-width-1-1" uk-grid>
+                    <div>
+                        <label for="" class="me-label">
+                            Status
+                        </label>
+                        <div class="dropdown">
+                            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                To Do
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item me-status-todo" href="#">To Do</a>
+                                <a class="dropdown-item me-status-progress" href="#">In Progress</a>
+                                <a class="dropdown-item me-status-done" href="#">Done</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="me-label">
+                            Assignee
+                        </label>
+                        <input type="text" class="uk-input">
+                    </div>
+                    <div>
+                        <label class="me-label">
+                            Reporter
+                        </label>
+                        <input type="text" class="uk-input">
+                    </div>
+                    <div>
+                        <label class="me-label">
+                            Due Date
+                        </label>
+                        <input type="text" class="uk-input">
+                    </div>
+                    <div>
+                        <div>
+                            <label for="" class="me-label">
+                                Priority
+                            </label>
+                            <div class="dropdown">
+                                <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Minor
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item me-priority-minor" href="#">
+                                        <i class="fad fa-chevron-double-down text-success"></i> 
+                                        <span>Minor</span>
+                                    </a>
+                                    <a class="dropdown-item me-priority-major" href="#">
+                                        <i class="fad fa-chevron-double-up text-warning"></i> 
+                                        <span>Major</span>
+                                    </a>
+                                    <a class="dropdown-item me-priority-critical" href="#">
+                                        <i class="fad fa-exclamation text-danger"></i> 
+                                        <span>Critical</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $(document).on('click', '.dropdown-item', function () {
+            var selStatus = $(this).text();
+            $('.dropdown-item i').remove();
+            $(this).prepend(
+                '<i class="fad fa-check" style="position:absolute;left:3px;padding-top:3px;color:#1e87f0"></i>'
+                );
+            $(this).closest('.dropdown').children('.dropdown-toggle').text(selStatus);
+            if ($(this).hasClass('me-status-todo')) {
+                $(this).closest('.dropdown').children('.dropdown-toggle').addClass('btn-light').removeClass(
+                    'btn-primary btn-success');
+            } else if ($(this).hasClass('me-status-progress')) {
+                $(this).closest('.dropdown').children('.dropdown-toggle').addClass('btn-primary').removeClass(
+                    'btn-light btn-success');
+            } else {
+                $(this).closest('.dropdown').children('.dropdown-toggle').addClass('btn-success').removeClass(
+                    'btn-primary btn-light');
+            }
+        });
+    </script>
 </body>
 
 </html>
