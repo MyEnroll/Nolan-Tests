@@ -644,7 +644,7 @@
                         </div>
                         <div class="uk-width-1-1@s uk-margin">
                             <label for="" class="me-label">Priority</label>
-                            <div class="dropdown me-priority-drop ">
+                            <div class="dropdown me-priority-drop">
                                 <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Minor
@@ -721,7 +721,8 @@
         });
         $(document).on('click', '#submitTicket', function () {
             if ($('#createAnotherTick').is(':checked')) {
-
+                UIkit.modal('#meNewTicket').hide();
+                $('#meNewTicket input, #meNewTicket select').val('');
             }
         });
         $(document).on('click', '#submitComment', function () {
