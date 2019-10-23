@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyEnroll 360 Issue Management</title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <!-- FontAweseome -->
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <!-- BAS Custom -->
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- UIKit -->
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <style>
+        .me-floating-button {
+            bottom: 40px;
+            right: 40px;
+            position: fixed;
+            padding: 20px;
+            border-radius: 50%;
+        }
+
+        .me-view-type {
+            font-size: 1.1rem;
+            padding: 1.2rem;
+            border-radius: 5px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div>
+        <div class="uk-section uk-section-primary uk-section-large uk-width-1-1 uk-position-fixed"></div>
+        <div class="uk-section uk-section-primary uk-section-small uk-position-relative uk-position-z-index ">
+            <div class="uk-container">
+                <div class="uk-text-large">
+                    Issue Management
+                </div>
+            </div>
+        </div>
+        <div class="uk-section uk-section-small uk-section-primary uk-position-relative uk-preserve-color">
+            <div class="uk-container">
+                <div class="uk-grid-small uk-child-width-expand" uk-grid>
+                    <div>
+                        <div class="uk-card uk-card-body uk-card-default uk-border-rounded uk-box-shadow-large">
+                            <h3 class="uk-card-title">
+                                Metric Title
+                            </h3>
+                            <div>
+                                Test
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-body uk-card-default uk-border-rounded uk-box-shadow-large">
+                            <h3 class="uk-card-title">
+                                Metric Title
+                            </h3>
+                            <div>
+                                Test
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-body uk-card-default uk-border-rounded uk-box-shadow-large">
+                            <h3 class="uk-card-title">
+                                Metric Title
+                            </h3>
+                            <div>
+                                Test
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-section uk-section-small uk-position-relative">
+            <div class="uk-container">
+                <div class="uk-border-rounded uk-box-shadow-large uk-background-default uk-padding-small">
+                    <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade;connect: #issueList">
+                        <li><a href="#">List View</a></li>
+                        <li><a href="#">Card View</a></li>
+                    </ul>
+
+                    <ul id="issueList" class="uk-switcher uk-margin">
+                        <li>Hello!</li>
+                        <li>Hello again!</li>
+                        <li>Bazinga!</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <button
+            class="fad fa-plus uk-text-large uk-button uk-button-large uk-button-primary me-floating-button uk-box-shadow-medium uk-box-shadow-hover-large">
+        </button>
+    </div>
+</body>
+
+</html>
