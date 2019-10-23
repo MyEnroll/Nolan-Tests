@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Annual Administrator Review</title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <!-- FontAweseome -->
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- UIKit -->
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <style>
+        th {
+            background: #000;
+            font-weight: 600 !important;
+            color: #fff !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="uk-section uk-section-primary uk-section-large uk-position-fixed uk-width-1-1"></div>
+        <div class="uk-section uk-section-small uk-position-relative uk-section-primary">
+            <div class="uk-container">
+                <div>
+                    <div class="uk-text-large">
+                        Annual Administrator Review
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-section uk-section-small uk-section-default uk-position-relative">
+            <div class="uk-container">
+                <div class="uk-width-1-1">
+                    <div class="uk-search uk-search-default uk-width-1-1 uk-overflow-auto">
+                        <span class="uk-search-icon-flip" uk-search-icon></span>
+                        <input class="uk-search-input px-4 uk-border-pill" type="search" placeholder="Search...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-section uk-section-default uk-section-small uk-position-relative">
+            <div class="uk-container">
+                <div class="uk-box-shadow-large uk-border-rounded uk-overflow-auto uk-border-rounded">
+                    <table class="uk-table uk-table-divider uk-table-middle">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Account Number
+                                </th>
+                                <th>
+                                    Account Name
+                                </th>
+                                <th>
+                                    Admin Name
+                                </th>
+                                <th>
+                                    Access
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0003846-0000-000</td>
+                                <td>Benefit Allocation Systems</td>
+                                <td>Craig Pizonka</td>
+                                <td>
+                                    <input type="checkbox" class="uk-checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0003846-0000-000</td>
+                                <td>Benefit Allocation Systems</td>
+                                <td>Cindy Taylor</td>
+                                <td>
+                                    <input type="checkbox" class="uk-checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0003846-0000-000</td>
+                                <td>Benefit Allocation Systems</td>
+                                <td>Steve Rivello</td>
+                                <td>
+                                    <input type="checkbox" class="uk-checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0003846-0000-000</td>
+                                <td>Benefit Allocation Systems</td>
+                                <td>Nolan Hughes</td>
+                                <td>
+                                    <input type="checkbox" class="uk-checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0003846-0001-000</td>
+                                <td>Benefit Allocation Systems</td>
+                                <td>Craig Pizonka</td>
+                                <td>
+                                    <input type="checkbox" class="uk-checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0003846-0001-000</td>
+                                <td>Benefit Allocation Systems</td>
+                                <td>Cindy Taylor</td>
+                                <td>
+                                    <input type="checkbox" class="uk-checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0003846-0001-000</td>
+                                <td>Benefit Allocation Systems</td>
+                                <td>Steve Rivello</td>
+                                <td>
+                                    <input type="checkbox" class="uk-checkbox">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0003846-0001-000</td>
+                                <td>Benefit Allocation Systems</td>
+                                <td>Nolan Hughes</td>
+                                <td>
+                                    <input type="checkbox" class="uk-checkbox">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".uk-search-input").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
