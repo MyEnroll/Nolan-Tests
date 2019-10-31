@@ -189,27 +189,27 @@
                 UIkit.modal('#benefitsDiscPop').show();
                 if (tableSel == 0) {
                     console.log('priest clicked');
-                    $('#benefitTableSection').load('./Tables/Priest.html', function () {
+                    $('#benefitTableSection').load('https://www.me-content.com/mec/system/demos/funeralbenefit/Tables/Priest.html', function () {
                         console.log('priest loaded');
                     });
                 } else if (tableSel == 1) {
-                    $('#benefitTableSection').load('./Tables/Religious.html', function () {
+                    $('#benefitTableSection').load('https://www.me-content.com/mec/system/demos/funeralbenefit/Tables/Religious.html', function () {
                         console.log('Religious loaded');
                     });
                 } else if (tableSel == 2) {
-                    $('#benefitTableSection').load('./Tables/Deacons.html', function () {
+                    $('#benefitTableSection').load('https://www.me-content.com/mec/system/demos/funeralbenefit/Tables/Deacons.html', function () {
                         console.log('Deacons loaded');
                     });
                 } else if (tableSel == 3) {
-                    $('#benefitTableSection').load('./Tables/EmployeeFT.html', function () {
+                    $('#benefitTableSection').load('https://www.me-content.com/mec/system/demos/funeralbenefit/Tables/EmployeeFT.html', function () {
                         console.log('EmployeeFT loaded');
                     });
                 } else if (tableSel == 4) {
-                    $('#benefitTableSection').load('./Tables/EmployeePT.html', function () {
+                    $('#benefitTableSection').load('https://www.me-content.com/mec/system/demos/funeralbenefit/Tables/EmployeePT.html', function () {
                         console.log('EmployeePT loaded');
                     });
                 }
-            })
+            });
 
             function movetoNext() {
 
@@ -220,13 +220,12 @@
 
             $(document).ready(function () {
                 $('#benefitTableSection').load('./Tables/Priest.html');
-            })
+            });
         </script>
 
     </head>
 
     <body>
-    
         <div class="uk-background-muted">
             <div class="">
                 <div class="uk-section uk-section-small uk-padding-remove-bottom">
@@ -413,7 +412,7 @@
 
             </div>
         </div>
-        <div id="benefitsDiscPop" class="uk-modal-full" uk-modal>
+        <div id="benefitsDiscPop" uk-modal>
             <div class="uk-modal-dialog">
 
                 <button class="uk-modal-close-default" type="button" uk-close></button>

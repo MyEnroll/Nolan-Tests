@@ -99,7 +99,10 @@
         </div>
         <div class="uk-section uk-section-small uk-padding-remove">
             <div class="uk-container-expand">
-                <div id="demoContainer" include-asset=""></div>
+                <button class="uk-button uk-button-primary uk-border-pill uk-box-shadow-large uk-position-fixed" style="top:90px;right:25px">
+                    <i class="fal fa-shopping-cart mr-2"></i> Buy Now
+                </button>
+                <div id="demoContainer" ></div>
             </div>
         </div>
 
@@ -108,9 +111,7 @@
         $(document).ready(function () {
             var demoId = getQueryString('demo');
             if (demoId == '1234') {
-                $('#demoContainer').attr('include-asset', '../FuneralBenefit/funeralbenefit.html');
-                includeAsset();
-
+                $('#demoContainer').load('../FuneralBenefit/funeralbenefit.html');
             }
         });
     </script>
