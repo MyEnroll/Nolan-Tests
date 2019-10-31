@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo Playground</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/css/uikit.min.css">
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit-icons.min.js">
+    </script>
+
+    <script>
+        var getQueryString = function (field, url) {
+            var href = url ? url : window.location.href;
+            var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
+            var string = reg.exec(href);
+            return string ? string[1] : null;
+        };
+
+        function includeAsset() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("include-asset");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            elmnt.removeAttribute("include-asset");
+                            includeAsset();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
+    <style>
+    .me-nav-drop {
+        font-size: 1.2rem !important;
+        color: #fff !important;
+    }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+            <nav class="uk-navbar-container uk-navbar-transparent uk-background-secondary" uk-navbar>
+                <div class="uk-navbar-left" style="color:#fff">
+                    <ul class="uk-navbar-nav">
+                        <li class="pl-2">
+                            <a href="#" class="me-nav-drop">Other Demos</a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class="uk-active"><a href="#">Active</a></li>
+                                    <li><a href="#">Item</a></li>
+                                    <li class="uk-nav-header">Header</li>
+                                    <li><a href="#">Item</a></li>
+                                    <li><a href="#">Item</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a href="#">Item</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="uk-navbar-right">
+
+                    <a class="uk-navbar-item uk-logo" href="https://www.bastest.com/web_projects/MainHomePage/MyEnroll_Home.aspx">
+                        <img data-src="https://www.me-content.com/mec/system/images/MyEnroll_logo_clear4.png"
+                            width="175" height="" uk-img>
+                    </a>
+
+                </div>
+            </nav>
+        </div>
+        <div class="uk-section uk-section-small uk-padding-remove">
+            <div class="uk-container-expand">
+                <div id="demoContainer" include-asset=""></div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            var demoId = getQueryString('demo');
+            if (demoId == '1234') {
+                $('#demoContainer').attr('include-asset', '../FuneralBenefit/funeralbenefit.html');
+                includeAsset();
+
+            }
+        });
+    </script>
+
+</body>
+
+</html>
