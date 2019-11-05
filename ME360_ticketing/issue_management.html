@@ -33,6 +33,20 @@
             right: 5px;
         }
 
+        .me-round-btn-fa {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 32px;
+            width: 32px;
+            left: 10px;
+            top: 10px;
+        }
+
+        .me-main-content-area {
+            transition: .3s ease-out;
+        }
+
         .me-priority {
             min-width: 20px;
         }
@@ -75,13 +89,19 @@
 
         .me-sidebar-left {
             border-right: 1px solid #e6e6e6;
-            position: fixed;
-            top: 80px;
+            top: 0;
             bottom: 0;
             box-sizing: border-box;
-            width: 300px !important;
             padding: 0px 0px 20px 0px;
             overflow: auto;
+            position: absolute;
+        }
+
+        .me-sidebar-left-container {
+            position: fixed;
+            width: 300px;
+            top: 50px;
+            bottom: 0;
         }
 
         .me-top-bar {
@@ -104,8 +124,7 @@
         }
 
         .me-main-content {
-            margin-left: 300px;
-
+            padding-left: 300px;
         }
 
         .me-floating-button {
@@ -247,6 +266,10 @@
             color: #fff;
         }
 
+        .me-offcanvas {
+            background: #ccc;
+        }
+
         @media only screen and (max-width:960px) {
             .me-main-content {
                 margin-left: 0;
@@ -258,7 +281,7 @@
 </head>
 
 <body>
-    <div class="me-top-bar uk-section-primary">
+    <div class="me-top-bar uk-section-primary uk-hidden">
         <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
             <div class="uk-navbar-left">
                 <a class="uk-navbar-item uk-logo" href="#">
@@ -280,335 +303,301 @@
             </div>
         </nav>
     </div>
-    <div class="uk-grid-collapse" uk-grid>
 
-        <div class="me-sidebar-left uk-width-1-5 uk-background-muted uk-visible@m">
-            <div class="me-side-nav uk-container uk-padding-small">
-                <div class="uk-search uk-search-default uk-width-1-1" style="background:#fff">
-                    <span class="uk-search-icon-flip" uk-search-icon></span>
-                    <input id="meIssueFilter" class="uk-search-input uk-border-rounded"
-                        style="padding:0px 10px 0px 10px" type="search" placeholder="Search...">
+
+    <div id="me-tickets-nav" class="me-offcanvas" uk-offcanvas="mode: slide; overlay: false;bg-close: false">
+        <div class="uk-offcanvas-bar">
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">Action</button>
+                    <button class="dropdown-item" type="button">Another action</button>
+                    <button class="dropdown-item" type="button">Something else here</button>
                 </div>
-                <ul class="me-nav me-nav-task uk-nav uk-nav-default">
-                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                        <a href="#">
-                            <div>
-                                <p>
-                                    Test
-                                </p>
-                                <hr>
-                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                    <span>
-                                        ME-1234
-                                    </span>
-                                    <span>
-                                        <i class="fad fa-upload text-primary"></i>
-                                        <i class="fad fa-comment text-primary"></i>
-                                        <i class="fad fa-check text-primary"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                        <a href="#">
-                            <div>
-                                <p>
-                                    This is another Test of the Issue management System
-                                </p>
-                                <hr>
-                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                    <span>
-                                        ME-1235
-                                    </span>
-                                    <span>
-                                        <i class="fad fa-user text-primary"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                        <a href="#">
-                            <div>
-                                <p>
-                                    Do something to something else and then report back
-                                </p>
-                                <hr>
-                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                    <span>
-                                        ME-1236
-                                    </span>
-                                    <span>
-                                        <i class="fad fa-user text-primary"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                        <a href="#">
-                            <div>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, exercitationem!
-                                </p>
-                                <hr>
-                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                    <span>
-                                        ME-1237
-                                    </span>
-                                    <span>
-                                        <i class="fad fa-user text-primary"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                        <a href="#">
-                            <div>
-                                <p>
-                                    And this is the last one.
-                                </p>
-                                <hr>
-                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                    <span>
-                                        ME-1238
-                                    </span>
-                                    <span>
-                                        <i class="fad fa-user text-primary"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
             </div>
+
+            <button uk-toggle="target: #meNewTicket"
+                class="me-oultine-btn-light uk-flex uk-flex-middle uk-flex-between">
+                <i class="fal fa-plus uk-text-large pr-2"></i>
+                <span>New Ticket</span>
+            </button>
+
         </div>
-        <div class="uk-grid-collapse uk-child-width-auto" uk-grid>
-            <div class="me-main-content uk-width-expand">
-                <div class="uk-grid-collapse" uk-grid>
-                    <div class="uk-width-expand me-task">
-                        <p>
-                            ME-1234
-                        </p>
-                        <p class="me-task-hdr uk-text-large">
-                            Test Task
-                        </p>
-                        <div class="me-task-dtl" uk-grid>
-                            <div class="uk-width-expand">
-                                <div class="me-field-hdr">
-                                    Description
-                                </div>
-                                <p class="me-field-dtl">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quis id ea
-                                    laboriosam reiciendis ad fugit animi cumque consequuntur officia! Adipisci quos
-                                    impedit deserunt numquam laudantium, cumque quibusdam voluptatibus repellendus
-                                    nisi
-                                    eius commodi officia iure unde mollitia illum nihil quisquam facilis laboriosam
-                                    eos
-                                    delectus doloremque aspernatur! Optio totam hic amet.
-                                </p>
-                                <div class="me-field-hdr">
-                                    Assigned to
-                                </div>
-                                <p class="me-field-dtl">
-                                    Nolan
-                                </p>
-                                <div class="me-field-hdr">
-                                    Reporter
-                                </div>
-                                <p class="me-field-dtl">
-                                    Art
-                                </p>
-                                <hr>
-                                <div id="commentsContainer" class="commentsContainer">
-                                    <div class="me-field-hdr">
-                                        Comments
-                                    </div>
-                                    <!-- <div class="me-comment">
-                                        <div class="me-comment-user">
-                                            <i class="fad fa-user"></i>
-                                        </div>
-                                        <div class="me-comment-wrap">
-                                            <div class="me-comment-hdr">
-                                                <span>
-                                                    Nolan Hughes
-                                                </span>
-                                                <span>
-                                                    11:15pm 10/15/2019
-                                                </span>
-                                            </div>
-                                            <div class="me-comment-content">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                                                    corrupti
-                                                    quod libero non laborum? Quaerat accusamus iure magnam ratione quae
-                                                    maxime facilis, adipisci dolorum, neque, harum laborum doloribus
-                                                    fuga
-                                                    nihil quisquam. Dicta modi est fuga tenetur sapiente distinctio
-                                                    asperiores consequuntur consectetur sequi cum maxime, aspernatur vel
-                                                    nemo similique veniam atque.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="me-comment">
-                                        <div class="me-comment-user">
-                                            <i class="fad fa-user"></i>
-                                        </div>
-                                        <div class="me-comment-wrap">
-                                            <div class="me-comment-hdr">
-                                                <span>
-                                                    Nolan Hughes
-                                                </span>
-                                                <span>
-                                                    11:15pm 10/15/2019
-                                                </span>
-                                            </div>
-                                            <div class="me-comment-content">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                                                    corrupti
-                                                    quod libero non laborum? Quaerat accusamus iure magnam ratione quae
-                                                    maxime facilis, adipisci dolorum, neque, harum laborum doloribus
-                                                    fuga
-                                                    nihil quisquam. Dicta modi est fuga tenetur sapiente distinctio
-                                                    asperiores consequuntur consectetur sequi cum maxime, aspernatur vel
-                                                    nemo similique veniam atque.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="me-comment">
-                                        <div class="me-comment-user">
-                                            <i class="fad fa-user"></i>
-                                        </div>
-                                        <div class="me-comment-wrap">
-                                            <div class="me-comment-hdr">
-                                                <span>
-                                                    Nolan Hughes
-                                                </span>
-                                                <span>
-                                                    11:15pm 10/15/2019
-                                                </span>
-                                            </div>
-                                            <div class="me-comment-content">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                                                    corrupti
-                                                    quod libero non laborum? Quaerat accusamus iure magnam ratione quae
-                                                    maxime facilis, adipisci dolorum, neque, harum laborum doloribus
-                                                    fuga
-                                                    nihil quisquam. Dicta modi est fuga tenetur sapiente distinctio
-                                                    asperiores consequuntur consectetur sequi cum maxime, aspernatur vel
-                                                    nemo similique veniam atque.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div> -->
+    </div>
+    <div class="me-main-content-area uk-grid-collapse" uk-grid>
+        <div style="position: sticky;display:flex;">
+            <button id="me-tickets-nav-toggle"
+                class="me-round-btn-fa uk-button uk-button-primary uk-border-circle uk-padding-small uk-position-relative"
+                type="button" uk-toggle="target: #me-tickets-nav">
+                <i class="fa-bars fas uk-position-absolute"></i>
+            </button>
 
-                                </div>
-                                <div>
-                                    <textarea name="" class="uk-textarea" id="newComment" rows="5"
-                                        placeholder="Enter a new comment here..."></textarea>
-                                    <div class="uk-margin uk-text-right">
-                                        <button id=submitComment class="uk-button uk-button-primary uk-border-rounded">
-                                            Save
-                                        </button>
-                                    </div>
-                                </div>
+        </div>
 
+        <div class="uk-grid-collapse" uk-grid>
+            <div class="me-sidebar-left-container">
 
-                            </div>
-
+                <div class="me-sidebar-left uk-background-muted">
+                    <div class="me-side-nav uk-container uk-padding-small" style=>
+                        <div class="uk-search uk-search-default uk-width-1-1" style="background:#fff">
+                            <span class="uk-search-icon-flip" uk-search-icon></span>
+                            <input id="meIssueFilter" class="uk-search-input uk-border-rounded"
+                                style="padding:0px 10px 0px 10px" type="search" placeholder="Search...">
+                        </div>
+                        <div>
+                            <ul class="me-nav me-nav-task uk-nav uk-nav-default">
+                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                Test
+                                            </p>
+                                            <hr>
+                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                <span>
+                                                    ME-1234
+                                                </span>
+                                                <span>
+                                                    <i class="fad fa-upload text-primary"></i>
+                                                    <i class="fad fa-comment text-primary"></i>
+                                                    <i class="fad fa-check text-primary"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                This is another Test of the Issue management System
+                                            </p>
+                                            <hr>
+                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                <span>
+                                                    ME-1235
+                                                </span>
+                                                <span>
+                                                    <i class="fad fa-user text-primary"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                Do something to something else and then report back
+                                            </p>
+                                            <hr>
+                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                <span>
+                                                    ME-1236
+                                                </span>
+                                                <span>
+                                                    <i class="fad fa-user text-primary"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum,
+                                                exercitationem!
+                                            </p>
+                                            <hr>
+                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                <span>
+                                                    ME-1237
+                                                </span>
+                                                <span>
+                                                    <i class="fad fa-user text-primary"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                    <a href="#">
+                                        <div>
+                                            <p>
+                                                And this is the last one.
+                                            </p>
+                                            <hr>
+                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                <span>
+                                                    ME-1238
+                                                </span>
+                                                <span>
+                                                    <i class="fad fa-user text-primary"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-            <div class="me-sidebar-right uk-width-1-5 uk-padding-small">
-                <div class="me-sticky-section ">
-                    <div class="uk-grid-small uk-child-width-1-1" uk-grid>
-                        <div>
-                            <label for="" class="me-label">
-                                Status
-                            </label>
-                            <div class="dropdown me-status-drop">
-                                <a class="btn btn-light dropdown-toggle me-status" href="#" role="button" id="v"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    To Do
-                                </a>
+            <div class="uk-width-expand">
+                <div class="uk-grid-collapse uk-child-width-auto" uk-grid>
+                    <div class="me-main-content uk-width-expand">
+                        <div class="uk-grid-collapse" uk-grid>
+                            <div class="uk-width-expand me-task">
+                                <p>
+                                    ME-1234
+                                </p>
+                                <p class="me-task-hdr uk-text-large">
+                                    Test Task
+                                </p>
+                                <div class="me-task-dtl" uk-grid>
+                                    <div class="uk-width-expand">
+                                        <div class="me-field-hdr">
+                                            Description
+                                        </div>
+                                        <p class="me-field-dtl">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quis id ea
+                                            laboriosam reiciendis ad fugit animi cumque consequuntur officia! Adipisci
+                                            quos
+                                            impedit deserunt numquam laudantium, cumque quibusdam voluptatibus
+                                            repellendus
+                                            nisi
+                                            eius commodi officia iure unde mollitia illum nihil quisquam facilis
+                                            laboriosam
+                                            eos
+                                            delectus doloremque aspernatur! Optio totam hic amet.
+                                        </p>
+                                        <div class="me-field-hdr">
+                                            Assigned to
+                                        </div>
+                                        <p class="me-field-dtl">
+                                            Nolan
+                                        </p>
+                                        <div class="me-field-hdr">
+                                            Reporter
+                                        </div>
+                                        <p class="me-field-dtl">
+                                            Art
+                                        </p>
+                                        <hr>
+                                        <div id="commentsContainer" class="commentsContainer">
+                                            <div class="me-field-hdr">
+                                                Comments
+                                            </div>
 
-                                <div class="dropdown-menu" aria-labelledby="meStatusSel">
-                                    <a class="dropdown-item me-status me-todo" href="#">To Do</a>
-                                    <a class="dropdown-item me-status me-progress" href="#">In Progress</a>
-                                    <a class="dropdown-item me-status me-done" href="#">Done</a>
+                                        </div>
+                                        <div>
+                                            <textarea name="" class="uk-textarea" id="newComment" rows="5"
+                                                placeholder="Enter a new comment here..."></textarea>
+                                            <div class="uk-margin uk-text-right">
+                                                <button id=submitComment
+                                                    class="uk-button uk-button-primary uk-border-rounded">
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <label class="me-label">
-                                Assignee
-                            </label>
-                            <input type="text" class="uk-input">
-                        </div>
-                        <div>
-                            <label class="me-label">
-                                Associate to
-                            </label>
-                            <input type="text" class="uk-input">
-                        </div>
-                        <div>
-                            <label class="me-label">
-                                Reporter
-                            </label>
-                            <input type="text" class="uk-input">
-                        </div>
-                        <div>
-                            <label class="me-label">
-                                Due Date
-                            </label>
 
-                            <div class="flatpickr">
-                                <input type="text" class="form-control" placeholder="Select Date.." data-input>
-                                <!-- input is mandatory -->
-
-                                <a class="btn" title="toggle" data-toggle>
-                                    <i class="fad fa-calendar"></i>
-                                </a>
-
-                                <a class="btn" title="clear" data-clear>
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </div>
                         </div>
-                        <div>
-                            <div>
-                                <label for="" class="me-label">
-                                    Priority
-                                </label>
-                                <div class="dropdown me-priority-drop ">
-                                    <a class="btn btn-light dropdown-toggle" href="#" role="button"
-                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Minor
-                                    </a>
 
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item me-priority minor" href="#">
-                                            <i class="fad fa-chevron-double-down text-success"></i>
-                                            <span>Minor</span>
+                    </div>
+                    <div class="me-sidebar-right uk-width-1-5 uk-padding-small">
+                        <div class="me-sticky-section ">
+                            <div class="uk-grid-small uk-child-width-1-1" uk-grid>
+                                <div>
+                                    <label for="" class="me-label">
+                                        Status
+                                    </label>
+                                    <div class="dropdown me-status-drop">
+                                        <a class="btn btn-light dropdown-toggle me-status" href="#" role="button" id="v"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            To Do
                                         </a>
-                                        <a class="dropdown-item me-priority major" href="#">
-                                            <i class="fad fa-chevron-double-up text-warning"></i>
-                                            <span>Major</span>
+
+                                        <div class="dropdown-menu" aria-labelledby="meStatusSel">
+                                            <a class="dropdown-item me-status me-todo" href="#">To Do</a>
+                                            <a class="dropdown-item me-status me-progress" href="#">In Progress</a>
+                                            <a class="dropdown-item me-status me-done" href="#">Done</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="me-label">
+                                        Assignee
+                                    </label>
+                                    <input type="text" class="uk-input">
+                                </div>
+                                <div>
+                                    <label class="me-label">
+                                        Associate to
+                                    </label>
+                                    <input type="text" class="uk-input">
+                                </div>
+                                <div>
+                                    <label class="me-label">
+                                        Reporter
+                                    </label>
+                                    <input type="text" class="uk-input">
+                                </div>
+                                <div>
+                                    <label class="me-label">
+                                        Due Date
+                                    </label>
+
+                                    <div class="flatpickr">
+                                        <input type="text" class="form-control" placeholder="Select Date.." data-input>
+                                        <!-- input is mandatory -->
+
+                                        <a class="btn" title="toggle" data-toggle>
+                                            <i class="fad fa-calendar"></i>
                                         </a>
-                                        <a class="dropdown-item me-priority critical" href="#">
-                                            <i class="fad fa-exclamation-circle text-danger"></i>
-                                            <span>Critical</span>
+
+                                        <a class="btn" title="clear" data-clear>
+                                            <i class="fal fa-times"></i>
                                         </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <label for="" class="me-label">
+                                            Priority
+                                        </label>
+                                        <div class="dropdown me-priority-drop ">
+                                            <a class="btn btn-light dropdown-toggle" href="#" role="button"
+                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Minor
+                                            </a>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item me-priority minor" href="#">
+                                                    <i class="fad fa-chevron-double-down text-success"></i>
+                                                    <span>Minor</span>
+                                                </a>
+                                                <a class="dropdown-item me-priority major" href="#">
+                                                    <i class="fad fa-chevron-double-up text-warning"></i>
+                                                    <span>Major</span>
+                                                </a>
+                                                <a class="dropdown-item me-priority critical" href="#">
+                                                    <i class="fad fa-exclamation-circle text-danger"></i>
+                                                    <span>Critical</span>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -657,7 +646,8 @@
                         </div>
                         <div class="uk-width-1-1@s uk-margin">
                             <label for="" class="me-label">Associate to</label>
-                            <input class="uk-input" type="text" placeholder="Choose a user to Associate this task to...">
+                            <input class="uk-input" type="text"
+                                placeholder="Choose a user to Associate this task to...">
                         </div>
                         <div class="uk-width-1-1@s uk-margin">
                             <label for="" class="me-label">Assignee</label>
@@ -770,17 +760,19 @@
             var delComment = $(this).closest('.me-comment')
             UIkit.modal.confirm(
                 '<h3 style="color: var(--red)">Hold on!</h3><div>Are you sure you want to delete this comment?</div>'
-                ).then(function () {
+            ).then(function () {
                 $(delComment).remove();
             }, function () {
                 console.log('Rejected.')
             });
 
         });
-        UIkit.util.on(document,'show','#meNewTicket',function() {
-            $("#meNewTicket .uk-modal-body").animate({ scrollTop: 0 }, "fast");
+        UIkit.util.on(document, 'show', '#meNewTicket', function () {
+            $("#meNewTicket .uk-modal-body").animate({
+                scrollTop: 0
+            }, "fast");
         })
-        $(document).on('click','#submitTicket',function() {
+        $(document).on('click', '#submitTicket', function () {
             if ($('#createAnotherTick').is(':checked')) {
                 UIkit.modal('#meNewTicket').hide();
                 UIkit.modal('#meNewTicket').show();
@@ -789,7 +781,15 @@
                 UIkit.modal('#meNewTicket').hide();
                 $('#meNewTicket input, #meNewTicket select, #meNewTicket textarea').val('');
             }
-        })
+        });
+        UIkit.util.on(document, 'show', '#me-tickets-nav', function () {
+            $('#me-tickets-nav-toggle').children('i').toggleClass('fa-bars fa-chevron-left');
+            $('.me-main-content-area ').css('padding-left', '350px');
+        });
+        UIkit.util.on(document, 'hide', '#me-tickets-nav', function () {
+            $('#me-tickets-nav-toggle').children('i').toggleClass('fa-bars fa-chevron-left');
+            $('.me-main-content-area ').css('padding-left', '0');
+        });
     </script>
 </body>
 
