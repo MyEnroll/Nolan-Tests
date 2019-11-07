@@ -94,14 +94,13 @@
             box-sizing: border-box;
             padding: 0px 0px 20px 0px;
             overflow: auto;
-            position: absolute;
         }
 
         .me-sidebar-left-container {
-            position: fixed;
-            width: 300px;
-            top: 50px;
+            top: 0;
             bottom: 0;
+            height: 100vh;
+            overflow: auto;
         }
 
         .me-top-bar {
@@ -124,7 +123,6 @@
         }
 
         .me-main-content {
-            padding-left: 300px;
         }
 
         .me-floating-button {
@@ -266,8 +264,79 @@
             color: #fff;
         }
 
+        .me-side-nav {
+            padding-top: 50px;
+        }
+
+        .leftSysNav {
+            position: absolute;
+            display: flex;
+            z-index: 999;
+        }
+
         .me-offcanvas {
             background: #ccc;
+        }
+
+        .me-offcanvas a {
+            color: #212529;
+        }
+
+        .me-offcanvas h6 {
+            color: #6C7578;
+            margin-top: 0px;
+        }
+
+        .me-offcanvas .uk-search-input {
+            border: 1px solid #e5e5e5 !important;
+        }
+
+        .me-offcanvas .uk-search-icon {
+            color: #999 !important;
+        }
+
+        .me-offcanvas .uk-search-input::placeholder {
+            color: #999 !important;
+        }
+
+        .me-offcanvas .uk-search-input {
+            color: #666 !important;
+        }
+
+        .me-offcanvas .uk-offcanvas-bar {
+            background: #24292e;
+        }
+
+        .me-offcanvas .uk-offcanvas-bar a:hover {
+            background: #1e87f0;
+        }
+
+        .me-offcanvas .uk-list button {
+            font-size: 1.1rem;
+            width: 100%;
+        }
+
+        input[type="radio"] {
+            opacity: 0;
+            z-index: 100;
+            display: none;
+        }
+
+        input[name="meTicketView"]+label {
+            padding: 5px;
+            border: 1px solid #CCC;
+            cursor: pointer;
+            z-index: 90;
+            width: 100%;
+            font-weight: 500;
+            font-size: 1.2rem;
+            text-align: center;
+            color: #fff;
+            transition: .2s ease;
+        }
+
+        input[name="meTicketView"]:checked+label {
+            background: #1e87f0;
         }
 
         @media only screen and (max-width:960px) {
@@ -306,30 +375,90 @@
 
 
     <div id="me-tickets-nav" class="me-offcanvas" uk-offcanvas="mode: slide; overlay: false;bg-close: false">
-        <div class="uk-offcanvas-bar">
-
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+        <div class="uk-offcanvas-bar uk-padding-small">
+            <div class="uk-margin-bottom">
+                <button uk-toggle="target: #meNewTicket"
+                    class="me-oultine-btn-light uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
+                    <i class="fal fa-plus uk-text-large pr-2"></i>
+                    <span>New Ticket</span>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button">Action</button>
-                    <button class="dropdown-item" type="button">Another action</button>
-                    <button class="dropdown-item" type="button">Something else here</button>
+
+            </div>
+            <hr>
+
+            <div class="uk-grid-small uk-child-width-1-1" uk-grid>
+                <div>
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-secondary dropdown-toggle uk-flex uk-flex-between uk-flex-middle uk-width-1-1"
+                            type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Project Name <i class="far fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu uk-animation-fade uk-animation-fast uk-width-1-1"
+                            aria-labelledby="dropdownMenu2" x-placement="bottom-start"
+                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+                            <div class="px-2 uk-search uk-search-default uk-width-1-1" style="background:#fff">
+                                <span class="uk-search-icon-flip" uk-search-icon></span>
+                                <input id="meIssueFilterNav" class="uk-search-input uk-border-rounded"
+                                    style="padding:0px 10px 0px 10px" type="search" placeholder="Search...">
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header">Recent Projects</h6>
+                            <a class="dropdown-item" href="#">Project 1</a>
+                            <a class="dropdown-item" href="#">Project 2</a>
+                            <a class="dropdown-item" href="#">Project 3</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#"><i class="fal fa-plus"></i> New Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-grid-collapse uk-child-width-1-2" uk-grid>
+                        <div>
+                            <input type="radio" name="meTicketView" id="expandedViewMode" value="0" checked>
+                            <label class="form-check-label" for="expandedViewMode">
+                                <i class="fad fa-th-list"></i>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" name="meTicketView" id="gridViewMode" value="1">
+                            <label class="form-check-label" for="gridViewMode">
+                                <i class="fad fa-stream"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <hr>
+                </div>
+                <div>
+                    <ul class="uk-list">
+                        <li>
+                            <button class="btn btn-outline-light text-left" type="button">
+                                Filter 1
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn btn-outline-light text-left" type="button">
+                                Filter 2
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn btn-outline-light text-left" type="button">
+                                Filter 3
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <button uk-toggle="target: #meNewTicket"
-                class="me-oultine-btn-light uk-flex uk-flex-middle uk-flex-between">
-                <i class="fal fa-plus uk-text-large pr-2"></i>
-                <span>New Ticket</span>
-            </button>
+
 
         </div>
     </div>
     <div class="me-main-content-area uk-grid-collapse" uk-grid>
-        <div style="position: sticky;display:flex;">
+        <div class="leftSysNav">
             <button id="me-tickets-nav-toggle"
                 class="me-round-btn-fa uk-button uk-button-primary uk-border-circle uk-padding-small uk-position-relative"
                 type="button" uk-toggle="target: #me-tickets-nav">
@@ -338,264 +467,272 @@
 
         </div>
 
-        <div class="uk-grid-collapse" uk-grid>
-            <div class="me-sidebar-left-container">
+        <div class="uk-child-width-expand uk-grid-collapse uk-width-1-1" uk-grid>
+            <div class="uk-width-1-4">
+                <div class="me-sidebar-left-container uk-background-muted">
 
-                <div class="me-sidebar-left uk-background-muted">
-                    <div class="me-side-nav uk-container uk-padding-small" style=>
-                        <div class="uk-search uk-search-default uk-width-1-1" style="background:#fff">
-                            <span class="uk-search-icon-flip" uk-search-icon></span>
-                            <input id="meIssueFilter" class="uk-search-input uk-border-rounded"
-                                style="padding:0px 10px 0px 10px" type="search" placeholder="Search...">
-                        </div>
-                        <div>
-                            <ul class="me-nav me-nav-task uk-nav uk-nav-default">
-                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                Test
-                                            </p>
-                                            <hr>
-                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                                <span>
-                                                    ME-1234
-                                                </span>
-                                                <span>
-                                                    <i class="fad fa-upload text-primary"></i>
-                                                    <i class="fad fa-comment text-primary"></i>
-                                                    <i class="fad fa-check text-primary"></i>
-                                                </span>
+                    <div class="me-sidebar-left uk-background-muted">
+                        <div class="me-side-nav uk-container uk-padding-small" style=>
+                            <div class="uk-search uk-search-default uk-width-1-1" style="background:#fff">
+                                <span class="uk-search-icon-flip" uk-search-icon></span>
+                                <input id="meIssueFilter" class="uk-search-input uk-border-rounded"
+                                    style="padding:0px 10px 0px 10px" type="search" placeholder="Search...">
+                            </div>
+                            <div>
+                                <ul class="me-nav me-nav-task uk-nav uk-nav-default">
+                                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                        <a href="#">
+                                            <div>
+                                                <p>
+                                                    Test
+                                                </p>
+                                                <hr>
+                                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                    <span>
+                                                        ME-1234
+                                                    </span>
+                                                    <span>
+                                                        <i class="fad fa-upload text-primary"></i>
+                                                        <i class="fad fa-comment text-primary"></i>
+                                                        <i class="fad fa-check text-primary"></i>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                This is another Test of the Issue management System
-                                            </p>
-                                            <hr>
-                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                                <span>
-                                                    ME-1235
-                                                </span>
-                                                <span>
-                                                    <i class="fad fa-user text-primary"></i>
-                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                        <a href="#">
+                                            <div>
+                                                <p>
+                                                    This is another Test of the Issue management System
+                                                </p>
+                                                <hr>
+                                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                    <span>
+                                                        ME-1235
+                                                    </span>
+                                                    <span>
+                                                        <i class="fad fa-user text-primary"></i>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                Do something to something else and then report back
-                                            </p>
-                                            <hr>
-                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                                <span>
-                                                    ME-1236
-                                                </span>
-                                                <span>
-                                                    <i class="fad fa-user text-primary"></i>
-                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                        <a href="#">
+                                            <div>
+                                                <p>
+                                                    Do something to something else and then report back
+                                                </p>
+                                                <hr>
+                                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                    <span>
+                                                        ME-1236
+                                                    </span>
+                                                    <span>
+                                                        <i class="fad fa-user text-primary"></i>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum,
-                                                exercitationem!
-                                            </p>
-                                            <hr>
-                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                                <span>
-                                                    ME-1237
-                                                </span>
-                                                <span>
-                                                    <i class="fad fa-user text-primary"></i>
-                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                        <a href="#">
+                                            <div>
+                                                <p>
+                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum,
+                                                    exercitationem!
+                                                </p>
+                                                <hr>
+                                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                    <span>
+                                                        ME-1237
+                                                    </span>
+                                                    <span>
+                                                        <i class="fad fa-user text-primary"></i>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
-                                    <a href="#">
-                                        <div>
-                                            <p>
-                                                And this is the last one.
-                                            </p>
-                                            <hr>
-                                            <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
-                                                <span>
-                                                    ME-1238
-                                                </span>
-                                                <span>
-                                                    <i class="fad fa-user text-primary"></i>
-                                                </span>
+                                        </a>
+                                    </li>
+                                    <li class="uk-box-shadow-medium uk-box-shadow-hover-large">
+                                        <a href="#">
+                                            <div>
+                                                <p>
+                                                    And this is the last one.
+                                                </p>
+                                                <hr>
+                                                <div class="me-nav-task-footer uk-flex uk-flex-middle uk-flex-between">
+                                                    <span>
+                                                        ME-1238
+                                                    </span>
+                                                    <span>
+                                                        <i class="fad fa-user text-primary"></i>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="uk-width-expand">
-                <div class="uk-grid-collapse uk-child-width-auto" uk-grid>
-                    <div class="me-main-content uk-width-expand">
-                        <div class="uk-grid-collapse" uk-grid>
-                            <div class="uk-width-expand me-task">
-                                <p>
-                                    ME-1234
-                                </p>
-                                <p class="me-task-hdr uk-text-large">
-                                    Test Task
-                                </p>
-                                <div class="me-task-dtl" uk-grid>
-                                    <div class="uk-width-expand">
-                                        <div class="me-field-hdr">
-                                            Description
-                                        </div>
-                                        <p class="me-field-dtl">
-                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quis id ea
-                                            laboriosam reiciendis ad fugit animi cumque consequuntur officia! Adipisci
-                                            quos
-                                            impedit deserunt numquam laudantium, cumque quibusdam voluptatibus
-                                            repellendus
-                                            nisi
-                                            eius commodi officia iure unde mollitia illum nihil quisquam facilis
-                                            laboriosam
-                                            eos
-                                            delectus doloremque aspernatur! Optio totam hic amet.
-                                        </p>
-                                        <div class="me-field-hdr">
-                                            Assigned to
-                                        </div>
-                                        <p class="me-field-dtl">
-                                            Nolan
-                                        </p>
-                                        <div class="me-field-hdr">
-                                            Reporter
-                                        </div>
-                                        <p class="me-field-dtl">
-                                            Art
-                                        </p>
-                                        <hr>
-                                        <div id="commentsContainer" class="commentsContainer">
+            <div id="ticketContentArea">
+                <div class="uk-width-expand">
+                    <div class="uk-grid-collapse uk-child-width-auto" uk-grid>
+                        <div class="me-main-content uk-width-expand">
+                            <div class="uk-grid-collapse" uk-grid>
+                                <div class="uk-width-expand me-task">
+                                    <p>
+                                        ME-1234
+                                    </p>
+                                    <p class="me-task-hdr uk-text-large">
+                                        Test Task
+                                    </p>
+                                    <div class="me-task-dtl" uk-grid>
+                                        <div class="uk-width-expand">
                                             <div class="me-field-hdr">
-                                                Comments
+                                                Description
+                                            </div>
+                                            <p class="me-field-dtl">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quis id
+                                                ea
+                                                laboriosam reiciendis ad fugit animi cumque consequuntur officia!
+                                                Adipisci
+                                                quos
+                                                impedit deserunt numquam laudantium, cumque quibusdam voluptatibus
+                                                repellendus
+                                                nisi
+                                                eius commodi officia iure unde mollitia illum nihil quisquam facilis
+                                                laboriosam
+                                                eos
+                                                delectus doloremque aspernatur! Optio totam hic amet.
+                                            </p>
+                                            <div class="me-field-hdr">
+                                                Assigned to
+                                            </div>
+                                            <p class="me-field-dtl">
+                                                Nolan
+                                            </p>
+                                            <div class="me-field-hdr">
+                                                Reporter
+                                            </div>
+                                            <p class="me-field-dtl">
+                                                Art
+                                            </p>
+                                            <hr>
+                                            <div id="commentsContainer" class="commentsContainer">
+                                                <div class="me-field-hdr">
+                                                    Comments
+                                                </div>
+
+                                            </div>
+                                            <div>
+                                                <textarea name="" class="uk-textarea" id="newComment" rows="5"
+                                                    placeholder="Enter a new comment here..."></textarea>
+                                                <div class="uk-margin uk-text-right">
+                                                    <button id=submitComment
+                                                        class="uk-button uk-button-primary uk-border-rounded">
+                                                        Save
+                                                    </button>
+                                                </div>
                                             </div>
 
-                                        </div>
-                                        <div>
-                                            <textarea name="" class="uk-textarea" id="newComment" rows="5"
-                                                placeholder="Enter a new comment here..."></textarea>
-                                            <div class="uk-margin uk-text-right">
-                                                <button id=submitComment
-                                                    class="uk-button uk-button-primary uk-border-rounded">
-                                                    Save
-                                                </button>
-                                            </div>
-                                        </div>
 
+                                        </div>
 
                                     </div>
-
                                 </div>
+
                             </div>
 
                         </div>
-
-                    </div>
-                    <div class="me-sidebar-right uk-width-1-5 uk-padding-small">
-                        <div class="me-sticky-section ">
-                            <div class="uk-grid-small uk-child-width-1-1" uk-grid>
-                                <div>
-                                    <label for="" class="me-label">
-                                        Status
-                                    </label>
-                                    <div class="dropdown me-status-drop">
-                                        <a class="btn btn-light dropdown-toggle me-status" href="#" role="button" id="v"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            To Do
-                                        </a>
-
-                                        <div class="dropdown-menu" aria-labelledby="meStatusSel">
-                                            <a class="dropdown-item me-status me-todo" href="#">To Do</a>
-                                            <a class="dropdown-item me-status me-progress" href="#">In Progress</a>
-                                            <a class="dropdown-item me-status me-done" href="#">Done</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="me-label">
-                                        Assignee
-                                    </label>
-                                    <input type="text" class="uk-input">
-                                </div>
-                                <div>
-                                    <label class="me-label">
-                                        Associate to
-                                    </label>
-                                    <input type="text" class="uk-input">
-                                </div>
-                                <div>
-                                    <label class="me-label">
-                                        Reporter
-                                    </label>
-                                    <input type="text" class="uk-input">
-                                </div>
-                                <div>
-                                    <label class="me-label">
-                                        Due Date
-                                    </label>
-
-                                    <div class="flatpickr">
-                                        <input type="text" class="form-control" placeholder="Select Date.." data-input>
-                                        <!-- input is mandatory -->
-
-                                        <a class="btn" title="toggle" data-toggle>
-                                            <i class="fad fa-calendar"></i>
-                                        </a>
-
-                                        <a class="btn" title="clear" data-clear>
-                                            <i class="fal fa-times"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div>
+                        <div class="me-sidebar-right uk-width-1-5 uk-padding-small">
+                            <div class="me-sticky-section ">
+                                <div class="uk-grid-small uk-child-width-1-1" uk-grid>
                                     <div>
                                         <label for="" class="me-label">
-                                            Priority
+                                            Status
                                         </label>
-                                        <div class="dropdown me-priority-drop ">
-                                            <a class="btn btn-light dropdown-toggle" href="#" role="button"
-                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                        <div class="dropdown me-status-drop">
+                                            <a class="btn btn-light dropdown-toggle me-status" href="#" role="button"
+                                                id="v" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
-                                                Minor
+                                                To Do
                                             </a>
 
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item me-priority minor" href="#">
-                                                    <i class="fad fa-chevron-double-down text-success"></i>
-                                                    <span>Minor</span>
+                                            <div class="dropdown-menu" aria-labelledby="meStatusSel">
+                                                <a class="dropdown-item me-status me-todo" href="#">To Do</a>
+                                                <a class="dropdown-item me-status me-progress" href="#">In Progress</a>
+                                                <a class="dropdown-item me-status me-done" href="#">Done</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="me-label">
+                                            Assignee
+                                        </label>
+                                        <input type="text" class="uk-input">
+                                    </div>
+                                    <div>
+                                        <label class="me-label">
+                                            Associate to
+                                        </label>
+                                        <input type="text" class="uk-input">
+                                    </div>
+                                    <div>
+                                        <label class="me-label">
+                                            Reporter
+                                        </label>
+                                        <input type="text" class="uk-input">
+                                    </div>
+                                    <div>
+                                        <label class="me-label">
+                                            Due Date
+                                        </label>
+
+                                        <div class="flatpickr">
+                                            <input type="text" class="form-control" placeholder="Select Date.."
+                                                data-input>
+                                            <!-- input is mandatory -->
+
+                                            <a class="btn" title="toggle" data-toggle>
+                                                <i class="fad fa-calendar"></i>
+                                            </a>
+
+                                            <a class="btn" title="clear" data-clear>
+                                                <i class="fal fa-times"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <label for="" class="me-label">
+                                                Priority
+                                            </label>
+                                            <div class="dropdown me-priority-drop ">
+                                                <a class="btn btn-light dropdown-toggle" href="#" role="button"
+                                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    Minor
                                                 </a>
-                                                <a class="dropdown-item me-priority major" href="#">
-                                                    <i class="fad fa-chevron-double-up text-warning"></i>
-                                                    <span>Major</span>
-                                                </a>
-                                                <a class="dropdown-item me-priority critical" href="#">
-                                                    <i class="fad fa-exclamation-circle text-danger"></i>
-                                                    <span>Critical</span>
-                                                </a>
+
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item me-priority minor" href="#">
+                                                        <i class="fad fa-chevron-double-down text-success"></i>
+                                                        <span>Minor</span>
+                                                    </a>
+                                                    <a class="dropdown-item me-priority major" href="#">
+                                                        <i class="fad fa-chevron-double-up text-warning"></i>
+                                                        <span>Major</span>
+                                                    </a>
+                                                    <a class="dropdown-item me-priority critical" href="#">
+                                                        <i class="fad fa-exclamation-circle text-danger"></i>
+                                                        <span>Critical</span>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -605,6 +742,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <div>
@@ -698,6 +836,7 @@
                 dateFormat: "Y-m-d",
                 minDate: "today",
             });
+            UIkit.offcanvas('#me-tickets-nav').show();
         });
         $(document).on('click', '.me-status-drop .dropdown-item', function () {
             var selStatus = $(this).html();
@@ -724,7 +863,7 @@
         });
 
 
-        $(document).on('keyup', '#meIssueFilter', function () {
+        $(document).on('keyup', '#meIssueFilter, #meIssueFilterNav', function () {
             var value = $(this).val().toLowerCase();
             $(".me-nav-task li").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
@@ -789,6 +928,15 @@
         UIkit.util.on(document, 'hide', '#me-tickets-nav', function () {
             $('#me-tickets-nav-toggle').children('i').toggleClass('fa-bars fa-chevron-left');
             $('.me-main-content-area ').css('padding-left', '0');
+        });
+        $(document).on('change','input[name="meTicketView"]',function() {
+            if ($(this).val() > 0) {
+                $('.me-sidebar-left-container').parent().removeClass('uk-width-1-4');
+                $('#ticketContentArea').addClass('uk-hidden');
+            } else {
+                $('.me-sidebar-left-container').parent().addClass('uk-width-1-4');
+                $('#ticketContentArea').removeClass('uk-hidden');
+            }
         });
     </script>
 </body>
