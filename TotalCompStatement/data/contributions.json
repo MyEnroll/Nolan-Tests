@@ -1,0 +1,82 @@
+[
+    {
+      "Plan": "Dental",
+      "Option": "Low Option",
+      "Tier": "Self Only",
+      "ee_cost": 3.56,
+      "er_cost": 14.25,
+      "total_cost": 17.81
+    },
+    {
+      "Plan": "Dental",
+      "Option": "Low Option",
+      "Tier": "Self and Family",
+      "ee_cost": 10.55,
+      "er_cost": 42.20,
+      "total_cost": 52.75
+    },
+    {
+      "Plan": "Dental",
+      "Option": "Standard Option",
+      "Tier": "Self Only",
+      "ee_cost": 4.54,
+      "er_cost": 18.17,
+      "total_cost": 22.71
+    },
+    {
+      "Plan": "Dental",
+      "Option": "Standard Option",
+      "Tier": "Self and Family",
+      "ee_cost": 13.32,
+      "er_cost": 53.27,
+      "total_cost": 66.59
+    },
+    {
+      "Plan": "Dental",
+      "Option": "High Option",
+      "Tier": "Self Only",
+      "ee_cost": 22.29,
+      "er_cost": 18.17,
+      "total_cost": 40.46
+    },
+    {
+      "Plan": "Dental",
+      "Option": "High Option",
+      "Tier": "Self and Family",
+      "ee_cost": 57.23,
+      "er_cost":53.27,
+      "total_cost": 110.50
+    },
+    {
+      "Plan": "Vision",
+      "Option": "Standard Option",
+      "Tier": "Self Only",
+      "ee_cost": 0.82,
+      "er_cost": 3.29,
+      "total_cost": 4.11
+    },
+    {
+      "Plan": "Vision",
+      "Option": "Standard Option",
+      "Tier": "Self and Family",
+      "ee_cost": 1.60,
+      "er_cost": 6.38,
+      "total_cost": 7.98
+    },
+    {
+      "Plan": "Vision",
+      "Option": "High Option",
+      "Tier": "Self Only",
+      "ee_cost": 3.74,
+      "er_cost": 3.29,
+      "total_cost": 7.03
+    },
+    {
+      "Plan": "Vision",
+      "Option": "High Option",
+      "Tier": "Self and Family",
+      "ee_cost": 9.34,
+      "er_cost": 6.38,
+      "total_cost": 15.72
+    }
+   ]

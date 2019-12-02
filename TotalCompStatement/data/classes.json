@@ -1,0 +1,242 @@
+[
+    {
+      "Class_Name": "I - Non-Executive Permanent",
+      "Class_Code": 1
+    },
+    {
+      "Class_Name": "V - Presidential Appointees",
+      "Class_Code": 5
+    },
+    {
+      "Class_Name": "VI - Temp/Term > 1 Yr",
+      "Class_Code": 6
+    },
+    {
+      "Class_Name": "VII - Temp Less Than 1 Yr",
+      "Class_Code": 7
+    },
+    {
+      "Class_Name": "VIII - Retiree - Non-Executive",
+      "Class_Code": 8
+    },
+    {
+      "Class_Name": "IX - Retiree Dependents",
+      "Class_Code": 9
+    },
+    {
+      "Class_Name": "X - Retiree - Executive",
+      "Class_Code": 10
+    },
+    {
+      "Class_Name": "XI - Surviving Dependents",
+      "Class_Code": 11
+    },
+    {
+      "Class_Name": "XII - LEO",
+      "Class_Code": 12
+    },
+    {
+      "Class_Name": "XIII - LEO Retiree",
+      "Class_Code": 13
+    },
+    {
+      "Class_Name": "XIV - Executive Managers & Corporate Experts",
+      "Class_Code": 14
+    },
+    {
+      "Class_Name": "XV - Corporate Manager II",
+      "Class_Code": 15
+    },
+    {
+      "Class_Name": "XVI - 94-96 Buy out Retiree",
+      "Class_Code": 16
+    },
+    {
+      "Class_Name": "XVII - 94-96 Buy out Surviving Dependent",
+      "Class_Code": 17
+    },
+    {
+      "Class_Name": "XVIII - Buy Out Retiree Executive",
+      "Class_Code": 18
+    },
+    {
+      "Class_Name": "XIX - R.A. Salary Offset Perm",
+      "Class_Code": 19
+    },
+    {
+      "Class_Name": "XX - R.A. Waiver",
+      "Class_Code": 20
+    },
+    {
+      "Class_Name": "XXI - Benefits Ineligible",
+      "Class_Code": 21
+    },
+    {
+      "Class_Name": "XXII - R.A. Salary Offset Temp/Term",
+      "Class_Code": 22
+    },
+    {
+      "Class_Name": "XXIV - R.A. 94-96 Buy Out Salary Offset Perm",
+      "Class_Code": 24
+    },
+    {
+      "Class_Name": "XXV - Temp NTE 1 Year",
+      "Class_Code": 25
+    },
+    {
+      "Class_Name": "XXVI - Non-FDIC R.A. Salary Offset Perm",
+      "Class_Code": 26
+    },
+    {
+      "Class_Name": "XXVII - Non-FDIC R.A. Dual Comp/Waiver",
+      "Class_Code": 27
+    },
+    {
+      "Class_Name": "28 - Non-FDIC R.A. Salary Offset Temp/Term",
+      "Class_Code": 28
+    },
+    {
+      "Class_Name": "XXX - Exec Mgr/Corp Exp Temp/Term > 1 year",
+      "Class_Code": 30
+    },
+    {
+      "Class_Name": "XXXI - EM/CX RA Offset Temp/Term",
+      "Class_Code": 31
+    },
+    {
+      "Class_Name": "XXXII - Corp. Mgr II Temp/Term > 1yr",
+      "Class_Code": 32
+    },
+    {
+      "Class_Name": "33 - Intermittent Active Employee (non RA)",
+      "Class_Code": 33
+    },
+    {
+      "Class_Name": "XXXIV - CFPB all benefits - Corp Mgr II",
+      "Class_Code": 34
+    },
+    {
+      "Class_Name": "XXXV - CFPB all benefits - Non-Executive Perm",
+      "Class_Code": 35
+    },
+    {
+      "Class_Name": "XXXVI - CFPB all benefits - Temp/Term > 1 year",
+      "Class_Code": 36
+    },
+    {
+      "Class_Name": "37 - CFPB all benefits - RA Sal Off Temp/Term",
+      "Class_Code": 37
+    },
+    {
+      "Class_Name": "38 - OTS no benefits - Temp/Term",
+      "Class_Code": 38
+    },
+    {
+      "Class_Name": "IXL - OTS no benefits - Perm",
+      "Class_Code": 39
+    },
+    {
+      "Class_Name": "XL - CFPB all benefits - Exec Mgr & Corp Exp",
+      "Class_Code": 40
+    },
+    {
+      "Class_Name": "XLI - OTS no benefits - RA Salary Offset Perm",
+      "Class_Code": 41
+    },
+    {
+      "Class_Name": "XLII - OTS no benefits - Corp Mgr II",
+      "Class_Code": 42
+    },
+    {
+      "Class_Name": "XLIII - Non FDIC EM/CX RA offset permanent",
+      "Class_Code": 43
+    },
+    {
+      "Class_Name": "XLIV - CFPB no FSA - Corp Mgr II",
+      "Class_Code": 44
+    },
+    {
+      "Class_Name": "XLV - CFPB no FSA - Non-Exec Perm",
+      "Class_Code": 45
+    },
+    {
+      "Class_Name": "XLVI - CFPB no FSA - Temp/Term > 1 year",
+      "Class_Code": 46
+    },
+    {
+      "Class_Name": "XLVII - CFPB no FSA - RA Sal Off Temp/Term",
+      "Class_Code": 47
+    },
+    {
+      "Class_Name": "48 - CFPB no FSA - Exec Mgr & Corp Exp",
+      "Class_Code": 48
+    },
+    {
+      "Class_Name": "IL - OTS FSA Only - Temp/Term",
+      "Class_Code": 49
+    },
+    {
+      "Class_Name": "L - OTS FSA Only - Perm",
+      "Class_Code": 50
+    },
+    {
+      "Class_Name": "LI - OTS FSA Only - RA Salary Offset Perm",
+      "Class_Code": 51
+    },
+    {
+      "Class_Name": "LII - OTS FSA Only - Corp Mgr II",
+      "Class_Code": 52
+    },
+    {
+      "Class_Name": "LIII - OTS - Temp/Term",
+      "Class_Code": 53
+    },
+    {
+      "Class_Name": "LIV - OTS - Perm",
+      "Class_Code": 54
+    },
+    {
+      "Class_Name": "LV - OTS - RA Salary Offset Perm",
+      "Class_Code": 55
+    },
+    {
+      "Class_Name": "LVI - OTS - Corp Mgr II",
+      "Class_Code": 56
+    },
+    {
+      "Class_Name": "LVII - EM/CX RA Waiver",
+      "Class_Code": 57
+    },
+    {
+      "Class_Name": "LVIII - R.A. Salary Offset Temp/Term < 1 year - RMS SNCR",
+      "Class_Code": 58
+    },
+    {
+      "Class_Name": "ILX - EM RA Offset Waiver Temp/Term <1 yr",
+      "Class_Code": 59
+    },
+    {
+      "Class_Name": "LX - Phased Retirement Non Executive Permanent",
+      "Class_Code": 60
+    },
+    {
+      "Class_Name": "LXI - Phased Retirement Executive Managers & Corporate Experts",
+      "Class_Code": 61
+    },
+    {
+      "Class_Name": "LXII - Phased Retirement Corporate Managers II",
+      "Class_Code": 62
+    },
+    {
+      "Class_Name": "LXIII - Temp/Term Pathways Intern - Schedule D - NTE 1 YR",
+      "Class_Code": 63
+    },
+    {
+      "Class_Name": "LXIV - Test Life Insurance",
+      "Class_Code": 64
+    },
+    {
+      "Class_Name": "LXV - Retiree - Presidential Appointees",
+      "Class_Code": 65
+    }
+   ]

@@ -1,0 +1,354 @@
+[
+ {
+   "Local_name": "ALBANY, GA",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "ALBUQUERQUE, NM",
+   "Local_perc": 0.0744
+ },
+ {
+   "Local_name": "APPLETON, WI",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "ATLANTA, GA",
+   "Local_perc": 0.1675
+ },
+ {
+   "Local_name": "AUSTIN, TX",
+   "Local_perc": 0.0957
+ },
+ {
+   "Local_name": "BATON ROUGE, LA",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "BILLINGS, MT",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "BLUE BELL, PA",
+   "Local_perc": 0.2017
+ },
+ {
+   "Local_name": "BRAINTREE, MA",
+   "Local_perc": 0.2915
+ },
+ {
+   "Local_name": "BROOKFIELD, WI",
+   "Local_perc": 0.1283
+ },
+ {
+   "Local_name": "CEDAR RAPIDS, IA",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "CHAMPAIGN, IL",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "CHARLOTTE, NC",
+   "Local_perc": 0.0846
+ },
+ {
+   "Local_name": "CHICAGO, IL",
+   "Local_perc": 0.213
+ },
+ {
+   "Local_name": "CINCINNATI, OH",
+   "Local_perc": 0.0972
+ },
+ {
+   "Local_name": "COLUMBIA, MD",
+   "Local_perc": 0.2716
+ },
+ {
+   "Local_name": "COLUMBIA, MO",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "COLUMBIA, SC",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "COLUMBUS, OH",
+   "Local_perc": 0.1045
+ },
+ {
+   "Local_name": "CONCORD, NH",
+   "Local_perc": 0.2915
+ },
+ {
+   "Local_name": "DALLAS, TX",
+   "Local_perc": 0.1965
+ },
+ {
+   "Local_name": "DENVER, CO",
+   "Local_perc": 0.1977
+ },
+ {
+   "Local_name": "DES MOINES, IA",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "DOWNERS GROVE, IL",
+   "Local_perc": 0.213
+ },
+ {
+   "Local_name": "EAU CLAIRE, WI",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "ELIZABETHTOWN, KY",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "FARGO, ND",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "FOXBORO, MA",
+   "Local_perc": 0.2915
+ },
+ {
+   "Local_name": "GAINESVILLE, FL",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "GRAND FORKS, ND",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "GRAND ISLAND, NE",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "GRAND RAPIDS, MI",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "HARRISBURG, PA",
+   "Local_perc": 0.0836
+ },
+ {
+   "Local_name": "HAYS, KS",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "HOOVER, AL",
+   "Local_perc": 0.0687
+ },
+ {
+   "Local_name": "HOPKINSVILLE, KY",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "HOUSTON, TX",
+   "Local_perc": 0.239
+ },
+ {
+   "Local_name": "INDIANAPOLIS, IN",
+   "Local_perc": 0.0818
+ },
+ {
+   "Local_name": "JACKSON, MS",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "KANSAS CITY, MO",
+   "Local_perc": 0.0808
+ },
+ {
+   "Local_name": "KNOXVILLE, TN",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "LEXINGTON, KY",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "LEXINGTON, MA",
+   "Local_perc": 0.2915
+ },
+ {
+   "Local_name": "LITTLE ROCK, AR",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "LIVONIA, MI",
+   "Local_perc": 0.1825
+ },
+ {
+   "Local_name": "LOS ANGELES, CA",
+   "Local_perc": 0.2809
+ },
+ {
+   "Local_name": "LUBBOCK, TX",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "MADISON, WI",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "MANKATO, MN",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "MEMPHIS, TN",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "MINNEAPOLIS, MN",
+   "Local_perc": 0.1867
+ },
+ {
+   "Local_name": "MONROE, NJ",
+   "Local_perc": 0.3613
+ },
+ {
+   "Local_name": "MONTGOMERY, AL",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "MOUNT VERNON, IL",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "NASHVILLE, TN",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "NEW YORK CITY, NY",
+   "Local_perc": 0.3613
+ },
+ {
+   "Local_name": "OKLAHOMA CITY, OK",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "OMAHA, NE",
+   "Local_perc": 0.0711
+ },
+ {
+   "Local_name": "ORANGE, CA",
+   "Local_perc": 0.2809
+ },
+ {
+   "Local_name": "PENSACOLA, FL",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "PHOENIX, AZ",
+   "Local_perc": 0.1335
+ },
+ {
+   "Local_name": "PORTLAND, OR",
+   "Local_perc": 0.1582
+ },
+ {
+   "Local_name": "PRINCETON, IL",
+   "Local_perc": 0.213
+ },
+ {
+   "Local_name": "RALEIGH, NC",
+   "Local_perc": 0.1154
+ },
+ {
+   "Local_name": "RICHMOND, VA",
+   "Local_perc": 0.1099
+ },
+ {
+   "Local_name": "ROCKY HILL, CT",
+   "Local_perc": 0.2597
+ },
+ {
+   "Local_name": "SACRAMENTO, CA",
+   "Local_perc": 0.2174
+ },
+ {
+   "Local_name": "SALT LAKE CITY, UT",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "SAN FRANCISCO, CA",
+   "Local_perc": 0.4628
+ },
+ {
+   "Local_name": "SAN JUAN, PR",
+   "Local_perc": 0.1364
+ },
+ {
+   "Local_name": "SAVANNAH, GA",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "SCOTT DEPOT, WV",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "SEATTLE, WA",
+   "Local_perc": 0.2244
+ },
+ {
+   "Local_name": "SEVEN FIELDS, PA",
+   "Local_perc": 0.1098
+ },
+ {
+   "Local_name": "SHREVEPORT, LA",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "SIOUX CITY, IA",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "SIOUX FALLS, SD",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "SPRINGFIELD, IL",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "SPRINGFIELD, MA",
+   "Local_perc": 0.2597
+ },
+ {
+   "Local_name": "SPRINGFIELD, MO",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "ST. LOUIS, MO",
+   "Local_perc": 0.0899
+ },
+ {
+   "Local_name": "SUNRISE, FL",
+   "Local_perc": 0.1576
+ },
+ {
+   "Local_name": "SYRACUSE, NY",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "TAMPA, FL",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "TULSA, OK",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "WASHINGTON, DC",
+   "Local_perc": 0.2716
+ },
+ {
+   "Local_name": "WICHITA, KS",
+   "Local_perc": 0.0668
+ },
+ {
+   "Local_name": "WILMINGTON, DE",
+   "Local_perc": 0.2017
+ }
+]

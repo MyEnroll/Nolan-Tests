@@ -1,0 +1,26 @@
+[
+    {
+      "PLAN": "CSRS*",
+      "CoverageCode": "1",
+      "EE_BWK_CONT_PERC": "7%",
+      "ER_BWK_CONT_PERC": "7%"
+    },
+    {
+      "PLAN": "FERS",
+      "CoverageCode": "K",
+      "EE_BWK_CONT_PERC": "0.80%",
+      "ER_BWK_CONT_PERC": "16.00%"
+    },
+    {
+      "PLAN": "FERS-RAE",
+      "CoverageCode": "KR",
+      "EE_BWK_CONT_PERC": "3.10%",
+      "ER_BWK_CONT_PERC": "9.60%"
+    },
+    {
+      "PLAN": "FERS-FRAE",
+      "CoverageCode": "KF",
+      "EE_BWK_CONT_PERC": "4.40%",
+      "ER_BWK_CONT_PERC": "14.20%"
+    }
+   ]
