@@ -1,3 +1,4 @@
+
 var CompFormInput = new Vue({
     el: '#totCompForm',
     data: {
@@ -192,4 +193,5 @@ var CompFormInput = new Vue({
         this.loadRetirement();
         this.loadContributions();
     },
-})
+});
+
