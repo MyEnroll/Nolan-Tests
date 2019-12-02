@@ -1,24 +1,73 @@
-new Vue({
-    el: '#chart',
-    components: {
-      apexchart: VueApexCharts,
-    },
-    data: {
-      series: [44, 55, 13, 43, 22],
-      chartOptions: {
-        labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
-      }
-    },
+// var app = new Vue({
+//   el: '#chart',
+//   components: {
+//     apexchart: VueApexCharts,
+//   },
+//   data: {
+//     series: [{
+//       name: 'Employee Cost',
+//       data: CompBreakdown.eeCostTotal
+//     }, {
+//       name: 'Employeer Cost',
+//       data: CompBreakdown.erCostTotal
+//     }],
+//     chartOptions: {
+//       plotOptions: {
+//         bar: {
+//           horizontal: false,
+//           columnWidth: '75%'
+//         },
+//       },
+//       dataLabels: {
+//         enabled: false
+//       },
+//       stroke: {
+//         show: true,
+//         width: 2,
+//         colors: ['transparent']
+//       },
 
-  })
+//       xaxis: {
+//         categories: ['Employee Vs. Employer Cost'],
+//       },
+//       yaxis: {
+//         title: {
+//           text: '$'
+//         }
+//       },
+//       fill: {
+//         opacity: 1
+
+//       },
+
+//     }
+//   }
+// })
+var chartAct = new Vue({
+  el: '#chart',
+  components: {
+    apexchart: VueApexCharts,
+  },
+  data: {
+    series: CompBreakdown.costArray,
+    chartOptions: {
+      id: 'costChart',
+      labels: ['Employee Cost', 'Employer Cost'],
+      responsive: [{
+        breakpoint: 480,
+        options: {
+
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }]
+    }
+  },
+  methods: {
+    reset: function () {
+      this.series = CompBreakdown.costArray;
+    },
+  }
+
+})

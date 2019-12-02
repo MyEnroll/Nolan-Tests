@@ -1,95 +1,14 @@
-
 var CompFormInput = new Vue({
     el: '#totCompForm',
     data: {
-        state: 'Self Only',
         compLocality: [],
         compClasses: [],
         compStatus: [],
         compRetirement: [],
-        compContributionsSelf: [],
-        compContributionsFamily: [],
         compContributions: []
     },
     methods: {
-        familySwitch: function () {
-            var tableHeight = $('#ratesTable').height();
-            $('#ratesTable').height(tableHeight);
-            if (this.state == "Self Only") {
-                this.state = "Family";
-                this.loadContributions();
-            } else {
-                this.state = "Self Only";
-                this.loadContributions();
-            }
-            setTimeout(function () {
-                $('#ratesTable').height('auto');
-            }, 150);
 
-
-        },
-        loadContributions: function () {
-            var self = this;
-            self.compContributions = null;
-            if (self.state == "Family") {
-                $.ajax({
-                    type: "GET",
-                    url: "./data/contributions.json",
-                    data: JSON.stringify({}),
-                    dataType: "json",
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-                        self.compContributions = data.filter(function (n) {
-                            return n.Tier === 'Self and Family'
-                        });
-
-                    },
-                    error: function (data) {
-                        // alert("Error: " + data.d);
-                        console.log('error');
-                    }
-                });
-            } else {
-                $.ajax({
-                    type: "GET",
-                    url: "./data/contributions.json",
-                    data: JSON.stringify({}),
-                    dataType: "json",
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-                        self.compContributions = data.filter(function (n) {
-                            return n.Tier === 'Self Only'
-                        });
-                        var series_data_arrX = [];
-                        var series_data_arrY = [];
-                        $.each(self.compContributions, function (key, value) {
-                            var X = value.ee_cost;
-                            var Y = value.er_cost;
-                            series_data_arrX.push(X);
-                            series_data_arrY.push(Y);
-
-
-                        });
-                        console.log(series_data_arrX);
-                        var ee_cost_total = series_data_arrX.reduce(function (sum, d) {
-                            return sum + d;
-                        }, 0);
-                        console.log(ee_cost_total);
-                        var er_cost_total = series_data_arrY.reduce(function (sum, d) {
-                            return sum + d;
-                        }, 0);
-                        console.log(er_cost_total);
-                    },
-                    error: function (data) {
-                        // alert("Error: " + data.d);
-                        console.log('error');
-                    }
-                });
-            }
-
-
-
-        },
         loadLocality: function () {
             var self = this;
             $.ajax({
@@ -174,6 +93,7 @@ var CompFormInput = new Vue({
                     console.log('Alert closed.')
                 });
             } else {
+                CompBreakdown.calcComp();
                 UIkit.accordion('#totalCompAccord').toggle(0);
                 UIkit.accordion('#totalCompAccord').toggle(1);
                 $('.me-name-hdr').text(fName + " " + lName);
@@ -191,7 +111,157 @@ var CompFormInput = new Vue({
         this.loadClasses();
         this.loadStatus();
         this.loadRetirement();
-        this.loadContributions();
     },
 });
 
+
+var CompBreakdown = new Vue({
+    el: '#breakdownArea',
+    data: {
+        state: 'Self Only',
+        compContributions: [],
+        eeCostTotal: [],
+        erCostTotal: [],
+        costArray: [],
+        agencyCont: '',
+        eeCostCal: ''
+    },
+    methods: {
+        calcComp: function () {
+            var self = this;
+            
+            var currColl = $('#currency-field').val();
+            var baseSal = Number(currColl.replace(/[^0-9.-]+/g,""));
+            self.agencyCont  = (Number(currColl.replace(/[^0-9.-]+/g,"")) * .065) +  self.eeCostCal;
+            var totalCompensation = baseSal + self.agencyCont;
+
+            $('#agencyCont').text('$' + parseFloat(self.agencyCont, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
+            $('#basePayColl').text(currColl);
+            $('#totalComp').text('$' + parseFloat(totalCompensation, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
+        },
+        familySwitch: function () {
+            self =  this;
+            
+            var tableHeight = $('#ratesTable').height();
+            $('#ratesTable').height(tableHeight);
+            if (this.state == "Self Only") {
+                this.state = "Family";
+                this.loadContributions();
+            } else {
+                this.state = "Self Only";
+                this.loadContributions();
+            }
+            
+            chartAct.reset();
+            setTimeout(function () {
+                $('#ratesTable').height('auto');
+            }, 150);
+            
+            
+
+
+        },
+        loadContributions: function () {
+            var self = this;
+            self.compContributions = [];
+            self.costArray = [];
+            if (this.state == "Family") {
+                $.ajax({
+                    type: "GET",
+                    url: "./data/contributions.json",
+                    data: JSON.stringify({}),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        self.compContributions = data.filter(function (n) {
+                            return n.Tier === 'Self and Family'
+                        });
+                        var series_data_arrX = [];
+                        var series_data_arrY = [];
+                        var series_cost_array = [];
+
+                        $.each(self.compContributions, function (key, value) {
+                            var X = value.ee_cost;
+                            var Y = value.er_cost;
+                            series_data_arrX.push(X);
+                            series_data_arrY.push(Y);
+                            series_cost_array.push([X, Y]);
+                        });
+
+
+                        var ee_cost_total = series_data_arrX.reduce(function (sum, d) {
+                            return sum + d;
+                        }, 0);
+
+                        var er_cost_total = series_data_arrY.reduce(function (sum, d) {
+                            return sum + d;
+                        }, 0);
+                        var costArray = [];
+                        self.eeCostTotal.push(ee_cost_total);
+                        self.erCostTotal.push(er_cost_total);
+                        self.eeCostCal = ee_cost_total;
+
+
+                        self.costArray.push(ee_cost_total, er_cost_total)
+
+                    },
+                    error: function (data) {
+                        // alert("Error: " + data.d);
+                        console.log('error');
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: "GET",
+                    url: "./data/contributions.json",
+                    data: JSON.stringify({}),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        self.compContributions = data.filter(function (n) {
+                            return n.Tier === 'Self Only'
+                        });
+                        var series_data_arrX = [];
+                        var series_data_arrY = [];
+                        var series_cost_array = [];
+
+                        $.each(self.compContributions, function (key, value) {
+                            var X = value.ee_cost;
+                            var Y = value.er_cost;
+                            series_data_arrX.push(X);
+                            series_data_arrY.push(Y);
+                            series_cost_array.push([X, Y]);
+                        });
+
+
+                        var ee_cost_total = series_data_arrX.reduce(function (sum, d) {
+                            return sum + d;
+                        }, 0);
+
+                        var er_cost_total = series_data_arrY.reduce(function (sum, d) {
+                            return sum + d;
+                        }, 0);
+                        var costArray = [];
+                        self.eeCostTotal.push(ee_cost_total);
+                        self.erCostTotal.push(er_cost_total);
+                        self.eeCostCal = ee_cost_total;
+
+                        self.costArray.push(ee_cost_total, er_cost_total)
+
+                    },
+                    error: function (data) {
+                        // alert("Error: " + data.d);
+                        console.log('error');
+                    }
+                });
+            }
+            UIkit.update(element = document.body, type = 'update');
+        }
+
+    },
+
+    created: function () {
+        this.loadContributions();
+
+    },
+});
