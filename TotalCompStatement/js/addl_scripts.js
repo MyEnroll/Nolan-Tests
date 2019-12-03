@@ -1,15 +1,15 @@
-$(document).on('change', '#disclaimerCheck', function () {
-    if ($('#disclaimerCheck').is(':checked')) {
-        $('#breakdownContainer').removeClass('uk-hidden');
+// $(document).on('change', '#disclaimerCheck', function () {
+//     if ($('#disclaimerCheck').is(':checked')) {
+//         $('#breakdownContainer').removeClass('uk-hidden');
         
-        UIkit.update(element = document.body, type = 'update');
+//         UIkit.update(element = document.body, type = 'update');
 
-    } else {
-        $('#breakdownContainer').addClass('uk-hidden');
-        UIkit.update(element = document.body, type = 'update');
+//     } else {
+//         $('#breakdownContainer').addClass('uk-hidden');
+//         UIkit.update(element = document.body, type = 'update');
 
-    }
-});
+//     }
+// });
 $("input[data-type='currency']").on({
     keyup: function () {
         currencyCollect = $(this).val();
