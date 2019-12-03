@@ -1,5 +1,7 @@
 [
     {
+      "Tier_ID": "1",
+      "Plan_ID": "INS-DEN002",
       "Plan": "Dental",
       "Option": "Low Option",
       "Tier": "Self Only",
@@ -8,6 +10,8 @@
       "total_cost": 17.81
     },
     {
+      "Tier_ID": "2",
+      "Plan_ID": "INS-DEN002",
       "Plan": "Dental",
       "Option": "Low Option",
       "Tier": "Self and Family",
@@ -16,6 +20,8 @@
       "total_cost": 52.75
     },
     {
+      "Tier_ID": "1",
+      "Plan_ID": "INS-DEN003",
       "Plan": "Dental",
       "Option": "Standard Option",
       "Tier": "Self Only",
@@ -24,6 +30,8 @@
       "total_cost": 22.71
     },
     {
+      "Tier_ID": "2",
+      "Plan_ID": "INS-DEN003",
       "Plan": "Dental",
       "Option": "Standard Option",
       "Tier": "Self and Family",
@@ -32,6 +40,8 @@
       "total_cost": 66.59
     },
     {
+      "Tier_ID": "1",
+      "Plan_ID": "INS-DEN004",
       "Plan": "Dental",
       "Option": "High Option",
       "Tier": "Self Only",
@@ -40,6 +50,8 @@
       "total_cost": 40.46
     },
     {
+      "Tier_ID": "2",
+      "Plan_ID": "INS-DEN005",
       "Plan": "Dental",
       "Option": "High Option",
       "Tier": "Self and Family",
@@ -48,6 +60,8 @@
       "total_cost": 110.50
     },
     {
+      "Tier_ID": "1",
+      "Plan_ID": "INS-VIS002",
       "Plan": "Vision",
       "Option": "Standard Option",
       "Tier": "Self Only",
@@ -56,6 +70,8 @@
       "total_cost": 4.11
     },
     {
+      "Tier_ID": "2",
+      "Plan_ID": "INS-VIS002",
       "Plan": "Vision",
       "Option": "Standard Option",
       "Tier": "Self and Family",
@@ -64,6 +80,8 @@
       "total_cost": 7.98
     },
     {
+      "Tier_ID": "1",
+      "Plan_ID": "INS-VIS003",
       "Plan": "Vision",
       "Option": "High Option",
       "Tier": "Self Only",
@@ -72,6 +90,8 @@
       "total_cost": 7.03
     },
     {
+      "Tier_ID": "2",
+      "Plan_ID": "INS-VIS003",
       "Plan": "Vision",
       "Option": "High Option",
       "Tier": "Self and Family",

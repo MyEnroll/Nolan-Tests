@@ -1,7 +1,7 @@
 // $(document).on('change', '#disclaimerCheck', function () {
 //     if ($('#disclaimerCheck').is(':checked')) {
 //         $('#breakdownContainer').removeClass('uk-hidden');
-        
+
 //         UIkit.update(element = document.body, type = 'update');
 
 //     } else {
@@ -10,11 +10,23 @@
 
 //     }
 // });
+
+$(document).on('change', 'input[name="planOptions"]', function (event) {
+    var searchIDs = $("input:checkbox:checked").map(function () {
+        return $(this).attr('id');
+    }).get(); // <----
+    console.log(searchIDs);
+    CompBreakdown.compChoicesSel = searchIDs;
+    CompBreakdown.loadContributions();
+    setTimeout(function () {
+        chartAct.reset();
+    }, 250);
+});
 $("input[data-type='currency']").on({
     keyup: function () {
         currencyCollect = $(this).val();
         formatCurrency($(this));
-        
+
     },
     blur: function () {
         formatCurrency($(this), "blur");

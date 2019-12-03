@@ -1,13 +1,3 @@
-function groupBy(array, key) {
-    const result = {}
-    array.forEach(item => {
-        if (!result[item[key]]) {
-            result[item[key]] = []
-        }
-        result[item[key]].push(item)
-    })
-    return result
-};
 var CompFormInput = new Vue({
     el: '#totCompForm',
     data: {
@@ -130,114 +120,148 @@ var CompBreakdown = new Vue({
     data: {
         state: 'Self Only',
         compContributions: [],
-        compChoices: [],
-        compChoicesSel: [],
         eeCostTotal: [],
         erCostTotal: [],
         costArray: [],
-
         agencyCont: '',
         eeCostCal: ''
     },
-    computed: {
-        grouping() {
-            return groupBy(this.compChoices, 'Plan')
-        }
-    },
     methods: {
-
         calcComp: function () {
             var self = this;
-
+            
             var currColl = $('#currency-field').val();
-            var baseSal = Number(currColl.replace(/[^0-9.-]+/g, ""));
-            self.agencyCont = (Number(currColl.replace(/[^0-9.-]+/g, "")) * .065) + self.eeCostCal;
+            var baseSal = Number(currColl.replace(/[^0-9.-]+/g,""));
+            self.agencyCont  = (Number(currColl.replace(/[^0-9.-]+/g,"")) * .065) +  self.eeCostCal;
             var totalCompensation = baseSal + self.agencyCont;
 
             $('#agencyCont').text('$' + parseFloat(self.agencyCont, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
             $('#basePayColl').text(currColl);
             $('#totalComp').text('$' + parseFloat(totalCompensation, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
         },
+        familySwitch: function () {
+            self =  this;
+            
+            var tableHeight = $('#ratesTable').height();
+            $('#ratesTable').height(tableHeight);
+            if (this.state == "Self Only") {
+                this.state = "Family";
+                this.loadContributions();
+            } else {
+                this.state = "Self Only";
+                this.loadContributions();
+            }
+            
+            chartAct.reset();
+            setTimeout(function () {
+                $('#ratesTable').height('auto');
+            }, 150);
+            
+            
 
-        loadChoices: function () {
-            var self = this;
-            self.compChoices = [];
-            $.ajax({
-                type: "GET",
-                url: "./data/contributions.json",
-                data: JSON.stringify({}),
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    self.compChoices = data;
 
-                },
-                error: function (data) {
-                    // alert("Error: " + data.d);
-                    console.log('error');
-                }
-            });
         },
         loadContributions: function () {
             var self = this;
             self.compContributions = [];
             self.costArray = [];
+            if (this.state == "Family") {
+                $.ajax({
+                    type: "GET",
+                    url: "./data/contributions.json",
+                    data: JSON.stringify({}),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        self.compContributions = data.filter(function (n) {
+                            return n.Tier === 'Self and Family'
+                        });
+                        var series_data_arrX = [];
+                        var series_data_arrY = [];
+                        var series_cost_array = [];
 
-            $.ajax({
-                type: "GET",
-                url: "./data/contributions.json",
-                data: JSON.stringify({}),
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    self.compChoices = data;
-                    self.compContributions = data.filter(function (n) {
-                        return $.inArray(n.Plan_ID + n.Tier_ID, self.compChoicesSel) >= 0
-                    });
-                    var series_data_arrX = [];
-                    var series_data_arrY = [];
-                    var series_cost_array = [];
-
-                    $.each(self.compContributions, function (key, value) {
-                        var X = value.ee_cost;
-                        var Y = value.er_cost;
-                        series_data_arrX.push(X);
-                        series_data_arrY.push(Y);
-                        series_cost_array.push([X, Y]);
-                    });
+                        $.each(self.compContributions, function (key, value) {
+                            var X = value.ee_cost;
+                            var Y = value.er_cost;
+                            series_data_arrX.push(X);
+                            series_data_arrY.push(Y);
+                            series_cost_array.push([X, Y]);
+                        });
 
 
-                    var ee_cost_total = series_data_arrX.reduce(function (sum, d) {
-                        return sum + d;
-                    }, 0);
+                        var ee_cost_total = series_data_arrX.reduce(function (sum, d) {
+                            return sum + d;
+                        }, 0);
 
-                    var er_cost_total = series_data_arrY.reduce(function (sum, d) {
-                        return sum + d;
-                    }, 0);
-                    var costArray = [];
-                    self.eeCostTotal.push(ee_cost_total);
-                    self.erCostTotal.push(er_cost_total);
-                    self.eeCostCal = ee_cost_total;
+                        var er_cost_total = series_data_arrY.reduce(function (sum, d) {
+                            return sum + d;
+                        }, 0);
+                        var costArray = [];
+                        self.eeCostTotal.push(ee_cost_total);
+                        self.erCostTotal.push(er_cost_total);
+                        self.eeCostCal = ee_cost_total;
 
-                    self.costArray.push(ee_cost_total, er_cost_total)
 
-                },
-                error: function (data) {
-                    // alert("Error: " + data.d);
-                    console.log('error');
-                }
-            });
+                        self.costArray.push(ee_cost_total, er_cost_total)
 
+                    },
+                    error: function (data) {
+                        // alert("Error: " + data.d);
+                        console.log('error');
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: "GET",
+                    url: "./data/contributions.json",
+                    data: JSON.stringify({}),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        self.compContributions = data.filter(function (n) {
+                            return n.Tier === 'Self Only'
+                        });
+                        var series_data_arrX = [];
+                        var series_data_arrY = [];
+                        var series_cost_array = [];
+
+                        $.each(self.compContributions, function (key, value) {
+                            var X = value.ee_cost;
+                            var Y = value.er_cost;
+                            series_data_arrX.push(X);
+                            series_data_arrY.push(Y);
+                            series_cost_array.push([X, Y]);
+                        });
+
+
+                        var ee_cost_total = series_data_arrX.reduce(function (sum, d) {
+                            return sum + d;
+                        }, 0);
+
+                        var er_cost_total = series_data_arrY.reduce(function (sum, d) {
+                            return sum + d;
+                        }, 0);
+                        var costArray = [];
+                        self.eeCostTotal.push(ee_cost_total);
+                        self.erCostTotal.push(er_cost_total);
+                        self.eeCostCal = ee_cost_total;
+
+                        self.costArray.push(ee_cost_total, er_cost_total)
+
+                    },
+                    error: function (data) {
+                        // alert("Error: " + data.d);
+                        console.log('error');
+                    }
+                });
+            }
             UIkit.update(element = document.body, type = 'update');
-
         }
 
     },
 
-
     created: function () {
-        //this.loadContributions();
-        this.loadChoices();
+        this.loadContributions();
 
     },
 });

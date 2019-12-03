@@ -86,10 +86,10 @@
         .uk-accordion-title:hover {
             color: white;
         }
-        input[type="radio"] {
+        input[type="radio"], input[type="checkbox"] {
             display: none;
         }
-        input[type="radio"]+label {
+        input[type="radio"]+label, input[type="checkbox"]+label {
             background: #fff;
             border-radius: 500px;
             border: 1px solid #c1c1c1;
@@ -100,14 +100,14 @@
         }
 
 
-        input[type="radio"]:checked+label {
+        input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
             background: #1e87f0;
             color: #fff;
             padding-left: 35px;
             position: relative;
         }
 
-        input[type="radio"]:checked+label:before {
+        input[type="radio"]:checked+label:before, input[type="checkbox"]:checked+label:before {
             content: "\f00c";
             font-family: "Font Awesome 5 Pro";
             font-weight: 400;
@@ -152,3 +152,12 @@
             border-radius: 5px;
             border: 1px solid #c1c1c1;
         }
+        .groupingHdr {
+            border-bottom: 1px solid #c1c1c1;
+            padding: 10px 0px;
+            font-weight: 500;
+            
+        }
+
+      
+        

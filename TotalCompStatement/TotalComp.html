@@ -24,7 +24,7 @@
     </script>
 </head>
 
-<body >
+<body>
     <div class="uk-section uk-section-secondary uk-section-large uk-width-1-1 uk-position-fixed"></div>
     <div class="uk-section uk-section-secondary uk-section-small uk-position-relative uk-position-z-index ">
         <div class="uk-container">
@@ -37,10 +37,10 @@
         <div class="uk-container">
             <div>
                 <ul id="totalCompAccord" uk-accordion="multiple: true">
-                    <li class="uk-open me-accordion-card uk-border-rounded uk-overflow-auto">
+                    <li class="me-accordion-card uk-border-rounded uk-overflow-auto">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 1: Let us know a
                             little about the Employee</a>
-                        <form id="totCompForm" class="uk-accordion-content me-accordion-content uk-padding-small">
+                        <div id="totCompForm" class="uk-accordion-content me-accordion-content uk-padding-small">
                             <div class="uk-grid-small uk-child-width-expand" uk-grid>
                                 <div>
                                     <div class="uk-grid-small" uk-grid>
@@ -155,9 +155,9 @@
                                     </button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </li>
-                    <li class="me-accordion-card uk-border-rounded uk-overflow-auto">
+                    <li class="uk-open me-accordion-card uk-border-rounded uk-overflow-auto">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 2: Total
                             Compensation Breakdown</a>
                         <div class="uk-accordion-content me-accordion-content uk-padding-small">
@@ -243,93 +243,135 @@
                                             </label>
                                         </div>
                                     </div> -->
-                                </div>
-                                <div id="breakdownContainer" class="uk-width-1-1 uk-animation-slide-top-small uk-animation-fast">
-                                    <div class="uk-grid-small" uk-grid>
-                                        <div class="uk-width-1-1">
-                                            <div class="uk-grid-small uk-child-width-expand uk-grid-match" uk-grid>
-                                                <div>
-                                                    <div class="uk-card uk-card-default uk-position-relative">
-                                                        <h3
-                                                            class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
-                                                            Base Pay
-                                                        </h3>
-                                                        <div class="uk-position-relative uk-padding">
-                                                            <div class="uk-position-center">
-                                                                <span id="basePayColl"></span>
-                                                            </div>
+                            </div>
+                            <div id="breakdownContainer"
+                                class="uk-width-1-1 uk-animation-slide-top-small uk-animation-fast">
+                                <div class="uk-grid-small" uk-grid>
+                                    <div class="uk-width-1-1">
+                                        <div class="uk-grid-small uk-child-width-expand uk-grid-match" uk-grid>
+                                            <div>
+                                                <div class="uk-card uk-card-default uk-position-relative">
+                                                    <h3
+                                                        class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
+                                                        Base Pay
+                                                    </h3>
+                                                    <div class="uk-position-relative uk-padding">
+                                                        <div class="uk-position-center">
+                                                            <span id="basePayColl"></span>
                                                         </div>
+                                                    </div>
 
-                                                    </div>
                                                 </div>
-                                                <div class="uk-width-auto uk-position-relative uk-visible@m">
-                                                    <div class="uk-flex-bottom pb-4 uk-flex">
-                                                        <i class="fal fa-plus"></i>
-                                                    </div>
+                                            </div>
+                                            <div class="uk-width-auto uk-position-relative uk-visible@m">
+                                                <div class="uk-flex-bottom pb-4 uk-flex">
+                                                    <i class="fal fa-plus"></i>
                                                 </div>
-                                                <div>
-                                                    <div class="uk-card uk-card-default uk-position-relative">
-                                                        <h3
-                                                            class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
-                                                            Agency Contributions</h3>
-                                                        <div class="uk-position-relative uk-padding">
-                                                            <div class="uk-position-center">
-                                                                <span id="agencyCont"></span>
-                                                            </div>
+                                            </div>
+                                            <div>
+                                                <div class="uk-card uk-card-default uk-position-relative">
+                                                    <h3
+                                                        class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
+                                                        Agency Contributions</h3>
+                                                    <div class="uk-position-relative uk-padding">
+                                                        <div class="uk-position-center">
+                                                            <span id="agencyCont"></span>
                                                         </div>
+                                                    </div>
 
-                                                    </div>
                                                 </div>
-                                                <div class="uk-width-auto uk-position-relative  uk-visible@m">
-                                                    <div class="uk-flex-bottom pb-4 uk-flex">
-                                                        <i class="fal fa-equals"></i>
-                                                    </div>
+                                            </div>
+                                            <div class="uk-width-auto uk-position-relative  uk-visible@m">
+                                                <div class="uk-flex-bottom pb-4 uk-flex">
+                                                    <i class="fal fa-equals"></i>
                                                 </div>
-                                                <div>
-                                                    <div class="uk-card uk-card-default uk-position-relative">
-                                                        <h3
-                                                            class="uk-margin-remove uk-card-title uk-text-center uk-background-primary uk-padding-small text-light">
-                                                            Total Compensation</h3>
-                                                        <div class="uk-position-relative uk-padding">
-                                                            <div class="uk-position-center">
-                                                                <span id="totalComp"></span>
-                                                            </div>
+                                            </div>
+                                            <div>
+                                                <div class="uk-card uk-card-default uk-position-relative">
+                                                    <h3
+                                                        class="uk-margin-remove uk-card-title uk-text-center uk-background-primary uk-padding-small text-light">
+                                                        Total Compensation</h3>
+                                                    <div class="uk-position-relative uk-padding">
+                                                        <div class="uk-position-center">
+                                                            <span id="totalComp"></span>
                                                         </div>
-
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="uk-width-1-1"
-                                            style="border-top:1px  solid #c1c1c1;padding-top:30px;margin-top:30px">
-                                            <div class="uk-grid-small uk-child-width-expand" uk-grid>
-                                                <div class="uk-width-2-5@m">
-                                                    <div id="chartArea" class="uk-grid-small uk-child-width-expand"
-                                                        uk-grid>
-                                                        <div id="chart">
-                                                            <template>
-                                                                <div>
-                                                                    <apexchart type=pie :options="chartOptions"
-                                                                        :series="series" />
+                                    <div class="uk-width-1-1"
+                                        style="border-top:1px  solid #c1c1c1;padding-top:30px;margin-top:30px">
+                                        <div class="uk-grid-small uk-child-width-expand" uk-grid>
+                                            <div class="uk-width-2-5@m">
+                                                <div id="chartArea" class="uk-grid-small uk-child-width-expand" uk-grid>
+                                                    <div id="chart">
+                                                        <template>
+                                                            <div>
+                                                                <apexchart type=pie :options="chartOptions"
+                                                                    :series="series" />
 
 
-                                                                </div>
-                                                            </template>
-                                                        </div>
-
+                                                            </div>
+                                                        </template>
                                                     </div>
+
                                                 </div>
-                                                <div id="breakdownArea" class="uk-width-3-5@m">
-                                                    <div class="uk-grid-small uk-child-width-expand" uk-grid>
-                                                        <div class="uk-width-1-1">
-                                                            <button id="famSwitch" type="button" @click="familySwitch()"
-                                                                class="uk-button uk-border-pill uk-width-expand uk-button-primary">
-                                                                Switch Benefit Level - Currently Showing <span
-                                                                    class="uk-text-bold">{{ state }}</span>
-                                                            </button>
-                                                        </div>
-                                                        <div id="ratesTable" class="me-table-border uk-width-1-1">
+                                            </div>
+                                            <div id="breakdownArea" class="uk-width-3-5@m">
+                                                <div class="uk-grid-small uk-child-width-expand" uk-grid>
+                                                    <!-- <div class="uk-width-1-1">
+                                                        <button id="famSwitch" type="button" @click="familySwitch()"
+                                                            class="uk-button uk-border-pill uk-width-expand uk-button-primary">
+                                                            Switch Benefit Level - Currently Showing <span
+                                                                class="uk-text-bold">{{ state }}</span>
+                                                        </button>
+                                                    </div> -->
+                                                    <div class="uk-width-1-1">
+                                                        <ul id="" uk-accordion="multiple: true">
+                                                            <li
+                                                                class="uk-open me-accordion-content me-accordion-card uk-border-rounded uk-overflow-auto">
+                                                                <a class="uk-accordion-title me-accordion-title uk-padding-small"
+                                                                    href="#">Choose your Plan/Tier</a>
+                                                                <div
+                                                                    class="uk-accordion-content me-accordion-content uk-padding-small">
+                                                                    <div class="uk-child-width-auto uk-grid-small"
+                                                                        uk-grid>
+                                                                        <template v-for="(choices, group_name) in grouping">
+                                                                            <div class="uk-width-1-1 me-choice">
+                                                                                <h5 class="groupingHdr">
+                                                                                    {{ group_name }}
+                                                                                </h5>
+                                                                                <div class="uk-child-width-auto uk-grid-small"
+                                                                                    uk-grid>
+                                                                                    <template v-for="item in choices">
+                                                                                        <div>
+                                                                                            <div>
+                                                                                                <input
+                                                                                                    :id="item.Plan_ID+item.Tier_ID"
+                                                                                                    type="checkbox"
+                                                                                                    name="planOptions">
+                                                                                                <label
+                                                                                                    :for="item.Plan_ID+item.Tier_ID">
+                                                                                                    {{ item.Option }} -
+                                                                                                    {{ item.Tier }}
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </template>
+                                                                                </div>
+                                                                            </div>
+                                                                        </template>
+
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div id="ratesTable" class="uk-width-1-1">
+                                                        <div class="me-table-border ">
                                                             <table class="uk-table uk-table-divider">
                                                                 <thead>
                                                                     <tr>
@@ -372,14 +414,15 @@
                                                                 </tbody>
                                                             </table>
                                                         </div>
-
-
                                                     </div>
+
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                </form>
 
                             </div>
                         </div>
@@ -389,12 +432,6 @@
             </div>
         </div>
     </div>
-    <script>
-        
-    </script>
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
