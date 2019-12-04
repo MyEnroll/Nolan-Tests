@@ -89,6 +89,13 @@ var CompFormInput = new Vue({
             });
         },
         runReport: function () {
+
+            
+            var today = new Date();
+            var ampm = today.getHours() >= 12 ? 'pm' : 'am';
+            var date = (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
+            var time = today.getHours() + ":" + today.getMinutes();
+            var dateTime = date + ' - ' + time + ' '+ ampm;
             var fName = $.trim($('#firstNameInput').val());
             var mName = $.trim($('#middleNameInput').val());
             var lName = $.trim($('#lastNameInput').val());
@@ -109,13 +116,16 @@ var CompFormInput = new Vue({
                 $('.me-name-hdr').text(fName + " " + lName);
                 $('#emailInput').text(emailP);
                 $('#statusColl').text(status);
+                $('#viewedTs').text(dateTime);
                 $('#localityColl').text(localitySel);
                 $('#retirementColl').text(retirementSel);
                 $('#classColl').text(classSel);
+                $('#compDetailsSect').removeClass('uk-disabled');
             }
 
         }
     },
+
     created: function () {
         this.loadLocality();
         this.loadClasses();
@@ -135,7 +145,7 @@ var CompBreakdown = new Vue({
         eeCostTotal: [],
         erCostTotal: [],
         costArray: [],
-
+        emptyData: false,
         agencyCont: '',
         eeCostCal: ''
     },
@@ -145,13 +155,29 @@ var CompBreakdown = new Vue({
         }
     },
     methods: {
-
+       
+        clearReset: function () {
+            $('.uk-dropdown input[type="radio"]').prop('checked', false);
+            CompBreakdown.compContributions = [];
+            CompBreakdown.costArray = [];
+            setTimeout(function () {
+                chartAct.reset();
+            }, 250);
+            UIkit.notification({
+                message: 'Selections Cleared',
+                status: 'primary',
+                pos: 'top-right',
+                timeout: 3000
+            });
+            $('#chartArea, #ratesTable').addClass('uk-hidden');
+            $('#noData').removeClass('uk-hidden');
+        },
         calcComp: function () {
             var self = this;
 
             var currColl = $('#currency-field').val();
             var baseSal = Number(currColl.replace(/[^0-9.-]+/g, ""));
-            self.agencyCont = (Number(currColl.replace(/[^0-9.-]+/g, "")) * .065) + self.eeCostCal;
+            self.agencyCont = (Number(currColl.replace(/[^0-9.-]+/g, "")) * .065) + Number(self.eeCostCal);
             var totalCompensation = baseSal + self.agencyCont;
 
             $('#agencyCont').text('$' + parseFloat(self.agencyCont, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());

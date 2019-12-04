@@ -11,16 +11,26 @@
 //     }
 // });
 
-$(document).on('change', 'input[name="planOptions"]', function (event) {
-    var searchIDs = $("input:checkbox:checked").map(function () {
+$(document).on('change', '.uk-dropdown input[type="radio"]', function (event) {
+    var searchIDs = $("input:radio:checked").map(function () {
         return $(this).attr('id');
-    }).get(); // <----
-    console.log(searchIDs);
+    }).get(); 
+    if (searchIDs.length == 0) {
+        $('#chartArea, #ratesTable').addClass('uk-hidden');
+        $('#noData').removeClass('uk-hidden');
+        
+    } else {
+        $('#chartArea, #ratesTable').removeClass('uk-hidden');
+        $('#noData').addClass('uk-hidden');
+    }
     CompBreakdown.compChoicesSel = searchIDs;
     CompBreakdown.loadContributions();
     setTimeout(function () {
         chartAct.reset();
+        
     }, 250);
+   
+    
 });
 $("input[data-type='currency']").on({
     keyup: function () {

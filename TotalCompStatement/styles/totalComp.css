@@ -79,7 +79,6 @@
         .me-accordion-content {
             margin-top: 0px;
             border-top: 1px solid #c1c1c1;
-            overflow: auto;
         }
 
         .uk-accordion-title:focus,
@@ -95,19 +94,35 @@
             border: 1px solid #c1c1c1;
             color: #4f4f4f;
             transition: .2s ease;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .uk-dropdown input[type="radio"]+label, input[type="checkbox"]+label {
+            background: #fff;
+            border-radius: 500px;
+            border: 1px solid #c1c1c1;
+            color: #4f4f4f;
+            transition: .2s ease;
             padding: 5px 10px;
             cursor: pointer;
+            color: #1e87f0;
         }
 
 
         input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
             background: #1e87f0;
             color: #fff;
-            /* padding-left: 35px; */
+            padding-left: 35px; 
+            position: relative;
+        }
+        .uk-dropdown input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
+            background: #1e87f0;
+            color: #fff;
+            padding-left: 10px;
             position: relative;
         }
 
-        /* input[type="radio"]:checked+label:before, input[type="checkbox"]:checked+label:before {
+        input[type="radio"]:checked+label:before, input[type="checkbox"]:checked+label:before {
             content: "\f00c";
             font-family: "Font Awesome 5 Pro";
             font-weight: 400;
@@ -118,7 +133,19 @@
             top: 50%;
             transform: translatey(-50%);
             transition: .1s ease;
-        } */
+        }
+        .uk-dropdown input[type="radio"]:checked+label:before, input[type="checkbox"]:checked+label:before {
+            content: "";
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 400;
+            color: #fff;
+            font-size: 1rem;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translatey(-50%);
+            transition: .1s ease;
+        }
         .me-name-hdr {
             font-size: 1.1rem;
         }

@@ -102,6 +102,7 @@ var CompFormInput = new Vue({
                 $('#localityColl').text(localitySel);
                 $('#retirementColl').text(retirementSel);
                 $('#classColl').text(classSel);
+                $('#compDetailsSect').removeClass('uk-disabled');
             }
 
         }
