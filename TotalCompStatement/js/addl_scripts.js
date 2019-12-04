@@ -10,15 +10,20 @@
 
 //     }
 // });
+$(document).ready(function () {
+    setTimeout(function () {
+        
+    });
+})
 
 $(document).on('change', '.uk-dropdown input[type="radio"]', function (event) {
     var searchIDs = $("input:radio:checked").map(function () {
         return $(this).attr('id');
-    }).get(); 
+    }).get();
     if (searchIDs.length == 0) {
         $('#chartArea, #ratesTable').addClass('uk-hidden');
         $('#noData').removeClass('uk-hidden');
-        
+
     } else {
         $('#chartArea, #ratesTable').removeClass('uk-hidden');
         $('#noData').addClass('uk-hidden');
@@ -27,10 +32,10 @@ $(document).on('change', '.uk-dropdown input[type="radio"]', function (event) {
     CompBreakdown.loadContributions();
     setTimeout(function () {
         chartAct.reset();
-        
+
     }, 250);
-   
-    
+
+
 });
 $("input[data-type='currency']").on({
     keyup: function () {

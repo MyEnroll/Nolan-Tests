@@ -90,12 +90,12 @@ var CompFormInput = new Vue({
         },
         runReport: function () {
 
-            
+
             var today = new Date();
             var ampm = today.getHours() >= 12 ? 'pm' : 'am';
             var date = (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
             var time = today.getHours() + ":" + today.getMinutes();
-            var dateTime = date + ' - ' + time + ' '+ ampm;
+            var dateTime = date + ' - ' + time + ' ' + ampm;
             var fName = $.trim($('#firstNameInput').val());
             var mName = $.trim($('#middleNameInput').val());
             var lName = $.trim($('#lastNameInput').val());
@@ -155,7 +155,7 @@ var CompBreakdown = new Vue({
         }
     },
     methods: {
-       
+
         clearReset: function () {
             $('.uk-dropdown input[type="radio"]').prop('checked', false);
             CompBreakdown.compContributions = [];
@@ -196,6 +196,16 @@ var CompBreakdown = new Vue({
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     self.compChoices = data;
+                    var defaultPlans = [];
+                    self.compChoicesSel = data.filter(function (n) {
+                        return n.default == true;
+                    });
+                    $.each(self.compChoicesSel, function (key, value) {
+                        var X = value.Plan_ID;
+                        var Y = value.Tier_ID;
+                        defaultPlans.push(X + Y)
+                    });
+                    self.compChoicesSel = defaultPlans;
 
                 },
                 error: function (data) {
@@ -220,6 +230,8 @@ var CompBreakdown = new Vue({
                     self.compContributions = data.filter(function (n) {
                         return $.inArray(n.Plan_ID + n.Tier_ID, self.compChoicesSel) >= 0
                     });
+
+
                     var series_data_arrX = [];
                     var series_data_arrY = [];
                     var series_cost_array = [];
@@ -245,7 +257,10 @@ var CompBreakdown = new Vue({
                     self.erCostTotal.push(er_cost_total);
                     self.eeCostCal = ee_cost_total;
 
-                    self.costArray.push(ee_cost_total, er_cost_total)
+                    self.costArray.push(ee_cost_total, er_cost_total);
+                    $.each(self.compChoicesSel, function (index, value) {
+                        $('#' + value).prop('checked', true);
+                    });
 
                 },
                 error: function (data) {
@@ -256,6 +271,17 @@ var CompBreakdown = new Vue({
 
             UIkit.update(element = document.body, type = 'update');
 
+        },
+        loadDefault: function () {
+            $('#chartArea, #ratesTable').removeClass('uk-hidden');
+            $('#noData').addClass('uk-hidden');
+            this.loadContributions();
+
+            setTimeout(function () {
+                chartAct.reset();
+
+            }, 250);
+
         }
 
     },
@@ -264,6 +290,7 @@ var CompBreakdown = new Vue({
     created: function () {
         //this.loadContributions();
         this.loadChoices();
-
-    },
+        this.loadDefault();
+        
+    }
 });
