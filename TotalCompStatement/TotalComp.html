@@ -329,46 +329,58 @@
                                                                 class="uk-text-bold">{{ state }}</span>
                                                         </button>
                                                     </div> -->
-                                                    <div class="uk-width-1-1">
-                                                        <ul id="" uk-accordion="multiple: true">
+                                                    <div class="uk-width-1-1 ">
+                                                        <div class="uk-inline  uk-width-expand uk-text-right">
+                                                            <button class="uk-button uk-button-primary"
+                                                                type="button">Select Plans/Benefit Levels</button>
+                                                            <div uk-dropdown="mode: click;pos:left;animation: uk-animation-slide-right-medium;"
+                                                                class=" uk-width-xxlarge@m uk-padding-remove uk-border-rounded uk-overflow-auto">
+                                                                <div class="text-light uk-padding-small uk-section uk-section-primary uk-section-xsmall uk-text-left uk-width-1-1">
+                                                                    Plan/Benefit Level Selection
+                                                                    </div>
+                                                                <div class="uk-padding-small uk-child-width-auto uk-grid-small uk-text-left" uk-grid>
+                                                                        
+                                                                    <template v-for="(choices, group_name) in grouping">
+                                                                        <div class="uk-width-1-1 me-choice">
+                                                                           
+                                                                            <h5 class="groupingHdr">
+                                                                                {{ group_name }}
+                                                                            </h5>
+                                                                            <div class="uk-child-width-auto uk-grid-small"
+                                                                                uk-grid>
+                                                                                <template v-for="item in choices">
+                                                                                    <div>
+                                                                                        <div>
+                                                                                            <input
+                                                                                                :id="item.Plan_ID+item.Tier_ID"
+                                                                                                type="checkbox"
+                                                                                                name="planOptions">
+                                                                                            <label
+                                                                                                :for="item.Plan_ID+item.Tier_ID">
+                                                                                                {{ item.Option }} -
+                                                                                                {{ item.Tier }}
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </template>
+                                                                            </div>
+                                                                        </div>
+                                                                    </template>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <ul id="" uk-accordion="multiple: true">
                                                             <li
                                                                 class="uk-open me-accordion-content me-accordion-card uk-border-rounded uk-overflow-auto">
                                                                 <a class="uk-accordion-title me-accordion-title uk-padding-small"
                                                                     href="#">Choose your Plan/Tier</a>
                                                                 <div
                                                                     class="uk-accordion-content me-accordion-content uk-padding-small">
-                                                                    <div class="uk-child-width-auto uk-grid-small"
-                                                                        uk-grid>
-                                                                        <template v-for="(choices, group_name) in grouping">
-                                                                            <div class="uk-width-1-1 me-choice">
-                                                                                <h5 class="groupingHdr">
-                                                                                    {{ group_name }}
-                                                                                </h5>
-                                                                                <div class="uk-child-width-auto uk-grid-small"
-                                                                                    uk-grid>
-                                                                                    <template v-for="item in choices">
-                                                                                        <div>
-                                                                                            <div>
-                                                                                                <input
-                                                                                                    :id="item.Plan_ID+item.Tier_ID"
-                                                                                                    type="checkbox"
-                                                                                                    name="planOptions">
-                                                                                                <label
-                                                                                                    :for="item.Plan_ID+item.Tier_ID">
-                                                                                                    {{ item.Option }} -
-                                                                                                    {{ item.Tier }}
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </template>
-                                                                                </div>
-                                                                            </div>
-                                                                        </template>
-
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </li>
-                                                        </ul>
+                                                        </ul> -->
                                                     </div>
                                                     <div id="ratesTable" class="uk-width-1-1">
                                                         <div class="me-table-border ">

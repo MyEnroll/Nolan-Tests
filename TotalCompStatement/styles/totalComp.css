@@ -95,7 +95,7 @@
             border: 1px solid #c1c1c1;
             color: #4f4f4f;
             transition: .2s ease;
-            padding: 10px 20px;
+            padding: 5px 10px;
             cursor: pointer;
         }
 
@@ -103,11 +103,11 @@
         input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
             background: #1e87f0;
             color: #fff;
-            padding-left: 35px;
+            /* padding-left: 35px; */
             position: relative;
         }
 
-        input[type="radio"]:checked+label:before, input[type="checkbox"]:checked+label:before {
+        /* input[type="radio"]:checked+label:before, input[type="checkbox"]:checked+label:before {
             content: "\f00c";
             font-family: "Font Awesome 5 Pro";
             font-weight: 400;
@@ -118,7 +118,7 @@
             top: 50%;
             transform: translatey(-50%);
             transition: .1s ease;
-        }
+        } */
         .me-name-hdr {
             font-size: 1.1rem;
         }
