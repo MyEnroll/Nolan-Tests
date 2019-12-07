@@ -52,7 +52,7 @@ var chartAct = new Vue({
     series: CompBreakdown.costArray,
     chartOptions: {
       id: 'costChart',
-      labels: ['Employee Cost', 'Employer Cost'],
+      labels: CompBreakdown.ChartLabels,
       responsive: [{
         breakpoint: 480,
         options: {
@@ -67,6 +67,7 @@ var chartAct = new Vue({
   methods: {
     reset: function () {
       this.series = CompBreakdown.costArray;
+      this.chartOptions.labels = CompBreakdown.ChartLabels;
     },
   }
 

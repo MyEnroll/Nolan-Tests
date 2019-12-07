@@ -110,24 +110,35 @@
   }, 
   {
     "Tier_ID": "1",
-    "Plan_ID": "FEHB",
-    "Plan": "FEHB Medical",
-    "Option": "Standard Option",
+    "Plan_ID": "FEHB104",
+    "Plan": "Blue Cross and Blue Shield",
+    "Option": "FEHB 104",
     "Tier": "Self Only",
-    "ee_cost": 74.34,
-    "er_cost": 0,
-    "total_cost": 74.34,
-    "default": false
+    "ee_cost": 154.88,
+    "er_cost": 700,
+    "total_cost": 854.88,
+    "default": true
   }, 
   {
     "Tier_ID": "2",
-    "Plan_ID": "FEHB",
-    "Plan": "FEHB Medical",
-    "Option": "Standard Option",
+    "Plan_ID": "FEHB105",
+    "Plan": "Blue Cross and Blue Shield",
+    "Option": "FEHB 105",
     "Tier": "Self and Family",
-    "ee_cost": 188.08,
-    "er_cost": 0,
-    "total_cost": 188.08,
-    "default": true
+    "ee_cost": 391.83,
+    "er_cost": 1100,
+    "total_cost": 1491.93,
+    "default": false
+  },
+  {
+    "Tier_ID": "3",
+    "Plan_ID": "FEHB106",
+    "Plan": "Blue Cross and Blue Shield",
+    "Option": "FEHB 106",
+    "Tier": "Self Plus One",
+    "ee_cost": 74.34,
+    "er_cost": 900,
+    "total_cost": 974.34,
+    "default": false
   }
 ]

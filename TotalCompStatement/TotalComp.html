@@ -39,7 +39,7 @@
         <div class="uk-container">
             <div>
                 <ul id="totalCompAccord" uk-accordion="multiple: true">
-                    <li class=" me-accordion-card uk-border-rounded">
+                    <li class="uk-open  me-accordion-card uk-border-rounded">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 1: Let us know a
                             little about the Employee</a>
                         <div id="totCompForm" class="uk-accordion-content me-accordion-content uk-padding-small">
@@ -159,7 +159,7 @@
                             </div>
                         </div>
                     </li>
-                    <li id="compDetailsSect" class="uk-open me-accordion-card uk-border-rounded">
+                    <li id="compDetailsSect" class="uk-disabled me-accordion-card uk-border-rounded">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 2: Total
                             Compensation Breakdown</a>
                         <div class="uk-accordion-content me-accordion-content uk-padding-small">
@@ -250,7 +250,7 @@
                                 class="uk-width-1-1 uk-animation-slide-top-small uk-animation-fast">
                                 <div class="uk-grid-small" uk-grid>
                                     <div class="uk-width-1-1">
-                                        <div class="uk-grid-small uk-child-width-expand uk-grid-match" uk-grid>
+                                        <div class="uk-grid-small uk-child-width-expand@m uk-grid-match" uk-grid>
                                             <div>
                                                 <div class="uk-card uk-card-default uk-position-relative">
                                                     <h3
@@ -327,19 +327,19 @@
                                             </div>
                                             <div id="breakdownArea" class="uk-width-3-5@m">
                                                 <div class="uk-grid-small uk-child-width-expand" uk-grid>
-                                                    <div class="uk-width-1-1 ">
+                                                    <div class="uk-width-1-1@m">
                                                         <div class="uk-inline  uk-width-expand uk-text-right">
                                                             <button class="uk-button uk-button-primary"
                                                                 type="button">Select Plans/Benefit Levels</button>
                                                             <div uk-dropdown="mode: click;pos:left;animation: uk-animation-slide-right-medium;"
                                                                 class=" uk-width-xxlarge@m uk-padding-remove uk-border-rounded uk-overflow-auto">
                                                                 <div
-                                                                    class="text-light uk-padding-small uk-section uk-section-primary uk-section-xsmall uk-text-left uk-width-1-1">
+                                                                    class="text-light uk-padding-small uk-section uk-section-primary uk-section-xsmall uk-text-left uk-width-1-1@mupdat">
                                                                     Plan Choices
                                                                 </div>
                                                                 <div class="uk-padding-small uk-child-width-auto uk-grid-small uk-text-left"
                                                                     uk-grid>
-                                                                    <div class="uk-width-1-1 uk-text-right">
+                                                                    <div class="uk-width-1-1@m uk-text-right">
                                                                         <button
                                                                             class="uk-button uk-button-default uk-button-small"
                                                                             type="button" @click="clearReset()">
@@ -390,7 +390,81 @@
                                                         </ul> -->
                                                     </div>
                                                     <div id="ratesTable" class="uk-width-1-1 uk-hidden">
-                                                        <div class="me-table-border ">
+                                                        <div class="me-table-border uk-overflow-auto">
+                                                            <table class="uk-table uk-table-divider">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>
+                                                                            Plans
+                                                                        </th>
+                                                                        <th>
+                                                                            Benefit Level
+                                                                        </th>
+                                                                        <th>
+                                                                            Total Premium Biweekly
+                                                                        </th>
+                                                                        <th>
+                                                                            Employee Contribution Biweekly
+                                                                        </th>
+                                                                        <th>
+                                                                            Agency Contribution Weekly
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr v-for="items in compContributions"
+                                                                        class=" uk-animation-fade">
+                                                                        <td>
+                                                                            {{ items.Plan }} - {{ items.Option }}
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ items.Tier }}
+                                                                        </td>
+                                                                        <td>
+                                                                            ${{ items.ee_cost }}
+                                                                        </td>
+                                                                        <td>
+                                                                            ${{ items.er_cost }}
+                                                                        </td>
+                                                                        <td>
+                                                                            ${{ items.total_cost }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div id="fedBenTable" class="uk-width-1-1 ">
+                                                        <div class="me-table-border uk-overflow-auto">
+                                                            <table class="uk-table uk-table-divider ">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="uk-table-expand">
+                                                                            Plans
+                                                                        </th>
+                                                                        
+                                                                        <th class="uk-table-shrink uk-text-center">
+                                                                            Agency Contribution Weekly
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr v-for="items in compFedBen"
+                                                                        class=" uk-animation-fade">
+                                                                        <td>
+                                                                            {{ items.Fed_Ben }}
+                                                                        </td>
+                                                                        
+                                                                        <td class=" uk-text-right">
+                                                                            {{ items.Fed_Val }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div id="retBenTable" class="uk-hidden uk-width-1-1 ">
+                                                        <div class="me-table-border uk-overflow-auto">
                                                             <table class="uk-table uk-table-divider">
                                                                 <thead>
                                                                     <tr>
@@ -457,7 +531,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
