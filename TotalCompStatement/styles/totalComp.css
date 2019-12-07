@@ -185,6 +185,19 @@
             font-weight: 500;
             
         }
-
+        .me-dropdown {
+            left: 0 !important;
+            position: fixed;
+        }
+        .me-close-btn {
+            border-radius: 500px;
+            padding: 10px 13px;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+        .me-close-btn:hover {
+            color: var(--danger);
+            background: #fff;
+        }
       
         

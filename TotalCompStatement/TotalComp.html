@@ -159,7 +159,7 @@
                             </div>
                         </div>
                     </li>
-                    <li id="compDetailsSect" class="uk-disabled me-accordion-card uk-border-rounded">
+                    <li id="compDetailsSect" class="uk-open me-accordion-card uk-border-rounded">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 2: Total
                             Compensation Breakdown</a>
                         <div class="uk-accordion-content me-accordion-content uk-padding-small">
@@ -331,12 +331,19 @@
                                                         <div class="uk-inline  uk-width-expand uk-text-right">
                                                             <button class="uk-button uk-button-primary"
                                                                 type="button">Select Plans/Benefit Levels</button>
-                                                            <div uk-dropdown="mode: click;pos:left;animation: uk-animation-slide-right-medium;"
-                                                                class=" uk-width-xxlarge@m uk-padding-remove uk-border-rounded uk-overflow-auto">
-                                                                <div
-                                                                    class="text-light uk-padding-small uk-section uk-section-primary uk-section-xsmall uk-text-left uk-width-1-1@m">
-                                                                    Plan Choices
+
+
+
+
+
+                                                                
+                                                            <div uk-dropdown="mode: click;pos:left;delay-hide:0" id="planSelectionsDrop"
+                                                                class="me-dropdown uk-width-xxlarge@m uk-padding-remove uk-border-rounded uk-overflow-auto">
+                                                                <div class="text-light uk-padding-small uk-section uk-section-primary uk-section-xsmall uk-text-left uk-width-1-1@m uk-flex uk-flex-between uk-flex-middle">
+                                                                    <span>Plan Choices</span>
+                                                                    <i class="fal fa-times me-close-btn"></i>
                                                                 </div>
+                                                               
                                                                 <div class="uk-padding-small uk-child-width-auto uk-grid-small uk-text-left"
                                                                     uk-grid>
                                                                     <div class="uk-width-1-1@m uk-text-right">

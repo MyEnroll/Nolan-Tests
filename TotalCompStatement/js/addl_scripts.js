@@ -36,7 +36,10 @@ $(document).on('change', '.uk-dropdown input[type="radio"]', function (event) {
     }, 250);
 
 
-// });
+ });
+ $(document).on('click','.me-close-btn',function () {
+    UIkit.dropdown('#planSelectionsDrop').hide();
+ });
 // $("input[data-type='currency']").on({
 //     keyup: function () {
 //         currencyCollect = $(this).val();
