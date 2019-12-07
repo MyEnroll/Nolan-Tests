@@ -185,10 +185,13 @@
             font-weight: 500;
             
         }
-        .me-dropdown {
-            left: 0 !important;
-            position: fixed;
+        @media only screen and (max-width:960px) {
+            .me-dropdown {
+                left: 0 !important;
+                position: fixed;
+            }
         }
+        
         .me-close-btn {
             border-radius: 500px;
             padding: 10px 13px;
