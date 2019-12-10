@@ -142,8 +142,8 @@ var CompBreakdown = new Vue({
         compContributions: [],
         compChoices: [],
         compChoicesSel: [],
-        eeCostTotal: [],
-        erCostTotal: [],
+        eeCostTotal: '',
+        erCostTotal: '',
         costArray: [],
         emptyData: false,
         agencyCont: '',
@@ -155,12 +155,17 @@ var CompBreakdown = new Vue({
         compTotalPays: '',
         salaryCollect: '',
         InsuranceVal: [],
-        ChartLabels: ['Base Salary','Insurance Benefits','Social Security','Medicare']
+        lifeRate: [],
+        lifeEEcont: '',
+        lifeERcont: '',
+        lifeTotalcont: '',
+        ChartLabels: ['Base Salary', 'Insurance Benefits', 'Social Security', 'Medicare']
     },
     computed: {
         grouping() {
             return groupBy(this.compChoices, 'Plan')
         }
+
     },
     methods: {
         loadVariables: function () {
@@ -170,7 +175,7 @@ var CompBreakdown = new Vue({
                 self.compSSVar = data.social_security_rate;
                 self.compMedVar = data.medicare_rate;
                 self.compTotalPays = data.total_pays;
-                
+
             });
 
         },
@@ -180,7 +185,6 @@ var CompBreakdown = new Vue({
             var baseSalCv = (baseSal < 137700) ? baseSal : 137700;
             var fedSS = (baseSalCv * self.compSSVar) / self.compTotalPays;
             var fedMed = (baseSalCv * self.compMedVar) / self.compTotalPays;
-            console.log(fedSS);
             self.compFedBen = [];
             self.compFedBen.push({
                 'Fed_Ben': 'Social Security',
@@ -189,10 +193,64 @@ var CompBreakdown = new Vue({
                 'Fed_Ben': 'Medicare',
                 'Fed_Val': '$' + fedMed.toFixed(2)
             });
+            $.ajax({
+                type: "GET",
+                url: "./data/lifeRates.json",
+                data: JSON.stringify({}),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    self.lifeRate = data.filter(function (n) {
+                        return n.Plan_ID == self.compContributions[self.compContributions.length - 1].Plan_ID;
+                    });
+
+                    self.lifeEEcont = self.lifeRate[0].ee_rate;
+                    self.lifeERcont = self.lifeRate[0].er_rate;
+                    var series_total_cost = [];
+
+                    $.each(CompBreakdown.compContributions, function (key, value) {
+                        var Z = value.total_cost;
+                        series_total_cost.push(Z);
+                    });
+                    var total_cost = series_total_cost.reduce(function (sum, d) {
+                        return sum + d
+                    });
+                    CompBreakdown.InsuranceVal = Number(total_cost);
+
+                },
+                error: function (data) {
+                    // alert("Error: " + data.d);
+                    console.log('error');
+                }
+            });
+            
+            self.compContributions[self.compContributions.length - 1].Tier = ('$' + parseFloat(Math.round(self.salaryCollect / 1000) * 1000, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
+            if (self.compContributions[self.compContributions.length - 1].Option == "FDIC Life Only") {
+                self.compContributions[self.compContributions.length - 1].ee_cost = 0;
+                self.compContributions[self.compContributions.length - 1].er_cost = Math.ceil(((self.salaryCollect / 1000) * self.lifeERcont) * 100) / 100;
+                self.compContributions[self.compContributions.length - 1].total_cost = Math.ceil(((self.compContributions[self.compContributions.length - 1].ee_cost) + (self.compContributions[self.compContributions.length - 1].er_cost)) * 100) /100;
+            };
+
             self.costArray = [];
-            self.costArray.push(self.salaryCollect,self.InsuranceVal,fedSS,fedMed);
+            setTimeout(function() {
+                self.costArray.push(self.salaryCollect, self.InsuranceVal, fedSS, fedMed);
+            },250);
+
             
             chartAct.reset();
+        },
+        loadLifeRates: function () {
+            var self = this;
+            $.getJSON('./data/lifeRates.json', function (data) {
+
+                self.lifeRate = data.filter(function (n) {
+                    return n.Plan_ID == self.compContributions[self.compContributions.length - 1].Plan_ID;
+                });
+
+                self.lifeEEcont = self.lifeRate[0].ee_rate;
+                self.lifeERcont = self.lifeRate[0].er_rate;
+
+            });
         },
         clearReset: function () {
             $('.uk-dropdown input[type="radio"]').prop('checked', false);
@@ -215,7 +273,7 @@ var CompBreakdown = new Vue({
 
             var currColl = $('#currency-field').val();
             var baseSal = Number(currColl.replace(/[^0-9.-]+/g, ""));
-            self.salaryCollect  = baseSal;
+            self.salaryCollect = baseSal;
             self.agencyCont = (Number(currColl.replace(/[^0-9.-]+/g, "")) * .065) + Number(self.eeCostCal);
             var totalCompensation = baseSal + self.agencyCont;
             self.compFedBen.push([{
@@ -229,9 +287,10 @@ var CompBreakdown = new Vue({
             $('#agencyCont').text('$' + parseFloat(self.agencyCont, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
             $('#basePayColl').text(currColl);
             $('#totalComp').text('$' + parseFloat(totalCompensation, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
+            
             self.loadFedBen();
+            
         },
-
         loadChoices: function () {
             var self = this;
             self.compChoices = [];
@@ -261,6 +320,7 @@ var CompBreakdown = new Vue({
                 }
             });
         },
+
 
         loadContributions: function () {
             var self = this;
@@ -295,28 +355,31 @@ var CompBreakdown = new Vue({
                         series_total_cost.push(Z);
                     });
 
-                    
+
 
 
                     var ee_cost_total = series_data_arrX.reduce(function (sum, d) {
                         return sum + d;
                     }, 0);
-                    self.InsuranceVal = series_total_cost.reduce(function (sum, d) {
+                    var total_cost = series_total_cost.reduce(function (sum, d) {
                         return sum + d
                     });
 
                     var er_cost_total = series_data_arrY.reduce(function (sum, d) {
                         return sum + d;
                     }, 0);
-                    self.eeCostTotal.push(ee_cost_total);
-                    self.erCostTotal.push(er_cost_total);
+                    self.eeCostTotal = ee_cost_total;
+                    self.erCostTotal = er_cost_total;
                     self.eeCostCal = ee_cost_total;
+                    self.InsuranceVal = Number(total_cost);
 
-                    
+
                     $.each(self.compChoicesSel, function (index, value) {
                         $('#' + value).prop('checked', true);
                     });
                     self.loadFedBen();
+
+
 
                 },
                 error: function (data) {
@@ -324,6 +387,7 @@ var CompBreakdown = new Vue({
                     console.log('error');
                 }
             });
+            
 
             UIkit.update(element = document.body, type = 'update');
 
@@ -348,7 +412,7 @@ var CompBreakdown = new Vue({
         //this.loadContributions();
         this.loadChoices();
         this.loadDefault();
-        
-        
+
+
     }
 });

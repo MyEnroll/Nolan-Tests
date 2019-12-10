@@ -30,6 +30,7 @@ $(document).on('change', '.uk-dropdown input[type="radio"]', function (event) {
     }
     CompBreakdown.compChoicesSel = searchIDs;
     CompBreakdown.loadContributions();
+    
     setTimeout(function () {
         chartAct.reset();
 

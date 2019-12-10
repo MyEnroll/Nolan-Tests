@@ -1,0 +1,20 @@
+[
+    {
+        "life_plan": "FDIC Life Only",
+        "ee_rate": 0,
+        "er_rate": 0.7,
+        "Plan_ID": "LIF1"
+    },
+    {
+        "life_plan": "FEGLI Only",
+        "ee_rate": 0.15,
+        "er_rate": 0,
+        "Plan_ID": "LIF2"
+    },
+    {
+        "life_plan": "FDIC & FEGLI",
+        "ee_rate": 0.7,
+        "er_rate": 0.15,
+        "Plan_ID": "LIF3"
+    }
+]

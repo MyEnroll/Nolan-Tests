@@ -1,4 +1,41 @@
-[{
+[
+  {
+    "Tier_ID": "1",
+    "Plan_ID": "FEHB104",
+    "Plan": "Blue Cross and Blue Shield",
+    "Option": "FEHB 104",
+    "Tier": "Self Only",
+    "ee_cost": 154.88,
+    "er_cost": 700,
+    "total_cost": 854.88,
+    "default": false,
+    "sort_order": 0
+  }, 
+  {
+    "Tier_ID": "2",
+    "Plan_ID": "FEHB105",
+    "Plan": "Blue Cross and Blue Shield",
+    "Option": "FEHB 105",
+    "Tier": "Self and Family",
+    "ee_cost": 391.83,
+    "er_cost": 1100,
+    "total_cost": 1491.93,
+    "default": true,
+    "sort_order": 0
+  },
+  {
+    "Tier_ID": "3",
+    "Plan_ID": "FEHB106",
+    "Plan": "Blue Cross and Blue Shield",
+    "Option": "FEHB 106",
+    "Tier": "Self Plus One",
+    "ee_cost": 74.34,
+    "er_cost": 900,
+    "total_cost": 974.34,
+    "default": false,
+    "sort_order": 0
+  },
+  {
     "Tier_ID": "1",
     "Plan_ID": "INS-DEN002",
     "Plan": "Dental",
@@ -7,7 +44,8 @@
     "ee_cost": 3.56,
     "er_cost": 14.25,
     "total_cost": 17.81,
-    "default": false
+    "default": false,
+    "sort_order": 2
   },
   {
     "Tier_ID": "2",
@@ -18,7 +56,8 @@
     "ee_cost": 10.55,
     "er_cost": 42.20,
     "total_cost": 52.75,
-    "default": false
+    "default": false,
+    "sort_order": 2
   },
   {
     "Tier_ID": "1",
@@ -29,7 +68,8 @@
     "ee_cost": 4.54,
     "er_cost": 18.17,
     "total_cost": 22.71,
-    "default": false
+    "default": false,
+    "sort_order": 2
   },
   {
     "Tier_ID": "2",
@@ -40,7 +80,8 @@
     "ee_cost": 13.32,
     "er_cost": 53.27,
     "total_cost": 66.59,
-    "default": false
+    "default": false,
+    "sort_order": 2
   },
   {
     "Tier_ID": "1",
@@ -62,7 +103,8 @@
     "ee_cost": 57.23,
     "er_cost": 53.27,
     "total_cost": 110.50,
-    "default": true
+    "default": true,
+    "sort_order": 2
   },
   {
     "Tier_ID": "1",
@@ -73,7 +115,8 @@
     "ee_cost": 0.82,
     "er_cost": 3.29,
     "total_cost": 4.11,
-    "default": false
+    "default": false,
+    "sort_order": 1
   },
   {
     "Tier_ID": "2",
@@ -84,7 +127,8 @@
     "ee_cost": 1.60,
     "er_cost": 6.38,
     "total_cost": 7.98,
-    "default": false
+    "default": false,
+    "sort_order": 1
   },
   {
     "Tier_ID": "1",
@@ -95,7 +139,8 @@
     "ee_cost": 3.74,
     "er_cost": 3.29,
     "total_cost": 7.03,
-    "default": false
+    "default": false,
+    "sort_order": 1
   },
   {
     "Tier_ID": "2",
@@ -106,39 +151,44 @@
     "ee_cost": 9.34,
     "er_cost": 6.38,
     "total_cost": 15.72,
-    "default": true
+    "default": true,
+    "sort_order": 1
   }, 
   {
     "Tier_ID": "1",
-    "Plan_ID": "FEHB104",
-    "Plan": "Blue Cross and Blue Shield",
-    "Option": "FEHB 104",
-    "Tier": "Self Only",
-    "ee_cost": 154.88,
-    "er_cost": 700,
-    "total_cost": 854.88,
-    "default": true
-  }, 
-  {
-    "Tier_ID": "2",
-    "Plan_ID": "FEHB105",
-    "Plan": "Blue Cross and Blue Shield",
-    "Option": "FEHB 105",
-    "Tier": "Self and Family",
-    "ee_cost": 391.83,
-    "er_cost": 1100,
-    "total_cost": 1491.93,
-    "default": false
+    "Plan_ID": "LIF1",
+    "Plan": "Life",
+    "Option": "FDIC Life Only",
+    "Tier": "",
+    "ee_cost": "",
+    "er_cost": "",
+    "total_cost": "",
+    "default": true,
+    "sort_order": 3
   },
   {
-    "Tier_ID": "3",
-    "Plan_ID": "FEHB106",
-    "Plan": "Blue Cross and Blue Shield",
-    "Option": "FEHB 106",
-    "Tier": "Self Plus One",
-    "ee_cost": 74.34,
-    "er_cost": 900,
-    "total_cost": 974.34,
-    "default": false
+    "Tier_ID": "1",
+    "Plan_ID": "LIF2",
+    "Plan": "Life",
+    "Option": "FEGLI Only",
+    "Tier": "",
+    "ee_cost": "",
+    "er_cost": "",
+    "total_cost": "",
+    "default": false,
+    "sort_order": 3
+  },
+  {
+    "Tier_ID": "1",
+    "Plan_ID": "LIF3",
+    "Plan": "Life",
+    "Option": "FDIC & FEGLI",
+    "Tier": "",
+    "ee_cost": "",
+    "er_cost": "",
+    "total_cost": "",
+    "default": false,
+    "sort_order": 3
   }
+
 ]
