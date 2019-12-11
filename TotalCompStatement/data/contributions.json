@@ -19,7 +19,7 @@
     "Tier": "Self and Family",
     "ee_cost": 391.83,
     "er_cost": 1100,
-    "total_cost": 1491.93,
+    "total_cost": 1491.83,
     "default": true,
     "sort_order": 0
   },
@@ -29,9 +29,9 @@
     "Plan": "Blue Cross and Blue Shield",
     "Option": "FEHB 106",
     "Tier": "Self Plus One",
-    "ee_cost": 74.34,
+    "ee_cost": 366.94,
     "er_cost": 900,
-    "total_cost": 974.34,
+    "total_cost": 1266.94,
     "default": false,
     "sort_order": 0
   },

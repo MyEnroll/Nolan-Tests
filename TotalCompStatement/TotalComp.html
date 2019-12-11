@@ -38,8 +38,8 @@
     <div class="uk-section uk-section-small uk-section-de uk-position-relative">
         <div class="uk-container">
             <div>
-                <ul id="totalCompAccord" uk-accordion="multiple: true">
-                    <li class="uk-open  me-accordion-card uk-border-rounded">
+                <ul id="totalCompAccord" uk-accordion="multiple: false">
+                    <li class="uk-open me-accordion-card uk-border-rounded">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 1: Let us know a
                             little about the Employee</a>
                         <div id="totCompForm" class="uk-accordion-content me-accordion-content uk-padding-small">
@@ -159,7 +159,7 @@
                             </div>
                         </div>
                     </li>
-                    <li id="compDetailsSect" class="me-accordion-card uk-border-rounded">
+                    <li id="compDetailsSect" class=" me-accordion-card uk-border-rounded">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 2: Total
                             Compensation Breakdown</a>
                         <div class="uk-accordion-content me-accordion-content uk-padding-small">
@@ -310,17 +310,20 @@
 
                                             <div class="uk-width-2-5@m">
                                                 <div id="chartArea"
-                                                    class="uk-animation-slide-left-medium uk-child-width-expand uk-grid-small uk-grid-stack uk-hidden"
+                                                    class="uk-animation-slide-left-medium uk-child-width-1-1 uk-grid-small uk-grid-stack uk-hidden"
                                                     uk-grid>
                                                     <div id="chart">
                                                         <template>
                                                             <div>
                                                                 <apexchart type=pie :options="chartOptions"
                                                                     :series="series" />
-
-
                                                             </div>
                                                         </template>
+                                                    </div>
+                                                    <div id="messageArea">
+                                                        <h2  class="uk-padding-large uk-text-center">
+                                                                <div style="color: #6f42c1">Did you know FDIC was named best employer of all federal agencies in 2019?</div>
+                                                        </h2>
                                                     </div>
 
                                                 </div>
@@ -331,19 +334,15 @@
                                                         <div class="uk-inline  uk-width-expand uk-text-right">
                                                             <button class="uk-button uk-button-primary"
                                                                 type="button">Select Plans/Benefit Levels</button>
-
-
-
-
-
-                                                                
-                                                            <div uk-dropdown="mode: click;pos:left;delay-hide:0" id="planSelectionsDrop"
+                                                            <div uk-dropdown="mode: click;pos:left;delay-hide:0"
+                                                                id="planSelectionsDrop"
                                                                 class="me-dropdown uk-width-xxlarge@m uk-padding-remove uk-border-rounded uk-overflow-auto">
-                                                                <div class="text-light uk-padding-small uk-section uk-section-primary uk-section-xsmall uk-text-left uk-width-1-1@m uk-flex uk-flex-between uk-flex-middle">
+                                                                <div
+                                                                    class="text-light uk-padding-small uk-section uk-section-primary uk-section-xsmall uk-text-left uk-width-1-1@m uk-flex uk-flex-between uk-flex-middle">
                                                                     <span>Plan Choices</span>
                                                                     <i class="fal fa-times me-close-btn"></i>
                                                                 </div>
-                                                               
+
                                                                 <div class="uk-padding-small uk-child-width-auto uk-grid-small uk-text-left"
                                                                     uk-grid>
                                                                     <div class="uk-width-1-1@m uk-text-right">
@@ -398,43 +397,46 @@
                                                     </div>
                                                     <div id="ratesTable" class="uk-width-1-1 uk-hidden">
                                                         <div class="me-table-border uk-overflow-auto">
-                                                            <table class="uk-table uk-table-divider">
+                                                            <div class="table-title-bar">
+                                                                Insurance Benefits
+                                                            </div>
+                                                            <table class="uk-table uk-table-divider uk-table-middle">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>
                                                                             Plans
                                                                         </th>
-                                                                        <th>
+                                                                        <th class="uk-text-center">
                                                                             Benefit Level
                                                                         </th>
-                                                                        <th>
+                                                                        <th class="uk-text-center">
                                                                             Total Premium Biweekly
                                                                         </th>
-                                                                        <th>
+                                                                        <th class="uk-text-center">
                                                                             Employee Contribution Biweekly
                                                                         </th>
-                                                                        <th>
+                                                                        <th class="uk-text-center">
                                                                             Agency Contribution Weekly
                                                                         </th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr v-for="items in compContributions"
-                                                                        class=" uk-animation-fade">
+                                                                        class=" uk-animation-fade uk-animation-fast">
                                                                         <td>
-                                                                            {{ items.Plan }} - {{ items.Option }}
+                                                                            {{ items.Plan }} {{ items.Option }}
                                                                         </td>
-                                                                        <td>
+                                                                        <td class="uk-text-center">
                                                                             {{ items.Tier }}
                                                                         </td>
-                                                                        <td>
-                                                                            ${{ items.total_cost }}
+                                                                        <td class="uk-text-right">
+                                                                            {{ formatPrice(items.total_cost) }}
                                                                         </td>
-                                                                        <td>
-                                                                            ${{ items.ee_cost }}
+                                                                        <td class="uk-text-right">
+                                                                            {{ formatPrice(items.ee_cost) }}
                                                                         </td>
-                                                                        <td>
-                                                                            ${{ items.er_cost }}
+                                                                        <td class="uk-text-right">
+                                                                            {{ formatPrice(items.er_cost) }}
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -443,13 +445,16 @@
                                                     </div>
                                                     <div id="fedBenTable" class="uk-width-1-1 ">
                                                         <div class="me-table-border uk-overflow-auto">
-                                                            <table class="uk-table uk-table-divider ">
+                                                            <div class="table-title-bar">
+                                                                Federal Benefits
+                                                            </div>
+                                                            <table class="uk-table uk-table-divider uk-table-middle">
                                                                 <thead>
                                                                     <tr>
                                                                         <th class="uk-table-expand">
                                                                             Plans
                                                                         </th>
-                                                                        
+
                                                                         <th class="uk-table-shrink uk-text-center">
                                                                             Agency Contribution Weekly
                                                                         </th>
@@ -461,9 +466,9 @@
                                                                         <td>
                                                                             {{ items.Fed_Ben }}
                                                                         </td>
-                                                                        
+
                                                                         <td class=" uk-text-right">
-                                                                            {{ items.Fed_Val }}
+                                                                            {{ formatPrice(items.Fed_Val) }}
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -472,7 +477,10 @@
                                                     </div>
                                                     <div id="retBenTable" class="uk-hidden uk-width-1-1 ">
                                                         <div class="me-table-border uk-overflow-auto">
-                                                            <table class="uk-table uk-table-divider">
+                                                            <div class="table-title-bar">
+                                                                Retirement Plans
+                                                            </div>
+                                                            <table class="uk-table uk-table-divider uk-table-middle">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>
@@ -515,11 +523,29 @@
                                                             </table>
                                                         </div>
                                                     </div>
+                                                    <div id="fringeBenTable" class="uk-width-1-1 ">
+                                                        <div class="me-table-border uk-overflow-auto">
+                                                            <div class="table-title-bar">
+                                                                Additional Fringe & Insurance Benefits
+                                                            </div>
+                                                            <table class="uk-table uk-table-divider uk-table-middle">
+                                                                <tbody>
+                                                                    <tr v-for="items in fringeBenefits"
+                                                                        class=" uk-animation-fade">
+                                                                        <td>
+                                                                            {{ items.title }} <a :href="items.url"
+                                                                                target="_blank">{{ items.click_text }}</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
 
 
                                                 </div>
                                             </div>
-                                            <h1 id="noData" class="uk-width-1-1 uk-heading-small uk-text-center" >
+                                            <h1 id="noData" class="uk-width-1-1 uk-heading-small uk-text-center">
                                                 <p>
                                                     No Plans selected.
                                                 </p>

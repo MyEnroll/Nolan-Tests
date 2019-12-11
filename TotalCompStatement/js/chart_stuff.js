@@ -68,6 +68,7 @@ var chartAct = new Vue({
     reset: function () {
       this.series = CompBreakdown.costArray;
       this.chartOptions.labels = CompBreakdown.ChartLabels;
+      
     },
   }
 

@@ -1,206 +1,245 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800&display=swap');
 
-        * {
-            font-family: 'Montserrat', sans-serif;
-        }
+* {
+    font-family: 'Montserrat', sans-serif;
+}
 
-        .uk-h1,
-        .uk-h2,
-        .uk-h3,
-        .uk-h4,
-        .uk-h5,
-        .uk-h6,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: inherit;
-        }
+.uk-h1,
+.uk-h2,
+.uk-h3,
+.uk-h4,
+.uk-h5,
+.uk-h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: inherit;
+}
 
-        .uk-card-title {
-            font-size: 1.2rem;
-        }
+.uk-card-title {
+    font-size: 1.2rem;
+}
 
-        .uk-form-label {
-            font-size: .95rem;
-        }
+.uk-form-label {
+    font-size: .95rem;
+}
 
-        .uk-input, .uk-select {
-            border-radius: 5px;
-        }
+.uk-input,
+.uk-select {
+    border-radius: 5px;
+}
 
-        .uk-input:hover,
-        .uk-input:focus,
-        .uk-select:hover,
-        .uk-select:focus {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
-        }
+.uk-input:hover,
+.uk-input:focus,
+.uk-select:hover,
+.uk-select:focus {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+}
 
-        .uk-accordion-title::before {
-            content: "\f054 ";
-            font-family: "Font Awesome 5 Pro";
-            transition: .2s ease;
-            text-align: center;
-            background-image: none;
+.uk-accordion-title::before {
+    content: "\f054 ";
+    font-family: "Font Awesome 5 Pro";
+    transition: .2s ease;
+    text-align: center;
+    background-image: none;
 
-        }
+}
 
-        .uk-open>.uk-accordion-title::before {
-            content: "\f054 ";
-            font-family: "Font Awesome 5 Pro";
-            transform: rotate(90deg);
-            background-image: none;
-        }
+.uk-open>.uk-accordion-title::before {
+    content: "\f054 ";
+    font-family: "Font Awesome 5 Pro";
+    transform: rotate(90deg);
+    background-image: none;
+}
 
-        a.text-light:focus,
-        a.text-light:hover {
-            color: #cbd3da !important;
-        }
+a.text-light:focus,
+a.text-light:hover {
+    color: #cbd3da !important;
+}
 
-        a.text-light:focus {
-            color: #fff !important;
-        }
+a.text-light:focus {
+    color: #fff !important;
+}
 
-        .me-accordion-card {
-            border: 1px solid #c1c1c1;
-            background: #fff;
-        }
-
-
-        .me-accordion-title {
-            color: #000 !important;
-            font-size: 1.25rem;
-            padding: 10px 15px;
-            position: relative;
-        }
-
-        .me-accordion-content {
-            margin-top: 0px;
-            border-top: 1px solid #c1c1c1;
-        }
-
-        .uk-accordion-title:focus,
-        .uk-accordion-title:hover {
-            color: white;
-        }
-        input[type="radio"], input[type="checkbox"] {
-            display: none;
-        }
-        input[type="radio"]+label, input[type="checkbox"]+label {
-            background: #fff;
-            border-radius: 500px;
-            border: 1px solid #c1c1c1;
-            color: #4f4f4f;
-            transition: .2s ease;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        .uk-dropdown input[type="radio"]+label, input[type="checkbox"]+label {
-            background: #fff;
-            border-radius: 500px;
-            border: 1px solid #c1c1c1;
-            color: #4f4f4f;
-            transition: .2s ease;
-            padding: 5px 10px;
-            cursor: pointer;
-            color: #1e87f0;
-        }
+.me-accordion-card {
+    border: 1px solid #c1c1c1;
+    background: #fff;
+}
 
 
-        input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
-            background: #1e87f0;
-            color: #fff;
-            padding-left: 35px; 
-            position: relative;
-        }
-        .uk-dropdown input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
-            background: #1e87f0;
-            color: #fff;
-            padding-left: 10px;
-            position: relative;
-        }
+.me-accordion-title {
+    color: #000 !important;
+    font-size: 1.25rem;
+    padding: 10px 15px;
+    position: relative;
+}
 
-        input[type="radio"]:checked+label:before, input[type="checkbox"]:checked+label:before {
-            content: "\f00c";
-            font-family: "Font Awesome 5 Pro";
-            font-weight: 400;
-            color: #fff;
-            font-size: 1rem;
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translatey(-50%);
-            transition: .1s ease;
-        }
-        .uk-dropdown input[type="radio"]:checked+label:before, input[type="checkbox"]:checked+label:before {
-            content: "";
-            font-family: "Font Awesome 5 Pro";
-            font-weight: 400;
-            color: #fff;
-            font-size: 1rem;
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translatey(-50%);
-            transition: .1s ease;
-        }
-        .me-name-hdr {
-            font-size: 1.1rem;
-        }
-        .table-padding-right {
-            padding-right: 10px;
-        }
-        .uk-modal-dialog {
-            border-radius: 5px;
-            overflow: auto;
-        }
-        .uk-button {
-            border-radius: 500px;
-        }
-        .me-list-pop {
-            font-size: .875rem;
-        }
-        .uk-table-small td, .uk-table-small th {
-            padding: 5px 8px;
-        }
-        .me-check-cont {
-            border-radius: 500px;
-            border: 1px solid #c1c1c1;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
-            cursor: pointer;
-            transition: .15s ease;
-        }
-        .me-label-check {
-            cursor: pointer;
-        }
-        .me-table-border {
-            border-radius: 5px;
-            border: 1px solid #c1c1c1;
-        }
-        .groupingHdr {
-            border-bottom: 1px solid #c1c1c1;
-            padding: 10px 0px;
-            font-weight: 500;
-            
-        }
-        @media only screen and (max-width:960px) {
-            .me-dropdown {
-                left: 0 !important;
-                position: fixed;
-            }
-        }
-        
-        .me-close-btn {
-            border-radius: 500px;
-            padding: 10px 13px;
-            cursor: pointer;
-            transition: .2s ease;
-        }
-        .me-close-btn:hover {
-            color: var(--danger);
-            background: #fff;
-        }
-      
-        
+.me-accordion-content {
+    margin-top: 0px;
+    border-top: 1px solid #c1c1c1;
+}
+
+.uk-accordion-title:focus,
+.uk-accordion-title:hover {
+    color: white;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="radio"]+label,
+input[type="checkbox"]+label {
+    background: #fff;
+    border-radius: 500px;
+    border: 1px solid #c1c1c1;
+    color: #4f4f4f;
+    transition: .2s ease;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.uk-dropdown input[type="radio"]+label,
+input[type="checkbox"]+label {
+    background: #fff;
+    border-radius: 500px;
+    border: 1px solid #c1c1c1;
+    color: #4f4f4f;
+    transition: .2s ease;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #1e87f0;
+}
+
+
+input[type="radio"]:checked+label,
+input[type="checkbox"]:checked+label {
+    background: #1e87f0;
+    color: #fff;
+    padding-left: 35px;
+    position: relative;
+}
+
+.uk-dropdown input[type="radio"]:checked+label,
+input[type="checkbox"]:checked+label {
+    background: #1e87f0;
+    color: #fff;
+    padding-left: 10px;
+    position: relative;
+}
+
+input[type="radio"]:checked+label:before,
+input[type="checkbox"]:checked+label:before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 400;
+    color: #fff;
+    font-size: 1rem;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translatey(-50%);
+    transition: .1s ease;
+}
+
+.uk-dropdown input[type="radio"]:checked+label:before,
+input[type="checkbox"]:checked+label:before {
+    content: "";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 400;
+    color: #fff;
+    font-size: 1rem;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translatey(-50%);
+    transition: .1s ease;
+}
+
+.me-name-hdr {
+    font-size: 1.1rem;
+}
+
+.table-padding-right {
+    padding-right: 10px;
+}
+
+.uk-modal-dialog {
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.uk-button {
+    border-radius: 500px;
+}
+
+.me-list-pop {
+    font-size: .875rem;
+}
+
+.uk-table-small td,
+.uk-table-small th {
+    padding: 5px 8px;
+}
+
+.me-check-cont {
+    border-radius: 500px;
+    border: 1px solid #c1c1c1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    cursor: pointer;
+    transition: .15s ease;
+}
+
+.me-label-check {
+    cursor: pointer;
+}
+
+.me-table-border {
+    border-radius: 5px;
+    border: 1px solid #c1c1c1;
+}
+
+.groupingHdr {
+    border-bottom: 1px solid #c1c1c1;
+    padding: 10px 0px;
+    font-weight: 500;
+
+}
+
+@media only screen and (max-width:960px) {
+    .me-dropdown {
+        left: 0 !important;
+        position: fixed;
+    }
+}
+
+.me-close-btn {
+    border-radius: 500px;
+    padding: 10px 13px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.me-close-btn:hover {
+    color: var(--danger);
+    background: #fff;
+}
+
+.table-title-bar {
+    background: #697578;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px;
+}
+
+#ratesTable tbody>tr:last-child,
+#fedBenTable tbody>tr:last-child {
+    border-top: 2px solid #4f4f4f !important;
+    font-weight: 600;
+}
