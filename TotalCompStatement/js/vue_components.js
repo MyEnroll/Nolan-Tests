@@ -193,6 +193,19 @@ var CompBreakdown = new Vue({
                 'Fed_Ben': 'Medicare',
                 'Fed_Val': '$' + fedMed.toFixed(2)
             });
+            
+
+            
+            setTimeout(function() {
+                self.costArray = [];
+                chartAct.reset();
+                self.costArray.push(Math.ceil((self.salaryCollect) * 100 / 100), Math.ceil((self.InsuranceVal) * 100 / 100), fedSS, fedMed);
+            },250);
+
+            
+            chartAct.reset();
+        },
+        loadLifeInfo: function () {
             $.ajax({
                 type: "GET",
                 url: "./data/lifeRates.json",
@@ -225,20 +238,11 @@ var CompBreakdown = new Vue({
             });
             
             self.compContributions[self.compContributions.length - 1].Tier = ('$' + parseFloat(Math.round(self.salaryCollect / 1000) * 1000, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-            if (self.compContributions[self.compContributions.length - 1].Option == "FDIC Life Only") {
-                self.compContributions[self.compContributions.length - 1].ee_cost = 0;
+            self.compContributions[self.compContributions.length - 1].ee_cost = Math.ceil(((self.salaryCollect / 1000) * self.lifeEEcont) * 100) / 100;
                 self.compContributions[self.compContributions.length - 1].er_cost = Math.ceil(((self.salaryCollect / 1000) * self.lifeERcont) * 100) / 100;
                 self.compContributions[self.compContributions.length - 1].total_cost = Math.ceil(((self.compContributions[self.compContributions.length - 1].ee_cost) + (self.compContributions[self.compContributions.length - 1].er_cost)) * 100) /100;
-            };
-
-            self.costArray = [];
-            setTimeout(function() {
-                self.costArray.push(self.salaryCollect, self.InsuranceVal, fedSS, fedMed);
-            },250);
-
-            
-            chartAct.reset();
         },
+
         loadLifeRates: function () {
             var self = this;
             $.getJSON('./data/lifeRates.json', function (data) {
@@ -377,9 +381,9 @@ var CompBreakdown = new Vue({
                     $.each(self.compChoicesSel, function (index, value) {
                         $('#' + value).prop('checked', true);
                     });
-                    self.loadFedBen();
+                    
 
-
+                    
 
                 },
                 error: function (data) {
