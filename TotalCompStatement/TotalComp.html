@@ -39,7 +39,7 @@
         <div class="uk-container">
             <div>
                 <ul id="totalCompAccord" uk-accordion="multiple: false">
-                    <li class=" me-accordion-card uk-border-rounded">
+                    <li class="uk-open me-accordion-card uk-border-rounded">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 1: Let us know a
                             little about the Employee</a>
                         <div id="totCompForm" class="uk-accordion-content me-accordion-content uk-padding-small">
@@ -124,7 +124,8 @@
                                         <div class="uk-width-1-3@m">
                                             <div>
                                                 <label for="" class="uk-form-label">Retirement Plan</label>
-                                                <select class="uk-select" id="retirementDrop" v-model="selectedRetirement" v-on:change="changeRetPlan">
+                                                <select class="uk-select" id="retirementDrop"
+                                                    v-model="selectedRetirement" v-on:change="changeRetPlan">
                                                     <option disabled hidden selected value="">Please Select a Retirement
                                                         Plan...</option>
 
@@ -159,7 +160,7 @@
                             </div>
                         </div>
                     </li>
-                    <li id="compDetailsSect" class="uk-open me-accordion-card uk-border-rounded">
+                    <li id="compDetailsSect" class="uk-disabled me-accordion-card uk-border-rounded">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 2: Total
                             Compensation Breakdown</a>
                         <div class="uk-accordion-content me-accordion-content uk-padding-small">
