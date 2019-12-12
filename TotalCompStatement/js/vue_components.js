@@ -181,7 +181,9 @@ var CompFormInput = new Vue({
                 $('#retirementColl').text(retirementSel);
                 $('#classColl').text(classSel);
                 $('#compDetailsSect').removeClass('uk-disabled');
-                // CompMessageArea.loadMessage();
+                $('html,body').animate({
+                    scrollTop: $("#compDetailsSect").offset().top-20
+                 });
             }
 
         }
@@ -305,7 +307,7 @@ var CompBreakdown = new Vue({
                 'Fed_Val': self.fedMed
             });
 
-
+            
 
             setTimeout(function () {
                 self.costArray = [];
@@ -339,6 +341,7 @@ var CompBreakdown = new Vue({
             })
         },
         loadLifeInfo: function () {
+            self = this;
             $.ajax({
                 type: "GET",
                 url: "./data/lifeRates.json",
@@ -347,7 +350,7 @@ var CompBreakdown = new Vue({
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     self.lifeRate = data.filter(function (n) {
-                        return n.Plan_ID == self.compContributions[self.compContributions.length - 2].Plan_ID;
+                        return n.Plan_ID == self.compContributions[self.compContributions.length - 1].Plan_ID;
                     });
                     self.lifeEEcont = self.lifeRate[0].ee_rate;
                     self.lifeERcont = self.lifeRate[0].er_rate;
@@ -507,8 +510,9 @@ var CompBreakdown = new Vue({
                 }
             }).then(function () {
                 self.loadFedBen();
+               
+                self.pushTotalFedBen();
             });
-
             self.loadLifeInfo();
             UIkit.update(element = document.body, type = 'update');
 
