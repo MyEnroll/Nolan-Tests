@@ -16,7 +16,7 @@ var CompFormInput = new Vue({
         compStatus: [],
         compRetirement: [],
         compContributions: [],
-        selectedRetirement: ''
+        selectedRetirement: '-1'
     },
     methods: {
         changeRetPlan: function() {
@@ -108,19 +108,68 @@ var CompFormInput = new Vue({
             var time = ((today.getHours() + 24) % 12 || 12) + ":" + today.getMinutes();
             var dateTime = date + ' - ' + time + ' ' + ampm;
             var fName = $.trim($('#firstNameInput').val());
-            var mName = $.trim($('#middleNameInput').val());
             var lName = $.trim($('#lastNameInput').val());
             var emailP = $.trim($('input[type=email]').val());
             var status = $('input[name="statusSel"]:checked').val();
-            var localitySel = $('#localityDrop').children('option:selected').text();
-            var retirementSel = $('#retirementDrop').children('option:selected').text();
-            var classSel = $('#classDrop').children('option:selected').text();
+            var localitySel = $('#localityDrop').children('option:selected').val();
+            var retirementSel = $('#retirementDrop').children('option:selected').val();
+            var classSel = $('#classDrop').children('option:selected').val();
+            var emptyItems = [];
+            var emptyItemsNew = '';
             this.state = 'test';
-            if (fName == "" || lName == "" || emailP == "" || status == null || localitySel == null || retirementSel == null || classSel == null) {
-                UIkit.modal.alert('<div class="uk-text-large uk-text-primary">Oops!</div><div class="uk-margin">It looks like you missed some required fields. Make sure to fill in the below fields.</div><div><ul class="uk-list me-list-pop"><li>First Name</li><li>Last Name</li><li>Email Address</li><li>Base Salary</li><li>Status</li><li>Locality</li><li>Retirement Plan</li><li>Benefits Class</li></ul></div>').then(function () {
+            var emptyItemsInp = '';
+            var emptyItemsRad = '';
+            var emptyItemsSel = '';
+
+
+            emptyItemsInp = $('.required').filter(function() { return this.value == ""; }).prev().map(function () {
+                return '<i class="fad fa-times-circle uk-text-danger"></i>  ' + $.trim($(this).text()) + '</br>';
+            }).get();
+
+            // var emptyItemsEma = $('input[type="email"].required').filter(function() { return this.value.indexOf("@") == -1; }).prev().map(function () {
+            //     return '<i class="fad fa-times-circle uk-text-danger"></i>  ' + $.trim($(this).text()) + '</br>';
+            // }).get();
+            
+
+            emptyItemsRad = $('input:radio').not(":checked").parent().prev().children('.uk-form-label').map(function () {
+                return '<i class="fad fa-times-circle uk-text-danger"></i>  ' + $.trim($(this).text()) + '</br>' ;
+            }).get();
+
+
+            emptyItemsSel =  $('select').filter(function() { return $.trim($(this).val()).length == 0; }).prev().map(function () {
+                return '<i class="fad fa-times-circle uk-text-danger"></i>  ' + $.trim($(this).text()) + '</br>';
+            }).get();
+
+            
+
+
+            if (fName == "" || lName == "" || emailP == "" || status == null || localitySel == -1 || retirementSel == -1 || classSel == -1 || $('#totCompForm .uk-form-danger').length > 0 || $('#emailEntry').val() != $('#confirmEmailEntry').val()) {
+                
+                $('#alertArea').html('');
+                if ($('#emailEntry').val() != $('#confirmEmailEntry').val()) {
+                    emptyItems.push('<i class="fad fa-times-circle uk-text-danger"></i>  Matching Email Addresses</br>');
+                    $('#alertArea').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">Emails do not match.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                }
+                emptyItems.push(emptyItemsInp,emptyItemsRad, emptyItemsSel);
+                emptyItemsNew = emptyItems.toString().split(",").join("");
+                UIkit.modal.alert('<div class="uk-text-large uk-text-primary">Oops!</div><div class="uk-margin">It looks like you missed some required fields. Make sure to fill in the below fields.</div><div>'+ emptyItemsNew  + '</div>').then(function () {
                     console.log('Alert closed.')
                 });
+                
+                $('.required').filter(function() { return this.value == ""; }).each(function() {
+
+                    $(this).addClass('me-validate2 uk-form-danger');
+                });
+                $('select.required').filter(function() { return this.value == "-1"; }).each(function() {
+
+                    $(this).addClass('me-validate2 uk-form-danger');
+                });
+                // $('input:radio').not(':checked').each(function(e) {
+                //     $(this).siblings('label').addClass('me-validate2 uk-form-danger');
+                // })
+
             } else {
+                $('.alert-danger').alert('close');
                 CompBreakdown.calcComp();
                 UIkit.accordion('#totalCompAccord').toggle(0);
                 UIkit.accordion('#totalCompAccord').toggle(1);
@@ -298,7 +347,7 @@ var CompBreakdown = new Vue({
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     self.lifeRate = data.filter(function (n) {
-                        return n.Plan_ID == self.compContributions[self.compContributions.length - 1].Plan_ID;
+                        return n.Plan_ID == self.compContributions[self.compContributions.length - 2].Plan_ID;
                     });
                     self.lifeEEcont = self.lifeRate[0].ee_rate;
                     self.lifeERcont = self.lifeRate[0].er_rate;
