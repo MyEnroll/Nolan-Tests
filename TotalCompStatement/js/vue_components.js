@@ -15,9 +15,19 @@ var CompFormInput = new Vue({
         compClasses: [],
         compStatus: [],
         compRetirement: [],
-        compContributions: []
+        compContributions: [],
+        selectedRetirement: ''
     },
     methods: {
+        changeRetPlan: function() {
+            self = this;
+            CompBreakdown.compRetPlans[0].Plan_Type = self.selectedRetirement;
+            CompBreakdown.compRetPlansSel = self.compRetirement.filter(function (n) {
+                return n.PLAN == self.selectedRetirement;
+            });
+            CompBreakdown.compRetPlans[0].agency_cont_level =  CompBreakdown.compRetPlansSel[0].ER_BWK_CONT_PERC;
+            
+        },
 
         loadLocality: function () {
             var self = this;
@@ -88,6 +98,7 @@ var CompFormInput = new Vue({
                 }
             });
         },
+        
         runReport: function () {
 
 
@@ -164,6 +175,8 @@ var CompBreakdown = new Vue({
         fedSS: '',
         fedMed: '',
         FedBenVal: '',
+        compRetPlans: [],
+        compRetPlansSel: [],
         fringeBenefits: [],
 
         ChartLabels: ['Base Salary', 'Insurance Benefits', 'Social Security', 'Medicare']
@@ -175,6 +188,24 @@ var CompBreakdown = new Vue({
 
     },
     methods: {
+        loadRetirementPlans: function() {
+            self = this;
+            $.ajax({
+                type: "GET",
+                url: "./data/retirementPlans.json",
+                data: JSON.stringify({}),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log(data);
+                    self.compRetPlans = data;
+                },
+                error: function (data) {
+                    // alert("Error: " + data.d);
+                    console.log('error');
+                }
+            });
+        },
         loadVariables: function () {
             self = this;
             $.getJSON('./data/variables.json', function (data) {
@@ -327,6 +358,7 @@ var CompBreakdown = new Vue({
         },
         calcComp: function () {
             var self = this;
+            
             self.loadDefault();
         },
         loadChoices: function () {
@@ -455,6 +487,7 @@ var CompBreakdown = new Vue({
         this.loadVariables();
         this.loadFringeBen();
         this.loadChoices();
+        this.loadRetirementPlans();
     }
 });
 var CompMessageArea = new Vue({

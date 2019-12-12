@@ -52,13 +52,40 @@ var chartAct = new Vue({
     series: CompBreakdown.costArray,
     chartOptions: {
       id: 'costChart',
+      title: {
+        text: 'Total Comp. Breakdown',
+        align: 'center',
+        margin: 20,
+        floating: false,
+        style: {
+          fontSize: '20px',
+          color: '#263238'
+        },
+      },
+      legend: {
+        position: 'bottom',
+        horizontalAlign: 'center',
+        floating: false,
+        fontSize: '14px',
+        itemMargin: {
+          horizontal: 5,
+          vertical: 5
+        },
+        onItemClick: {
+          toggleDataSeries: true
+        },
+        onItemHover: {
+          highlightDataSeries: true
+        },
+      },
       labels: CompBreakdown.ChartLabels,
       responsive: [{
         breakpoint: 480,
         options: {
-
-          legend: {
-            position: 'bottom'
+          plotOptions: {
+            pie: {
+              size: '100%'
+            }
           }
         }
       }]
@@ -68,7 +95,7 @@ var chartAct = new Vue({
     reset: function () {
       this.series = CompBreakdown.costArray;
       this.chartOptions.labels = CompBreakdown.ChartLabels;
-      
+
     },
   }
 

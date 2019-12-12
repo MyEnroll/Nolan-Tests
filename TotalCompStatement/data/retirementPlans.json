@@ -1,0 +1,20 @@
+[
+    {
+        "PLAN": "Federal Retirement Plan",
+        "Plan_Type": "",
+        "agency_cont_level": "",
+        "agency_cont_bwk": ""
+    },
+    {
+        "PLAN": "FDIC Savings Plan",
+        "Plan_Type": "401(k)",
+        "agency_cont_level": "",
+        "agency_cont_bwk": ""
+    },
+    {
+        "PLAN": "FDIC Defined Benefit Plan",
+        "Plan_Type": "",
+        "agency_cont_level": "",
+        "agency_cont_bwk": ""
+    }
+]
