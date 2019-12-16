@@ -230,7 +230,7 @@ var CompBreakdown = new Vue({
         compRetPlansSel: [],
         fringeBenefits: [],
 
-        ChartLabels: ['Base Salary', 'Insurance Benefits', 'Social Security', 'Medicare']
+        ChartLabels: ['Insurance Benefits', 'Social Security', 'Medicare']
     },
     computed: {
         grouping() {
@@ -312,7 +312,7 @@ var CompBreakdown = new Vue({
             setTimeout(function () {
                 self.costArray = [];
                 chartAct.reset();
-                self.costArray.push(Math.ceil((self.salaryCollect) * 100 / 100), Math.ceil((self.InsuranceVal) * 100 / 100), Math.ceil((self.fedSS) * 100 / 100), Math.ceil((self.fedMed) * 100 / 100));
+                self.costArray.push( Math.ceil((self.InsuranceVal) * 100 / 100), Math.ceil((self.fedSS) * 100 / 100), Math.ceil((self.fedMed) * 100 / 100));
                 self.pushTotalIns();
                 self.pushTotalFedBen();
 
