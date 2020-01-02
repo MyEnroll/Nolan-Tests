@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <link rel="stylesheet" href="./styles/hsamain.css">
+</head>
+
+<body class="uk-background-muted">
+    <div>
+        <div class="uk-section uk-padding-remove-bottom">
+            <div class="uk-container">
+                <div class="uk-card uk-card-default uk-card-body uk-padding-small">
+                    <h3 class="uk-heading-divider">
+                        Health Spending Account
+                    </h3>
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, ullam consectetur. Reiciendis,
+                        voluptatibus explicabo. Enim voluptate possimus, et deleniti quo laudantium iure nihil molestiae
+                        totam! Vero voluptatibus laudantium ipsam est neque tenetur dolor vitae pariatur facere nihil
+                        autem explicabo saepe fugiat sed dolores quia, ex repellendus voluptatem cumque eos. Corporis
+                        ratione soluta placeat, excepturi blanditiis maiores obcaecati aspernatur, impedit sequi hic
+                        rerum, illum id temporibus. Exercitationem nobis minus ullam neque eligendi reiciendis, fugit
+                        cumque omnis aut quidem id, in aperiam! Beatae nemo quas id eligendi placeat voluptatibus quasi
+                        inventore dolor porro eum saepe dolorum alias magni asperiores animi at nam aut, cupiditate
+                        repellendus deleniti maiores quis qui sequi laborum. Tempore dolor doloribus enim id
+                        exercitationem. Cupiditate voluptatibus optio voluptatem perspiciatis sapiente? Quaerat deserunt
+                        corrupti adipisci totam, earum fuga porro provident cum minima molestiae ab, officia asperiores
+                        voluptatem! Quod blanditiis consequuntur autem non consequatur. Laboriosam eum incidunt
+                        voluptatem eos eligendi cupiditate debitis voluptates atque aspernatur esse aperiam, ipsum
+                        dignissimos tenetur! Sapiente dolor voluptates blanditiis quia voluptate? Adipisci nihil
+                        repellat provident odit tempora omnis consectetur temporibus impedit facilis beatae esse harum
+                        fugiat odio, nam et architecto doloremque. Adipisci neque earum ducimus nihil. Error ullam
+                        aperiam in, iusto saepe necessitatibus deleniti asperiores! Nemo.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-section uk-padding">
+            <div class="uk-container">
+                <div id="hsaInputArea" class="uk-grid-small uk-child-width-expand@m" uk-grid>
+                    <div class="uk-width-2-3@m">
+                        <div class="uk-card uk-card-default uk-card-body uk-padding-small">
+                            <h3 class="uk-card-title uk-heading-divider">
+                                HSA Elections
+                            </h3>
+                            <div class="uk-grid-small uk-child-width-1-2@m" uk-grid>
+                                <div class="uk-width-1-1">
+                                    <div>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptates
+                                        provident porro natus blanditiis. Tempore explicabo voluptas repellat dolorem
+                                        aliquam.
+                                    </div>
+                                </div>
+                                <div>
+                                    <input v-model="hsaOpt" value="1" id="electHSA" type="radio" name="hsaSelection">
+                                    <label for="electHSA">Yes, Contribute to HSA</label>
+                                </div>
+                                <div>
+                                    <input v-model="hsaOpt" value="0" id="waiveHSA" type="radio" name="hsaSelection">
+                                    <label for="waiveHSA">No, do not contribute to HSA</label>
+                                </div>
+                                <div v-if="hsaOpt == 1" class="uk-width-1-1">
+                                    <label for="">Annual Contribution</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <input v-model="hsaAnnualVal" type="number" class="form-control" placeholder="Enter the amount you wish to contribute annually...">
+                                    </div>
+                                </div>
+                                <div v-else></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body uk-padding-small">
+                            <h3 class="uk-card-title uk-heading-divider">
+                                Totals
+                            </h3>
+                            <div>
+                                <label for=""></label>
+                                <div v-if="hsaAnnualVal > 0 && hsaOpt == 1">
+                                    <label for="">Annual Amount</label>
+                                    <div>${{ hsaAnnualVal }}</div>
+                                    <hr>
+                                    <label for="">Bi-Weekly Amount</label>
+                                    <div>${{ hsaBWK }}</div>
+                                </div>
+                                <div v-else>No Contribution Entered</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
