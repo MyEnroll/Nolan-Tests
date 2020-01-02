@@ -1,0 +1,108 @@
+.uk-card {
+    border-radius: 5px;
+    border: 1px solid #eaeaea;
+}
+.me-profile-pic {
+    width: 125px;
+    height: 125px;
+    border-radius: 500px;
+    background: #c1c1c1;
+    margin: auto;
+    margin-top: -65px;
+    position: relative;
+    box-shadow: 0px 6px 16px rgba(0,0,0,.05);
+    overflow: hidden;
+}
+.me-profile-banner-grad {
+    height: 200px;
+    background-position: 0px -250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+.me-profile-banner-grad::after {
+    height: 200px;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background-image: linear-gradient(transparent, #f8f8f8);
+    left: 0;
+    right: 0;
+}
+.me-profile-banner {
+    width:100%;
+    
+}
+.me-profile-card {
+    min-width: 350px;
+    max-width: 350px;
+}
+.me-speedbutton-under {
+    padding-top: 10px;
+    font-size: .75rem;
+    white-space: nowrap;
+}
+.me-speedbutton {
+    width: 100px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.me-speedbutton:hover {
+    transform: scale(1.15);
+}
+.me-sticky-top {
+    position: sticky;
+    top: 20px;
+}
+.me-name-hdr {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 5px auto;
+}
+.me-location-hdr {
+    font-size: 1rem;
+    font-weight: 400;
+}
+.me-info-block {
+    margin-top: 10px;
+}
+.me-info-block>div {
+    margin-top: 10px;
+}
+.me-info-block-icon-container {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #eaeaea;
+    border-radius: 500px;
+    margin-right: 10px;
+    color: #4f4f4f;
+}
+.me-info-block-icon {
+    transform: translateY(-50%);
+    top: 50%;
+    position: relative;
+}
+.me-dashboard-item {
+    cursor: pointer;
+    transition: .2s ease;
+}
+.me-dashboard-item:hover {
+    transform: scale(1.1);
+}
+.me-dashboard-metric {
+    font-size: 1.75rem;
+    font-weight: 300;
+}
+.me-profile-actions button {
+    padding: 0 10px;
+}
+.me-small-hdr-divider {
+    border-bottom: 1px solid #c1c1c1;
+}
+@media only screen and (max-width: 640px) {
+    .me-profile-card {
+        max-width: 100%;
+    }
+}
