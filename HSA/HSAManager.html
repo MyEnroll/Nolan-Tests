@@ -31,7 +31,22 @@
                         Health Spending Account
                     </h3>
                     <div>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate doloribus exercitationem numquam distinctio commodi rem reprehenderit veritatis consequatur, dicta quae vitae recusandae sint blanditiis fugit accusantium dignissimos nemo optio qui vel. Ut alias nostrum reiciendis corporis vel, sequi veritatis sunt rem quam illum earum! Expedita suscipit doloremque ad perferendis. Saepe omnis fugit praesentium non eaque adipisci perferendis et fugiat nemo nam maiores, placeat numquam dolor id alias error perspiciatis ipsa, assumenda voluptas mollitia? Voluptatibus, dolore amet! Minima culpa accusamus alias hic fuga doloremque recusandae quia ea tempore eius impedit repudiandae illum optio esse eaque ullam natus, repellendus dolorum eligendi vitae, dolore at, enim modi. Vitae fugit eaque tenetur alias molestias rerum, libero consequatur iure praesentium nihil quam in dicta nemo dolorum nulla facere provident repellat deserunt qui. Iste hic ducimus neque saepe asperiores qui ad delectus quo cum. Deleniti, veniam voluptatum. Laborum ipsum nesciunt expedita delectus distinctio, fugiat tenetur itaque iure incidunt error ut labore, odio, quod quos? Laborum ducimus assumenda provident reprehenderit corporis dolorum impedit quisquam! Unde eveniet, rerum, deleniti soluta nisi doloremque laboriosam nam delectus aspernatur amet praesentium dignissimos excepturi nulla architecto in nemo labore ab nesciunt reprehenderit, quae id accusamus inventore porro! Labore amet facilis eligendi cumque?
+                        <h3><strong>What is a health savings account?</strong></h3>
+                        <p>A health savings account, or HSA, is a tax-advantaged savings and investment account designed
+                            to help Americans with high-deductible health insurance plans save for their out-of-pocket
+                            medical expenses. Contributions to HSAs are tax-deductible, and withdrawals for qualified
+                            health-care expenses are tax-free as well.</p>
+                        <p>As you'll see as we go through the details, an HSA is rather different from a&nbsp;<u><a
+                                    tabindex="-1"
+                                    title="https://www.fool.com/taxes/2019/01/03/2019-fsa-changes-put-flexible-spending-accounts-to.aspx"
+                                    href="https://www.fool.com/taxes/2019/01/03/2019-fsa-changes-put-flexible-spending-accounts-to.aspx"
+                                    target="_blank" rel="noreferrer noopener">flexible spending account</a></u>, or FSA,
+                            even though they're both tax-advantaged vehicles for health-care savings. With an HSA,
+                            unlike an FSA, you can invest the money you contribute, and you can choose to carry over the
+                            funds from year to year.</p>
+                        <p>In fact, you don't need to spend the money in your HSA in&nbsp;<em>any</em>&nbsp;specific
+                            time frame. That makes it an excellent way to save and invest for anticipated health-care
+                            expenses after retirement.</p>
                     </div>
                 </div>
             </div>
@@ -47,12 +62,17 @@
                             <div class="uk-grid-small uk-child-width-1-2@m" uk-grid>
                                 <div class="uk-width-1-1">
                                     <div>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptates
-                                        provident porro natus blanditiis. Tempore explicabo voluptas repellat dolorem
-                                        aliquam.
+                                        <p>
+                                            HSA Contribution Limits. The 2020 annual HSA contribution limit is $3,550
+                                            for individuals with self-only HDHP coverage (up from $3,500 in 2019), and
+                                            $7,100 for individuals with family HDHP coverage (up from $7,000 in 2019).
+                                        </p>
                                     </div>
                                     <div>
-                                        Maximum for <b>{{ chosenHSAPlan }}</b>: <b class="uk-text-primary">${{ hsaMax }}</b>
+                                        <p>
+                                            Maximum for <b>{{ chosenHSAPlan }}</b>: <b
+                                                class="uk-text-primary">${{ hsaMax }}</b>
+                                        </p>
                                     </div>
                                 </div>
                                 <div>
@@ -69,9 +89,10 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        <input v-model="hsaAnnualVal" type="number" class="form-control" :max="hsaMax" placeholder="Enter the amount you wish to contribute annually...">
+                                        <input v-model="hsaAnnualVal" type="number" class="form-control" :max="hsaMax"
+                                            placeholder="Enter the amount you wish to contribute annually...">
                                     </div>
-                                 
+
                                 </div>
                                 <div v-else></div>
                             </div>
@@ -85,11 +106,20 @@
                             <div>
                                 <label for=""></label>
                                 <div v-if="hsaAnnualVal > 0 && hsaOpt == 1">
-                                    <label for="">Annual Amount</label>
-                                    <div>${{ hsaAnnualVal }}</div>
+                                   <div v-if="hsaAnnualDone > 0">
+                                    <label for="">Amount already contributed</label>
+                                    <div>${{ hsaAnnualDone }}</div>
+                                    <hr>
+                                   </div>
+                                   
+                                   
+                                    <label for="">Annual Amount <span v-if="hsaAnnualDone > 0"><b>(Remaining)</b></span></label>
+                                    <div v-if="hsaAnnualVal > hsaAnnualDone">${{ hsaAnnualRem }}</div>
+                                    <div v-else>No Contribution Necessary</div>
                                     <hr>
                                     <label for="">Per Pay Amount <b>(Pay Periods: {{ perPayCount }})</b></label>
-                                    <div>${{ hsaBWK }}</div>
+                                    <div v-if="hsaAnnualVal > hsaAnnualDone">${{ hsaBWK }}</div>
+                                    <div v-else>No Contribution Necessary</div>
                                 </div>
                                 <div v-else>No Contribution Entered</div>
                             </div>
