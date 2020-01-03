@@ -23,30 +23,15 @@
 
 <body class="uk-background-muted">
     <div>
-        <div class="uk-section uk-padding-remove-bottom">
+        <div class="uk-section uk-section-large uk-width-1-1 uk-position-absolute uk-section-secondary"></div>
+        <div class="uk-section uk-padding-remove-bottom uk-position-relative">
             <div class="uk-container">
                 <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                     <h3 class="uk-heading-divider">
                         Health Spending Account
                     </h3>
                     <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, ullam consectetur. Reiciendis,
-                        voluptatibus explicabo. Enim voluptate possimus, et deleniti quo laudantium iure nihil molestiae
-                        totam! Vero voluptatibus laudantium ipsam est neque tenetur dolor vitae pariatur facere nihil
-                        autem explicabo saepe fugiat sed dolores quia, ex repellendus voluptatem cumque eos. Corporis
-                        ratione soluta placeat, excepturi blanditiis maiores obcaecati aspernatur, impedit sequi hic
-                        rerum, illum id temporibus. Exercitationem nobis minus ullam neque eligendi reiciendis, fugit
-                        cumque omnis aut quidem id, in aperiam! Beatae nemo quas id eligendi placeat voluptatibus quasi
-                        inventore dolor porro eum saepe dolorum alias magni asperiores animi at nam aut, cupiditate
-                        repellendus deleniti maiores quis qui sequi laborum. Tempore dolor doloribus enim id
-                        exercitationem. Cupiditate voluptatibus optio voluptatem perspiciatis sapiente? Quaerat deserunt
-                        corrupti adipisci totam, earum fuga porro provident cum minima molestiae ab, officia asperiores
-                        voluptatem! Quod blanditiis consequuntur autem non consequatur. Laboriosam eum incidunt
-                        voluptatem eos eligendi cupiditate debitis voluptates atque aspernatur esse aperiam, ipsum
-                        dignissimos tenetur! Sapiente dolor voluptates blanditiis quia voluptate? Adipisci nihil
-                        repellat provident odit tempora omnis consectetur temporibus impedit facilis beatae esse harum
-                        fugiat odio, nam et architecto doloremque. Adipisci neque earum ducimus nihil. Error ullam
-                        aperiam in, iusto saepe necessitatibus deleniti asperiores! Nemo.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate doloribus exercitationem numquam distinctio commodi rem reprehenderit veritatis consequatur, dicta quae vitae recusandae sint blanditiis fugit accusantium dignissimos nemo optio qui vel. Ut alias nostrum reiciendis corporis vel, sequi veritatis sunt rem quam illum earum! Expedita suscipit doloremque ad perferendis. Saepe omnis fugit praesentium non eaque adipisci perferendis et fugiat nemo nam maiores, placeat numquam dolor id alias error perspiciatis ipsa, assumenda voluptas mollitia? Voluptatibus, dolore amet! Minima culpa accusamus alias hic fuga doloremque recusandae quia ea tempore eius impedit repudiandae illum optio esse eaque ullam natus, repellendus dolorum eligendi vitae, dolore at, enim modi. Vitae fugit eaque tenetur alias molestias rerum, libero consequatur iure praesentium nihil quam in dicta nemo dolorum nulla facere provident repellat deserunt qui. Iste hic ducimus neque saepe asperiores qui ad delectus quo cum. Deleniti, veniam voluptatum. Laborum ipsum nesciunt expedita delectus distinctio, fugiat tenetur itaque iure incidunt error ut labore, odio, quod quos? Laborum ducimus assumenda provident reprehenderit corporis dolorum impedit quisquam! Unde eveniet, rerum, deleniti soluta nisi doloremque laboriosam nam delectus aspernatur amet praesentium dignissimos excepturi nulla architecto in nemo labore ab nesciunt reprehenderit, quae id accusamus inventore porro! Labore amet facilis eligendi cumque?
                     </div>
                 </div>
             </div>
@@ -66,6 +51,9 @@
                                         provident porro natus blanditiis. Tempore explicabo voluptas repellat dolorem
                                         aliquam.
                                     </div>
+                                    <div>
+                                        Maximum for <b>{{ chosenHSAPlan }}</b>: <b class="uk-text-primary">${{ hsaMax }}</b>
+                                    </div>
                                 </div>
                                 <div>
                                     <input v-model="hsaOpt" value="1" id="electHSA" type="radio" name="hsaSelection">
@@ -81,8 +69,9 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        <input v-model="hsaAnnualVal" type="number" class="form-control" placeholder="Enter the amount you wish to contribute annually...">
+                                        <input v-model="hsaAnnualVal" type="number" class="form-control" :max="hsaMax" placeholder="Enter the amount you wish to contribute annually...">
                                     </div>
+                                 
                                 </div>
                                 <div v-else></div>
                             </div>
@@ -99,7 +88,7 @@
                                     <label for="">Annual Amount</label>
                                     <div>${{ hsaAnnualVal }}</div>
                                     <hr>
-                                    <label for="">Bi-Weekly Amount</label>
+                                    <label for="">Per Pay Amount <b>(Pay Periods: {{ perPayCount }})</b></label>
                                     <div>${{ hsaBWK }}</div>
                                 </div>
                                 <div v-else>No Contribution Entered</div>

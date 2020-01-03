@@ -3,13 +3,23 @@ var HSAInput = new Vue ({
     data: {
         hsaAnnualVal: null,
         hsaBWK: null,
-        hsaOpt: null
+        hsaOpt: null,
+        hsaMax: 7100,
+        perPayCount: 26,
+        chosenHSAPlan: 'HSA Plan 1',
+        
 
     },
     watch: {
         hsaAnnualVal: function() {
-            this.hsaBWK = (Number(this.hsaAnnualVal) / 26).toFixed(2)
+            if (this.hsaAnnualVal <= this.hsaMax) {
+                this.hsaBWK = (Number(this.hsaAnnualVal) / this.perPayCount).toFixed(2);
+            } else {
+                this.hsaBWK = (Number(this.hsaMax) / this.perPayCount).toFixed(2);
+                this.hsaAnnualVal = this.hsaMax;
+            }
         },
+       
         hsaOpt: function() {
             
         }
