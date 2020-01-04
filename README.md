@@ -8,10 +8,10 @@ This page will be updated with new applications for review and approval before m
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
--[HSA](/hsa/)
--[Library]/(/library/)
--[PLA Redesign](/PLA_Redesign/)
--[User Profile](/UserProfile/)
+* [HSA](/hsa/)
+* [Library](/library/)
+* [PLA Redesign](/PLA_Redesign/)
+* [User Profile](/UserProfile/)
 
 
 ### Support or Contact
