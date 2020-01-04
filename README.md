@@ -8,7 +8,7 @@ This page will be updated with new applications for review and approval before m
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-* [HSA](HSA/)
+* [HSA](HSA/HSAManager.html)
 * [Library](Library/)
 * [PLA Redesign](PLA_Redesign/)
 * [User Profile](UserProfile/)
