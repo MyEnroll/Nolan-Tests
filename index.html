@@ -1,136 +1,50 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>Nolan&apos;s Test Stuff</title>
+
+
+    <!-- CSS -->
+    <!-- Bootstrap -->
     <link rel="stylesheet"
         href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <!-- UIKit -->
     <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
-    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <!-- FontAweseome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
+    <!-- BAS Custom -->
+
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
     <script
         src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
     </script>
+    <!-- UIKit -->
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
-    <link rel="stylesheet"
-        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
-    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
-    <link rel="stylesheet" href="./styles/hsamain.css">
 </head>
 
-<body class="uk-background-muted">
-    <div>
-        <div class="uk-section uk-section-large uk-width-1-1 uk-position-absolute uk-section-secondary"></div>
-        <div class="uk-section uk-padding-remove-bottom uk-position-relative">
-            <div class="uk-container">
-                <div class="uk-card uk-card-default uk-card-body uk-padding-small">
-                    <h3 class="uk-heading-divider">
-                        Health Spending Account
-                    </h3>
-                    <div>
-                        <h3><strong>What is a health savings account?</strong></h3>
-                        <p>A health savings account, or HSA, is a tax-advantaged savings and investment account designed
-                            to help Americans with high-deductible health insurance plans save for their out-of-pocket
-                            medical expenses. Contributions to HSAs are tax-deductible, and withdrawals for qualified
-                            health-care expenses are tax-free as well.</p>
-                        <p>As you'll see as we go through the details, an HSA is rather different from a&nbsp;<u><a
-                                    tabindex="-1"
-                                    title="https://www.fool.com/taxes/2019/01/03/2019-fsa-changes-put-flexible-spending-accounts-to.aspx"
-                                    href="https://www.fool.com/taxes/2019/01/03/2019-fsa-changes-put-flexible-spending-accounts-to.aspx"
-                                    target="_blank" rel="noreferrer noopener">flexible spending account</a></u>, or FSA,
-                            even though they're both tax-advantaged vehicles for health-care savings. With an HSA,
-                            unlike an FSA, you can invest the money you contribute, and you can choose to carry over the
-                            funds from year to year.</p>
-                        <p>In fact, you don't need to spend the money in your HSA in&nbsp;<em>any</em>&nbsp;specific
-                            time frame. That makes it an excellent way to save and invest for anticipated health-care
-                            expenses after retirement.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="uk-section uk-padding">
-            <div class="uk-container">
-                <div id="hsaInputArea" class="uk-grid-small uk-child-width-expand@m" uk-grid>
-                    <div class="uk-width-2-3@m">
-                        <div class="uk-card uk-card-default uk-card-body uk-padding-small">
-                            <h3 class="uk-card-title uk-heading-divider">
-                                HSA Elections
-                            </h3>
-                            <div class="uk-grid-small uk-child-width-1-2@m" uk-grid>
-                                <div class="uk-width-1-1">
-                                    <div>
-                                        <p>
-                                            HSA Contribution Limits. The 2020 annual HSA contribution limit is $3,550
-                                            for individuals with self-only HDHP coverage (up from $3,500 in 2019), and
-                                            $7,100 for individuals with family HDHP coverage (up from $7,000 in 2019).
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p>
-                                            Maximum for <b>{{ chosenHSAPlan }}</b>: <b
-                                                class="uk-text-primary">${{ hsaMax }}</b>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <input v-model="hsaOpt" value="1" id="electHSA" type="radio" name="hsaSelection">
-                                    <label for="electHSA">Yes, Contribute to HSA</label>
-                                </div>
-                                <div>
-                                    <input v-model="hsaOpt" value="0" id="waiveHSA" type="radio" name="hsaSelection">
-                                    <label for="waiveHSA">No, do not contribute to HSA</label>
-                                </div>
-                                <div v-if="hsaOpt == 1" class="uk-width-1-1">
-                                    <label for="">Annual Contribution</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">$</span>
-                                        </div>
-                                        <input v-model="hsaAnnualVal" type="number" class="form-control" :max="hsaMax"
-                                            placeholder="Enter the amount you wish to contribute annually...">
-                                    </div>
+<body>
 
-                                </div>
-                                <div v-else></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default uk-card-body uk-padding-small">
-                            <h3 class="uk-card-title uk-heading-divider">
-                                Totals
-                            </h3>
-                            <div>
-                                <label for=""></label>
-                                <div v-if="hsaAnnualVal > 0 && hsaOpt == 1">
-                                   <div v-if="hsaAnnualDone > 0">
-                                    <label for="">Amount already contributed</label>
-                                    <div>${{ hsaAnnualDone }}</div>
-                                    <hr>
-                                   </div>
-                                   
-                                   
-                                    <label for="">Annual Amount <span v-if="hsaAnnualDone > 0"><b>(Remaining)</b></span></label>
-                                    <div v-if="hsaAnnualVal > hsaAnnualDone">${{ hsaAnnualRem }}</div>
-                                    <div v-else>No Contribution Necessary</div>
-                                    <hr>
-                                    <label for="">Per Pay Amount <b>(Pay Periods: {{ perPayCount }})</b></label>
-                                    <div v-if="hsaAnnualVal > hsaAnnualDone">${{ hsaBWK }}</div>
-                                    <div v-else>No Contribution Necessary</div>
-                                </div>
-                                <div v-else>No Contribution Entered</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+        <a href="hsa/hsamanager.html">HSA Manager</a>
     </div>
-    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
-    <script src="./js/main.js"></script>
+    <script>
+        UIkit.util.on('#sortable', 'moved', function (item) {
+            //var index = $("li").index(this);
+            //var indexId = $(this).attr('id');
+            console.log(item.detail[1].id +' ' + item.detail[1].console);
+            //UIkit.notification(`"${item.detail[1].id}" was moved.`, 'success');
+
+            
+        });
+    </script>
 </body>
 
 </html>
