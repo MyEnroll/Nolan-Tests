@@ -93,7 +93,8 @@
 }
 .me-dashboard-metric {
     font-size: 1.75rem;
-    font-weight: 300;
+    font-weight: 400;
+    color: #359af3;
 }
 .me-profile-actions button {
     padding: 0 10px;
