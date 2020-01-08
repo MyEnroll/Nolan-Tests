@@ -5,7 +5,7 @@ $(document).ready(function () {
     });
 })
 
-$(document).on('change', '.uk-dropdown input[type="radio"]', function (event) {
+$(document).on('change', '.uk-modal input[type="radio"]', function (event) {
     var searchIDs = $("input:radio:checked").map(function () {
         return $(this).attr('id');
     }).get();
@@ -18,7 +18,6 @@ $(document).on('change', '.uk-dropdown input[type="radio"]', function (event) {
         $('#noData').addClass('uk-hidden');
     }
     CompBreakdown.compChoicesSel = searchIDs;
-    CompBreakdown.loadContributions();
 });
 $(document).on('click', '.me-close-btn', function () {
     UIkit.dropdown('#planSelectionsDrop').hide();

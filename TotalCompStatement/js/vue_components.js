@@ -17,7 +17,7 @@ var CompFormInput = new Vue({
         compRetirement: [],
         compContributions: [],
         selectedRetirement: '-1',
-        selClass: '-1'
+        selClass: 'I'
 
     },
     methods: {
@@ -360,7 +360,7 @@ var CompBreakdown = new Vue({
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     self.lifeRate = data.filter(function (n) {
-                        return n.Plan_ID == self.compContributions[self.compContributions.length - 1].Plan_ID;
+                        return n.Plan_ID == self.compContributions[self.compContributions.length - 2].Plan_ID;
                     });
                     self.lifeEEcont = self.lifeRate[0].ee_rate;
                     self.lifeERcont = self.lifeRate[0].er_rate;
@@ -375,10 +375,10 @@ var CompBreakdown = new Vue({
                     var total_cost = series_total_cost.reduce(function (sum, d) {
                         return sum + d
                     });
-                    self.compContributions[self.compContributions.length - 1].Tier = ('$' + parseFloat(Math.round(self.salaryCollect / 1000) * 1000, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
-                    self.compContributions[self.compContributions.length - 1].ee_cost = Math.ceil(((self.salaryCollect / 1000) * self.lifeEEcont) * 100) / 100;
-                    self.compContributions[self.compContributions.length - 1].er_cost = Math.ceil(((self.salaryCollect / 1000) * self.lifeERcont) * 100) / 100;
-                    self.compContributions[self.compContributions.length - 1].total_cost = Math.ceil(((self.compContributions[self.compContributions.length - 1].ee_cost) + (self.compContributions[self.compContributions.length - 1].er_cost)) * 100) / 100;
+                    self.compContributions[self.compContributions.length - 2].Tier = ('$' + parseFloat(Math.round(self.salaryCollect / 1000) * 1000, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
+                    self.compContributions[self.compContributions.length - 2].ee_cost = Math.ceil(((self.salaryCollect / 1000) * self.lifeEEcont) * 100) / 100;
+                    self.compContributions[self.compContributions.length - 2].er_cost = Math.ceil(((self.salaryCollect / 1000) * self.lifeERcont) * 100) / 100;
+                    self.compContributions[self.compContributions.length - 2].total_cost = Math.ceil(((self.compContributions[self.compContributions.length - 1].ee_cost) + (self.compContributions[self.compContributions.length - 1].er_cost)) * 100) / 100;
                     CompBreakdown.InsuranceVal = Number(total_cost);
 
 
@@ -397,7 +397,7 @@ var CompBreakdown = new Vue({
             $.getJSON('./data/lifeRates.json', function (data) {
 
                 self.lifeRate = data.filter(function (n) {
-                    return n.Plan_ID == self.compContributions[self.compContributions.length - 1].Plan_ID;
+                    return n.Plan_ID == self.compContributions[self.compContributions.length - 2].Plan_ID;
                 });
 
             });
@@ -427,7 +427,7 @@ var CompBreakdown = new Vue({
             var self = this;
             self.compChoices = [];
             $.ajax({
-                type: "GET",
+                type: "POST",
                 url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/GetCompenstation",
                 data: JSON.stringify({
                     class_code: CompFormInput.selClass
@@ -435,10 +435,11 @@ var CompBreakdown = new Vue({
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    self.compChoices = data;
+                    var selData = JSON.parse(data.d);
+                    self.compChoices = selData;
                     var defaultPlans = [];
-                    self.compChoicesSel = data.filter(function (n) {
-                        return n.default == true;
+                    self.compChoicesSel = selData.filter(function (n) {
+                        return n.default == "true";
                     });
                     $.each(self.compChoicesSel, function (key, value) {
                         var X = value.Plan_ID;
@@ -462,7 +463,7 @@ var CompBreakdown = new Vue({
             self.costArray = [];
 
             $.ajax({
-                type: "GET",
+                type: "POST",
                 url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/GetCompenstation",
                 data: JSON.stringify({
                     class_code: CompFormInput.selClass
@@ -470,8 +471,9 @@ var CompBreakdown = new Vue({
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    self.compChoices = data;
-                    self.compContributions = data.filter(function (n) {
+                    var contData = JSON.parse(data.d);
+                    self.compChoices = contData;
+                    self.compContributions = contData.filter(function (n) {
                         return $.inArray(n.Plan_ID + n.Tier_ID, self.compChoicesSel) >= 0
                     });
 
@@ -524,8 +526,6 @@ var CompBreakdown = new Vue({
                 }
             }).then(function () {
                 self.loadFedBen();
-
-                self.pushTotalFedBen();
             });
             self.loadLifeInfo();
             UIkit.update(element = document.body, type = 'update');
