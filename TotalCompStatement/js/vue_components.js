@@ -16,17 +16,19 @@ var CompFormInput = new Vue({
         compStatus: [],
         compRetirement: [],
         compContributions: [],
-        selectedRetirement: '-1'
+        selectedRetirement: '-1',
+        selClass: '-1'
+
     },
     methods: {
-        changeRetPlan: function() {
+        changeRetPlan: function () {
             self = this;
             CompBreakdown.compRetPlans[0].Plan_Type = self.selectedRetirement;
             CompBreakdown.compRetPlansSel = self.compRetirement.filter(function (n) {
                 return n.PLAN == self.selectedRetirement;
             });
-            CompBreakdown.compRetPlans[0].agency_cont_level =  CompBreakdown.compRetPlansSel[0].ER_BWK_CONT_PERC;
-            
+            CompBreakdown.compRetPlans[0].agency_cont_level = CompBreakdown.compRetPlansSel[0].ER_BWK_CONT_PERC;
+
         },
 
         loadLocality: function () {
@@ -98,7 +100,7 @@ var CompFormInput = new Vue({
                 }
             });
         },
-        
+
         runReport: function () {
 
 
@@ -122,45 +124,53 @@ var CompFormInput = new Vue({
             var emptyItemsSel = '';
 
 
-            emptyItemsInp = $('.required').filter(function() { return this.value == ""; }).prev().map(function () {
+            emptyItemsInp = $('.required').filter(function () {
+                return this.value == "";
+            }).prev().map(function () {
                 return '<i class="fad fa-times-circle uk-text-danger"></i>  ' + $.trim($(this).text()) + '</br>';
             }).get();
 
             // var emptyItemsEma = $('input[type="email"].required').filter(function() { return this.value.indexOf("@") == -1; }).prev().map(function () {
             //     return '<i class="fad fa-times-circle uk-text-danger"></i>  ' + $.trim($(this).text()) + '</br>';
             // }).get();
-            
+
 
             emptyItemsRad = $('input:radio').not(":checked").parent().prev().children('.uk-form-label').map(function () {
-                return '<i class="fad fa-times-circle uk-text-danger"></i>  ' + $.trim($(this).text()) + '</br>' ;
-            }).get();
-
-
-            emptyItemsSel =  $('select').filter(function() { return $.trim($(this).val()).length == 0; }).prev().map(function () {
                 return '<i class="fad fa-times-circle uk-text-danger"></i>  ' + $.trim($(this).text()) + '</br>';
             }).get();
 
-            
+
+            emptyItemsSel = $('select').filter(function () {
+                return $.trim($(this).val()).length == 0;
+            }).prev().map(function () {
+                return '<i class="fad fa-times-circle uk-text-danger"></i>  ' + $.trim($(this).text()) + '</br>';
+            }).get();
+
+
 
 
             if (fName == "" || lName == "" || emailP == "" || status == null || localitySel == -1 || retirementSel == -1 || classSel == -1 || $('#totCompForm .uk-form-danger').length > 0 || $('#emailEntry').val() != $('#confirmEmailEntry').val()) {
-                
+
                 $('#alertArea').html('');
                 if ($('#emailEntry').val() != $('#confirmEmailEntry').val()) {
                     emptyItems.push('<i class="fad fa-times-circle uk-text-danger"></i>  Matching Email Addresses</br>');
                     $('#alertArea').append('<div class="alert alert-danger alert-dismissible fade show" role="alert">Emails do not match.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 }
-                emptyItems.push(emptyItemsInp,emptyItemsRad, emptyItemsSel);
+                emptyItems.push(emptyItemsInp, emptyItemsRad, emptyItemsSel);
                 emptyItemsNew = emptyItems.toString().split(",").join("");
-                UIkit.modal.alert('<div class="uk-text-large uk-text-primary">Oops!</div><div class="uk-margin">It looks like you missed some required fields. Make sure to fill in the below fields.</div><div>'+ emptyItemsNew  + '</div>').then(function () {
+                UIkit.modal.alert('<div class="uk-text-large uk-text-primary">Oops!</div><div class="uk-margin">It looks like you missed some required fields. Make sure to fill in the below fields.</div><div>' + emptyItemsNew + '</div>').then(function () {
                     console.log('Alert closed.')
                 });
-                
-                $('.required').filter(function() { return this.value == ""; }).each(function() {
+
+                $('.required').filter(function () {
+                    return this.value == "";
+                }).each(function () {
 
                     $(this).addClass('me-validate2 uk-form-danger');
                 });
-                $('select.required').filter(function() { return this.value == "-1"; }).each(function() {
+                $('select.required').filter(function () {
+                    return this.value == "-1";
+                }).each(function () {
 
                     $(this).addClass('me-validate2 uk-form-danger');
                 });
@@ -182,8 +192,8 @@ var CompFormInput = new Vue({
                 $('#classColl').text(classSel);
                 $('#compDetailsSect').removeClass('uk-disabled');
                 $('html,body').animate({
-                    scrollTop: $("#compDetailsSect").offset().top-20
-                 });
+                    scrollTop: $("#compDetailsSect").offset().top - 20
+                });
             }
 
         }
@@ -239,7 +249,7 @@ var CompBreakdown = new Vue({
 
     },
     methods: {
-        loadRetirementPlans: function() {
+        loadRetirementPlans: function () {
             self = this;
             $.ajax({
                 type: "GET",
@@ -307,12 +317,12 @@ var CompBreakdown = new Vue({
                 'Fed_Val': self.fedMed
             });
 
-            
+
 
             setTimeout(function () {
                 self.costArray = [];
                 chartAct.reset();
-                self.costArray.push( Math.ceil((self.InsuranceVal) * 100 / 100), Math.ceil((self.fedSS) * 100 / 100), Math.ceil((self.fedMed) * 100 / 100));
+                self.costArray.push(Math.ceil((self.InsuranceVal) * 100 / 100), Math.ceil((self.fedSS) * 100 / 100), Math.ceil((self.fedMed) * 100 / 100));
                 self.pushTotalIns();
                 self.pushTotalFedBen();
 
@@ -410,7 +420,7 @@ var CompBreakdown = new Vue({
         },
         calcComp: function () {
             var self = this;
-            
+
             self.loadDefault();
         },
         loadChoices: function () {
@@ -418,8 +428,10 @@ var CompBreakdown = new Vue({
             self.compChoices = [];
             $.ajax({
                 type: "GET",
-                url: "./data/contributions.json",
-                data: JSON.stringify({}),
+                url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/GetCompenstation",
+                data: JSON.stringify({
+                    class_code: CompFormInput.selClass
+                }),
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
@@ -451,8 +463,10 @@ var CompBreakdown = new Vue({
 
             $.ajax({
                 type: "GET",
-                url: "./data/contributions.json",
-                data: JSON.stringify({}),
+                url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/GetCompenstation",
+                data: JSON.stringify({
+                    class_code: CompFormInput.selClass
+                }),
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
@@ -510,7 +524,7 @@ var CompBreakdown = new Vue({
                 }
             }).then(function () {
                 self.loadFedBen();
-               
+
                 self.pushTotalFedBen();
             });
             self.loadLifeInfo();
