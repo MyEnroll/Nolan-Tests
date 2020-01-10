@@ -624,8 +624,7 @@
                     pdf.addImage(canvas.toDataURL("image/jpeg"), "jpeg", marginLeft, marginRight)
 
                     var string = pdf.output('datauristring');
-                    console.log(string);
-                    $.ajax({
+                     $.ajax({
                         url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/SavePDFToJdrive",
                         data: JSON.stringify({ pdfoutput: string, filename: "TotalComp", foldername: "\\Clients\\FDIC\\Total_Comp\\" }),
                         type: "POST",
