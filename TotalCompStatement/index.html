@@ -611,7 +611,7 @@
         function capture() {
             html2canvas($('body'), {
                 onrendered: function (canvas) {
-                    var imgData = canvas.toDataURL("image/png");
+                    var imgData;
                     if ($(document).width() > $(document).height()) {
                         var pdf = new jsPDF('l', 'pt', [$(document).width(), $(document).height()]); //
                     }
