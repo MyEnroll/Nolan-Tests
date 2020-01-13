@@ -190,7 +190,8 @@
                         </div>
                     </li>
                     <li id="compDetailsSect" class="uk-disabled me-accordion-card uk-border-rounded">
-                        <a class="uk-accordion-title me-accordion-title uk-padding-small"  data-html2canvas-ignore="true" href="#">
+                        <a class="uk-accordion-title me-accordion-title uk-padding-small" data-html2canvas-ignore="true"
+                            href="#">
                             Step 2: Total
                             Compensation Breakdown
                         </a>
@@ -619,56 +620,80 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
 
-    <script src="./js/vue_components.js?47"></script>
+    <script src="./js/vue_components.js?50"></script>
     <script src="./js/chart_stuff.js"></script>
 
 
-    <script src="./js/addl_scripts.js?12"></script>
+    <script src="./js/addl_scripts.js?13"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#cmd').click(function () {
-
-                capture();
-            });
-        });
-
-
         function capture() {
-            html2canvas($('body').get(0), {scrollX: 0, scrollY:0}).then(function (canvas) {
-                var fname = $.trim($('#firstNameInput').text());
-                var lname = $.trim($('#lastNameInput').text());
+            html2canvas($('body').get(0), {
+                scrollX: 0,
+                scrollY: 0
+            }).then(function (canvas) {
                 var pdf = new jsPDF("p", "mm", "a4");
 
                 var width = pdf.internal.pageSize.getWidth();
                 var height = pdf.internal.pageSize.getHeight();
 
                 pdf.addImage(canvas, 'JPEG', 0, 0, width, height);
-                pdf.save(fname + lname + '.pdf');
 
                 var string = pdf.output('datauristring');
                 $.ajax({
-                        url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/SavePDFToJdrive",
-                        data: JSON.stringify({
-                            pdfoutput: string,
-                            filename: "TotalComp",
-                            foldername: "\\Clients\\FDIC\\Total_Comp\\"
-                        }),
-                        type: "POST",
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        success: function (data) {
+                    url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/SavePDFToJdrive",
+                    data: JSON.stringify({
+                        pdfoutput: string,
+                        filename: "TotalComp",
+                        foldername: "\\Clients\\FDIC\\Total_Comp\\"
+                    }),
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
 
-                            var mydata = data.d;
+                        var mydata = data.d;
+
+                    },
+                    error: function (msg) {
+                        alert("Error capturing/saving pdf, Please contact developmet team. " +
+                            msg.Message);
+                    }
+                }).then(function () {
+                    UIkit.modal.confirm(
+                        '<div class="uk-text-large uk-text-primary">One more thing...</div><div>Would you like to download a copy  of this report?</div>', {
+
+                            labels: {
+                                cancel: 'No',
+                                ok: 'Yes'
+                            }
+                        }).then(function () {
+                            html2canvas($('body').get(0), {
+                                scrollY: 0
+                            }).then(function (canvas) {
+                                var fname = $.trim($('#firstNameInput').val());
+                                var lname = $.trim($('#lastNameInput').val());
+                                var pdf = new jsPDF("p", "mm", "a4");
+
+                                var width = pdf.internal.pageSize.getWidth();
+                                var height = pdf.internal.pageSize.getHeight();
+
+                                pdf.addImage(canvas, 'JPEG', 0, 0, width, height);
+                                pdf.save(fname + lname + '.pdf');
+                            });
+
 
                         },
-                        error: function (msg) {
-                            alert("Error capturing/saving pdf, Please contact developmet team. " +
-                                msg.Message);
-                        }
-                    })
+                        function () {
+                            UIkit.modal.alert(
+                                '<div class="uk-text-large uk-text-primary">Got it!</div><div>Thanks for using the Total Compensation Statement Manager!</div>'
+                            ).then(function () {
+                                console.log('notsending Email');
+                            })
+                        });
+                });
             });
-        }
+        };
     </script>
 </body>
 

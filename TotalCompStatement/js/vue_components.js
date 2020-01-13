@@ -123,7 +123,7 @@ var CompFormInput = new Vue({
 
         runReport: function () {
 
-
+            $('#submit').removeClass('uk-hidden');
             var today = new Date();
             var ampm = today.getHours() >= 12 ? 'pm' : 'am';
             var date = (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
@@ -133,7 +133,7 @@ var CompFormInput = new Vue({
             var lName = $.trim($('#lastNameInput').val());
             var emailP = $.trim($('input[type=email]').val());
             var status = $('input[name="statusSel"]:checked').val();
-            var localitySel = $('#localityDrop').children('option:selected').val();
+            var localitySel = $('#localityDrop').children('option:selected').text();
             var retirementSel = $('#retirementDrop').children('option:selected').val();
             var classSel = $('#classDrop').children('option:selected').val();
             var emptyItems = [];

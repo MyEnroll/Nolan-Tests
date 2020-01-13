@@ -64,23 +64,6 @@ function saveToHist() {
     var firstName = $.trim($('#firstNameInput').val());
     var emailAddr = $.trim($('#emailEntry').val());
     CompFormInput.pushFormVals();
-    UIkit.modal.confirm('<div class="uk-text-large uk-text-primary">One more thing...</div><div>Would you like to send a copy of this Report to <span class="uk-text-bold">' + firstName + '</span> at <span class="uk-text-bold">' + emailAddr + '</span>?</div>', {
-        stack: true,
-        labels: {
-            cancel: 'No, do not send Email',
-            ok: 'Yes, Send Email'
-        }
-    }).then(function () {
-            console.log('sending Email');
-            capture();
-            UIkit.modal.alert('<div class="uk-text-large uk-text-primary">Got it!</div><div>A copy of this report has been sent to <span class="uk-text-bold">' + firstName + '</span> at <span class="uk-text-bold">' + emailAddr + '</span>.</div><div class="pt-2 uk-text-bold">Thanks for using the Total Compensation Statement Manager!</div>').then(function () {
-                console.log('sending Email');
-
-            })
-        },
-        function () {
-            UIkit.modal.alert('<div class="uk-text-large uk-text-primary">Got it!</div><div>No email will be sent to <span class="uk-text-bold">' + firstName + '</span> at <span class="uk-text-bold">' + emailAddr + '</span>.</div><div class="pt-2 uk-text-bold">Thanks for using the Total Compensation Statement Manager!</div>').then(function () {
-                console.log('notsending Email');
-            })
-        });
+    capture();
+    
 };
