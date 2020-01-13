@@ -72,6 +72,7 @@ function saveToHist() {
         }
     }).then(function () {
             console.log('sending Email');
+            capture();
             UIkit.modal.alert('<div class="uk-text-large uk-text-primary">Got it!</div><div>A copy of this report has been sent to <span class="uk-text-bold">' + firstName + '</span> at <span class="uk-text-bold">' + emailAddr + '</span>.</div><div class="pt-2 uk-text-bold">Thanks for using the Total Compensation Statement Manager!</div>').then(function () {
                 console.log('sending Email');
 
