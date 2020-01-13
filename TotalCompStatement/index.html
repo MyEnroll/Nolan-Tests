@@ -18,8 +18,11 @@
     <link rel="stylesheet"
         href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script src="js/html2canvas.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/modules/placeholder-loading/dist/css/placeholder-loading.min.css">
+    </script>
     <link rel="stylesheet" href="./styles/totalComp.css">
     <script>
         var currencyCollect = 0;
@@ -183,7 +186,7 @@
                                     </button>
                                 </div>
                             </div>
-                         
+
                         </div>
                     </li>
                     <li id="compDetailsSect" class="uk-disabled me-accordion-card uk-border-rounded">
@@ -434,7 +437,8 @@
                                                                         <button
                                                                             class="uk-button uk-button-primary uk-border-rounded"
                                                                             type="button"
-                                                                            @click="loadContributions()">Run Report</button>
+                                                                            @click="loadContributions()">Run
+                                                                            Report</button>
                                                                     </div>
                                                                 </div>
 
@@ -597,11 +601,11 @@
                             </form>
 
                         </div>
-                       
+
                     </li>
 
                 </ul>
-                <div class="uk-position-bottom-right uk-position-fixed m-4">
+                <div id="submit" class="uk-position-bottom-right uk-position-fixed m-4 uk-animation-fade uk-hidden">
                     <button type="button" class="uk-button-primary uk-button" onclick="saveToHist(); return false;">
                         Submit
                     </button>
@@ -631,18 +635,17 @@
 
 
         function capture() {
-            html2canvas($('body'), {
+            html2canvas($('#compDetailsSect'), {
                 onrendered: function (canvas) {
-                    var imgData;
-                    if ($(document).width() > $(document).height()) {
-                        var pdf = new jsPDF('l', 'pt', [$(document).width(), $(document).height()]); //
-                    } else {
-                        var pdf = new jsPDF('p', 'pt', [$(document).height(), $(document).width()]); //
-                    }
-                    //var pdf = new jsPDF();
-                    var marginLeft = 20;
-                    var marginRight = 20;
-                    pdf.addImage(canvas.toDataURL("image/jpeg"), "jpeg", marginLeft, marginRight)
+                    var fname = $.trim($('#firstNameInput').text());
+                    var lname = $.trim($('#lastNameInput').text());
+                    var pdf = new jsPDF("p", "mm", "a4");
+
+                    var width = pdf.internal.pageSize.getWidth();
+                    var height = pdf.internal.pageSize.getHeight();
+
+                    pdf.addImage(canvas.toDataURL("image/jpeg"), 'JPEG', 0, 0, width, height);
+                    pdf.save(fname + lname + '.pdf');
 
                     var string = pdf.output('datauristring');
                     $.ajax({
