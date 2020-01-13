@@ -1,4 +1,4 @@
-<html lang="en">
+﻿<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -6,18 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <link rel="stylesheet"
-        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+          href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
     <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script
-        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    <script src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
     </script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
     <link rel="stylesheet"
-        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+          href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="js/html2canvas.js"></script>
     <link rel="stylesheet" href="./styles/totalComp.css">
     <script>
         var currencyCollect = 0;
@@ -25,7 +26,7 @@
 </head>
 
 <body class="uk-animation-fade">
-
+    <a id="cmd" href="#" class="button">Capture page</a>
     <div class="uk-section uk-section-secondary uk-section-large uk-width-1-1 uk-position-fixed"></div>
 
     <div class="uk-section uk-section-secondary uk-section-small uk-position-relative uk-position-z-index ">
@@ -40,8 +41,10 @@
             <div>
                 <ul id="totalCompAccord" uk-accordion="multiple: false">
                     <li class="uk-open me-accordion-card uk-border-rounded">
-                        <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 1: Let us know a
-                            little about the Employee</a>
+                        <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">
+                            Step 1: Let us know a
+                            little about the Employee
+                        </a>
                         <div id="totCompForm" class="uk-accordion-content me-accordion-content uk-padding-small">
                             <div class="uk-grid-small uk-child-width-expand" uk-grid>
                                 <div>
@@ -53,37 +56,39 @@
                                             <div>
                                                 <label for="" class="uk-form-label">First Name</label>
                                                 <input id="firstNameInput" type="text" minlength="2"
-                                                    class="required uk-input uk-box" placeholder="First Name">
+                                                       class="required uk-input uk-box" placeholder="First Name">
                                             </div>
                                         </div>
                                         <div class="uk-width-1-5@s">
                                             <div>
                                                 <label for="" class="uk-form-label">Middle Initial</label>
                                                 <input id="middleNameInput" type="text" class="uk-input"
-                                                    placeholder="M.I." maxlength="1">
+                                                       placeholder="M.I." maxlength="1">
                                             </div>
                                         </div>
                                         <div class="uk-width-2-5@s">
                                             <div>
                                                 <label for="" class="uk-form-label">Last Name</label>
                                                 <input id="lastNameInput" type="text" minlength="2"
-                                                    class="required uk-input" placeholder="Last Name">
+                                                       class="required uk-input" placeholder="Last Name">
                                             </div>
                                         </div>
                                         <div class="uk-width-1-2@s">
                                             <div>
                                                 <label for="emailEntry" class="uk-form-label">Email Address</label>
                                                 <input id="emailEntry" type="email" class="required uk-input uk-box"
-                                                    placeholder="Email Address">
+                                                       placeholder="Email Address">
                                             </div>
                                         </div>
                                         <div class="uk-width-1-2@s">
                                             <div>
-                                                <label for="confirmEmailEntry" class="uk-form-label">Confirm Email
-                                                    Address</label>
+                                                <label for="confirmEmailEntry" class="uk-form-label">
+                                                    Confirm Email
+                                                    Address
+                                                </label>
                                                 <input id="confirmEmailEntry" type="email"
-                                                    class="required uk-input uk-box"
-                                                    placeholder="Re-Enter Email Address">
+                                                       class="required uk-input uk-box"
+                                                       placeholder="Re-Enter Email Address">
                                             </div>
                                         </div>
                                         <div id="alertArea" class="uk-width-1-1">
@@ -94,9 +99,9 @@
                                                 <div>
                                                     <label for="" class="uk-form-label">Base Salary</label>
                                                     <input type="number" name="currency-field" id="currency-field"
-                                                        pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value=""
-                                                        data-type="currency" placeholder="Enter Salary..."
-                                                        class="required uk-input">
+                                                           pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value=""
+                                                           data-type="currency" placeholder="Enter Salary..."
+                                                           class="required uk-input">
                                                 </div>
                                             </div>
                                             <div class="uk-width-1-1 uk-margin">
@@ -108,8 +113,8 @@
                                                     </div>
                                                     <div v-for="status in compStatus" class="uk-margin-small-top">
                                                         <input :id="'statusSel' + status.Status_code"
-                                                            :value="status.Status" class="uk-radio" type="radio"
-                                                            name="statusSel">
+                                                               :value="status.Status" class="uk-radio" type="radio"
+                                                               name="statusSel">
                                                         <label :for="'statusSel' + status.Status_code">
                                                             {{ status.Status }}
                                                         </label>
@@ -126,7 +131,8 @@
                                             <div>
                                                 <label for="" class="uk-form-label">Locality</label>
                                                 <select class="required uk-select" id="localityDrop">
-                                                    <option disabled hidden selected value="-1">Please Select a
+                                                    <option disabled hidden selected value="-1">
+                                                        Please Select a
                                                         Locality...
                                                     </option>
                                                     <option v-for="locale in compLocality" :value="locale.Local_perc">
@@ -139,13 +145,16 @@
                                             <div>
                                                 <label for="" class="uk-form-label">Retirement Plan</label>
                                                 <select class="required uk-select" id="retirementDrop"
-                                                    v-model="selectedRetirement" v-on:change="changeRetPlan">
-                                                    <option disabled hidden selected value="-1">Please Select a
-                                                        Retirement Plan...</option>
+                                                        v-model="selectedRetirement" v-on:change="changeRetPlan">
+                                                    <option disabled hidden selected value="-1">
+                                                        Please Select a
+                                                        Retirement Plan...
+                                                    </option>
 
                                                     <option v-for="RP in compRetirement"
-                                                        :data-ee-value="RP.EE_BWK_CONT_PERC"
-                                                        :data-er-value="RP.ER_BWK_CONT_PERC">{{ RP.PLAN }}
+                                                            :data-ee-value="RP.EE_BWK_CONT_PERC"
+                                                            :data-er-value="RP.ER_BWK_CONT_PERC">
+                                                        {{ RP.PLAN }}
                                                     </option>
                                                 </select>
                                             </div>
@@ -154,8 +163,10 @@
                                             <div>
                                                 <label for="" class="uk-form-label">Benefits Class</label>
                                                 <select class="required uk-select" id="classDrop" v-model="selClass">
-                                                    <option disabled hidden selected value="-1">Please Select a Beneifts
-                                                        Class...</option>
+                                                    <option disabled hidden selected value="-1">
+                                                        Please Select a Beneifts
+                                                        Class...
+                                                    </option>
 
                                                     <option v-for="classes in compClasses" :value="classes.Class_Code">
                                                         {{ classes.Class_Name }}
@@ -167,7 +178,7 @@
                                 </div>
                                 <div class="uk-width-1-1 uk-text-right">
                                     <button class="uk-button uk-border-pill uk-button-primary" type="button"
-                                        @click="runReport">
+                                            @click="runReport">
                                         Run Report <i class="fad fa-chart-pie"></i>
                                     </button>
                                 </div>
@@ -175,8 +186,10 @@
                         </div>
                     </li>
                     <li id="compDetailsSect" class="uk-disabled me-accordion-card uk-border-rounded">
-                        <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">Step 2: Total
-                            Compensation Breakdown</a>
+                        <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">
+                            Step 2: Total
+                            Compensation Breakdown
+                        </a>
                         <div class="uk-accordion-content me-accordion-content uk-padding-small">
                             <div class="uk-grid-small uk-child-width-expand uk-grid-divider" uk-grid>
                                 <div class="uk-width-1-1">
@@ -199,41 +212,31 @@
                                                             <td class="uk-text-bold uk-text-small table-padding-right">
                                                                 Viewed
                                                             </td>
-                                                            <td id="viewedTs" class="uk-text-small">
-
-                                                            </td>
+                                                            <td id="viewedTs" class="uk-text-small"></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="uk-text-bold uk-text-small table-padding-right">
                                                                 Status
                                                             </td>
-                                                            <td id="statusColl" class="uk-text-small">
-
-                                                            </td>
+                                                            <td id="statusColl" class="uk-text-small"></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="uk-text-bold uk-text-small table-padding-right">
                                                                 Locality
                                                             </td>
-                                                            <td id="localityColl" class="uk-text-small">
-
-                                                            </td>
+                                                            <td id="localityColl" class="uk-text-small"></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="uk-text-bold uk-text-small table-padding-right">
                                                                 Retirement Plan
                                                             </td>
-                                                            <td id="retirementColl" class="uk-text-small">
-
-                                                            </td>
+                                                            <td id="retirementColl" class="uk-text-small"></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="uk-text-bold uk-text-small table-padding-right">
                                                                 Benefits Class
                                                             </td>
-                                                            <td id="classColl" class="uk-text-small">
-
-                                                            </td>
+                                                            <td id="classColl" class="uk-text-small"></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -246,8 +249,10 @@
                                         <dt>Welcome!</dt>
                                         <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd>
                                         <dt>Disclaimer</dt>
-                                        <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua.</dd>
+                                        <dd>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua.
+                                        </dd>
                                     </dl>
                                 </div>
                                 <!-- <div class="uk-width-1-1">
@@ -261,14 +266,13 @@
                                     </div> -->
                             </div>
                             <div id="breakdownContainer"
-                                class="uk-width-1-1 uk-animation-slide-top-small uk-animation-fast">
+                                 class="uk-width-1-1 uk-animation-slide-top-small uk-animation-fast">
                                 <div class="uk-grid-small" uk-grid>
                                     <div class="uk-width-1-1">
                                         <div class="uk-grid-small uk-child-width-expand@s uk-grid-match" uk-grid>
                                             <div>
                                                 <div class="uk-card uk-card-default uk-position-relative">
-                                                    <h3
-                                                        class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
+                                                    <h3 class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
                                                         Base Pay
                                                     </h3>
                                                     <div class="uk-position-relative uk-padding">
@@ -286,9 +290,9 @@
                                             </div>
                                             <div>
                                                 <div class="uk-card uk-card-default uk-position-relative">
-                                                    <h3
-                                                        class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
-                                                        Agency Contributions</h3>
+                                                    <h3 class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
+                                                        Agency Contributions
+                                                    </h3>
                                                     <div class="uk-position-relative uk-padding">
                                                         <div class="uk-position-center">
                                                             <span id="agencyCont"></span>
@@ -304,9 +308,9 @@
                                             </div>
                                             <div>
                                                 <div class="uk-card uk-card-default uk-position-relative">
-                                                    <h3
-                                                        class="uk-margin-remove uk-card-title uk-text-center uk-background-primary uk-padding-small text-light">
-                                                        Total Compensation</h3>
+                                                    <h3 class="uk-margin-remove uk-card-title uk-text-center uk-background-primary uk-padding-small text-light">
+                                                        Total Compensation
+                                                    </h3>
                                                     <div class="uk-position-relative uk-padding">
                                                         <div class="uk-position-center">
                                                             <span id="totalComp"></span>
@@ -319,37 +323,39 @@
                                     </div>
 
                                     <div class="uk-width-1-1"
-                                        style="border-top:1px  solid #c1c1c1;padding-top:30px;margin-top:30px">
+                                         style="border-top:1px  solid #c1c1c1;padding-top:30px;margin-top:30px">
                                         <div class="uk-grid-small uk-child-width-expand" uk-grid>
 
                                             <div class="uk-width-2-5@s">
                                                 <div id="chartArea"
-                                                    class="uk-animation-slide-left-medium uk-child-width-1-1 uk-grid-small uk-grid-stack uk-hidden"
-                                                    uk-grid>
+                                                     class="uk-animation-slide-left-medium uk-child-width-1-1 uk-grid-small uk-grid-stack uk-hidden"
+                                                     uk-grid>
                                                     <div id="chart">
                                                         <template>
                                                             <div>
                                                                 <apexchart type=pie :options="chartOptions"
-                                                                    :series="series" />
+                                                                           :series="series" />
                                                             </div>
                                                         </template>
                                                     </div>
                                                     <div id="messageArea">
                                                         <h4 class="uk-padding-large uk-text-center">
-                                                            <div style="color: #6f42c1">Did you know FDIC was named best
-                                                                employer of all federal agencies in 2019?</div>
+                                                            <div style="color: #6f42c1">
+                                                                Did you know FDIC was named best
+                                                                employer of all federal agencies in 2019?
+                                                            </div>
                                                         </h4>
                                                     </div>
                                                     <div>
                                                         <h4 class="uk-padding-large uk-text-center">
                                                             <a href="https://www.fdic.gov/transparency/"
-                                                                target="_blank">Message from the Chairman</a>
+                                                               target="_blank">Message from the Chairman</a>
                                                         </h4>
                                                     </div>
                                                     <div>
                                                         <h4 class="uk-padding-large uk-text-center">
                                                             <a href="https://www.fdic.gov/news/news/press/2019/"
-                                                                target="_blank">Press Releases</a>
+                                                               target="_blank">Press Releases</a>
                                                         </h4>
                                                     </div>
 
@@ -360,47 +366,42 @@
                                                     <div class="uk-width-1-1@s">
                                                         <div class="uk-inline  uk-width-expand uk-text-right">
                                                             <button class="uk-button uk-button-primary" type="button"
-                                                                uk-toggle="#planSelCh">Select Plans/Benefit
-                                                                Levels</button>
+                                                                    uk-toggle="#planSelCh">
+                                                                Select Plans/Benefit
+                                                                Levels
+                                                            </button>
                                                             <div id="planSelCh" class="uk-modal-container"
-                                                                uk-modal="bg-close: false">
+                                                                 uk-modal="bg-close: false">
                                                                 <div class="uk-modal-dialog">
                                                                     <!-- <button class="uk-modal-close-default" type="button"
                                                                         uk-close></button> -->
-                                                                    <div
-                                                                        class="uk-modal-header uk-background-primary text-light">
+                                                                    <div class="uk-modal-header uk-background-primary text-light">
                                                                         <h3 class="text-light">Plan Choices</h3>
                                                                     </div>
                                                                     <div class="uk-modal-body">
                                                                         <div class="uk-padding-small uk-child-width-auto uk-grid-small uk-text-left"
-                                                                            uk-grid>
+                                                                             uk-grid>
                                                                             <div class="uk-width-1-1@s uk-text-right">
-                                                                                <button
-                                                                                    class="uk-button uk-button-default uk-button-small"
-                                                                                    type="button" @click="clearReset()">
-                                                                                    Clear Selections <i
-                                                                                        class="fad fa-trash"></i>
+                                                                                <button class="uk-button uk-button-default uk-button-small"
+                                                                                        type="button" @click="clearReset()">
+                                                                                    Clear Selections <i class="fad fa-trash"></i>
                                                                                 </button>
                                                                             </div>
-                                                                            <template
-                                                                                v-for="(choices, group_name) in grouping">
+                                                                            <template v-for="(choices, group_name) in grouping">
                                                                                 <div class="uk-width-1-1 me-choice">
 
                                                                                     <h5 class="groupingHdr">
                                                                                         {{ group_name }} Plans
                                                                                     </h5>
                                                                                     <div class="uk-child-width-auto uk-grid-small"
-                                                                                        uk-grid>
-                                                                                        <template
-                                                                                            v-for="item in choices">
+                                                                                         uk-grid>
+                                                                                        <template v-for="item in choices">
                                                                                             <div>
                                                                                                 <div>
-                                                                                                    <input
-                                                                                                        :id="item.Plan_ID+item.Tier_ID"
-                                                                                                        type="radio"
-                                                                                                        :name="item.Plan + 'Plan'">
-                                                                                                    <label
-                                                                                                        :for="item.Plan_ID+item.Tier_ID">
+                                                                                                    <input :id="item.Plan_ID+item.Tier_ID"
+                                                                                                           type="radio"
+                                                                                                           :name="item.Plan + 'Plan'">
+                                                                                                    <label :for="item.Plan_ID+item.Tier_ID">
                                                                                                         {{ item.Option }}
                                                                                                         -
                                                                                                         {{ item.Tier }}
@@ -557,7 +558,7 @@
                                                                     class=" uk-animation-fade">
                                                                     <td>
                                                                         {{ items.title }} <a :href="items.url"
-                                                                            target="_blank">{{ items.click_text }}</a>
+                                                                                             target="_blank">{{ items.click_text }}</a>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -598,7 +599,51 @@
 
     <script src="./js/addl_scripts.js?5"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#cmd').click(function () {
 
+                capture();
+            });
+        });
+
+
+        function capture() {
+            html2canvas($('body'), {
+                onrendered: function (canvas) {
+                    var imgData;
+                    if ($(document).width() > $(document).height()) {
+                        var pdf = new jsPDF('l', 'pt', [$(document).width(), $(document).height()]); //
+                    }
+                    else {
+                        var pdf = new jsPDF('p', 'pt', [$(document).height(), $(document).width()]); //
+                    }
+                    //var pdf = new jsPDF();
+                    var marginLeft = 20;
+                    var marginRight = 20;
+                    pdf.addImage(canvas.toDataURL("image/jpeg"), "jpeg", marginLeft, marginRight)
+
+                    var string = pdf.output('datauristring');
+                     $.ajax({
+                        url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/SavePDFToJdrive",
+                        data: JSON.stringify({ pdfoutput: string, filename: "TotalComp", foldername: "\\Clients\\FDIC\\Total_Comp\\" }),
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+
+                            var mydata = data.d;
+
+                        },
+                        error: function (msg) {
+                            alert("Error capturing/saving pdf, Please contact developmet team. " + msg.Message);
+                        }
+                    })
+                }
+            })
+        }
+
+    </script>
 </body>
 
 </html>
