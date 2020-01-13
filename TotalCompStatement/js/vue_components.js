@@ -17,10 +17,31 @@ var CompFormInput = new Vue({
         compRetirement: [],
         compContributions: [],
         selectedRetirement: '-1',
-        selClass: 'I'
+        selClass: 'I',
+        compStatusSel: '',
+        formInputVal: []
 
     },
     methods: {
+        pushFormVals: function () {
+            var firstName = $.trim($('#firstNameInput').val());
+            var middleInitial = $.trim($('#middleNameInput').val());
+            var lastName = $.trim($('#lastNameInput').val());
+            var emailAddr = $.trim($('#emailEntry').val());
+            var baseSal = $.trim($('#currency-field').val());
+            var localitySel = $.trim($('#localityDrop').children('option:selected').text());
+            this.formInputVal.push({
+                "first_name": firstName,
+                "middle_initial": middleInitial,
+                "last_name": lastName,
+                "email_addr": emailAddr,
+                "base_salary": baseSal,
+                "locality":localitySel,
+                "selected_ret_code":this.selectedRetirement,
+                "selected_class":this.selClass
+            });
+        },
+        
         changeRetPlan: function () {
             self = this;
             CompBreakdown.compRetPlans[0].Plan_Type = self.selectedRetirement;
@@ -52,17 +73,16 @@ var CompFormInput = new Vue({
         loadClasses: function () {
             var self = this;
             $.ajax({
-                type: "GET",
-                url: "./data/classes.json",
+                url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/GetClassCode",
                 data: JSON.stringify({}),
-                dataType: "json",
+                type: "POST",
                 contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 success: function (data) {
-                    self.compClasses = data;
+                    self.compClasses = JSON.parse(data.d);
                 },
-                error: function (data) {
-                    // alert("Error: " + data.d);
-                    console.log('error');
+                error: function () {
+                    console.log("error in CommonWebMethod.aspx/GetClassCode service");
                 }
             });
         },
@@ -195,7 +215,6 @@ var CompFormInput = new Vue({
                     scrollTop: $("#compDetailsSect").offset().top - 20
                 });
             }
-
         }
     },
 
@@ -302,6 +321,7 @@ var CompBreakdown = new Vue({
                 "sort_order": null
             });
         },
+
         loadFedBen: function () {
             var self = this;
             var baseSal = self.salaryCollect;
