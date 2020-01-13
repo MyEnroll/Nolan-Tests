@@ -19,11 +19,11 @@
         href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script src="js/html2canvas.js"></script>
+    <script src="js/html2canvas.js?5"></script>
     <script
         src="https://www.me-content.com/mec/system/compiledResources/modules/placeholder-loading/dist/css/placeholder-loading.min.css">
     </script>
-    <link rel="stylesheet" href="./styles/totalComp.css">
+    <link rel="stylesheet" href="./styles/totalComp.css?2">
     <script>
         var currencyCollect = 0;
     </script>
@@ -43,7 +43,7 @@
         <div class="uk-container">
             <div>
                 <ul id="totalCompAccord" uk-accordion="multiple: false">
-                    <li class="uk-open me-accordion-card uk-border-rounded">
+                    <li class="uk-open me-accordion-card uk-border-rounded" data-html2canvas-ignore="true">
                         <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">
                             Step 1: Let us know a
                             little about the Employee
@@ -190,7 +190,7 @@
                         </div>
                     </li>
                     <li id="compDetailsSect" class="uk-disabled me-accordion-card uk-border-rounded">
-                        <a class="uk-accordion-title me-accordion-title uk-padding-small" href="#">
+                        <a class="uk-accordion-title me-accordion-title uk-padding-small"  data-html2canvas-ignore="true" href="#">
                             Step 2: Total
                             Compensation Breakdown
                         </a>
@@ -275,7 +275,7 @@
                                     <div class="uk-width-1-1">
                                         <div class="uk-grid-small uk-child-width-expand@s uk-grid-match" uk-grid>
                                             <div>
-                                                <div class="uk-card uk-card-default uk-position-relative">
+                                                <div class="me-border-card uk-position-relative">
                                                     <h3
                                                         class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
                                                         Base Pay
@@ -289,12 +289,12 @@
                                                 </div>
                                             </div>
                                             <div class="uk-width-auto uk-position-relative uk-visible@s">
-                                                <div class="uk-flex-bottom pb-4 uk-flex">
-                                                    <i class="fal fa-plus"></i>
+                                                <div class="uk-flex-bottom pb-4 uk-flex" style="font-size:1.5rem">
+                                                    +
                                                 </div>
                                             </div>
                                             <div>
-                                                <div class="uk-card uk-card-default uk-position-relative">
+                                                <div class="me-border-card uk-position-relative">
                                                     <h3
                                                         class="uk-margin-remove uk-card-title uk-text-center bg-success uk-padding-small text-light">
                                                         Agency Contributions
@@ -308,12 +308,12 @@
                                                 </div>
                                             </div>
                                             <div class="uk-width-auto uk-position-relative  uk-visible@s">
-                                                <div class="uk-flex-bottom pb-4 uk-flex">
-                                                    <i class="fal fa-equals"></i>
+                                                <div class="uk-flex-bottom pb-4 uk-flex" style="font-size:1.5rem">
+                                                    =
                                                 </div>
                                             </div>
                                             <div>
-                                                <div class="uk-card uk-card-default uk-position-relative">
+                                                <div class="me-border-card uk-position-relative">
                                                     <h3
                                                         class="uk-margin-remove uk-card-title uk-text-center uk-background-primary uk-padding-small text-light">
                                                         Total Compensation
@@ -374,7 +374,7 @@
                                                     <div class="uk-width-1-1@s">
                                                         <div class="uk-inline  uk-width-expand uk-text-right">
                                                             <button class="uk-button uk-button-primary" type="button"
-                                                                uk-toggle="#planSelCh">
+                                                                uk-toggle="#planSelCh" data-html2canvas-ignore="true">
                                                                 Select Plans/Benefit
                                                                 Levels
                                                             </button>
@@ -635,20 +635,19 @@
 
 
         function capture() {
-            html2canvas($('#compDetailsSect'), {
-                onrendered: function (canvas) {
-                    var fname = $.trim($('#firstNameInput').text());
-                    var lname = $.trim($('#lastNameInput').text());
-                    var pdf = new jsPDF("p", "mm", "a4");
+            html2canvas($('body').get(0), {scrollX: 0, scrollY:0}).then(function (canvas) {
+                var fname = $.trim($('#firstNameInput').text());
+                var lname = $.trim($('#lastNameInput').text());
+                var pdf = new jsPDF("p", "mm", "a4");
 
-                    var width = pdf.internal.pageSize.getWidth();
-                    var height = pdf.internal.pageSize.getHeight();
+                var width = pdf.internal.pageSize.getWidth();
+                var height = pdf.internal.pageSize.getHeight();
 
-                    pdf.addImage(canvas.toDataURL("image/jpeg"), 'JPEG', 0, 0, width, height);
-                    pdf.save(fname + lname + '.pdf');
+                pdf.addImage(canvas, 'JPEG', 0, 0, width, height);
+                pdf.save(fname + lname + '.pdf');
 
-                    var string = pdf.output('datauristring');
-                    $.ajax({
+                var string = pdf.output('datauristring');
+                $.ajax({
                         url: "/web_projects/MyEnrollWebService/CommonWebMethod.aspx/SavePDFToJdrive",
                         data: JSON.stringify({
                             pdfoutput: string,
@@ -668,8 +667,7 @@
                                 msg.Message);
                         }
                     })
-                }
-            })
+            });
         }
     </script>
 </body>
