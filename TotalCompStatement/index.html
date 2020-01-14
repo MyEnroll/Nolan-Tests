@@ -20,13 +20,17 @@
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script src="js/html2canvas.js?5"></script>
-    <script
-        src="https://www.me-content.com/mec/system/compiledResources/modules/placeholder-loading/dist/css/placeholder-loading.min.css">
-    </script>
+   
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/modules/placeholder-loading/dist/css/placeholder-loading.css">
     <link rel="stylesheet" href="./styles/totalComp.css?2">
     <script>
         var currencyCollect = 0;
     </script>
+    <style>
+        .ph-item {
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body class="uk-animation-fade">
@@ -34,8 +38,17 @@
 
     <div class="uk-section uk-section-secondary uk-section-small uk-position-relative uk-position-z-index ">
         <div class="uk-container">
-            <div class="uk-text-large">
-                Total Compensation Statement
+            <div class="uk-flex-between uk-grid uk-grid-small" uk-grid="">
+                <div>
+                    <div class="uk-text-large">
+                        Total Compensation Statement
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="uk-button uk-button-default" uk-toggle="#histRuns">
+                        History
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -613,6 +626,166 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="histRuns" class="uk-modal-container" uk-modal="">
+        <div class="uk-modal-dialog">
+
+            <div class="uk-modal-header uk-background-primary text-light">
+                <h3 class="text-light">Historical Reports</h3>
+            </div>
+            <div class="uk-modal-body">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
+                    <div>
+                        <div class="ph-item uk-card uk-card-default">
+                            <div class="ph-col-12">
+                              <div class="ph-row">
+                                  <div class="ph-col-4 big">
+
+                                  </div>
+                                  <div class="ph-col-2 empty"></div>
+                                  <div class="ph-col-2 big"></div>
+                                  <div class="ph-col-2 empty"></div>
+                                  <div class="ph-col-2 big"></div>
+                              </div>
+                              <div class="ph-row">
+                                  <div class="ph-col-8">
+
+                                  </div>
+                                  <div class="ph-col-2 empty"></div>
+                                  <div class="ph-col-2"></div>
+                              </div>
+                              <div class="ph-row">
+                                  <div class="ph-col-2">
+
+                                  </div>
+                                  <div class="ph-col-6"></div>
+                                  <div class="ph-col-2 empty"></div>
+                                  <div class="ph-col-2"></div>
+                              </div>
+                              <div class="ph-row">
+                                  <div class="ph-col-4">
+
+                                  </div>
+                                  <div class="ph-col-2 empty"></div>
+                                  <div class="ph-col-4"></div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="ph-item uk-card uk-card-default">
+                            <div class="ph-col-12">
+                                <div class="ph-row">
+                                    <div class="ph-col-4 big">
+
+                                    </div>
+                                    <div class="ph-col-4 big"></div>
+                                    <div class="ph-col-2 empty"></div>
+                                    <div class="ph-col-2 big"></div>
+                                </div>
+                                <div class="ph-row">
+                                    <div class="ph-col-8">
+
+                                    </div>
+                                    <div class="ph-col-2 empty"></div>
+                                    <div class="ph-col-2"></div>
+                                </div>
+                                <div class="ph-row">
+                                    <div class="ph-col-2">
+
+                                    </div>
+                                    <div class="ph-col-6"></div>
+                                    <div class="ph-col-2 empty"></div>
+                                    <div class="ph-col-2"></div>
+                                </div>
+                                <div class="ph-row">
+                                    <div class="ph-col-4">
+
+                                    </div>
+                                    <div class="ph-col-2 empty"></div>
+                                    <div class="ph-col-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="ph-item uk-card uk-card-default">
+                            <div class="ph-col-12">
+                                <div class="ph-row">
+                                    <div class="ph-col-4 big">
+
+                                    </div>
+                                    <div class="ph-col-4 big"></div>
+                                    <div class="ph-col-2 empty"></div>
+                                    <div class="ph-col-2 big"></div>
+                                </div>
+                                <div class="ph-row">
+                                    <div class="ph-col-8">
+
+                                    </div>
+                                    <div class="ph-col-2 empty"></div>
+                                    <div class="ph-col-2"></div>
+                                </div>
+                                <div class="ph-row">
+                                    <div class="ph-col-2">
+
+                                    </div>
+                                    <div class="ph-col-6"></div>
+                                    <div class="ph-col-2 empty"></div>
+                                    <div class="ph-col-2"></div>
+                                </div>
+                                <div class="ph-row">
+                                    <div class="ph-col-4">
+
+                                    </div>
+                                    <div class="ph-col-2 empty"></div>
+                                    <div class="ph-col-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="ph-item uk-card uk-card-default">
+                            <div class="ph-col-12">
+                               <div class="ph-row">
+                                   <div class="ph-col-4 big">
+
+                                   </div>
+                                   <div class="ph-col-4 big"></div>
+                                   <div class="ph-col-2 empty"></div>
+                                   <div class="ph-col-2 big"></div>
+                               </div>
+                               <div class="ph-row">
+                                   <div class="ph-col-8">
+
+                                   </div>
+                                   <div class="ph-col-2 empty"></div>
+                                   <div class="ph-col-2"></div>
+                               </div>
+                               <div class="ph-row">
+                                   <div class="ph-col-2">
+
+                                   </div>
+                                   <div class="ph-col-6"></div>
+                                   <div class="ph-col-2 empty"></div>
+                                   <div class="ph-col-2"></div>
+                               </div>
+                               <div class="ph-row">
+                                   <div class="ph-col-4">
+
+                                   </div>
+                                   <div class="ph-col-2 empty"></div>
+                                   <div class="ph-col-4"></div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
