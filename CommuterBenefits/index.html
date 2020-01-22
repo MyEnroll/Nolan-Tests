@@ -18,6 +18,7 @@
     <link rel="stylesheet"
         href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.css">
     <style>
         td,
         th {
@@ -524,8 +525,9 @@
                         <h3 class="uk-card-header">
                             History
                         </h3>
-                        <div class="uk-card-body">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem sint et possimus quis deleniti molestias ratione corrupti sed ea voluptatum!
+                        <div id="transactionArea" class="uk-card-body">
+                            <apexchart type="line" height="350" :options="chartOptions" :series="series"></apexchart>
+
                         </div>
                     </div>
                 </div>
@@ -536,7 +538,8 @@
 
 
 
-
+    <script src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/vue-apexcharts.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
     <script src="js/vue_components.js"></script>
 </body>
