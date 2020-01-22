@@ -27,9 +27,11 @@
         <div class="uk-section uk-padding-remove-bottom uk-position-relative">
             <div class="uk-container">
                 <div class="uk-card uk-card-default uk-card-body uk-padding-small">
-                    <h3 class="uk-heading-divider">
-                        Health Spending Account
+                    <h3 class="uk-heading-divider uk-flex uk-flex-between">
+                        <span>Health Spending Account</span>
+                       
                     </h3>
+                   
                     <div>
                         <h3><strong>What is a health savings account?</strong></h3>
                         <p>A health savings account, or HSA, is a tax-advantaged savings and investment account designed
@@ -54,6 +56,7 @@
         <div class="uk-section pt-4">
             <div class="uk-container">
                 <div id="hsaInputArea" class="uk-grid-small uk-child-width-expand@m" uk-grid>
+                    <button @click="scenarioSwitch"  class="uk-width-auto uk-position-top-right uk-button uk-button" type="button">Switch Scenario</button>
                     <div class="uk-width-2-3@m">
                         <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                             <h3 class="uk-card-title uk-heading-divider">
