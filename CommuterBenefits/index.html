@@ -1,0 +1,543 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <style>
+        td,
+        th {
+            text-align: center;
+            width: 100px;
+            min-width: 100px;
+        }
+
+        td,
+        th label {
+            text-align: left;
+        }
+
+        .me-ext-label {
+            background-color: #fff;
+
+        }
+
+        .me-ext-label+input {
+            margin-top: 30px;
+        }
+
+        .me-div-width>div {
+            min-width: 200px;
+        }
+
+        .me-div-width {
+            padding-bottom: 20px;
+        }
+
+        .me-entry-cont {
+            min-width: 200px;
+        }
+
+        .me-flex-nowrap {
+            flex-wrap: nowrap;
+        }
+        .me-width-1-2 {
+            display: block;
+        }
+        .me-width-1-2 {
+            padding: 15px 30px;
+        }
+
+        @media only screen and (max-width: 960px) {
+            .me-flex-nowrap {
+                flex-wrap: wrap;
+            }
+
+            .me-div-width > div {
+                margin-top: 15px !important;
+            }
+            .me-width-1-2 {
+                display:flex;
+            }
+            .me-width-1-2 > div {
+                width:50%;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+
+<body class="uk-background-muted">
+
+    <div class="uk-section uk-section-small">
+        <div class="uk-container">
+            <h2 class="uk-margin-remove">Commuter Benefits</h2>
+        </div>
+    </div>
+    <hr class="uk-margin-remove">
+    <div class="uk-section uk-section-small">
+        <div class="uk-container">
+            <div class="uk-grid-small uk-child-width-expand@m" uk-grid>
+                <div class="uk-width-1-1">
+                    <div class="uk-card uk-card-default uk-border-rounded">
+                        <h3 class="uk-card-header">
+                            Introduction
+                        </h3>
+                        <div class="uk-card-body">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, debitis!
+                        </div>
+                    </div>
+
+                </div>
+                <div class="">
+                    <div class="uk-card uk-card-default uk-border-rounded">
+                        <h3 class="uk-card-header">
+                            Current Contribution
+                        </h3>
+                        <div class="uk-card-body">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, debitis!
+                        </div>
+                    </div>
+
+                </div>
+                <div class="">
+                    <div class="uk-card uk-card-default uk-border-rounded">
+                        <h3 class="uk-card-header">
+                            Spending
+                        </h3>
+                        <div class="uk-card-body">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, debitis!
+                        </div>
+                    </div>
+
+                </div>
+                <div class="uk-width-1-1">
+                    <div class="uk-card uk-card-default uk-border-rounded">
+                        <h3 class="uk-card-header">
+                            Contributions
+                        </h3>
+                        <div id="commDC" class="me-width-1-2">
+                            <div class="uk-grid-collapse uk-width-auto@m uk-child-width-auto@m" uk-grid>
+                                <div class="uk-width-1-1 uk-visible@m">
+                                    <div>
+                                        <h4>Transit Benefit</h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="me-entry-cont">
+                                        <h5 class="uk-margin-remove">
+                                            All
+                                            <div class="uk-text-meta uk-hidden@m">
+                                                Transit
+                                            </div>
+                                        </h5>
+                                        <div>
+                                            <label for=""></label>
+                                            <input type="number" name="" id="" v-model="allMonthsTrans" class="uk-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-expand@m me-div-width uk-grid-collapse me-flex-nowrap uk-overflow-auto uk-child-width-auto@m"
+                                    uk-grid>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove" >
+                                                January
+                                               
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+    
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number"  name="" id="" @input="killAllTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                February
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="febTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                March
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="marTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                April
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="aprTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                May
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="mayTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                June
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="juneTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                July
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="julyTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                August
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="augTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                September
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="sepTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                October
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="octTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                November
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="novTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                December
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Transit
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="decTrans" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div class="uk-grid-collapse uk-width-auto@m uk-child-width-auto@m" uk-grid>
+                                <div class="uk-width-1-1 uk-visible@m">
+                                    <div>
+                                        <h4>Parking Benefit</h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="me-entry-cont">
+                                        <h5 class="uk-margin-remove">
+                                            All
+                                            <div class="uk-text-meta uk-hidden@m">
+                                                Parking
+                                            </div>
+                                        </h5>
+                                        <div>
+                                            <label for=""></label>
+                                            <input type="number" name="" id="" v-model="allMonthsPark" class="uk-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-expand@m me-div-width uk-grid-collapse me-flex-nowrap uk-overflow-auto uk-child-width-auto@m"
+                                    uk-grid>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                January
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+    
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="janPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                February
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="febPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                March
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="marPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                April
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="aprPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                May
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="mayPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                June
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="junePark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                July
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="julyPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                August
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="augPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                September
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="sepPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                October
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="octPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                November
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="novPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h5 class="uk-margin-remove">
+                                                December
+                                                <div class="uk-text-meta uk-hidden@m">
+                                                    Parking
+                                                </div>
+                                            </h5>
+                                            <div>
+                                                <label for=""></label>
+                                                <input type="number" name="" id="" v-model="decPark" class="uk-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="uk-width-1-1">
+                    <div class="uk-card uk-card-default uk-border-rounded">
+                        <h3 class="uk-card-header">
+                            History
+                        </h3>
+                        <div class="uk-card-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem sint et possimus quis deleniti molestias ratione corrupti sed ea voluptatum!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+    <script src="js/vue_components.js"></script>
+</body>
+
+</html>
