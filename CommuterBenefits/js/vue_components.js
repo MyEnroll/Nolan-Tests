@@ -1,4 +1,4 @@
-var CommuterInput = new Vue ({
+var CommuterInput = new Vue({
     el: '#commDC',
     data: {
         allMonthsTrans: null,
@@ -29,13 +29,18 @@ var CommuterInput = new Vue ({
         decPark: null,
     },
     methods: {
-        killAllTrans: function() {
-            this.allMonthsTrans = null;
-            console.log('test');
+        unlockMonth: function (event) {
+            targetId = event.currentTarget.id;
+            target = $('#' + targetId);
+            $(target).css({'box-shadow':'0px 3px 8px rgba(0,0,0,.18)'})
+           
+            $('input').not(target).removeAttr('style');
+
+           
         }
     },
     watch: {
-        allMonthsTrans: function() {
+        allMonthsTrans: function () {
             this.janTrans = this.allMonthsTrans;
             this.febTrans = this.allMonthsTrans;
             this.marTrans = this.allMonthsTrans;
@@ -48,8 +53,13 @@ var CommuterInput = new Vue ({
             this.octTrans = this.allMonthsTrans;
             this.novTrans = this.allMonthsTrans;
             this.decTrans = this.allMonthsTrans;
+            if (this.allMonthsTrans != "") {
+                $('.monthTransInp').addClass('uk-disabled');
+            } else {
+                $('.monthTransInp').removeAttr('disabled');
+            }
         },
-        allMonthsPark: function() {
+        allMonthsPark: function () {
             this.janPark = this.allMonthsPark;
             this.febPark = this.allMonthsPark;
             this.marPark = this.allMonthsPark;
@@ -62,6 +72,11 @@ var CommuterInput = new Vue ({
             this.octPark = this.allMonthsPark;
             this.novPark = this.allMonthsPark;
             this.decPark = this.allMonthsPark;
+        },
+        janTrans: function () {
+            if (this.janTrans != this.allMonthsTrans) {
+                this.allMonthsTrans = null;
+            }
         }
 
 
