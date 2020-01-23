@@ -111,7 +111,6 @@ var chart = new Vue({
                     },
                     autoSelected: 'zoom'
                 },
-                height: 350,
                 type: 'line',
                 dropShadow: {
                     enabled: true,
@@ -123,15 +122,15 @@ var chart = new Vue({
                 },
                 animations: {
                     enabled: true,
-                    
+                    easing: 'easeout',
                     dynamicAnimation: {
-                        speed: 500
+                        speed: 250
                     }
                 },
             },
             colors: ['#77B6EA', '#545454'],
             dataLabels: {
-                enabled: true,
+                enabled: false,
             },
             stroke: {
                 curve: 'smooth'
