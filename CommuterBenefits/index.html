@@ -520,15 +520,24 @@
                     </div>
 
                 </div>
-                <div class="uk-width-1-1">
+                <div id="transactionArea" class="uk-width-1-1">
                     <div class="uk-card uk-card-default uk-border-rounded">
                         <h3 class="uk-card-header">
                             History
                         </h3>
-                        <div id="transactionArea" class="uk-card-body">
-                            <apexchart type="line" height="350" :options="chartOptions" :series="series"></apexchart>
-
+                        <div>
+                            <button class="uk-button uk-button-secondary" type="button" @click="addData">Add</button>
+                            <button class="uk-button uk-button-default" type="button" @click="removeData">Remove</button>
                         </div>
+                        <div class="uk-card-body">
+                            <template>
+                                <apexchart ref="chart" type="line" height="350" :options="chartOptions" :series="series"></apexchart>
+                            </template>
+                            <div v-for="item in apexRange">
+                                {{ item }}
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

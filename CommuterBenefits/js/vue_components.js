@@ -90,13 +90,12 @@ var chart = new Vue({
         apexchart: VueApexCharts
     },
     data: {
-       
 
+        apexRange: CommuterInput.spendingHist,
         series: [{
-                name: "High - 2013",
-                data: CommuterInput.spendingHist
-            },
-        ],
+            name: "High - 2013",
+            data: CommuterInput.spendingHist
+        }, ],
         chartOptions: {
             chart: {
                 id: 'chart',
@@ -121,6 +120,13 @@ var chart = new Vue({
                     left: 7,
                     blur: 10,
                     opacity: 0.2
+                },
+                animations: {
+                    enabled: true,
+                    
+                    dynamicAnimation: {
+                        speed: 500
+                    }
                 },
             },
             colors: ['#77B6EA', '#545454'],
@@ -148,7 +154,7 @@ var chart = new Vue({
                 title: {
                     text: 'Temperature'
                 },
-               
+
             },
             legend: {
                 position: 'top',
@@ -158,12 +164,23 @@ var chart = new Vue({
                 offsetX: -5
             }
         },
-        
+
 
     },
     methods: {
-        test: function() {
+        test: function () {
             alert(this.spendingHist2);
+        },
+        addData: function () {
+            CommuterInput.spendingHist.push(Math.floor(Math.random() * (50 - 10 + 1)) + 10);
+            //CommuterInput.spendingHist.shift();
+            this.$refs.chart.updateOptions([])
+
+        },
+        removeData: function () {
+            CommuterInput.spendingHist.pop();
+            this.$refs.chart.updateOptions([])
         }
     },
+
 })
