@@ -1,0 +1,184 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Open+Sans:300,400,700,800&display=swap"
+        as="style">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Open+Sans:300,400,700,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/css/uikit.min.css" />
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit-icons.min.js">
+    </script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/modules/placeholder-loading/dist/css/placeholder-loading.min.css">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/modules/vue-dropzone/dist/vue2Dropzone.min.css">
+    <link rel="stylesheet" href="styles/submitfsa.css">
+</head>
+
+<body>
+
+    <div class="uk-section uk-section-small ">
+        <div class="uk-container">
+            <div class="uk-grid-small uk-child-width-1-1@s uk-grid-divider" uk-grid>
+                <div>
+                    <h2>
+                        Submit FSA Claim
+                    </h2>
+                    <p>
+                        Get started with your new FSA Claim below by simply entering some brief identifying information
+                        and then completing a simple claim form.
+                    </p>
+                </div>
+                <div>
+                    <div id="authArea" class="uk-grid-small uk-child-width-expand@s" uk-grid>
+                        <div>
+                            <h3>
+                                Identify Yourself
+                            </h3>
+                        </div>
+                        <div class="uk-width-1-1">
+                            <div class="uk-grid-small uk-child-width-expand@s">
+                                <div v-if="authSuccess == 0">
+                                    <button class="uk-button uk-button-primary uk-border-pill" type="button"
+                                        @click="fireAuth" v-html="btnTxt"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div v-if="validateSuccess == 1" id="fsaSubArea"
+                        class="uk-grid-small uk-child-width-1-1 uk-animation-slide-bottom-medium " uk-grid>
+
+                        <div>
+                            <template>
+                                <vuedropzone class="uk-position-relative" ref="dropDoc" id="fsaDropBox"
+                                    @vdropzone-success="fileCount" :options="dropzoneOptions">
+
+                                </vuedropzone>
+                            </template>
+                        </div>
+
+                        <div>
+                            <div v-if="filesCount != 0" class="uk-grid-small uk-child-width-expand@s" uk-grid>
+                                <div class="uk-width-1-1@s">
+                                    <div class="text-center alert alert-success" role="alert">
+                                        <div>
+                                            Excellent! We&apos;ve got your file. <b>Click below to continue</b>
+                                            <div class="mt-2">
+                                                <button type="button"
+                                                    class="btn bounce btn-outline-primary rounded-pill px-4"><i
+                                                        class="fad fa-chevron-double-down"></i> Continue <i
+                                                        class="fad fa-chevron-double-down"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-1">
+                                    <hr>
+                                </div>
+                                <div id="formEntry" class="uk-width-1-1@s uk-grid-small uk-child-width-expand@s"
+                                    uk-grid>
+                                    <div class="uk-width-1-1">
+                                        <h3 class="mb-2">
+                                            FSA Claim Information
+                                        </h3>
+                                        <p class="mt-0 mb-3 uk-text-meta">Complete the form below to submit your FSA
+                                            Claim.
+                                        </p>
+                                    </div>
+                                    <div class="uk-width-1-1@s">
+                                        <div class="uk-child-width-expand uk-grid-small" uk-grid>
+                                            <div class="uk-width-2-5@s">
+                                                <label for="" class="uk-form-label">First Name</label>
+                                                <input type="text" name="" class="uk-input" id=""
+                                                    placeholder="First Name">
+                                            </div>
+                                            <div class="uk-width-1-5@s">
+                                                <label for="" class="uk-form-label">Middle Initial</label>
+                                                <input type="text" name="" class="uk-input" id=""
+                                                    placeholder="Middle Name">
+                                            </div>
+                                            <div class="uk-width-2-5@s">
+                                                <label for="" class="uk-form-label">First Name</label>
+                                                <input type="text" name="" class="uk-input" id=""
+                                                    placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-1">
+                                        <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
+                                            <div class="uk-width-1-2@s">
+                                                <label for="" class="uk-form-label">Address Line 2</label>
+                                                <input type="text" name="" class="uk-input" id=""
+                                                    placeholder="Address Line 1">
+                                            </div>
+                                            <div class="uk-width-1-2@s">
+                                                <label for="" class="uk-form-label">Address Line 2</label>
+                                                <input type="text" name="" class="uk-input" id=""
+                                                    placeholder="Address Line 2">
+                                            </div>
+                                            <div class="uk-width-2-5@s">
+                                                <label for="" class="uk-form-label">City</label>
+                                                <input type="text" name="" class="uk-input" id="" placeholder="City">
+                                            </div>
+                                            <div class="uk-width-1-5@s">
+                                                <label for="" class="uk-form-label">State</label>
+                                                <input type="text" name="" class="uk-input" id="" placeholder="State">
+                                            </div>
+                                            <div class="uk-width-2-5@s">
+                                                <label for="" class="uk-form-label">Zip Code</label>
+                                                <input type="number" name="" class="uk-input" id=""
+                                                    placeholder="Zip Code">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-1-1">
+                                        <div class="uk-child-width-expand@s uk-grid-small" uk-grid>
+                                            <div>
+                                                <label for="" class="uk-form-label">Email Address</label>
+                                                <input type="email" name="" class="uk-input" id=""
+                                                    placeholder="Email Address">
+                                            </div>
+                                            <div>
+                                                <label for="" class="uk-form-label">Phone Number</label>
+                                                <input type="tel" name="" class="uk-input" id=""
+                                                    placeholder="Phone Number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://www.me-content.com/mec/system/compiledResources/modules/vue-dropzone/dist/vue2Dropzone.js">
+        </script>
+        <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+        <script src="js/vue_components.js"></script>
+</body>
+
+</html>
