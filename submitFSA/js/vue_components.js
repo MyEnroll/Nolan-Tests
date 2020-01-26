@@ -3,6 +3,10 @@ var authBlock = new Vue ({
     data: {
         btnTxt: 'Confirm',
         authSuccess: 0,
+        email1: null,
+        email2: null, 
+        ssn4: null,
+        pinNum: null
     },
     methods: {
         fireAuth: function() {
