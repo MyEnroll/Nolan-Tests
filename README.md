@@ -14,7 +14,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 * [User Profile](UserProfile/)
 * [Total Compensation Statement](TotalCompStatement/)
 * [Commuter Benefits](CommuterBenefits/)
-* [FSA Quick Claim Submission] (SubmitFSA/)
+* [FSA Quick Claim Submission](SubmitFSA/)
 
 
 
