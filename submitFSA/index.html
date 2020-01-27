@@ -37,17 +37,21 @@
     <div class="uk-section uk-section-small ">
         <div class="uk-container">
             <div class="uk-grid-small uk-child-width-1-1@s uk-grid-divider" uk-grid>
-                <div>
-                    <h2>
-                        Submit FSA Claim
-                    </h2>
-                    <p>
+                <h2>
+                    Submit FSA Claim
+                </h2>
+                <div id="headerSection" >
+                   
+                    <p v-if="showSection == true">
                         Get started with your new FSA Claim below by simply entering some brief identifying information
                         and then completing a simple claim form.
                     </p>
+                    <p v-if="showSection == false">
+                        Great! We&apos;ve successfully identified you. Proceed with the rest of the claim entry below.
+                    </p>
                 </div>
-                <div>
-                    <div id="authArea" class="uk-grid-small uk-child-width-expand@s" uk-grid>
+                <div v-if="authAreaShow == true" id="authArea" >
+                    <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
                         <div>
                             <h3>
                                 Identify Yourself
@@ -67,11 +71,17 @@
                                     <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
                                         <div>
                                             <label for="" class="uk-form-label">Last 4 of SSN.</label>
-                                            <input type="number" name="" v-model="ssn4" pattern="\d{4}" id="" maxlength="4" class="uk-input">
+                                            <input type="password" name="" v-model="ssn4" maxlength="4" pattern="\d*" id="ssnInput" class="uk-input">
+                                            <div class="uk-margin-small uk-grid-small uk-child-width-auto uk-grid">
+                                                <label><input class="uk-checkbox" v-model="showSSN" type="checkbox"> Show SSN</label>
+                                            </div>
                                         </div>
                                         <div>
                                             <label for="" class="uk-form-label">PIN</label>
-                                            <input type="number" name="" v-model="pinNum" pattern="\d*" id="" class="uk-input">
+                                            <input type="password" name="" v-model="pinNum" pattern="\d*" id="pinInput" class="uk-input">
+                                            <div class="uk-margin-small uk-grid-small uk-child-width-auto uk-grid">
+                                                <label><input class="uk-checkbox" v-model="showPIN" type="checkbox"> Show PIN</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
