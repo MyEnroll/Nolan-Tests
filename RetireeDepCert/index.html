@@ -1,0 +1,126 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <style>
+        .uk-table-hover tbody tr:hover,
+        .uk-table-hover>tr:hover {
+            background: #d3e8fe;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="uk-section uk-padding-remove-bottom">
+        <div class="uk-container">
+            <h2>
+                Retiree Dependent Certification
+            </h2>
+            <div>
+                Take a moment to verify your Dependents
+            </div>
+        </div>
+    </div>
+    <div id="authArea" class="uk-section uk-section-small">
+
+
+        <hr>
+        <div v-if="!userAuthed" class="uk-container">
+            <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
+                <div class="uk-width-1-1">
+                    <h3>
+                        Identify Yourself
+                    </h3>
+                </div>
+                <div>
+                    <div>
+                        <label for="" class="uk-form-label">6 Digit Code</label>
+                        <input v-model="userCode" type="text" name="" class="uk-input uk-border-rounded" type="number"
+                            id="" placeholder="Enter the 6 (SIX) digit code you received.">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label for="" class="uk-form-label">Home Zip Code</label>
+                        <input v-model="userZip" type="text" name="" class="uk-input uk-border-rounded" type="number"
+                            id="" placeholder="Home Zip Code">
+                    </div>
+                </div>
+                <div class="uk-width-1-1">
+                    <button type="button" :disabled="userAuthing"
+                        class="uk-flex uk-flex-middle uk-button uk-button-primary uk-border-pill"
+                        @click="fireAuthentication">
+                        Verify
+                        <div v-if="userAuthing" style="height:1.5rem; width:1.5rem"
+                            class="spinner-border text-primary ml-1" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div v-if="userAuthed" class="uk-container">
+            <div class="uk-grid-small uk-child-width-1-1@s" uk-grid>
+                <div>
+                    <div class="uk-overflow-auto uk-box-shadow-medium uk-border-rounded">
+                        <table class="uk-table uk-table-divider uk-table-middle uk-table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Verify
+                                    </th>
+                                    <th>Name</th>
+                                    <th>Relationship</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="dep in dependentList">
+                                    <td>
+                                        <input type="checkbox" name="selectedDeps" class="uk-checkbox" id=""
+                                            v-model="selDeps" :value="dep.depID">
+                                    </td>
+                                    <td>
+                                        {{ dep.name }}
+                                    </td>
+                                    <td>
+                                        {{ dep.relationship }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="uk-width-1-1 uk-text-right">
+                    <button class="uk-button uk-button-primary uk-border-pill uk-width-1-2@s" type="button">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-section uk-section-small">
+        <div class="uk-container">
+
+        </div>
+    </div>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+    <script src="js/vue_components.js"></script>
+</body>
+
+</html>
