@@ -1,26 +1,56 @@
 <html lang="en">
+
 <head>
-    <meta charset = "UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
-    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
-    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/modules/dayspan-vuetify/dist/lib/dayspan-vuetify.min.css">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/modules/vue-cal/dist/vuecal.css">
+        <link rel="stylesheet" href="styles/main.css">
     <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script defer src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
-
+    <script>
+        
+        
+    </script>
 </head>
-<body>
+
+<body style="transition:.3s ease-out">
 
     <div id="schedulerArea">
+        <a href="#schedulerNav" @click="navBarToggle" class="uk-position-absolute" uk-toggle>
+            <i class="fad fa-bars fa-2x"></i>
+        </a>
 
+        <div id="schedulerNav" uk-offcanvas="mode: slide;overlay: false; bg-close: false">
+            <div class="uk-offcanvas-bar uk-padding-small">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>Title</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.</p>
+
+            </div>
+        </div>
+        <vuecal hide-weekends default-view="month"></vuecal>
     </div>
-    <script src="https://www.me-content.com/mec/system/compiledResources/modules/vue-cal"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/modules/vue-cal/dist/vuecal.umd.min.js">
+    </script>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
     <script src="js/vue_components.js"></script>
+    <script defer src="js/main.js"></script>
 </body>
+
 </html>
