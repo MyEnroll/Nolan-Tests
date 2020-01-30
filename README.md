@@ -12,13 +12,9 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 * [Library](Library/)
 * [PLA Redesign](PLA_Redesign/)
 * [User Profile](UserProfile/)
-* [Total Compensation Statement](TotalCompStatement/)
 * [Commuter Benefits](CommuterBenefits/)
 * [FSA Quick Claim Submission](submitFSA/)
 * [Retiree Dependent Certify](RetireeDepCert/)
 
 
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
