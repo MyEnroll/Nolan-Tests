@@ -40,8 +40,8 @@
                 <h2>
                     Submit FSA Claim
                 </h2>
-                <div id="headerSection" >
-                   
+                <div id="headerSection">
+
                     <p v-if="showSection == true">
                         Get started with your new FSA Claim below by simply entering some brief identifying information
                         and then completing a simple claim form.
@@ -50,7 +50,7 @@
                         Great! We&apos;ve successfully identified you. Proceed with the rest of the claim entry below.
                     </p>
                 </div>
-                <div v-if="authAreaShow == true" id="authArea" >
+                <div v-if="authAreaShow == true" id="authArea">
                     <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
                         <div>
                             <h3>
@@ -61,26 +61,32 @@
                             <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
                                 <div>
                                     <label for="" class="uk-form-label">Email</label>
-                                    <input type="email" name="" id="" class="uk-input" v-model="email1" placeholder="Email Address">
+                                    <input type="email" name="" id="" class="uk-input" v-model="email1"
+                                        placeholder="Email Address">
                                 </div>
                                 <div>
                                     <label for="" class="uk-form-label">Confirm Email</label>
-                                    <input type="email" name="" id="" v-model="email2" class="uk-input" placeholder="Email Address">
+                                    <input type="email" name="" id="" v-model="email2" class="uk-input"
+                                        placeholder="Email Address">
                                 </div>
                                 <div class="uk-width-1-1">
                                     <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
                                         <div>
                                             <label for="" class="uk-form-label">Last 4 of SSN.</label>
-                                            <input type="password" name="" v-model="ssn4" maxlength="4" pattern="\d*" id="ssnInput" class="uk-input">
+                                            <input type="password" name="" v-model="ssn4" maxlength="4" pattern="\d*"
+                                                id="ssnInput" class="uk-input">
                                             <div class="uk-margin-small uk-grid-small uk-child-width-auto uk-grid">
-                                                <label><input class="uk-checkbox" v-model="showSSN" type="checkbox"> Show SSN</label>
+                                                <label><input class="uk-checkbox" v-model="showSSN" type="checkbox">
+                                                    Show SSN</label>
                                             </div>
                                         </div>
                                         <div>
                                             <label for="" class="uk-form-label">PIN</label>
-                                            <input type="password" name="" v-model="pinNum" pattern="\d*" id="pinInput" class="uk-input">
+                                            <input type="password" name="" v-model="pinNum" pattern="\d*" id="pinInput"
+                                                class="uk-input">
                                             <div class="uk-margin-small uk-grid-small uk-child-width-auto uk-grid">
-                                                <label><input class="uk-checkbox" v-model="showPIN" type="checkbox"> Show PIN</label>
+                                                <label><input class="uk-checkbox" v-model="showPIN" type="checkbox">
+                                                    Show PIN</label>
                                             </div>
                                         </div>
                                     </div>
@@ -197,6 +203,11 @@
                                                     placeholder="Phone Number">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="uk-width-expand@s uk-flex-center">
+                                        <button class="uk-button-primary uk-button uk-border-pill uk-width-1-2@s">
+                                            Submit
+                                        </button>
                                     </div>
                                 </div>
 
