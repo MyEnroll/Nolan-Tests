@@ -4,3 +4,4 @@ UIkit.util.on(document,'show','#schedulerNav',  function () {
 UIkit.util.on(document,'hide','#schedulerNav',  function () {
     $('body').removeClass('navPadding');
 });
+

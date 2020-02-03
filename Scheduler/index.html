@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
     <link rel="stylesheet"
         href="https://www.me-content.com/mec/system/compiledResources/modules/vue-cal/dist/vuecal.css">
-        <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css">
     <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script
@@ -18,15 +18,68 @@
     </script>
     <script defer src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
-    <script>
-        
-        
-    </script>
+    <style>
+
+    </style>
 </head>
 
 <body style="transition:.3s ease-out">
 
     <div id="schedulerArea">
+        <ul class="custom-menu">
+            <li v-if="existingAppt">
+                <div class="uk-flex uk-flex-middle uk-flex-left me-context-menu">
+                    <div class="fa-2x mr-4">
+                        <i class="fad fa-calendar-edit text-warning"></i>
+                    </div>
+                    <div>
+                        <div class="uk-text-bold">Edit Appointment</div>
+                        <div class="uk-text-meta"> {{ contextDate }} </div>
+                        <div class="uk-text-meta"> {{ contextTime }} </div>
+                    </div>
+    
+                </div>
+            </li>
+            <li v-else>
+                <div class="uk-flex uk-flex-middle uk-flex-left me-context-menu">
+                    <div class="fa-2x mr-4">
+                        <i class="fad fa-calendar-plus text-primary"></i>
+                    </div>
+                    <div>
+                        <div class="uk-text-bold">New Appointment</div>
+                        <div class="uk-text-meta"> {{ contextDate }} </div>
+                        <div class="uk-text-meta"> {{ contextTime }} </div>
+                    </div>
+    
+                </div>
+            </li>
+            <li>
+                <div class="uk-flex uk-flex-middle uk-flex-left me-context-menu">
+                    <div class="fa-2x mr-4">
+                        <i class="fad fa-calendar-times text-secondary"></i>
+                    </div>
+                    <div>
+                        <div class="uk-text-bold">Block Time</div>
+                        <div class="uk-text-meta"> {{ contextDate }} </div>
+                        <div class="uk-text-meta"> {{ contextTime }} </div>
+                    </div>
+    
+                </div>
+            </li>
+            <li>
+                <div class="uk-flex uk-flex-middle uk-flex-left me-context-menu">
+                    <div class="fa-2x mr-4">
+                        <i class="fad fa-calendar-plus text-primary"></i>
+                    </div>
+                    <div>
+                        <div class="uk-text-bold">New Appointment</div>
+                        <div class="uk-text-meta"> {{ contextDate }} </div>
+                        <div class="uk-text-meta"> {{ contextTime }} </div>
+                    </div>
+    
+                </div>
+            </li>
+        </ul>
         <a href="#schedulerNav" @click="navBarToggle" class="uk-position-absolute" uk-toggle>
             <i class="fad fa-bars fa-2x"></i>
         </a>
@@ -44,7 +97,10 @@
 
             </div>
         </div>
-        <vuecal hide-weekends default-view="month"></vuecal>
+        <vuecal events-count-on-year-view editable-events hide-weekends default-view="day" cell-contextmenu @cell-contextmenu="setTemp" @event-focus="existingApptClick" @cell-click="singleClick" :twelve-hour="twelveHour" :events="events"></vuecal>
+        <div>
+            <a href="#" class="uk-position-top-right fad fa-plus fa-2x"></a>
+        </div>
     </div>
     <script src="https://www.me-content.com/mec/system/compiledResources/modules/vue-cal/dist/vuecal.umd.min.js">
     </script>

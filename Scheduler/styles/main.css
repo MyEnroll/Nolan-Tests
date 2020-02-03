@@ -1,3 +1,57 @@
-.navPadding{
+.navPadding {
     padding-left: 350px;
+}
+
+.custom-menu {
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: sans-serif;
+    background: #FFF;
+    color: #333;
+    border-radius: 5px;
+    padding: 0;
+    box-shadow: 0px 5px 15px rgba(0,0,0,.18);
+}
+
+/* Each of the items in the list */
+.custom-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+    list-style-type: none;
+    transition: all .3s ease;
+    user-select: none;
+    border-bottom: 1px solid #eaeaea;
+}
+.custom-menu li:last-child {
+    border-bottom: 0;
+}
+
+.custom-menu li:hover {
+    background-color: #DEF;
+}
+
+.vuecal__event.eeAppt {
+    background-color: #20c997e6;
+    border: 1px solid #20c997;
+    color: #fff;
+}
+
+.vuecal__event.OtherAppt {
+    background-color: rgba(255, 102, 102, 0.9);
+    border: 1px solid rgb(235, 82, 82);
+    color: #fff;
+}
+
+.vuecal__event.tempAppt {
+    background-color: #eaeaea;
+    border: 1px dashed #c1c1c1;
+    display: inline;
+    vertical-align: middle;
+    box-shadow: 0px 5px 15px rgba(0,0,0,.08);
+}
+.vuecal__event {
+    cursor: pointer;
 }
