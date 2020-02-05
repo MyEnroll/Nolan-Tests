@@ -1,0 +1,155 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script defer src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script defer src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <div>
+                <label for=""></label>
+                <input type="text" name="" id="" v-model="queryString">
+                <button type="button" class="uk-button uk-button-primary" @click="getWeather">Get Weather</button>
+            </div>
+        </div>
+        <div v-if="weatherLoaded" class="uk-animation-fade uk-animation-fast uk-section uk-section-small">
+            <div class="uk-container">
+                <div class="uk-grid-small uk-child-width-1-1" uk-grid>
+                    <template v-for="(item) in weatherArrayLoc">
+                        <div class="uk-position-relative uk-animation-slide-left-medium">
+                            <div class="uk-card uk-card-default uk-border-rounded uk-overflow-auto">
+                                <div class="uk-card-body p-0">
+                                    <div class="uk-section-xsmall uk-section-default px-2">
+                                        <div>
+                                            <b>{{ item.location.name }}, {{ item.location.region }}</b>
+                                        </div>
+                                        <div class="uk-position-relative uk-text-center">
+                                            <div class="">
+                                                <img :data-src="'https:' + item.current.condition.icon" alt="" uk-img
+                                                    style="height:6em">
+                                            </div>
+                                            <div style="margin-top:-20px">
+                                                {{ item.current.condition.text }}
+                                            </div>
+                                            <div class="uk-flex-between uk-child-width-auto uk-grid-small" uk-grid>
+                                                <div>
+                                                    <div class="uk-child-width-auto uk-grid-small uk-flex-center uk-grid-divider"
+                                                        uk-grid>
+                                                        <div>
+                                                            <div>
+                                                                <div>
+                                                                    <b>Humidity</b>
+                                                                </div>
+                                                                <div>
+                                                                    {{ item.current.humidity }}%
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div>
+                                                            <div>
+                                                                <div>
+                                                                    <b>Cloud Cover</b>
+                                                                </div>
+                                                                <div>
+                                                                    {{ item.current.cloud }}%
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="uk-child-width-auto uk-grid-small uk-flex-center uk-grid-divider"
+                                                    uk-grid>
+                                                    <div>
+                                                        <div>
+                                                            <div>
+                                                                <b>Temp</b>
+                                                            </div>
+                                                            <div>
+                                                                {{ item.current.temp_f }}&deg;
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <div>
+                                                            <div>
+                                                                <b>Feels Like</b>
+                                                            </div>
+                                                            <div>
+                                                                {{ item.current.feelslike_f }}&deg;
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="uk-section-xsmall uk-section-primary px-2">
+                                        <div class="uk-child-width-expand uk-grid-collapse uk-grid-divider" uk-grid>
+                                            <div v-for="fore in weatherArrayFore">
+                                                <div>
+                                                    <div class="uk-text-bold">Date</div>
+                                                    <div>
+                                                        {{ fore.date }}
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="uk-text-bold">High</div>
+                                                    <div>
+                                                        {{ fore.day.maxtemp_f }}&deg;
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="uk-text-bold">Low</div>
+                                                    <div>
+                                                        {{ fore.day.mintemp_f }}&deg;
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="uk-position-top-right">
+                                <button type="button" uk-icon="icon: close; ratio: 1" class="m-2">
+                                </button>
+                            </div>
+                        </div>
+
+                    </template>
+
+                </div>
+            </div>
+        </div>
+        <div id="loader" v-else>
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <script src="js/vue_components.js"></script>
+</body>
+
+</html>
