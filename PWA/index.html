@@ -19,6 +19,7 @@
         href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+        
 </head>
 
 <body>
@@ -33,7 +34,7 @@
         <div v-if="weatherLoaded" class="uk-animation-fade uk-animation-fast uk-section uk-section-small">
             <div class="uk-container">
                 <div class="uk-grid-small uk-child-width-1-1" uk-grid>
-                    <template v-for="(item) in weatherArrayLoc">
+                    <template v-for="(item) in weatherArrayAll">
                         <div class="uk-position-relative uk-animation-slide-left-medium">
                             <div class="uk-card uk-card-default uk-border-rounded uk-overflow-auto">
                                 <div class="uk-card-body p-0">
@@ -107,26 +108,7 @@
                                     </div>
                                     <div class="uk-section-xsmall uk-section-primary px-2">
                                         <div class="uk-child-width-expand uk-grid-collapse uk-grid-divider" uk-grid>
-                                            <div v-for="fore in weatherArrayFore">
-                                                <div>
-                                                    <div class="uk-text-bold">Date</div>
-                                                    <div>
-                                                        {{ fore.date }}
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="uk-text-bold">High</div>
-                                                    <div>
-                                                        {{ fore.day.maxtemp_f }}&deg;
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="uk-text-bold">Low</div>
-                                                    <div>
-                                                        {{ fore.day.mintemp_f }}&deg;
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
 
@@ -148,7 +130,6 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-
         <script src="js/vue_components.js"></script>
 </body>
 

@@ -4,6 +4,7 @@ var mainBlock = new Vue({
         weatherArrayLoc: [],
         weatherArrayDat: [],
         weatherArrayFore: [],
+        weatherArrayAll: [],
         dataURI: 'https://api.weatherapi.com/v1/current.json?key=149cd2b7169e49ff9d3171456200502&q=',
         dataURIFore: 'https://api.weatherapi.com/v1/forecast.json?key=149cd2b7169e49ff9d3171456200502&days=5&q=',
         queryString: 19525,
@@ -38,8 +39,9 @@ var mainBlock = new Vue({
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    var tempFore = data.forecast.forecastday;
-                    self.weatherArrayFore = data.forecast.forecastday;
+                    self.weatherArrayFore = data.forecast;
+                    self.weatherArrayAll = self.weatherArrayLoc;
+
                 },
                 error: function (xhr) {
                     alert(xhr.responseText);
