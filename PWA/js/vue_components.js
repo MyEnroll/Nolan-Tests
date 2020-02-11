@@ -12,6 +12,10 @@ var mainBlock = new Vue({
         weatherLoaded: false
     },
     methods: {
+        removeCard: function (index) {
+            var self = this;
+            self.weatherArrayLoc.splice(index, 1);
+        },
         getWeather: function () {
             var self = this;
             $.ajax({
@@ -20,41 +24,47 @@ var mainBlock = new Vue({
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    
+                    console.log('basic');
                     self.weatherArrayLoc.push(data);
-
-                },
-                error: function(xhr) {
-                    alert(xhr.responseText);
-                  }
-            }).then(function() {
-                self.weatherLoaded = true;
-            });
-
-
-            $.ajax({
-                type: "GET",
-                url: this.dataURIFore + this.queryString,
-                data: JSON.stringify({}),
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    self.weatherArrayFore = data.forecast;
-                    self.weatherArrayAll = self.weatherArrayLoc;
 
                 },
                 error: function (xhr) {
                     alert(xhr.responseText);
                 }
             });
+            
+            $.ajax({
+                type: "GET",
+                url: self.dataURIFore + self.queryString,
+                data: JSON.stringify({}),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log('forecast');
+                    var tempArray = [];
+                    tempArray.push(data.forecast.forecastday);
+                    self.weatherArrayFore.push(data.forecast);
+                    self.weatherArrayLoc.push(Object.assign(self.weatherArrayLoc, self.weatherArrayFore));
+                    console.log(self.weatherArrayFore, self.weatherArrayLoc);
+                    
+                },
+                error: function (xhr) {
+                    alert(xhr.responseText);
+                }
+            }).then(function () {
+                self.weatherLoaded = true;
+
+            });
+
+
         }
     },
     watch: {
-        queryString: function() {
+        queryString: function () {
             this.fullURI = this.dataURI + this.queryString;
         }
     },
-    created: function() {
+    created: function () {
         this.getWeather();
     }
 })
