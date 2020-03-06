@@ -74,7 +74,7 @@
                                     <div>
                                         <p>
                                             Maximum for <b>{{ chosenHSAPlan }}</b>: <b
-                                                class="uk-text-primary">${{ hsaMax }}</b>
+                                                class="uk-text-primary">${{ hsaMaxMod }}</b>
                                         </p>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        <input v-model="hsaAnnualVal" type="tel" class="form-control" :max="hsaMax"
+                                        <input v-model="hsaAnnualVal" type="tel" class="form-control" :max="hsaMaxMod"
                                             placeholder="Enter the amount you wish to contribute annually...">
                                     </div>
 
