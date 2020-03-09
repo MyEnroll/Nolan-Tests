@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script defer src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+</head>
+
+<body>
+    <div id="scannertest" class="uk-section uk-section-xsmall">
+        <div class="uk-container">
+            <div class="uk-grid-small uk-child-width-1-2" uk-grid>
+                <div class="uk-width-1-1">
+                    <h2>
+                        Keypress Test
+                    </h2>
+                    <div class="uk-text-meta">
+                        Try the focus of inputs by clicking items below
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-default uk-border-rounded">
+                        <div class="uk-card-header">
+                            Input Test
+                        </div>
+                        <div class="uk-card-body">
+                            <input v-on:keyup.enter="pushtoScanned" @keyup="percentScan($event)" id="rawInput" class="uk-input" v-model="scannedRaw">
+                        </div>
+                        <div class="uk-card-footer">
+                            <button @click="pushtoScanned" class="uk-button uk-button-primary">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-default uk-border-rounded">
+                        <div class="uk-card-header">
+                            Render Test
+                        </div>
+                        <div class="uk-card-body">
+                            <ul class="uk-list uk-list-divider">
+                                <li v-for="(item, index) in scannedItems">
+                                    {{ item }} <button class="uk-icon-button" @click="removeScanned(index)"
+                                        uk-icon="trash"></button> <button class="uk-icon-button"
+                                        @click="removeScanned(index)" uk-icon="pencil"></button>
+                                    <div>
+                                        <input type="text" name="" id="">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+    <script src="js/vue_components.js"></script>
+    <script>
+        $(document).on('keypress', function (event) {
+            if ($('#rawInput').not(":focus")) {
+                $('#rawInput').focus();
+
+            }
+        });
+    </script>
+</body>
+
+</html>
