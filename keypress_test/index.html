@@ -38,7 +38,8 @@
                             Input Test
                         </div>
                         <div class="uk-card-body">
-                            <input v-on:keyup.enter="pushtoScanned" @keyup="percentScan($event)" id="rawInput" class="uk-input" v-model="scannedRaw">
+                            <input v-on:keyup.enter="pushtoScanned" @keyup="percentScan($event)" id="rawInput"
+                                class="uk-input" v-model="scannedRaw">
                         </div>
                         <div class="uk-card-footer">
                             <button @click="pushtoScanned" class="uk-button uk-button-primary">
@@ -52,17 +53,58 @@
                         <div class="uk-card-header">
                             Render Test
                         </div>
-                        <div class="uk-card-body">
-                            <ul class="uk-list uk-list-divider">
-                                <li v-for="(item, index) in scannedItems">
-                                    {{ item }} <button class="uk-icon-button" @click="removeScanned(index)"
-                                        uk-icon="trash"></button> <button class="uk-icon-button"
-                                        @click="editInline(index)" uk-icon="pencil"></button>
-                                    <div>
-                                        <input type="text" name="" id="">
+                        <div class="uk-card-body uk-position-relative">
+
+
+                            <template v-if="scannedItems.length == 0">
+                                <div class="uk-text-center py-4">
+                                    <div class=" uk-text-large">
+                                        Nothing Scanned yet...
                                     </div>
-                                </li>
-                            </ul>
+                                    <div class="uk-text-meta">
+                                        Start scanning to add items to the manifest.
+                                    </div>
+                                </div>
+
+                            </template>
+                            <template v-else>
+                                <ul class="uk-list uk-list-divider">
+                                    <li v-for="(item, index) in scannedItems">
+                                        <div class="uk-grid-small uk-child-width-1-1@m" uk-grid>
+                                            <div>
+                                                <div class="uk-grid-small uk-child-width-1-2 uk-flex-between" uk-grid>
+                                                    <div>
+                                                        <span>{{ index }}</span> - {{ item }}
+                                                    </div>
+                                                    <div>
+                                                        <button class="uk-icon-button" @click="removeScanned(index)"
+                                                            uk-icon="trash"></button> <button class="uk-icon-button"
+                                                            @click="editInline(index)" uk-icon="pencil"></button>
+                                                            <div class="mt-1" :data-index="index" v-if="editPrep == index">
+                                                                <input type="text" name="" id="" class="uk-input">
+                                                                <div class="uk-grid-collapse uk-child-width-1-2" uk-grid>
+                                                                    <div>
+                                                                        <button @click="saveEditItem(index)" type="button"
+                                                                            class="uk-width-expand uk-button uk-button-primary mt-1">Save</button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button @click="cancelEditItem(index)" type="button"
+                                                                            class="uk-width-expand uk-button uk-button-default mt-1">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                </ul>
+                            </template>
+
+
                         </div>
                     </div>
                 </div>
@@ -74,10 +116,10 @@
     <script src="js/vue_components.js"></script>
     <script>
         $(document).on('keypress', function (event) {
-            if ($('#rawInput').not(":focus")) {
-                $('#rawInput').focus();
+            // if ($('#rawInput, .uk-input').not(":focus")) {
+            //     $('#rawInput').focus();
 
-            }
+            // }
         });
     </script>
 </body>

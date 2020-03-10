@@ -40,6 +40,20 @@ var scanner = new Vue({
             console.log(data);
             $('#rawInput').focus();
             self.scannedRaw = '';
+        },
+        saveEditItem: function(index) {
+            var self = this;
+            var tempVal = $('[data-index="'+index+'"]').children('input').val();
+            Vue.set(scanner.scannedItems, index, tempVal);
+            self.editPrep = null;
+            self.scannedRaw = '';
+            $('#rawInput').focus();
+        },
+        cancelEditItem: function() {
+            var self = this;
+            self.editPrep = null;
+            self.scannedRaw = '';
+            $('#rawInput').focus();
         }
     }
 })
