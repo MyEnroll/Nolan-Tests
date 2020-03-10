@@ -3,7 +3,9 @@ var scanner = new Vue({
     data: {
         scannedItems: [],
         scannedRaw: '',
-        editPrep: null
+        editPrep: null,
+        totalScanned: 0,
+        totalExpected: null
     },
     methods: {
         pushtoScanned: function () {
@@ -54,6 +56,12 @@ var scanner = new Vue({
             self.editPrep = null;
             self.scannedRaw = '';
             $('#rawInput').focus();
+        }
+    },
+    watch: {
+        scannedItems: function() {
+            var self = this;
+            self.totalScanned = self.scannedItems.length;
         }
     }
 })
