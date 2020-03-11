@@ -12,7 +12,11 @@ var scanner = new Vue({
             var self = this;
             if (self.editPrep == null) {
                 var self = this;
-                self.scannedItems.push(self.scannedRaw);
+                if (self.scannedItems.includes(self.scannedRaw)) {
+
+                } else {
+                    self.scannedItems.push(self.scannedRaw);
+                }
                 self.scannedRaw = '';
                 $('#rawInput').focus();
             } else {
@@ -43,15 +47,15 @@ var scanner = new Vue({
             $('#rawInput').focus();
             self.scannedRaw = '';
         },
-        saveEditItem: function(index) {
+        saveEditItem: function (index) {
             var self = this;
-            var tempVal = $('[data-index="'+index+'"]').children('input').val();
+            var tempVal = $('[data-index="' + index + '"]').children('input').val();
             Vue.set(scanner.scannedItems, index, tempVal);
             self.editPrep = null;
             self.scannedRaw = '';
             $('#rawInput').focus();
         },
-        cancelEditItem: function() {
+        cancelEditItem: function () {
             var self = this;
             self.editPrep = null;
             self.scannedRaw = '';
@@ -59,7 +63,7 @@ var scanner = new Vue({
         }
     },
     watch: {
-        scannedItems: function() {
+        scannedItems: function () {
             var self = this;
             self.totalScanned = self.scannedItems.length;
         }

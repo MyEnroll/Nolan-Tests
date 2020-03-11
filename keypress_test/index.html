@@ -38,16 +38,16 @@
                             Input Test
                         </div>
                         <div class="uk-card-body">
-                            <input v-on:keyup.enter="pushtoScanned" @keyup="percentScan($event)" id="rawInput"
+                            <input v-on:keyup.enter="pushtoScanned"  id="rawInput"
                                 class="uk-input" v-model="scannedRaw">
-                           
+
                         </div>
 
                         <div class="uk-card-footer">
                             <button @click="pushtoScanned" class="uk-button uk-button-primary">
                                 Submit
                             </button>
-                            <span >
+                            <span>
                                 {{ totalScanned }}
                             </span>
                         </div>
@@ -121,10 +121,10 @@
     <script src="js/vue_components.js"></script>
     <script>
         $(document).on('keypress', function (event) {
-            // if ($('#rawInput, .uk-input').not(":focus")) {
-            //     $('#rawInput').focus();
+            if ($('#rawInput, .uk-input').not(":focus")) {
+                $('#rawInput').focus();
 
-            // }
+            }
         });
     </script>
 </body>
