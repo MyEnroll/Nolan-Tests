@@ -29,9 +29,9 @@
                 <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                     <h3 class="uk-heading-divider uk-flex uk-flex-between">
                         <span>Health Spending Account</span>
-                       
+
                     </h3>
-                   
+
                     <div>
                         <h3><strong>What is a health savings account?</strong></h3>
                         <p>A health savings account, or HSA, is a tax-advantaged savings and investment account designed
@@ -56,7 +56,8 @@
         <div class="uk-section pt-4">
             <div class="uk-container">
                 <div id="hsaInputArea" class="uk-grid-small uk-child-width-expand@m" uk-grid>
-                    <button @click="scenarioSwitch"  class="uk-width-auto uk-position-top-right uk-button uk-button" type="button">Switch Scenario</button>
+                    <button @click="scenarioSwitch" class="uk-width-auto uk-position-top-right uk-button uk-button"
+                        type="button">Switch Scenario</button>
                     <div class="uk-width-2-3@m">
                         <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                             <h3 class="uk-card-title uk-heading-divider">
@@ -73,7 +74,7 @@
                                     </div>
                                     <div>
                                         <p>
-                                            Maximum for <b>{{ chosenHSAPlan }}</b>: <b
+                                            Maximum annual contribution for <b>{{ chosenHSAPlan }}</b>: <b
                                                 class="uk-text-primary">${{ hsaMaxMod }}</b>
                                         </p>
                                     </div>
@@ -87,17 +88,16 @@
                                     <label for="waiveHSA">No, do not contribute to HSA</label>
                                 </div>
                                 <div v-if="hsaOpt == 1" class="uk-width-1-1">
-                                    <label for="">Annual Contribution</label>
+                                    <label for="">Monthly Contribution</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        <input v-model="hsaAnnualVal" type="tel" class="form-control" :max="hsaMaxMod"
-                                            placeholder="Enter the amount you wish to contribute annually...">
+                                        <input v-model="hsaMonthly" type="number" class="form-control" :max="hsaMaxMod"
+                                            placeholder="Enter the amount you wish to contribute monthly...">
                                     </div>
 
                                 </div>
-                                <div v-else></div>
                             </div>
                         </div>
                     </div>
@@ -107,24 +107,107 @@
                                 Totals
                             </h3>
                             <div>
-                                <label for=""></label>
-                                <div v-if="hsaAnnualVal > 0 && hsaOpt == 1">
-                                   <div v-if="hsaAnnualDone > 0">
-                                    <label for="">Amount already contributed</label>
-                                    <div>${{ hsaAnnualDone }}</div>
-                                    <hr>
-                                   </div>
-                                   
-                                   
-                                    <label for="">Annual Amount <span v-if="hsaAnnualDone > 0"><b>(Remaining)</b></span></label>
-                                    <div v-if="hsaAnnualVal > hsaAnnualDone">${{ hsaAnnualRem }}</div>
-                                    <div v-else>No Contribution Necessary</div>
-                                    <hr>
-                                    <label for="">Per Pay Amount <b>(Pay Periods: {{ perPayCount }})</b></label>
-                                    <div v-if="hsaAnnualVal > hsaAnnualDone">${{ hsaBWK }}</div>
-                                    <div v-else>No Contribution Necessary</div>
+                                <div class="uk-overflow-auto">
+                                    <table class="uk-table divider">
+                                        <thead>
+                                            <tr>
+                                                <th>
+
+                                                </th>
+                                                <th>
+                                                    Your Contribution
+                                                </th>
+                                                <th>
+                                                    Employer Contribution
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="uk-table-shrink">
+                                                    Monthly
+                                                </td>
+                                                <td>
+                                                    <template v-if="hsaMonthlyFormat != ''">
+                                                        <span >
+                                                            ${{ hsaMonthlyFormat }}
+                                                        </span>
+                                                    </template>
+                                                </td>
+                                                <td>
+                                                    <template v-if="hsaERContFormat != null">
+                                                        <span >
+                                                            ${{ hsaERContFormat }}
+                                                        </span>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="uk-table-shrink">
+                                                    Annual
+                                                </td>
+                                                <td>
+                                                    <template v-if="hsaEEAnnual != ''">
+                                                        <span >
+                                                            ${{ hsaEEAnnual }}
+                                                        </span>
+                                                    </template>
+                                                </td>
+                                                <td>
+                                                    <template v-if="hsaERAnnual != ''" >
+                                                        <span >
+                                                            ${{ hsaERAnnual }}
+                                                        </span>
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                            <tr style="border-top:2px solied #eaeaea">
+                                                <td class="uk-text-bold uk-table-shrink uk-text-nowrap" colspan="2">
+                                                    Total Annual Contribution
+                                                </td>
+                                                
+                                                <td :class="{'uk-text-danger': overMax}">
+                                                    <template v-if="hsaAnnualFormat != ''">
+                                                        ${{ hsaAnnualFormat }}
+                                                    </template>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div v-else>No Contribution Entered</div>
+                            </div>
+                            <div class="uk-hidden">
+                                <div>
+                                    <label class="uk-text-bold" for="">Your Contribution</label>
+                                    <div >
+                                        <template v-if="hsaMonthly > 0">
+                                            ${{ hsaMonthlyFormat }}
+                                        </template>
+                                        <template v-else>
+                                            Enter a Contribution amount to get started
+                                        </template>
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <label class="uk-text-bold" for="">Employer Contribution</label>
+                                    <div>
+                                        <template v-if="hsaERCont > 0">
+                                            ${{ hsaERCont }}
+                                        </template>
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <label class="uk-text-bold" for="">Annual Amount </label>
+                                    <div :class="{'uk-text-danger': overMax}">
+                                        <template v-if="hsaMonthly > 0 || hsaERCont > 0">
+                                            ${{ hsaAnnualCalc }}
+                                        </template>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
