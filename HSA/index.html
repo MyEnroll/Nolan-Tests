@@ -12,9 +12,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script
         src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
-    </script>
-    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
-    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
+        </script>
+    <script defer src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
+    <script defer src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
     <link rel="stylesheet"
         href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
@@ -33,22 +33,29 @@
                     </h3>
 
                     <div>
-                        <h3><strong>What is a health savings account?</strong></h3>
-                        <p>A health savings account, or HSA, is a tax-advantaged savings and investment account designed
-                            to help Americans with high-deductible health insurance plans save for their out-of-pocket
-                            medical expenses. Contributions to HSAs are tax-deductible, and withdrawals for qualified
-                            health-care expenses are tax-free as well.</p>
-                        <p>As you'll see as we go through the details, an HSA is rather different from a&nbsp;<u><a
-                                    tabindex="-1"
-                                    title="https://www.fool.com/taxes/2019/01/03/2019-fsa-changes-put-flexible-spending-accounts-to.aspx"
-                                    href="https://www.fool.com/taxes/2019/01/03/2019-fsa-changes-put-flexible-spending-accounts-to.aspx"
-                                    target="_blank" rel="noreferrer noopener">flexible spending account</a></u>, or FSA,
-                            even though they're both tax-advantaged vehicles for health-care savings. With an HSA,
-                            unlike an FSA, you can invest the money you contribute, and you can choose to carry over the
-                            funds from year to year.</p>
-                        <p>In fact, you don't need to spend the money in your HSA in&nbsp;<em>any</em>&nbsp;specific
-                            time frame. That makes it an excellent way to save and invest for anticipated health-care
-                            expenses after retirement.</p>
+                        <p>
+                            A Health Savings Account (HSA) is a tax-favored IRA-type of trust or custodial account to
+                            which “eligible individuals” or someone, such as an employer, on their behalf makes
+                            contributions. The deposited money earns tax-free interest, and funds are not taxed when
+                            used to pay for qualified medical expenses.
+                        </p>
+                        <p>There are four requirements that must be satisfied in order to be an eligible individual. The
+                            individual:</p>
+                        <p>
+                            <ol>
+                                <li>Must have coverage under a qualified High Deductible Health Plan (HDHP);</li>
+                                <li>Cannot be claimed as a tax dependent by anyone else;</li>
+                                <li>Must not be enrolled in any part of Medicare;</li>
+                                <li>Must not have disqualifying coverage.</li>
+                            </ol>
+                        </p>
+                        <p>
+                            The individual who own the HSA is responsible for determining if distributions are for
+                            qualified or non-qualified expenses. Neither the HSA trustee, nor the employer is
+                            responsible for making this determination. The employee who owns the HSA account may use
+                            those funds for any purpose, although the money will be taxable and generally also subject
+                            to a 20% penalty if not used for qualified medical expenses.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -56,26 +63,57 @@
         <div class="uk-section pt-4">
             <div class="uk-container">
                 <div id="hsaInputArea" class="uk-grid-small uk-child-width-expand@m" uk-grid>
-                    <button @click="scenarioSwitch" class="uk-width-auto uk-position-top-right uk-button uk-button"
-                        type="button">Switch Scenario</button>
+                    <div class="uk-position-top-right uk-position-absolute uk-width-auto m-1">
+                        <select class="uk-select" name="" v-model="hsaScenario" id="">
+                            <option value="0">
+                                Family Tier - No ER Contribution
+                            </option>
+                            <option value="1">
+                                Single with ER Contribution
+                            </option>
+                            <option value="2">
+                                55 or over with ER Contribution
+                            </option>
+                        </select>
+                    </div>
                     <div class="uk-width-2-3@m">
                         <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                             <h3 class="uk-card-title uk-heading-divider">
-                                HSA Elections
+                                HSA Elections Maximum Contribution Levels
                             </h3>
                             <div class="uk-grid-small uk-child-width-1-2@m" uk-grid>
                                 <div class="uk-width-1-1">
                                     <div>
                                         <p>
-                                            HSA Contribution Limits. The 2020 annual HSA contribution limit is $3,550
-                                            for individuals with self-only HDHP coverage (up from $3,500 in 2019), and
-                                            $7,100 for individuals with family HDHP coverage (up from $7,000 in 2019).
+                                            <ul class="me-spaced-list">
+                                                <li>
+                                                    <span class="me-list-title">Self-only:</span> <span>$3,550 (an
+                                                        increase of
+                                                        $50 from 2019)</span>
+                                                </li>
+                                                <li>
+                                                    <span class="me-list-title">Family:</span> <span>$7,100 (an increase
+                                                        of
+                                                        $100
+                                                        from 2019)</span>
+                                                </li>
+                                                <li>
+                                                    <span class="me-list-title">Catch-up:</span> <span>
+                                                        $1,000 (eligible
+                                                        participants aged 55 or
+                                                        older may also
+                                                        contribute up to $1000 as a catchup contribution each year) <a
+                                                            href="#catchUp" uk-toggle
+                                                            class="fad fa-info-circle uk-text-primary me-cursor-pointer"></a>
+                                                    </span>
+                                                </li>
+                                            </ul>
                                         </p>
                                     </div>
                                     <div>
                                         <p>
                                             Maximum annual contribution for <b>{{ chosenHSAPlan }}</b>: <b
-                                                class="uk-text-primary">${{ hsaMaxMod }}</b>
+                                                class="uk-text-primary">${{ hsaMaxModForm }}</b>
                                         </p>
                                     </div>
                                 </div>
@@ -88,7 +126,7 @@
                                     <label for="waiveHSA">No, do not contribute to HSA</label>
                                 </div>
                                 <div v-if="hsaOpt == 1" class="uk-width-1-1">
-                                    <label for="">Monthly Contribution</label>
+                                    <label for=""><b>Monthly</b> Contribution</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
@@ -104,7 +142,7 @@
                     <div>
                         <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                             <h3 class="uk-card-title uk-heading-divider">
-                                Totals
+                                Your Estimated Contribution
                             </h3>
                             <div>
                                 <div class="uk-overflow-auto">
@@ -115,7 +153,7 @@
 
                                                 </th>
                                                 <th>
-                                                    Your Contribution
+                                                    <span>Your Contribution<sup class="uk-text-danger">*</sup></span>
                                                 </th>
                                                 <th>
                                                     Employer Contribution
@@ -125,38 +163,58 @@
                                         <tbody>
                                             <tr>
                                                 <td class="uk-table-shrink">
-                                                    Monthly
+                                                    <b>Monthly</b>
                                                 </td>
                                                 <td>
                                                     <template v-if="hsaMonthlyFormat != ''">
-                                                        <span >
+                                                        <span>
                                                             ${{ hsaMonthlyFormat }}
+                                                        </span>
+                                                    </template>
+                                                    <template v-else>
+                                                        <span>
+                                                            $0
                                                         </span>
                                                     </template>
                                                 </td>
                                                 <td>
                                                     <template v-if="hsaERContFormat != null">
-                                                        <span >
+                                                        <span>
                                                             ${{ hsaERContFormat }}
+                                                        </span>
+                                                    </template>
+                                                    <template v-else>
+                                                        <span>
+                                                            $0
                                                         </span>
                                                     </template>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="uk-table-shrink">
-                                                    Annual
+                                                    <b>Annual</b>
                                                 </td>
                                                 <td>
                                                     <template v-if="hsaEEAnnual != ''">
-                                                        <span >
+                                                        <span>
                                                             ${{ hsaEEAnnual }}
+                                                        </span>
+                                                    </template>
+                                                    <template v-else>
+                                                        <span>
+                                                            $0
                                                         </span>
                                                     </template>
                                                 </td>
                                                 <td>
-                                                    <template v-if="hsaERAnnual != ''" >
-                                                        <span >
+                                                    <template v-if="hsaERAnnual != ''">
+                                                        <span>
                                                             ${{ hsaERAnnual }}
+                                                        </span>
+                                                    </template>
+                                                    <template v-else>
+                                                        <span>
+                                                            $0
                                                         </span>
                                                     </template>
                                                 </td>
@@ -165,7 +223,7 @@
                                                 <td class="uk-text-bold uk-table-shrink uk-text-nowrap" colspan="2">
                                                     Total Annual Contribution
                                                 </td>
-                                                
+
                                                 <td :class="{'uk-text-danger': overMax}">
                                                     <template v-if="hsaAnnualFormat != ''">
                                                         ${{ hsaAnnualFormat }}
@@ -179,7 +237,7 @@
                             <div class="uk-hidden">
                                 <div>
                                     <label class="uk-text-bold" for="">Your Contribution</label>
-                                    <div >
+                                    <div>
                                         <template v-if="hsaMonthly > 0">
                                             ${{ hsaMonthlyFormat }}
                                         </template>
@@ -210,7 +268,25 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mt-1">
+                            <span><sup class="uk-text-danger">*</sup> Indicates that the number shown is an
+                                estimate.</span>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div id="catchUp" uk-modal>
+            <div class="uk-modal-dialog uk-border-rounded uk-overflow-auto">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <div class="uk-modal-header">
+                    <h2 class="uk-modal-title">How does this catch-up work?</h2>
+                </div>
+                <div class="uk-modal-body" uk-overflow-auto>
+                    <p v-html="catchUpText"></p>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Close</button>
                 </div>
             </div>
         </div>
