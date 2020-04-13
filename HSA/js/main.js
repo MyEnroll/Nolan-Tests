@@ -109,7 +109,25 @@ var HSAInput = new Vue({
 						hsa_amt: Number(self.hsaMonthly),
 					}),
 					contentType: 'application/json; charset=utf-8',
-				}).done(function (f) {});
+				}).done(function (f) {
+					$.ajax({
+						type: 'POST',
+						url:
+							'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
+						data: JSON.stringify({}),
+						contentType: 'application/json; charset=utf-8',
+					}).then(function (g) {
+						UIkit.notification({
+							message:
+								'Successfully saved $' +
+								JSON.parse(g.d)[0].EE_MONTHLY_CONTRIBUTION +
+								' as your monthly HSA Contribution',
+							pos: 'top-right',
+							timeout: 2500,
+							status: 'success',
+						});
+					});
+				});
 			});
 		},
 	},
