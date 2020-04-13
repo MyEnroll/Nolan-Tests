@@ -90,6 +90,28 @@ var HSAInput = new Vue({
 				}
 			}
 		},
+		saveHSACont: function () {
+			var self = this;
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
+				data: JSON.stringify({}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (e) {
+				$.ajax({
+					type: 'POST',
+					url:
+						'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/Save_HSA_EE_Data',
+					data: JSON.stringify({
+						cat_code: JSON.parse(e.d)[0].CATEGORY_CODE,
+						cat_plan: JSON.parse(e.d)[0].CATEGORY_PLAN,
+						hsa_amt: Number(self.hsaMonthly),
+					}),
+					contentType: 'application/json; charset=utf-8',
+				}).done(function (f) {});
+			});
+		},
 	},
 	created: function () {
 		var self = this;
