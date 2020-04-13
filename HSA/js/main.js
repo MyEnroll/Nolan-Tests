@@ -90,46 +90,6 @@ var HSAInput = new Vue({
 				}
 			}
 		},
-		saveHSACont: function () {
-			var self = this;
-			$.ajax({
-				type: 'POST',
-				url:
-					'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
-				data: JSON.stringify({}),
-				contentType: 'application/json; charset=utf-8',
-			}).done(function (e) {
-				$.ajax({
-					type: 'POST',
-					url:
-						'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/Save_HSA_EE_Data',
-					data: JSON.stringify({
-						cat_code: JSON.parse(e.d)[0].CATEGORY_CODE,
-						cat_plan: JSON.parse(e.d)[0].CATEGORY_PLAN,
-						hsa_amt: Number(self.hsaMonthly),
-					}),
-					contentType: 'application/json; charset=utf-8',
-				}).done(function (f) {
-					$.ajax({
-						type: 'POST',
-						url:
-							'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
-						data: JSON.stringify({}),
-						contentType: 'application/json; charset=utf-8',
-					}).then(function (g) {
-						UIkit.notification({
-							message:
-								'Successfully saved $' +
-								JSON.parse(g.d)[0].EE_MONTHLY_CONTRIBUTION +
-								' as your monthly HSA Contribution',
-							pos: 'top-right',
-							timeout: 2500,
-							status: 'success',
-						});
-					});
-				});
-			});
-		},
 	},
 	created: function () {
 		var self = this;
@@ -143,6 +103,66 @@ var HSAInput = new Vue({
 	methods: {
 		numberWithCommas: function (x) {
 			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		},
+		saveHSACont: function () {
+			var self = this;
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
+				data: JSON.stringify({}),
+				contentType: 'application/json; charset=utf-8',
+			})
+				.done(function (e) {
+					$.ajax({
+						type: 'POST',
+						url:
+							'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/Save_HSA_EE_Data',
+						data: JSON.stringify({
+							cat_code: JSON.parse(e.d)[0].CATEGORY_CODE,
+							cat_plan: JSON.parse(e.d)[0].CATEGORY_PLAN,
+							hsa_amt: Number(self.hsaMonthly),
+						}),
+						contentType: 'application/json; charset=utf-8',
+					}).done(function (f) {
+						$.ajax({
+							type: 'POST',
+							url:
+								'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
+							data: JSON.stringify({}),
+							contentType: 'application/json; charset=utf-8',
+						})
+							.done(function (g) {
+								UIkit.notification({
+									message:
+										'Successfully saved $' +
+										JSON.parse(g.d)[0].EE_MONTHLY_CONTRIBUTION +
+										' as your monthly HSA Contribution',
+									pos: 'top-right',
+									timeout: 2500,
+									status: 'success',
+								});
+							})
+							.fail(function () {
+								UIkit.notification({
+									message:
+										'There&apos;s been an error. Please try again or contact your Benefit Administrator',
+									pos: 'top-right',
+									timeout: 2500,
+									status: 'danger',
+								});
+							});
+					});
+				})
+				.fail(function () {
+					UIkit.notification({
+						message:
+							'There&apos;s been an error. Please try again or contact your Benefit Administrator',
+						pos: 'top-right',
+						timeout: 2500,
+						status: 'danger',
+					});
+				});
 		},
 	},
 });
