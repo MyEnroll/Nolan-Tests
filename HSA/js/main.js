@@ -93,6 +93,7 @@ var HSAInput = new Vue({
 	},
 	created: function () {
 		var self = this;
+		self.getHSAinfo();
 		self.hsaERContFormat = self.numberWithCommas(self.hsaERCont);
 		self.hsaAnnualCalc = self.hsaERContFormat;
 		self.hsaERAnnual = self.numberWithCommas(Number(self.hsaERCont) * 12);
@@ -103,6 +104,29 @@ var HSAInput = new Vue({
 	methods: {
 		numberWithCommas: function (x) {
 			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		},
+		getHSAinfo: function () {
+			var self = this;
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
+				data: JSON.stringify({}),
+				contentType: 'application/json; charset=utf-8',
+			})
+				.done(function (e) {
+					self.hsaMonthly = JSON.parse(e)[0].EE_MONTHLY_CONTRIBUTION;
+					self.hsaERCont = JSON.parse(e)[0].ER_MONTHLY_CONTRIBUTION;
+				})
+				.fail(function () {
+					UIkit.notification({
+						message:
+							'There&apos;s been an error. Please try again or contact your Benefit Administrator',
+						pos: 'top-right',
+						timeout: 2500,
+						status: 'danger',
+					});
+				});
 		},
 		saveHSACont: function () {
 			var self = this;
