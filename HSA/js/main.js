@@ -120,6 +120,11 @@ var HSAInput = new Vue({
 				.done(function (e) {
 					self.hsaMonthly = JSON.parse(e)[0].EE_MONTHLY_CONTRIBUTION;
 					self.hsaERCont = JSON.parse(e)[0].ER_MONTHLY_CONTRIBUTION;
+					if (JSON.parse(e)[0].EE_AGE > 54) {
+						self.additional55 = true;
+					} else {
+						self.additional55 = false;
+					}
 				})
 				.fail(function () {
 					UIkit.notification({
