@@ -134,10 +134,12 @@
                                         <input v-model="hsaMonthly" type="number" class="form-control" :max="hsaMaxMod"
                                             placeholder="Enter the amount you wish to contribute monthly...">
                                     </div>
-                                    <div>
-                                        <button type="button" class="uk-button uk-button-primary uk-border-pill"
-                                            @click="saveHSACont">Submit</button>
-                                    </div>
+                                    <template v-if="hsaHost != 'demo'">
+                                        <div>
+                                            <button type="button" class="uk-button uk-button-primary uk-border-pill"
+                                                @click="saveHSACont">Submit</button>
+                                        </div>
+                                    </template>
                                 </div>
                             </div>
                         </div>
