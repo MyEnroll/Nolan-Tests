@@ -21,6 +21,7 @@ var HSAInput = new Vue({
 		hsaEEAnnual: '',
 		hsaERAnnual: '',
 		hsaScenario: 0,
+		hsaHost: 'demo'
 	},
 	watch: {
 		hsaMaxMod: function () {
@@ -93,7 +94,9 @@ var HSAInput = new Vue({
 	},
 	created: function () {
 		var self = this;
-		self.getHSAinfo();
+		if (self.hsaHost != 'demo') {
+			self.getHSAinfo();
+		}
 		self.hsaERContFormat = self.numberWithCommas(self.hsaERCont);
 		self.hsaAnnualCalc = self.hsaERContFormat;
 		self.hsaERAnnual = self.numberWithCommas(Number(self.hsaERCont) * 12);
