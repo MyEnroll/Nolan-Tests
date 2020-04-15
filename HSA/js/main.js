@@ -3,11 +3,13 @@ var HSAInput = new Vue({
 	data: {
 		hsaBWK: null,
 		hsaOpt: null,
+		singleMax: 3550,
+		familyMax: 7100,
 		hsaMax: 7100,
 		hsaMaxMod: 7100,
 		hsaMaxModForm: '7,100',
 		perPayCount: 26,
-		chosenHSAPlan: 'HSA Plan 1',
+		chosenHSAPlan: '',
 		hsaAnnualDone: null,
 		hsaAnnualRem: null,
 		additional55: false,
@@ -21,7 +23,8 @@ var HSAInput = new Vue({
 		hsaEEAnnual: '',
 		hsaERAnnual: '',
 		hsaScenario: 0,
-		hsaHost: ''
+		hsaHost: '',
+		dataLoaded: false
 	},
 	watch: {
 		hsaMaxMod: function () {
@@ -123,8 +126,15 @@ var HSAInput = new Vue({
 				contentType: 'application/json; charset=utf-8',
 			})
 				.done(function (e) {
+					self.dataLoaded = true;
 					self.hsaMonthly = JSON.parse(e.d)[0].EE_MONTHLY_CONTRIBUTION;
 					self.hsaERCont = JSON.parse(e.d)[0].ER_MONTHLY_CONTRIBUTION;
+					self.chosenHSAPlan = JSON.parse(e.d)[0].LONG_DESCRIPTION;
+					if (JSON.parse(e.d)[0].FAMILY_STATUS == 0) {
+						self.hsaMaxMod = self.singleMax;
+					} else {
+						self.hsaMaxMod = self.familyMax;
+					}
 					if (JSON.parse(e.d)[0].EE_AGE > 54) {
 						self.additional55 = true;
 					} else {
@@ -176,7 +186,7 @@ var HSAInput = new Vue({
 								UIkit.notification({
 									message:
 										'Successfully saved $' +
-										JSON.parse(g.d)[0].EE_MONTHLY_CONTRIBUTION +
+										self.numberWithCommas(JSON.parse(g.d)[0].EE_MONTHLY_CONTRIBUTION) +
 										' as your monthly HSA Contribution',
 									pos: 'top-right',
 									timeout: 2500,
