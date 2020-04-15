@@ -21,7 +21,7 @@ var HSAInput = new Vue({
 		hsaEEAnnual: '',
 		hsaERAnnual: '',
 		hsaScenario: 0,
-		hsaHost: 'demo'
+		hsaHost: ''
 	},
 	watch: {
 		hsaMaxMod: function () {
@@ -65,8 +65,8 @@ var HSAInput = new Vue({
 				);
 				self.hsaAnnualCalc =
 					(Number(self.hsaMonthly) + Number(self.hsaERCont)) * 12;
-				self.hsaMonthlyFormat = self.numberWithCommas(Number(self.hsaMonthly));
-				self.hsaEEAnnual = self.numberWithCommas(Number(self.hsaMonthly) * 12);
+				self.hsaMonthlyFormat = self.numberWithCommas(Number(self.hsaMonthly).toFixed(2));
+				self.hsaEEAnnual = self.numberWithCommas((Number(self.hsaMonthly) * 12).toFixed(2));
 			}
 			if (self.hsaMonthly > self.hsaMaxMod) {
 				self.hsaMonthly = self.hsaMaxMod;
@@ -103,6 +103,11 @@ var HSAInput = new Vue({
 		self.hsaAnnualFormat = self.numberWithCommas(
 			((Number(self.hsaMonthly) + Number(self.hsaERCont)) * 12).toFixed(2),
 		);
+		if (window.location.href.toLowerCase().indexOf('github') > -1) {
+			self.hsaHost = 'demo';
+
+		}
+		
 	},
 	methods: {
 		numberWithCommas: function (x) {
@@ -118,12 +123,15 @@ var HSAInput = new Vue({
 				contentType: 'application/json; charset=utf-8',
 			})
 				.done(function (e) {
-					self.hsaMonthly = JSON.parse(e)[0].EE_MONTHLY_CONTRIBUTION;
-					self.hsaERCont = JSON.parse(e)[0].ER_MONTHLY_CONTRIBUTION;
-					if (JSON.parse(e)[0].EE_AGE > 54) {
+					self.hsaMonthly = JSON.parse(e.d)[0].EE_MONTHLY_CONTRIBUTION;
+					self.hsaERCont = JSON.parse(e.d)[0].ER_MONTHLY_CONTRIBUTION;
+					if (JSON.parse(e.d)[0].EE_AGE > 54) {
 						self.additional55 = true;
 					} else {
 						self.additional55 = false;
+					}
+					if (self.hsaMonthly > 0) {
+						self.hsaOpt = 1;
 					}
 				})
 				.fail(function () {

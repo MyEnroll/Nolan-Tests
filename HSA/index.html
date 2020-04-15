@@ -63,19 +63,21 @@
         <div class="uk-section pt-4">
             <div class="uk-container">
                 <div id="hsaInputArea" class="uk-grid-small uk-child-width-expand@m" uk-grid>
-                    <div class="uk-position-top-right uk-position-absolute uk-width-auto m-1">
-                        <select class="uk-select" name="" v-model="hsaScenario" id="">
-                            <option value="0">
-                                Family Tier - No ER Contribution
-                            </option>
-                            <option value="1">
-                                Single with ER Contribution
-                            </option>
-                            <option value="2">
-                                55 or over with ER Contribution
-                            </option>
-                        </select>
-                    </div>
+                    <template v-if="hsaHost == 'demo'">
+                        <div class="uk-position-top-right uk-position-absolute uk-width-auto m-1">
+                            <select class="uk-select" name="" v-model="hsaScenario" id="">
+                                <option value="0">
+                                    Family Tier - No ER Contribution
+                                </option>
+                                <option value="1">
+                                    Single with ER Contribution
+                                </option>
+                                <option value="2">
+                                    55 or over with ER Contribution
+                                </option>
+                            </select>
+                        </div>
+                    </template>
                     <div class="uk-width-2-3@m">
                         <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                             <h3 class="uk-card-title uk-heading-divider">
@@ -131,7 +133,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        <input v-model="hsaMonthly" type="number" class="form-control" :max="hsaMaxMod"
+                                        <input @keypress.enter="saveHSACont" v-model="hsaMonthly" type="number" class="form-control" :max="hsaMaxMod"
                                             placeholder="Enter the amount you wish to contribute monthly...">
                                     </div>
                                     <template v-if="hsaHost != 'demo'">
@@ -297,7 +299,7 @@
         </div>
     </div>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js?8"></script>
 </body>
 
 </html>
