@@ -101,7 +101,7 @@ var HSAInput = new Vue({
 	},
 	created: function () {
 		var self = this;
-		if (self.hsaHost != 'demo' && self.hsaHost != '') {
+		if (self.hsaHost != 'demo' || self.hsaHost == '') {
 			self.getHSAinfo();
 		}
 		self.hsaERContFormat = self.numberWithCommas(self.hsaERCont);
