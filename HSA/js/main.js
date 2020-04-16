@@ -101,9 +101,7 @@ var HSAInput = new Vue({
 	},
 	created: function () {
 		var self = this;
-		if (self.hsaHost != 'demo' || self.hsaHost == '') {
-			self.getHSAinfo();
-		}
+
 		self.hsaERContFormat = self.numberWithCommas(self.hsaERCont);
 		self.hsaAnnualCalc = self.hsaERContFormat;
 		self.hsaERAnnual = self.numberWithCommas(Number(self.hsaERCont) * 12);
@@ -112,6 +110,9 @@ var HSAInput = new Vue({
 		);
 		if (window.location.href.toLowerCase().indexOf('github') > -1) {
 			self.hsaHost = 'demo';
+		}
+		if (self.hsaHost != 'demo' || self.hsaHost == '') {
+			self.getHSAinfo();
 		}
 	},
 	methods: {
