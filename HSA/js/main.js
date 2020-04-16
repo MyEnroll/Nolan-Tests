@@ -24,7 +24,7 @@ var HSAInput = new Vue({
 		hsaERAnnual: '',
 		hsaScenario: 0,
 		hsaHost: '',
-		dataLoaded: false
+		dataLoaded: false,
 	},
 	watch: {
 		hsaMaxMod: function () {
@@ -68,8 +68,12 @@ var HSAInput = new Vue({
 				);
 				self.hsaAnnualCalc =
 					(Number(self.hsaMonthly) + Number(self.hsaERCont)) * 12;
-				self.hsaMonthlyFormat = self.numberWithCommas(Number(self.hsaMonthly).toFixed(2));
-				self.hsaEEAnnual = self.numberWithCommas((Number(self.hsaMonthly) * 12).toFixed(2));
+				self.hsaMonthlyFormat = self.numberWithCommas(
+					Number(self.hsaMonthly).toFixed(2),
+				);
+				self.hsaEEAnnual = self.numberWithCommas(
+					(Number(self.hsaMonthly) * 12).toFixed(2),
+				);
 			}
 			if (self.hsaMonthly > self.hsaMaxMod) {
 				self.hsaMonthly = self.hsaMaxMod;
@@ -97,7 +101,7 @@ var HSAInput = new Vue({
 	},
 	created: function () {
 		var self = this;
-		if (self.hsaHost != 'demo') {
+		if (self.hsaHost != 'demo' && self.hsaHost != '') {
 			self.getHSAinfo();
 		}
 		self.hsaERContFormat = self.numberWithCommas(self.hsaERCont);
@@ -108,9 +112,7 @@ var HSAInput = new Vue({
 		);
 		if (window.location.href.toLowerCase().indexOf('github') > -1) {
 			self.hsaHost = 'demo';
-
 		}
-		
 	},
 	methods: {
 		numberWithCommas: function (x) {
@@ -186,7 +188,9 @@ var HSAInput = new Vue({
 								UIkit.notification({
 									message:
 										'Successfully saved $' +
-										self.numberWithCommas(JSON.parse(g.d)[0].EE_MONTHLY_CONTRIBUTION) +
+										self.numberWithCommas(
+											JSON.parse(g.d)[0].EE_MONTHLY_CONTRIBUTION,
+										) +
 										' as your monthly HSA Contribution',
 									pos: 'top-right',
 									timeout: 2500,

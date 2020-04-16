@@ -78,7 +78,7 @@
                             </select>
                         </div>
                     </template>
-                    <template v-if="dataLoaded">
+                    <template v-if="dataLoaded || hsaHost">
                         <div class="uk-width-2-3@m">
                             <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                                 <h3 class="uk-card-title uk-heading-divider">
@@ -95,7 +95,8 @@
                                                             $50 from 2019)</span>
                                                     </li>
                                                     <li>
-                                                        <span class="me-list-title">Family:</span> <span>$7,100 (an increase
+                                                        <span class="me-list-title">Family:</span> <span>$7,100 (an
+                                                            increase
                                                             of
                                                             $100
                                                             from 2019)</span>
@@ -105,8 +106,8 @@
                                                             $1,000 (eligible
                                                             participants aged 55 or
                                                             older may also
-                                                            contribute up to $1,000 as a catchup contribution each year) <a
-                                                                href="#catchUp" uk-toggle
+                                                            contribute up to $1,000 as a catchup contribution each year)
+                                                            <a href="#catchUp" uk-toggle
                                                                 class="fad fa-info-circle uk-text-primary me-cursor-pointer"></a>
                                                         </span>
                                                     </li>
@@ -121,11 +122,13 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <input v-model="hsaOpt" value="1" id="electHSA" type="radio" name="hsaSelection">
+                                        <input v-model="hsaOpt" value="1" id="electHSA" type="radio"
+                                            name="hsaSelection">
                                         <label for="electHSA">Yes, Contribute to HSA</label>
                                     </div>
                                     <div>
-                                        <input v-model="hsaOpt" value="0" id="waiveHSA" type="radio" name="hsaSelection">
+                                        <input v-model="hsaOpt" value="0" id="waiveHSA" type="radio"
+                                            name="hsaSelection">
                                         <label for="waiveHSA">No, do not contribute to HSA</label>
                                     </div>
                                     <div v-if="hsaOpt == 1" class="uk-width-1-1">
@@ -134,7 +137,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
-                                            <input @keypress.enter="saveHSACont" v-model="hsaMonthly" type="number" class="form-control" :max="hsaMaxMod"
+                                            <input @keypress.enter="saveHSACont" v-model="hsaMonthly" type="number"
+                                                class="form-control" :max="hsaMaxMod"
                                                 placeholder="Enter the amount you wish to contribute monthly...">
                                         </div>
                                         <template v-if="hsaHost != 'demo'">
@@ -158,10 +162,11 @@
                                             <thead>
                                                 <tr>
                                                     <th>
-    
+
                                                     </th>
                                                     <th>
-                                                        <span>Your Contribution<sup class="uk-text-danger">*</sup></span>
+                                                        <span>Your Contribution<sup
+                                                                class="uk-text-danger">*</sup></span>
                                                     </th>
                                                     <th>
                                                         Employer Contribution
@@ -231,7 +236,7 @@
                                                     <td class="uk-text-bold uk-table-shrink uk-text-nowrap" colspan="2">
                                                         Total Annual Contribution
                                                     </td>
-    
+
                                                     <td :class="{'uk-text-danger': overMax}">
                                                         <template v-if="hsaAnnualFormat != ''">
                                                             ${{ hsaAnnualFormat }}
@@ -252,7 +257,7 @@
                                             <template v-else>
                                                 Enter a Contribution amount to get started
                                             </template>
-    
+
                                         </div>
                                     </div>
                                     <hr>
@@ -262,7 +267,7 @@
                                             <template v-if="hsaERCont > 0">
                                                 ${{ hsaERCont }}
                                             </template>
-    
+
                                         </div>
                                     </div>
                                     <hr>
@@ -301,7 +306,7 @@
         </div>
     </div>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
-    <script src="./js/main.js?13"></script>
+    <script src="./js/main.js?14"></script>
 </body>
 
 </html>
