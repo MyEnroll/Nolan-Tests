@@ -69,7 +69,7 @@ Vue.component('claimdenial', {
                             </template>\
                             <template v-else>\
                                 <div class="border uk-margin-top uk-overflow-auto">\
-                                    <table class="uk-table-hover uk-table uk-table-divider">\
+                                    <table class="uk-table-responsive uk-table-hover uk-table uk-table-divider">\
                                         <thead>\
                                             <tr class="uk-background-secondary">\
                                                 <th class="uk-table-expand uk-text-nowrap">Claim Denial Code</th>\
