@@ -23,7 +23,7 @@ Vue.component('claimdenial', {
 			var self = this;
 			return self.reasonCodes.filter(function (item) {
 				return (
-					item.REASON_CODE.toString().includes(self.searchString) ||
+				
 					item.REASON_DESCRIPTION.toLowerCase().includes(self.searchString)
 				);
 			});
