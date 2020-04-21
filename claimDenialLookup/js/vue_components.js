@@ -23,7 +23,7 @@ Vue.component('claimdenial', {
 			var self = this;
 			return self.reasonCodes.filter(function (item) {
 				return (
-				item.REASON_CODE.toString().includes(self.searchString) ||
+					item.REASON_CODE.toString().includes(self.searchString) ||
 					item.REASON_DESCRIPTION.toLowerCase().includes(self.searchString)
 				);
 			});
@@ -72,26 +72,26 @@ Vue.component('claimdenial', {
                                     <table class="border uk-table uk-table-responsive uk-table-divider">\
                                         <thead>\
                                             <tr class="">\
-                                                <th class="">Claim Denial Code</th>\
+                                                <th class="uk-table-expand uk-text-nowrap">Claim Denial Code</th>\
                                                 <th>Claim Denial Description</th>\
                                             </tr>\
                                         </thead>\
                                        <tbody>\
                                             <tr v-for="item in filteredReasons">\
                                                 <td>\
-                                                    <div class="uk-hidden@m uk-text-bold">\
+                                                    <span class="d-block uk-hidden@m uk-text-bold">\
                                                     Code\
-                                                    </div>\
-                                                    <div>\
+                                                    </span>\
+                                                    <span>\
                                                     {{ item.REASON_CODE }}\
-                                                    </div>\
+                                                    </span>\
                                                 </td>\
                                                 <td>\
-                                                <div class="uk-hidden@m uk-text-bold">\
+                                                <span class="d-block uk-hidden@m uk-text-bold">\
                                                 Description\
-                                                </div>\
-                                                <div v-html="item.REASON_DESCRIPTION">\
-                                                </div>\
+                                                </span>\
+                                                <span v-html="item.REASON_DESCRIPTION">\
+                                                </span>\
                                                 </td>\
                                             </tr>\
                                         </tbody>\
