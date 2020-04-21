@@ -8,6 +8,7 @@ This page will be updated with new applications for review and approval before m
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
+* [Claim Denial Code Lookup](ClaimDenial/)
 * [HSA](HSA/)
 * [Library](Library/)
 * [PLA Redesign](PLA_Redesign/)
