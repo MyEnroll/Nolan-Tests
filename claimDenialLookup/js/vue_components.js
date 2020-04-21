@@ -72,7 +72,7 @@ Vue.component('claimdenial', {
                                     <table class="border uk-table uk-table-responsive uk-table-divider">\
                                         <thead>\
                                             <tr class="">\
-                                                <th class="uk-table-expand">Claim Denial Code</th>\
+                                                <th class="">Claim Denial Code</th>\
                                                 <th>Claim Denial Description</th>\
                                             </tr>\
                                         </thead>\
