@@ -68,7 +68,7 @@ Vue.component('claimdenial', {
                                 </div>\
                             </template>\
                             <template v-else>\
-                                <div class="border uk-margin-top">\
+                                <div class="uk-margin-top">\
                                     <table class="uk-table-responsive uk-table-hover uk-table uk-table-divider">\
                                         <thead>\
                                             <tr class="uk-background-secondary">\
