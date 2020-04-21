@@ -22,7 +22,10 @@ Vue.component('claimdenial', {
 		filteredReasons() {
 			var self = this;
 			return self.reasonCodes.filter(function (item) {
-				return item.REASON_CODE.toString().includes(self.searchString);
+				return (
+					item.REASON_CODE.toString().includes(self.searchString) ||
+					item.REASON_DESCRIPTION.toLowerCase().includes(self.searchString)
+				);
 			});
 		},
 	},
