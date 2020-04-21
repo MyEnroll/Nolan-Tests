@@ -47,7 +47,7 @@ Vue.component('claimdenial', {
                 <div>\
                     <div class="uk-card uk-card-default uk-border-rounded">\
                         <div class="uk-card-body">\
-                            <div class="uk-width-expand uk-search uk-search-default uk-background-default" uk-sticky>\
+                            <div class="uk-width-expand uk-search uk-search-default uk-background-default uk-border-rounded" uk-sticky="cls-active: uk-box-shadow-medium">\
                                 <span uk-search-icon></span>\
                                 <input v-model="searchString" class="uk-border-rounded uk-search-input" type="search" placeholder="Search...">\
                             </div>\
@@ -79,9 +79,19 @@ Vue.component('claimdenial', {
                                        <tbody>\
                                             <tr v-for="item in filteredReasons">\
                                                 <td>\
+                                                    <div class="uk-visible@m uk-text-bold">\
+                                                    Code\
+                                                    </div>\
+                                                    <div>\
                                                     {{ item.REASON_CODE }}\
+                                                    </div>\
                                                 </td>\
-                                                <td v-html="item.REASON_DESCRIPTION">\
+                                                <td>\
+                                                <div class="uk-visible@m uk-text-bold">\
+                                                Description\
+                                                </div>\
+                                                <div v-html="item.REASON_DESCRIPTION">\
+                                                </div>\
                                                 </td>\
                                             </tr>\
                                         </tbody>\
