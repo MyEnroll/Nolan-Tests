@@ -79,7 +79,7 @@ Vue.component('claimdenial', {
                                        <tbody>\
                                             <tr v-for="item in filteredReasons">\
                                                 <td>\
-                                                    <span class="d-block uk-hidden@m uk-text-bold">\
+                                                    <span class="uk-display-block uk-hidden@m uk-text-bold">\
                                                     Code\
                                                     </span>\
                                                     <span>\
@@ -87,7 +87,7 @@ Vue.component('claimdenial', {
                                                     </span>\
                                                 </td>\
                                                 <td>\
-                                                <span class="d-block uk-hidden@m uk-text-bold">\
+                                                <span class="uk-display-block uk-hidden@m uk-text-bold">\
                                                 Description\
                                                 </span>\
                                                 <span v-html="item.REASON_DESCRIPTION">\
