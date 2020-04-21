@@ -47,7 +47,7 @@ Vue.component('claimdenial', {
                 <div>\
                     <div class="uk-card uk-card-default uk-border-rounded">\
                         <div class="uk-card-body">\
-                            <div class="uk-width-expand uk-search uk-search-default">\
+                            <div class="uk-width-expand uk-search uk-search-default" uk-sticky>\
                                 <span uk-search-icon></span>\
                                 <input v-model="searchString" class="uk-border-rounded uk-search-input" type="search" placeholder="Search...">\
                             </div>\
