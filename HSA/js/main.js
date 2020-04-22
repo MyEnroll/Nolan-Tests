@@ -116,6 +116,12 @@ var HSAInput = new Vue({
 		}
 	},
 	methods: {
+		parentBack: function () {
+			parent.htmBackButton_onclick();
+		},
+		parentNext: function () {
+			parent.htmNextButtom_onclick();
+		},
 		numberWithCommas: function (x) {
 			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 		},

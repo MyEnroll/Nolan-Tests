@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-control" content="public">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <link rel="stylesheet"
@@ -78,7 +79,7 @@
                             </select>
                         </div>
                     </template>
-                    <template v-if="dataLoaded || hsaHost">
+                    <template v-if="dataLoaded || hsaHost != ''">
                         <div class="uk-width-2-3@m">
                             <div class="uk-card uk-card-default uk-card-body uk-padding-small">
                                 <h3 class="uk-card-title uk-heading-divider">
@@ -287,7 +288,18 @@
                             </div>
                         </div>
                     </template>
+                    <template v-if="hsaHost != 'demo' || hsaHost != ''">
+                        <div class="uk-width-1-1">
+                            <button @click="parentBack" class="uk-button uk-border-pill uk-button-default">
+                                Back
+                            </button>
+                            <button @click="parentNext" class="uk-button uk-border-pill uk-button-primary">
+                                Next
+                            </button>
+                        </div>
+                    </template>
                 </div>
+
             </div>
         </div>
         <div id="catchUp" uk-modal>
@@ -306,7 +318,7 @@
         </div>
     </div>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
-    <script src="./js/main.js?17"></script>
+    <script src="./js/main.js?18"></script>
 </body>
 
 </html>
