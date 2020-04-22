@@ -2,6 +2,7 @@
     transition: .3s ease;
     border: 3px solid #1e87f0;
     color: #fff;
+    background: #1e87f0;
 }
 
 .me-card:hover {
