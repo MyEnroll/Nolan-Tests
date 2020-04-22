@@ -299,27 +299,46 @@
                             </button>
                         </div>
                     </template>
+                    <template v-if="oeLoading">
+                        <div style="background: rgba(0,0,0,.25);position: fixed;top: 0;left: 0;right: 0;bottom: 0;"
+                            class="uk-animation-fade uk-animation-fast"></div>
+                        <div class="uk-position-center uk-text-center">
+                            <div class="spinner">
+                                <div class="rect1"></div>
+                                <div class="rect2"></div>
+                                <div class="rect3"></div>
+                                <div class="rect4"></div>
+                                <div class="rect5"></div>
+                            </div>
+                            <div class="uk-text-default">
+                                <h3>
+                                    Loading
+                                </h3>
+                            </div>
+                        </div>
                 </div>
-
+                </template>
             </div>
+
         </div>
-        <div id="catchUp" uk-modal>
-            <div class="uk-modal-dialog uk-border-rounded uk-overflow-auto">
-                <button class="uk-modal-close-default" type="button" uk-close></button>
-                <div class="uk-modal-header">
-                    <h2 class="uk-modal-title">How does this catch-up work?</h2>
-                </div>
-                <div class="uk-modal-body" uk-overflow-auto>
-                    <p v-html="catchUpText"></p>
-                </div>
-                <div class="uk-modal-footer uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Close</button>
-                </div>
+    </div>
+    <div id="catchUp" uk-modal>
+        <div class="uk-modal-dialog uk-border-rounded uk-overflow-auto">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">How does this catch-up work?</h2>
+            </div>
+            <div class="uk-modal-body" uk-overflow-auto>
+                <p v-html="catchUpText"></p>
+            </div>
+            <div class="uk-modal-footer uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Close</button>
             </div>
         </div>
     </div>
+    </div>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
-    <script src="./js/main.js?18"></script>
+    <script src="./js/main.js?19"></script>
 </body>
 
 </html>

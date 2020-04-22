@@ -25,6 +25,7 @@ var HSAInput = new Vue({
 		hsaScenario: 0,
 		hsaHost: '',
 		dataLoaded: false,
+		oeLoading: false,
 	},
 	watch: {
 		hsaMaxMod: function () {
@@ -117,9 +118,13 @@ var HSAInput = new Vue({
 	},
 	methods: {
 		parentBack: function () {
+			var self = this;
+			self.oeLoading = true;
 			parent.htmBackButton_onclick();
 		},
 		parentNext: function () {
+			var self = this;
+			self.oeLoading = true;
 			parent.htmNextButtom_onclick();
 		},
 		numberWithCommas: function (x) {
