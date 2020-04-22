@@ -293,7 +293,8 @@
                             <button @click="parentBack" class="uk-button uk-border-pill uk-button-default">
                                 Back
                             </button>
-                            <button @click="parentNext" class="uk-button uk-border-pill uk-button-primary">
+                            <button :disabled="hsaOpt == ''" @click="parentNext"
+                                class="uk-button uk-border-pill uk-button-primary">
                                 Next
                             </button>
                         </div>
