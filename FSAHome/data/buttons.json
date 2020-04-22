@@ -1,0 +1,31 @@
+{
+    "items": [{
+            "title": "New Claim",
+            "url": "www.myenroll.com",
+            "icon": "<i class=\"fa-2x fad uk-text-primary fa-play-circle\"></i>"
+        },
+        {
+            "title": "Historical Claims",
+            "url": "www.myenroll.com",
+            "icon": "<i class=\"fa-2x fad uk-text-primary fa-history\"></i>"
+        },
+        {
+            "title": "Debit Card",
+            "url": "www.myenroll.com",
+            "icon": "<i class=\"fa-2x fad uk-text-primary fa-credit-card\"></i>"
+        },
+        {
+            "title": "More Information",
+            "url": "www.myenroll.com",
+            "icon": "<i class=\"fa-2x fad uk-text-primary fa-info-circle\"></i>"
+        }, {
+            "title": "Denied Claims",
+            "url": "www.myenroll.com",
+            "icon": "<i class=\"fa-2x fad uk-text-primary fa-credit-card\"></i>"
+        }, {
+            "title": "Appeal",
+            "url": "www.myenroll.com",
+            "icon": "<i class=\"fa-2x fad uk-text-primary fa-credit-card\"></i>"
+        }
+    ]
+}

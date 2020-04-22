@@ -1,0 +1,15 @@
+.me-card {
+    transition: .3s ease;
+    border: 3px solid #1e87f0;
+    color: #fff;
+}
+
+.me-card:hover {
+    background: #fff;
+    color: #1e87f0 !important;
+}
+
+
+.me-redirect {
+    cursor: pointer;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/css/uikit.min.css" />
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+</head>
+
+<body>
+    <div id="main" class="uk-section uk-section-small">
+        <div class="uk-container">
+            <div>
+                <h3>
+                    {{ testItem }} - {{ testItem2 }}
+                </h3>
+            </div>
+            <!-- <div class="uk-child-width-1-4@m" uk-grid="masonry: true">
+                <div v-for="item in array">
+                    <div class="uk-card uk-card-default uk-card-body">
+                        {{ item.REASON_CODE }} - {{ item.STATUS }}
+                        <div v-html="item.REASON_DESCRIPTION">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div>
+                <input class="uk-input" placeholder="test of v-model" type="text" name="" id="">
+                <select v-model="testInput" name="" id="" class="uk-select">
+                    <option value="1">Test1</option>
+                    <option value="2">test2</option>
+                    <option value="3">test3</option>
+                </select>
+                <template v-if="testInput == 2">
+                    YAY! we got it!
+                </template>
+            </div>
+            <div>
+                {{ testInput }}
+            </div>
+            <div>
+                <table class="uk-table uk-table-striped uk-table-hover">
+                    <thead>
+                        <tr>
+                            <th class="uk-table-expand uk-text-nowrap">
+                                Reason Code
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Reason Description
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in array">
+                            <td>
+                                {{ item.REASON_CODE }}
+                            </td>
+                            <td>
+                                {{ item.STATUS }}
+                            </td>
+                            <td v-html="item.REASON_DESCRIPTION">
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+    <script src="js/vue_components.js"></script>
+</body>
+
+</html>
