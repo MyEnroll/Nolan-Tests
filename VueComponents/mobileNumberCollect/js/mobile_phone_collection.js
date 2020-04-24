@@ -6,6 +6,7 @@ Vue.component('phone-collection', {
 			newPhone: '',
 			confirmPhone: '',
 			showPop: 0,
+			doNotShow: 0,
 			testArray: [
 				{
 					mobile_number: '1234567890',
@@ -43,7 +44,7 @@ Vue.component('phone-collection', {
 		self.showPop = 1;
 	},
 	template:
-		' <div id="phoneCollection" uk-modal>\
+		'<div id="phoneCollection" uk-modal>\
     <div class="uk-modal-dialog uk-border-rounded uk-overflow-auto">\
         <button class="uk-modal-close-default" type="button" uk-close></button>\
         <div class="uk-modal-header">\
@@ -74,7 +75,7 @@ Vue.component('phone-collection', {
                                 New Number\
                             </th>\
                             <td>\
-                                <input type="tel" name="newPhone" class="uk-input" v-model="newPhone" placeholder="Enter your updated mobile number..." id="">\
+                                <input type="tel" inputmode="numeric" :disabled="doNotShow == 1" name="newPhone" class="uk-input" v-model="newPhone" placeholder="Enter your updated mobile number..." id="">\
                             </td>\
                         </tr>\
                         <tr>\
@@ -82,7 +83,7 @@ Vue.component('phone-collection', {
                                 Confirm Number\
                             </th>\
                             <td>\
-                                <input type="tel" name="confirmPhone" class="uk-input" v-model="confirmPhone" placeholder="Re-enter your updated mobile number..." id="">\
+                                <input type="tel" inputmode="numeric" :disabled="doNotShow == 1" name="confirmPhone" class="uk-input" v-model="confirmPhone" placeholder="Re-enter your updated mobile number..." id="">\
                             </td>\
                         </tr>\
                     </tbody>\
@@ -91,15 +92,22 @@ Vue.component('phone-collection', {
         </div>\
         <div class="uk-modal-footer uk-text-right uk-flex-between uk-flex uk-flex-middle">\
             <div>\
-                <label><input class="uk-checkbox" type="checkbox"> Do not show me this again</label>\
+                <label><input class="uk-checkbox" v-model="doNotShow" type="checkbox"> Do not show me this again</label>\
             </div>\
             <div>\
+              <template v-if="doNotShow == 0">\
                 <button class="uk-border-pill uk-margin-left uk-button uk-button-default uk-modal-close" type="button">\
-                    Skip\
+                Skip\
                 </button>\
                 <button :disabled="newPhone != confirmPhone || newPhone.length == 0 || confirmPhone.length == 0 || newPhone.length < 10 || confirmPhone.length < 10" class="uk-border-pill uk-button uk-button-primary" type="button">\
                     Submit\
                 </button>\
+              </template>\
+              <template v-else>\
+                <button class="uk-border-pill uk-margin-left uk-button uk-button-primary uk-modal-close" type="button">\
+                    Continue\
+                </button>\
+                </template>\
             </div>\
         </div>\
     </div>\
