@@ -1,5 +1,9 @@
 Vue.component('appointmentpop', {
-	props: ['appt'],
+	props: {
+		apptid: String,
+		userid: String,
+		timezone: String,
+	},
 	data: function () {
 		return {
 			apptInfo: [],
@@ -21,9 +25,9 @@ Vue.component('appointmentpop', {
 				url:
 					'/web_projects/MyEnrollWebService/CommonWebMethod.aspx/GetApptInfo',
 				data: JSON.stringify({
-					appid: self.appt.toString(),
-					userid: '732333',
-					timezone: 'EST',
+					appid: self.apptid,
+					userid: self.userid,
+					timezone: self.timezone,
 				}),
 				contentType: 'application/json; charset=utf-8',
 			}).done(function (e) {
