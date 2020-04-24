@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/css/uikit.min.css" />
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <style>
+        .bgImage {
+            background-image: url("https://picsum.photos/2048/1536");
+            background-size: cover;
+        }
+
+        .bg-semi-transparent {
+            background: rgba(255, 255, 255, .7);
+        }
+
+        .me-button-default {
+            background: #fd7e14;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: none;
+            color: #fff;
+        }
+
+        .me-muted-link {
+            color: #4f4f4f;
+            text-decoration: underline;
+        }
+
+        .me-header-image img {
+            width: 85%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loginBlock">
+        <div class="uk-section uk-section-xsmall uk-section-muted">
+            <div class="uk-container">
+
+            </div>
+        </div>
+        <div class="uk-section bgImage uk-height-viewport" uk-img>
+            <div class="uk-container">
+                <div class="uk-child-width-1-5@m uk-grid-small" uk-grid="masonry: true">
+                    <div class="uk-width-2-5@s">
+                        <div class="bg-semi-transparent uk-card uk-card-body uk-card-default">
+                            <div class="me-header-image uk-text-center">
+                                <img src="https://www.me-content.com/mec/system/images/myenroll_logo_clear2.png" uk-img
+                                    alt="MyEnroll360">
+                            </div>
+                            <h2>
+                                Login
+                            </h2>
+                            <div class="uk-width-expand uk-inline">
+                                <a class="uk-form-icon" href="" uk-icon="icon: user" placeholder="User ID"></a>
+                                <input class="uk-input">
+                            </div>
+                            <div class="uk-width-expand uk-inline">
+                                <a class="uk-form-icon" href="" uk-icon="icon: lock" placeholder="Password"></a>
+                                <input class="uk-input">
+                            </div>
+                            <div class="uk-margin uk-text-center uk-grid-small uk-child-width-1-1" uk-grid>
+
+                                <div>
+                                    <button class="uk-button-large uk-width-expand uk-button me-button-default">
+                                        Log In
+                                    </button>
+                                </div>
+                                <div>
+                                    <label for=""><input class="uk-checkbox" type="checkbox" name="" id=""> Remember My
+                                        User ID</label>
+                                </div>
+                                <div class="uk-margin-large">
+                                    <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
+                                        <div>
+                                            <a class="me-muted-link" href="">Forgot User ID/Password?</a>
+                                        </div>
+                                        <div>
+                                            <a class="me-muted-link" href="">First Time Users</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-2-5@s">
+                        <div class="uk-card uk-card-body uk-card-default">
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-body uk-card-default"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+    <script src="js/login_primary.js"></script>
+</body>
+
+</html>
