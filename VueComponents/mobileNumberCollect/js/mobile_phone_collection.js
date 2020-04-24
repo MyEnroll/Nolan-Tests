@@ -22,22 +22,30 @@ Vue.component('phone-collection', {
 				UIkit.modal('#phoneCollection').show();
 			}
 		},
-		newPhone: function () {
-			var self = this;
-			if (self.newPhone != self.confirmPhone) {
-				$('input[name="newPhone"]').addClass('uk-form-danger');
-			} else {
-				$('input[name="newPhone"]').removeClass('uk-form-danger');
-			}
-		},
-		confirmPhone: function () {
-			var self = this;
-			if (self.newPhone != self.confirmPhone) {
-				$('input[name="confirmPhone"]').addClass('uk-form-danger');
-			} else {
-				$('input[name="confirmPhone"]').removeClass('uk-form-danger');
-			}
-		},
+		// newPhone: function () {
+		// 	var self = this;
+		// 	if (self.newPhone != self.confirmPhone) {
+		// 		$('input[name="newPhone"], input[name="confirmPhone').addClass(
+		// 			'uk-form-danger',
+		// 		);
+		// 	} else {
+		// 		$('input[name="newPhone"], input[name="confirmPhone').removeClass(
+		// 			'uk-form-danger',
+		// 		);
+		// 	}
+		// },
+		// confirmPhone: function () {
+		// 	var self = this;
+		// 	if (self.newPhone != self.confirmPhone) {
+		// 		$('input[name="newPhone"], input[name="confirmPhone').addClass(
+		// 			'uk-form-danger',
+		// 		);
+		// 	} else {
+		// 		$('input[name="newPhone"], input[name="confirmPhone').removeClass(
+		// 			'uk-form-danger',
+		// 		);
+		// 	}
+		// },
 	},
 	created: function () {
 		var self = this;
