@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.uk-h1,
+.uk-h2,
+.uk-h3,
+.uk-h4,
+.uk-h5,
+.uk-h6,
+.uk-heading-2xlarge,
+.uk-heading-large,
+.uk-heading-medium,
+.uk-heading-small,
+.uk-heading-xlarge,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: inherit;
+	color: #4f4f4f;
+}
+
+.bgImage {
+	background-size: cover;
+}
+
+.bg-semi-transparent {
+	background: rgba(255, 255, 255, 0.7) !important;
+}
+
+.bg-semi-transparent-dark {
+	background: rgba(0, 0, 0, 0.7) !important;
+}
+
+.me-button-primary {
+	background: #fd7e14;
+	font-size: 1.4rem;
+	font-weight: 600;
+	text-transform: none;
+	color: #fff;
+	transition: 0.2s ease;
+}
+
+.me-button-primary:hover {
+	box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
+}
+
+.me-muted-link {
+	color: #4f4f4f;
+	text-decoration: underline;
+}
+
+.me-header-image img {
+	width: 85%;
+	max-width: 300px;
+}
+
+.me-card {
+	padding: 30px;
+}
+
+.me-card-focus {
+	background: #175377;
+	color: #fff;
+}
+
+.me-card-focus h2 {
+	color: #fff;
+	margin: 0;
+}
+
+.me-info-card {
+	background: #fd7e14;
+	color: #fff;
+	padding: 20px;
+	border-radius: 15px;
+}
+
+.me-info-section {
+	padding: 0px;
+}
+
+.me-info-section-row {
+	padding: 50px 0px;
+	background-position: left;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.uk-navbar-item,
+.uk-navbar-nav > li > a,
+.uk-navbar-toggle {
+	min-height: 50px;
+	color: #2b2b2b;
+}
+
+@media only screen and (max-width: 960px) {
+	.me-info-section-row {
+		background-image: none !important;
+	}
+}
