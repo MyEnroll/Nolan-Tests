@@ -155,10 +155,11 @@
 
             </div>
         </div>
-        <div class="uk-section uk-section-small uk-position-relative">
+        <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true"
+            class="uk-section uk-section-small uk-position-relative">
             <div class="uk-container">
-                <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match" uk-grid="masonry: false">
-                    <div class="uk-width-1-3@m">
+                <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match" uk-grid="masonry: false;parallax: 50">
+                    <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true" class="uk-width-1-3@m">
                         <div class="bg-semi-transparent uk-card me-card uk-card-body uk-card-default">
                             <div class="me-header-image uk-text-center">
                                 <img src="https://www.me-content.com/mec/system/images/myenroll_logo_clear2.png" uk-img
@@ -199,9 +200,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="uk-width-2-5@m">
+                    <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true" class="uk-width-2-5@m">
                         <div class="uk-grid-small uk-child-width-1-1 uk-grid-match" uk-grid>
-                            <div>
+                            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
                                 <div class="uk-card me-card uk-card-default uk-card-body">
                                     <h2 class="">
                                         Submit FSA or HRA Claims
@@ -219,7 +220,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
                                 <div class="uk-text-center uk-card me-card uk-card-default uk-card-body">
                                     <div class="uk-text-lead">
                                         First Time Users
@@ -236,7 +237,7 @@
                     </div>
                     <div class="uk-width-expand@m">
                         <div class="uk-grid-small uk-child-width-1-1@m uk-grid-match" uk-grid>
-                            <div>
+                            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
                                 <div class="uk-text-center me-card-focus uk-card me-card uk-card-body uk-card-default">
                                     <h2>Look Up FSA/HRA Denial</h2>
                                     <div class="uk-width-expand uk-margin">
@@ -246,7 +247,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
                                 <div class="uk-text-center uk-card me-card uk-card-body uk-card-default">
                                     <h2>Submit a Service Request</h2>
                                     <div class="uk-width-expand uk-margin">
@@ -261,7 +262,7 @@
                 </div>
             </div>
         </div>
-        <div
+        <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true"
             class="bg-semi-transparent-dark uk-section uk-section-small me-info-section uk-section-secondary uk-position-relative">
             <div class="uk-container">
                 <div :style="'background-image: url(' + selectedPeopleImage + ')'"
@@ -292,7 +293,8 @@
             </div>
         </div>
         <template v-for="item in infoCards.card">
-            <div class="uk-section uk-section-secondary uk-section-small" :id="item.link.substring(1)">
+            <div uk-scrollspy="cls:uk-animation-slide-right-medium; repeat: true"
+                class="uk-section uk-section-secondary uk-section-small" :id="item.link.substring(1)">
                 <div class="uk-container">
                     <article class="uk-article">
                         <h1 class="uk-article-title"><a class="uk-link-reset" href="">{{ item.title }}</a></h1>
