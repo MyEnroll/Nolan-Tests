@@ -30,12 +30,21 @@
             background: rgba(255, 255, 255, .7);
         }
 
+        .bg-semi-transparent-dark {
+            background: rgba(0, 0, 0, .7)
+        }
+
         .me-button-primary {
             background: #fd7e14;
             font-size: 1.4rem;
             font-weight: 600;
             text-transform: none;
             color: #fff;
+            transition: .2s ease;
+        }
+
+        .me-button-primary:hover {
+            box-shadow: 0 14px 25px rgba(0, 0, 0, .16);
         }
 
         .me-muted-link {
@@ -47,21 +56,63 @@
             width: 85%;
             max-width: 300px;
         }
+
+        .me-card {
+            padding: 30px;
+        }
+
+        .me-card-focus {
+            background: #175377;
+            color: #fff;
+        }
+
+        .me-card-focus h2 {
+            color: #fff;
+            margin: 0;
+        }
+
+        .me-info-card {
+            background: #fd7e14;
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .me-info-section {
+            padding: 0px;
+        }
+
+        .me-info-section-row {
+            padding: 50px 0px;
+            background-position: left;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        @media only screen and (max-width:960px) {
+            .me-info-section-row {
+                background-image: none !important;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div id="loginBlock">
-        <div class="uk-section uk-section-xsmall uk-section-muted">
+    <div id="loginBlock" :style="'background-image: url(' + bg_image + ')'" uk-img>
+        <!-- <div class="uk-section uk-section-xsmall uk-section-muted">
             <div class="uk-container">
 
             </div>
+        </div> -->
+        <div class="bgImage uk-height-1-1 uk-position-absolute uk-width-1-1">
+
         </div>
-        <div class="uk-section bgImage uk-height-viewport" :style="'background-image: url(' + bg_image + ')'" uk-img>
+        <div class="uk-section uk-section-small uk-position-relative"></div>
+        <div class="uk-section uk-section-small uk-position-relative">
             <div class="uk-container">
-                <div class="uk-child-width-1-5@m uk-grid-small" uk-grid="masonry: true">
-                    <div class="uk-width-2-5@m">
-                        <div class="bg-semi-transparent uk-card uk-card-body uk-card-default">
+                <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match" uk-grid="masonry: false">
+                    <div class="uk-width-1-3@m">
+                        <div class="bg-semi-transparent uk-card me-card uk-card-body uk-card-default">
                             <div class="me-header-image uk-text-center">
                                 <img src="https://www.me-content.com/mec/system/images/myenroll_logo_clear2.png" uk-img
                                     alt="MyEnroll360">
@@ -70,12 +121,12 @@
                                 Login
                             </h2>
                             <div class="uk-width-expand uk-inline">
-                                <a class="uk-form-icon" href="" uk-icon="icon: user" placeholder="User ID"></a>
-                                <input class="uk-input">
+                                <a class="uk-form-icon" href="" uk-icon="icon: user"></a>
+                                <input class="uk-input" placeholder="User ID" type="text" name="userid">
                             </div>
                             <div class="uk-width-expand uk-inline">
-                                <a class="uk-form-icon" href="" uk-icon="icon: lock" placeholder="Password"></a>
-                                <input class="uk-input">
+                                <a class="uk-form-icon" href="" uk-icon="icon: lock"></a>
+                                <input class="uk-input" placeholder="Password" type="password" name="password">
                             </div>
                             <div class="uk-margin uk-text-center uk-grid-small uk-child-width-1-1" uk-grid>
 
@@ -102,9 +153,9 @@
                         </div>
                     </div>
                     <div class="uk-width-2-5@m">
-                        <div class="uk-grid-small uk-child-width-1-1" uk-grid>
+                        <div class="uk-grid-small uk-child-width-1-1 uk-grid-match" uk-grid>
                             <div>
-                                <div class="uk-card uk-card-default uk-card-body">
+                                <div class="uk-card me-card uk-card-default uk-card-body">
                                     <h2 class="">
                                         Submit FSA or HRA Claims
                                     </h2>
@@ -122,23 +173,96 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="uk-text-center uk-card uk-card-default uk-card-body">
+                                <div class="uk-text-center uk-card me-card uk-card-default uk-card-body">
                                     <div class="uk-text-lead">
                                         First Time Users
                                     </div>
-                                    <div class="uk-width-expand uk-margin uk-button uk-button-large me-button-primary">
-                                        Learn More
+                                    <div class="uk-width-expand uk-margin">
+                                        <button class="uk-button-large uk-button uk-default me-button-primary">
+                                            Learn More
+                                        </button>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="uk-width-expand@m">
-                        <div class="uk-card uk-card-body uk-card-default"></div>
+                        <div class="uk-grid-small uk-child-width-1-1@m uk-grid-match" uk-grid>
+                            <div>
+                                <div class="uk-text-center me-card-focus uk-card me-card uk-card-body uk-card-default">
+                                    <h2>Look Up FSA/HRA Denial</h2>
+                                    <div class="uk-width-expand uk-margin">
+                                        <button class="uk-width-expand uk-button uk-button-large me-button-primary">
+                                            Look Up
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-text-center uk-card me-card uk-card-body uk-card-default">
+                                    <h2>Submit a Service Request</h2>
+                                    <div class="uk-width-expand uk-margin">
+                                        <button class="uk-width-expand uk-button uk-button-large me-button-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div
+            class="bg-semi-transparent-dark uk-section uk-section-small me-info-section uk-section-secondary uk-position-relative">
+            <div class="uk-container">
+                <div :style="'background-image: url(' + selectedPeopleImage + ')'"
+                    class="uk-child-width-expand@m me-info-section-row" uk-grid>
+                    <div class="uk-width-1-6@m">
+                        <div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-child-width-expand@m uk-grid-small" uk-grid>
+                            <template v-for="item in infoCards.card">
+                                <div>
+                                    <a :href="item.link" uk-scroll>
+                                        <div class="uk-text-center uk-card uk-card-body uk-padding-small me-info-card">
+                                            <div v-html="item.icon">
+                                            </div>
+                                            <div>
+                                                {{ item.title }}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <template v-for="item in infoCards.card">
+            <div class="uk-section uk-section-secondary uk-section-small" :id="item.link.substring(1)">
+                <div class="uk-container">
+                    <article class="uk-article">
+                        <h1 class="uk-article-title"><a class="uk-link-reset" href="">{{ item.title }}</a></h1>
+                        <p v-html="item.details.body">
+
+                        </p>
+
+                        <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                            <div>
+                                <a class="uk-button uk-button-text" href="#">Read more</a>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+        </template>
     </div>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
     <script src="js/login_primary.js"></script>

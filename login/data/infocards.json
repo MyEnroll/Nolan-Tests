@@ -1,0 +1,43 @@
+{
+    "card": [{
+            "title": "COBRA",
+            "icon": "<i class=\"fad fa-briefcase-medical\"></i>",
+            "link": "#cobra",
+            "details": {
+                "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum dignissimos quo beatae non in iusto repudiandae voluptate, necessitatibus, dolore aliquam maxime suscipit nihil eveniet perferendis voluptates eius nobis omnis, esse nisi eos recusandae. Perspiciatis voluptates nobis vel consequatur odio veniam obcaecati tempore voluptatibus, quibusdam nostrum. Praesentium aspernatur ab deserunt tenetur."
+            }
+        },
+        {
+            "title": "Employees",
+            "icon": "<i class=\"fad fa-users\"></i>",
+            "link": "#employees",
+            "details": {
+                "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem unde laudantium quisquam nulla, sint eaque recusandae molestiae aspernatur temporibus debitis aliquam, excepturi ipsa. Laudantium, perspiciatis?"
+            }
+        },
+        {
+            "title": "COVID-19",
+            "icon": "<i class=\"fad fa-biohazard\"></i>",
+            "link": "#covid",
+            "details": {
+                "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis officia praesentium iure necessitatibus nihil consequatur, temporibus quas cumque! Tempora modi error quis sequi quas odit doloremque placeat similique consequatur, porro, nesciunt facilis numquam nulla. Est aliquam explicabo ad ea eveniet corrupti voluptates fuga neque, dolores quae possimus, harum nemo libero illo natus? Itaque adipisci architecto quaerat quod eos deleniti et?"
+            }
+        },
+        {
+            "title": "Admin",
+            "icon": "<i class=\"fad fa-users-crown\"></i>",
+            "link": "#admin",
+            "details": {
+                "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti rerum distinctio, consequatur sunt voluptatum explicabo, debitis, eius maiores culpa exercitationem maxime repudiandae reprehenderit quidem earum dolor illo totam voluptatem excepturi ut placeat!"
+            }
+        },
+        {
+            "title": "FSA/HRA",
+            "icon": "<i class=\"fad fa-hand-holding-usd\"></i>",
+            "link": "#fsa",
+            "details": {
+                "body": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet, porro officiis corporis sint iure tenetur harum et ex impedit omnis! Odit tenetur provident ut debitis sunt, deleniti id qui ullam aspernatur laborum alias eum architecto quos laboriosam ad nihil, perspiciatis eveniet possimus quod omnis perferendis. Perferendis amet ullam, voluptas quo porro nesciunt iusto sequi ut assumenda quia voluptatibus! Fugiat repudiandae molestiae ex nam ipsam laboriosam ut minus minima deleniti expedita."
+            }
+        }
+    ]
+}
