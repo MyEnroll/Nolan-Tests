@@ -135,6 +135,6 @@ h6 {
 
 @media (max-width: 745px) {
 	.me-info-card {
-		padding: 15px;
+		padding: 15px 10px;
 	}
 }
