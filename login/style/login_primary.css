@@ -25,6 +25,11 @@ h6 {
 	color: #4f4f4f;
 }
 
+#loginBlock {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
 .bgImage {
 	background-size: cover;
 }
@@ -44,6 +49,9 @@ h6 {
 	text-transform: none;
 	color: #fff;
 	transition: 0.2s ease;
+	padding: 10px 20px;
+	min-height: 53px;
+	line-height: 1.5;
 }
 
 .me-button-primary:hover {
@@ -110,11 +118,7 @@ h6 {
 		width: calc(100% * 1 / 3.001);
 	}
 
-	.me-button-primary {
-		padding: 10px 20px;
-		min-height: 53px;
-		line-height: 1.5;
-	}
+
 
 	.uk-width-2-5\@m {
 		width: 40%;
