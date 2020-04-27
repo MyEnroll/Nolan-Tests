@@ -7,6 +7,7 @@ var vm = new Vue({
 		imageArray: [],
 		infoCards: [],
 		selectedPeopleImage: '',
+		ballIcon: false,
 		peopleImages: [
 			'pictures/1.png',
 			'pictures/2.png',

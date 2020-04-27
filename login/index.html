@@ -85,12 +85,20 @@
             <div class="uk-container">
                 <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match" uk-grid="masonry: false;parallax: 50">
                     <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true" class="uk-width-1-3@m">
-                        <div class="bg-semi-transparent uk-card me-card uk-card-body uk-card-default">
-                            <div class="me-header-image uk-text-center">
-                                <img src="https://www.me-content.com/mec/system/images/myenroll_logo_clear_3.png" uk-img
-                                    alt="MyEnroll360">
-                            </div>
-                            <h2>
+                        <div class="bg-semi-transparent uk-card me-card-offset me-card uk-card-body uk-card-default">
+                            <template v-if="!ballIcon">
+                                <div class="me-header-image uk-text-center">
+                                    <img src="https://www.me-content.com/mec/system/images/myenroll_logo_clear_3.png"
+                                        uk-img alt="MyEnroll360">
+                                </div>
+                            </template>
+                            <template v-else>
+                                <div class="me-header-image-offset uk-text-center">
+                                    <img src="https://www.me-content.com/mec/system/images/BAS_Ball_Orange.png" uk-img
+                                        alt="MyEnroll360">
+                                </div>
+                            </template>
+                            <h2 :class="{'me-84-margin': ballIcon}">
                                 Login
                             </h2>
                             <div class="uk-width-expand uk-inline">
@@ -139,9 +147,13 @@
                                         expenses.
                                     </div>
                                     <div class="uk-margin uk-width-expand">
-                                        <button class="uk-button-large uk-button uk-width-expand me-button-primary">
+                                        <button
+                                            class="uk-width-1-2 uk-button-large uk-button uk-width-expand me-button-primary">
                                             Submit
                                         </button>
+                                    </div>
+                                    <div class="uk-text-warning me-bottom-right-offset">
+                                        <i class="fas fa-exclamation-circle fa-10x"></i>
                                     </div>
                                 </div>
                             </div>
@@ -166,12 +178,14 @@
                             <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
                                 <div class="uk-text-center me-card-focus uk-card me-card uk-card-body uk-card-default">
                                     <h2>Look Up FSA/HRA Denial</h2>
+                                    <i class="fas fa-question-circle fa-3x mt-4"></i>
                                     <div class="uk-width-expand uk-margin">
                                         <button type="button" uk-toggle="target: #claimDenial   "
                                             class="uk-width-expand uk-button uk-button-large me-button-primary">
                                             Look Up
                                         </button>
                                     </div>
+
                                 </div>
                                 <div id="claimDenial" class="uk-modal-full" uk-modal>
                                     <div class="uk-modal-dialog">
@@ -196,6 +210,9 @@
                                         <button class="uk-width-expand uk-button uk-button-large me-button-primary">
                                             Submit
                                         </button>
+                                    </div>
+                                    <div class="me-bottom-left-offset me-icon-focus">
+                                        <i class="fas fa-user-headset fa-3x"></i>
                                     </div>
                                 </div>
                             </div>
