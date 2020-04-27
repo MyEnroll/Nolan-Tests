@@ -1,3 +1,4 @@
+Vue.use('claimdenial');
 var vm = new Vue({
 	el: '#loginBlock',
 	data: {

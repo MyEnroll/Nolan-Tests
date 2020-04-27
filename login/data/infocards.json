@@ -4,7 +4,8 @@
             "icon": "<i class=\"fad fa-briefcase-medical\"></i>",
             "link": "#cobra",
             "details": {
-                "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum dignissimos quo beatae non in iusto repudiandae voluptate, necessitatibus, dolore aliquam maxime suscipit nihil eveniet perferendis voluptates eius nobis omnis, esse nisi eos recusandae. Perspiciatis voluptates nobis vel consequatur odio veniam obcaecati tempore voluptatibus, quibusdam nostrum. Praesentium aspernatur ab deserunt tenetur."
+                "body": "<p class='uk-text-bold'>*Does not apply to Federal Employees*</p><p>Cobra Control Services, LLC is a third-party COBRA billing and payment processor for the employer sponsoring the group health plan under which you lost coverage. CCS collects your premium payments for coverage and remits those payments to the employer/former employer.</p>",
+                "read_more": "<p>Federal law requires that most group health plans (including the Plan) give employees and their families the opportunity to continue their health care coverage at their own expense when there is a &ldquo;qualifying event&rdquo; that would otherwise result in a loss of coverage. Those individuals who are entitled to continue coverage are referred to as &ldquo;qualified beneficiaries.&rdquo; Depending on the type of qualifying event, &ldquo;qualified beneficiaries&rdquo; can include the employee covered under the group health plan, a covered employee's spouse, and dependent children of the covered employee.</p><p>If you are a qualified beneficiary, you may elect continuation coverage only under the Plan or Plans that covered you immediately before the qualifying event. Each qualified beneficiary who elects continuation coverage will have the same rights under the Plan as other participants or beneficiaries covered under the Plan, such as changing coverage under the Plan during open enrollment or other special enrollment rights. The persons who have been identified by the Plan as qualified beneficiaries entitled to elect continuation coverage are listed on the cover letter sent with this Notice.</p>"
             }
         },
         {
@@ -12,7 +13,8 @@
             "icon": "<i class=\"fad fa-users\"></i>",
             "link": "#employees",
             "details": {
-                "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem unde laudantium quisquam nulla, sint eaque recusandae molestiae aspernatur temporibus debitis aliquam, excepturi ipsa. Laudantium, perspiciatis?"
+                "body": "MyEnroll 360 provides employees with 24/7 access to important information, including Login/Access instructions, support for new hire, annual and mid-year life event enrollments and much more. Please use the links on the right for more detailed information.",
+                "read_more": ""
             }
         },
         {
@@ -20,7 +22,8 @@
             "icon": "<i class=\"fad fa-biohazard\"></i>",
             "link": "#covid",
             "details": {
-                "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis officia praesentium iure necessitatibus nihil consequatur, temporibus quas cumque! Tempora modi error quis sequi quas odit doloremque placeat similique consequatur, porro, nesciunt facilis numquam nulla. Est aliquam explicabo ad ea eveniet corrupti voluptates fuga neque, dolores quae possimus, harum nemo libero illo natus? Itaque adipisci architecto quaerat quod eos deleniti et?"
+                "body": "<p>Please refer to the blue buttons to the right for BAS’ COVID-19 related articles and other COVID-19 related resources.</p><p>This information is offered for general purposes, only, and does not constitute legal or tax advice. Your employer may apply different rules than those set forth in the articles provided. If you have specific questions, you should contact your employer and your legal/tax counsel.</p><p>BAS wishes you well during these uncertain times.</p>",
+                "read_more": ""
             }
         },
         {
@@ -28,7 +31,8 @@
             "icon": "<i class=\"fad fa-users-crown\"></i>",
             "link": "#admin",
             "details": {
-                "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti rerum distinctio, consequatur sunt voluptatum explicabo, debitis, eius maiores culpa exercitationem maxime repudiandae reprehenderit quidem earum dolor illo totam voluptatem excepturi ut placeat!"
+                "body": "<p>MyEnroll 360 provides administrators with 24/7 access to manage your employee’s benefit information. Once you Log On to MyEnroll 360 you will have a customized menu with Quick Links to some of the most common transactions you need to perform. Please use the links to the right for more detailed information.</p>",
+                "read_more": ""
             }
         },
         {
@@ -36,7 +40,8 @@
             "icon": "<i class=\"fad fa-hand-holding-usd\"></i>",
             "link": "#fsa",
             "details": {
-                "body": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet, porro officiis corporis sint iure tenetur harum et ex impedit omnis! Odit tenetur provident ut debitis sunt, deleniti id qui ullam aspernatur laborum alias eum architecto quos laboriosam ad nihil, perspiciatis eveniet possimus quod omnis perferendis. Perferendis amet ullam, voluptas quo porro nesciunt iusto sequi ut assumenda quia voluptatibus! Fugiat repudiandae molestiae ex nam ipsam laboriosam ut minus minima deleniti expedita."
+                "body": "<p>A Flexible Spending Account Plan (&ldquo;FSA&rdquo;) offers an easy and convenient way for you to save money on taxes and make your benefit dollars go further. If you participate in a Health Care and/or Dependent (Day) Care FSA, your employer puts money aside from your paycheck (before taxes are taken out) and you use that money to pay for eligible health care and/or dependent (day) care expenses.</p>",
+                "read_more": "<p>When you have an eligible health care and/or dependent (day) care expense, you must save your receipts and other documentation (such as EOBs). You then submit the proper documentation to BAS for review. If the documentation is approved (it will be approved if it meets IRS and your plan&apos;s requirements), you will receive a reimbursement of the amount of the eligible expense. More information about what expenses are eligible to be paid from your FSA is set forth below.</p><p>Please note that BAS does not hold any of your FSA contributions. Contributions are held by your employer. When you submit an expense that is eligible for reimbursement, BAS reviews and approves your claim, and then advises your employer on the amount of funds it needs to provide to BAS to send to you for reimbursement.</p>"
             }
         }
     ]

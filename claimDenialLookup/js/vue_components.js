@@ -8,7 +8,7 @@ Vue.component('claimdenial', {
 	methods: {
 		getReasonCodes: function () {
 			var self = this;
-			$.getJSON('data/reason_codes.json', function (e) {
+			$.getJSON('../claimDenialLookup/data/reason_codes.json', function (e) {
 				self.reasonCodes = e;
 			});
 		},
@@ -103,7 +103,4 @@ Vue.component('claimdenial', {
                 </div>\
             </div>\
         </div>',
-});
-new Vue({
-	el: '#main',
 });

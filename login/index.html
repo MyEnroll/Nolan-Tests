@@ -38,10 +38,11 @@
 
         <div class="uk-navbar-container bg-semi-transparent" uk-navbar>
             <div class="uk-navbar-right">
-                <a class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon href="#meProducts" uk-toggle></a>
-                <ul class="uk-navbar-nav uk-visible@s">
+                <a class="py-3 uk-navbar-toggle uk-hidden@s uk-button uk-button-text" uk-navbar-toggle-icon
+                    href="#meProducts" uk-toggle></a>
+                <ul class="uk-navbar-nav uk-visible@s py-3">
                     <li>
-                        <a href="#">Products</a>
+                        <a href="#" class="uk-button-text">Products</a>
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li><a href="#">COBRA</a></li>
@@ -53,7 +54,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#" class="uk-button-text">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -166,9 +167,25 @@
                                 <div class="uk-text-center me-card-focus uk-card me-card uk-card-body uk-card-default">
                                     <h2>Look Up FSA/HRA Denial</h2>
                                     <div class="uk-width-expand uk-margin">
-                                        <button class="uk-width-expand uk-button uk-button-large me-button-primary">
+                                        <button type="button" uk-toggle="target: #claimDenial   "
+                                            class="uk-width-expand uk-button uk-button-large me-button-primary">
                                             Look Up
                                         </button>
+                                    </div>
+                                </div>
+                                <div id="claimDenial" class="uk-modal-full" uk-modal>
+                                    <div class="uk-modal-dialog">
+                                        <button class="bg-transparent uk-modal-close-full uk-close-large" type="button"
+                                            uk-close></button>
+                                        <div class="uk-grid-collapse uk-child-width-1-3@s" uk-grid>
+                                            <div class="uk-visible@s uk-background-cover"
+                                                :style="'background-image: url(' + bg_image + ')'" uk-height-viewport>
+                                            </div>
+                                            <div
+                                                class="uk-position-relative uk-width-expand@m uk-padding-large uk-height-viewport uk-overflow-auto">
+                                                <claimdenial class="pt-4 uk-position-cover"></claimdenial>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +215,8 @@
                         </div>
                     </div>
                     <div>
-                        <div class="uk-child-width-expand@m uk-grid-small" uk-grid uk-scrollspy="target: > div; cls: uk-animation-slide-right-medium; repeat: true">
+                        <div class="uk-child-width-expand@m uk-grid-small" uk-grid
+                            uk-scrollspy="target: > div; cls: uk-animation-slide-right-medium; repeat: true">
                             <template v-for="item in infoCards.card">
                                 <div>
                                     <a :href="item.link" uk-scroll>
@@ -229,16 +247,33 @@
 
                         <div class="uk-grid-small uk-child-width-auto" uk-grid>
                             <div>
-                                <a class="uk-button uk-button-text" href="#">Read more</a>
+                                <template v-if="item.details.read_more.length > 0">
+                                    <a class="uk-button uk-button-text" :href="'#' + item.link.substring(1) + 'RM'"
+                                        uk-toggle>Read
+                                        more</a>
+                                </template>
                             </div>
                         </div>
 
                     </article>
                 </div>
             </div>
+            <div :id="item.link.substring(1) + 'RM'" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body">
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                    <h2 class="uk-modal-title">
+                        {{ item.title }}
+                    </h2>
+                    <p v-html="item.details.read_more">
+
+                    </p>
+                </div>
+            </div>
         </template>
     </div>
+
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+    <script src="../claimDenialLookup/js/vue_components.js"></script>
     <script src="js/login_primary.js"></script>
 </body>
 
