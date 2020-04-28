@@ -28,265 +28,279 @@
     </style>
 </head>
 
-<body>
-    <div id="loginBlock" :style="'background-image: url(' + bg_image + ')'" uk-img>
+<body class=>
+    <div id="loginBlock">
         <!-- <div class="uk-section uk-section-xsmall uk-section-muted">
             <div class="uk-container">
 
             </div>
         </div> -->
 
-        <div class="uk-navbar-container bg-semi-transparent" uk-navbar>
-            <div class="uk-navbar-right">
-                <a class="py-3 uk-navbar-toggle uk-hidden@s uk-button uk-button-text" uk-navbar-toggle-icon
-                    href="#meProducts" uk-toggle></a>
-                <ul class="uk-navbar-nav uk-visible@s py-3">
-                    <li>
-                        <a href="#" class="uk-button-text">Products</a>
-                        <div class="uk-navbar-dropdown">
-                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li><a href="#">COBRA</a></li>
-                                <li><a href="#">FSA/HRA</a></li>
-                                <li><a href="#">ACA</a></li>
-                                <li><a href="#">Enrollment</a></li>
-                                <li><a href="#">Pension</a></li>
-                                <li><a href="#">Billing</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#" class="uk-button-text">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-        <div id="meProducts" uk-offcanvas="flip: true; overlay: true">
-            <div class="uk-offcanvas-bar">
 
-                <button class="uk-offcanvas-close" type="button" uk-close></button>
-
-                <h3>Products</h3>
-
-                <ul class="uk-list">
-                    <li><a href="#">COBRA</a></li>
-                    <li><a href="#">FSA/HRA</a></li>
-                    <li><a href="#">ACA</a></li>
-                    <li><a href="#">Enrollment</a></li>
-                    <li><a href="#">Pension</a></li>
-                    <li><a href="#">Billing</a></li>
-                </ul>
-                <hr>
-                <ul class="uk-list">
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-
-            </div>
-        </div>
-        <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true"
-            class="uk-section uk-section-small uk-position-relative">
-            <div class="uk-container">
-                <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match" uk-grid="masonry: false;parallax: 50">
-                    <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true" class="uk-width-1-3@m">
-                        <div class="bg-semi-transparent uk-card me-card-offset me-card uk-card-body uk-card-default">
-                            <template v-if="!ballIcon">
-                                <div class="me-header-image uk-text-center">
-                                    <img src="https://www.me-content.com/mec/system/images/myenroll_logo_clear_3.png"
-                                        uk-img alt="MyEnroll360">
-                                </div>
-                            </template>
-                            <template v-else>
-                                <div class="me-header-image-offset uk-text-center">
-                                    <img src="https://www.me-content.com/mec/system/images/BAS_Ball_Orange.png" uk-img
-                                        alt="MyEnroll360">
-                                </div>
-                            </template>
-                            <h2 :class="{'me-84-margin': ballIcon}">
-                                Login
-                            </h2>
-                            <div class="uk-width-expand uk-inline">
-                                <a class="uk-form-icon" href="" uk-icon="icon: user"></a>
-                                <input class="uk-input" placeholder="User ID" type="text" name="userid">
+        <div class="backgroundContainer" :style="'background-image: url(' + bg_image + ')'" uk-img>
+            <div class="uk-navbar-container bg-semi-transparent" uk-navbar>
+                <div class="uk-navbar-right">
+                    <a class="py-3 uk-navbar-toggle uk-hidden@s uk-button uk-button-text" uk-navbar-toggle-icon
+                        href="#meProducts" uk-toggle></a>
+                    <ul class="uk-navbar-nav uk-visible@s py-3">
+                        <li>
+                            <a href="#" class="uk-button-text">Products</a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li><a href="#">COBRA</a></li>
+                                    <li><a href="#">FSA/HRA</a></li>
+                                    <li><a href="#">ACA</a></li>
+                                    <li><a href="#">Enrollment</a></li>
+                                    <li><a href="#">Pension</a></li>
+                                    <li><a href="#">Billing</a></li>
+                                </ul>
                             </div>
-                            <div class="uk-width-expand uk-inline">
-                                <a class="uk-form-icon" href="" uk-icon="icon: lock"></a>
-                                <input class="uk-input" placeholder="Password" type="password" name="password">
-                            </div>
-                            <div class="uk-margin uk-text-center uk-grid-small uk-child-width-1-1" uk-grid>
-
-                                <div>
-                                    <button class="uk-button-large uk-width-expand uk-button me-button-primary">
-                                        Log In
-                                    </button>
-                                </div>
-                                <div>
-                                    <label for=""><input class="uk-checkbox" type="checkbox" name="" id=""> Remember My
-                                        User ID</label>
-                                </div>
-                                <div class="uk-margin-large">
-                                    <div class="uk-grid-small uk-child-width-1-2@m" uk-grid>
-                                        <div>
-                                            <a class="me-muted-link" href="">Forgot User ID/Password?</a>
-                                        </div>
-                                        <div>
-                                            <a class="me-muted-link" href="">First Time Users</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true" class="uk-width-2-5@m">
-                        <div class="uk-grid-small uk-child-width-1-1 uk-grid-match" uk-grid>
-                            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
-                                <div class="uk-card me-card uk-card-default uk-card-body">
-                                    <h2 class="">
-                                        Submit FSA or HRA Claims
-                                    </h2>
-                                    <div>
-                                        If your participate in a Health Care and/or Dependent Day Care FSA, your
-                                        employer puts money aside from your paycheck (before taxes are taken out) and
-                                        you use that money to pay for eligible health care and/or dependent day care
-                                        expenses.
-                                    </div>
-                                    <div class="uk-margin uk-width-expand">
-                                        <button
-                                            class="uk-width-1-2 uk-button-large uk-button uk-width-expand me-button-primary">
-                                            Submit
-                                        </button>
-                                    </div>
-                                    <div class="uk-text-warning me-bottom-right-offset">
-                                        <i class="fas fa-exclamation-circle fa-10x"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
-                                <div class="uk-text-center uk-card me-card uk-card-default uk-card-body">
-                                    <div class="uk-text-lead">
-                                        First Time Users
-                                    </div>
-                                    <div class="uk-width-expand uk-margin">
-                                        <button
-                                            class="uk-button-large uk-button uk-default me-button-primary uk-width-expand">
-                                            Learn More
-                                        </button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-width-expand@m">
-                        <div class="uk-grid-small uk-child-width-1-1@m uk-grid-match" uk-grid>
-                            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
-                                <div class="uk-text-center me-card-focus uk-card me-card uk-card-body uk-card-default">
-                                    <h2>Look Up FSA/HRA Denial</h2>
-                                    <i class="fas fa-question-circle fa-3x mt-4"></i>
-                                    <div class="uk-width-expand uk-margin">
-                                        <button type="button" uk-toggle="target: #claimDenial   "
-                                            class="uk-width-expand uk-button uk-button-large me-button-primary">
-                                            Look Up
-                                        </button>
-                                    </div>
-
-                                </div>
-                                <div id="claimDenial" class="uk-modal-full" uk-modal>
-                                    <div class="uk-modal-dialog">
-                                        <button class="bg-transparent uk-modal-close-full uk-close-large" type="button"
-                                            uk-close></button>
-                                        <div class="uk-grid-collapse uk-child-width-1-3@s" uk-grid>
-                                            <div class="uk-visible@s uk-background-cover"
-                                                :style="'background-image: url(' + bg_image + ')'" uk-height-viewport>
-                                            </div>
-                                            <div
-                                                class="uk-position-relative uk-width-expand@m uk-padding-large uk-height-viewport uk-overflow-auto">
-                                                <claimdenial class="pt-4 uk-position-cover"></claimdenial>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
-                                <div class="uk-text-center uk-card me-card uk-card-body uk-card-default">
-                                    <h2>Submit a Service Request</h2>
-                                    <div class="uk-width-expand uk-margin">
-                                        <button class="uk-width-expand uk-button uk-button-large me-button-primary">
-                                            Submit
-                                        </button>
-                                    </div>
-                                    <div class="me-bottom-left-offset me-icon-focus">
-                                        <i class="fas fa-user-headset fa-3x"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </li>
+                        <li><a href="#" class="uk-button-text">Contact Us</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true"
-            class="bg-semi-transparent-dark uk-section uk-section-small me-info-section uk-section-secondary uk-position-relative">
-            <div class="uk-container">
-                <div :style="'background-image: url(' + selectedPeopleImage + ')'"
-                    class="uk-child-width-expand@m me-info-section-row" uk-grid>
-                    <div class="uk-width-1-6@m">
-                        <div>
+            <div id="meProducts" uk-offcanvas="flip: true; overlay: true">
+                <div class="uk-offcanvas-bar">
 
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-child-width-expand@m uk-grid-small" uk-grid
-                            uk-scrollspy="target: > div; cls: uk-animation-slide-right-medium; repeat: true">
-                            <template v-for="item in infoCards.card">
-                                <div>
-                                    <a :href="item.link" uk-scroll>
-                                        <div class="uk-text-center uk-card uk-card-body uk-padding-small me-info-card">
-                                            <div v-html="item.icon">
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                    <h3>Products</h3>
+
+                    <ul class="uk-list">
+                        <li><a href="#">COBRA</a></li>
+                        <li><a href="#">FSA/HRA</a></li>
+                        <li><a href="#">ACA</a></li>
+                        <li><a href="#">Enrollment</a></li>
+                        <li><a href="#">Pension</a></li>
+                        <li><a href="#">Billing</a></li>
+                    </ul>
+                    <hr>
+                    <ul class="uk-list">
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true"
+                class="uk-section uk-section-small uk-position-relative">
+                <div class="uk-container">
+                    <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match" uk-grid="masonry: false;parallax: 50">
+                        <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true"
+                            class="uk-width-1-3@m">
+                            <div
+                                class="bg-semi-transparent uk-card me-card-offset me-card uk-card-body uk-card-default">
+                                <template v-if="!ballIcon">
+                                    <div class="me-header-image uk-text-center">
+                                        <img src="https://www.me-content.com/mec/system/images/myenroll_logo_clear_3.png"
+                                            uk-img alt="MyEnroll360">
+                                    </div>
+                                </template>
+                                <template v-else>
+                                    <div class="me-header-image-offset uk-text-center">
+                                        <img src="https://www.me-content.com/mec/system/images/BAS_Ball_Orange.png"
+                                            uk-img alt="MyEnroll360">
+                                    </div>
+                                </template>
+                                <h2 :class="{'me-84-margin': ballIcon}">
+                                    Login
+                                </h2>
+                                <div class="uk-width-expand uk-inline">
+                                    <a class="uk-form-icon" href="" uk-icon="icon: user"></a>
+                                    <input class="uk-input" placeholder="User ID" type="text" name="userid">
+                                </div>
+                                <div class="uk-width-expand uk-inline">
+                                    <a class="uk-form-icon" href="" uk-icon="icon: lock"></a>
+                                    <input class="uk-input" placeholder="Password" type="password" name="password">
+                                </div>
+                                <div class="uk-margin uk-text-center uk-grid-small uk-child-width-1-1" uk-grid>
+
+                                    <div>
+                                        <button class="uk-button-large uk-width-expand uk-button me-button-primary">
+                                            Log In
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <label for=""><input class="uk-checkbox" type="checkbox" name="" id=""> Remember
+                                            My
+                                            User ID</label>
+                                    </div>
+                                    <div class="uk-margin-large">
+                                        <div class="uk-grid-small uk-child-width-1-2@m" uk-grid>
+                                            <div>
+                                                <a class="me-muted-link" href="">Forgot User ID/Password?</a>
                                             </div>
                                             <div>
-                                                {{ item.title }}
+                                                <a class="me-muted-link" href="">First Time Users</a>
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
-                            </template>
+                            </div>
+                        </div>
+                        <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true"
+                            class="uk-width-2-5@m">
+                            <div class="uk-grid-small uk-child-width-1-1 uk-grid-match" uk-grid>
+                                <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
+                                    <div class="uk-card me-card uk-card-default uk-card-body">
+                                        <h2 class="">
+                                            Submit FSA or HRA Claims
+                                        </h2>
+                                        <div>
+                                            If your participate in a Health Care and/or Dependent Day Care FSA, your
+                                            employer puts money aside from your paycheck (before taxes are taken out)
+                                            and
+                                            you use that money to pay for eligible health care and/or dependent day care
+                                            expenses.
+                                        </div>
+                                        <div class="uk-margin uk-width-expand">
+                                            <button
+                                                class="uk-width-1-2 uk-button-large uk-button uk-width-expand me-button-primary">
+                                                Submit
+                                            </button>
+                                        </div>
+                                        <div class="uk-text-warning me-bottom-right-offset">
+                                            <i class="fas fa-exclamation-circle fa-10x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
+                                    <div class="uk-text-center uk-card me-card uk-card-default uk-card-body">
+                                        <div class="uk-text-lead">
+                                            First Time Users
+                                        </div>
+                                        <div class="uk-width-expand uk-margin">
+                                            <button
+                                                class="uk-button-large uk-button uk-default me-button-primary uk-width-expand">
+                                                Learn More
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-width-expand@m">
+                            <div class="uk-grid-small uk-child-width-1-1@m uk-grid-match" uk-grid>
+                                <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
+                                    <div
+                                        class="uk-text-center me-card-focus uk-card me-card uk-card-body uk-card-default">
+                                        <h2>Look Up FSA/HRA Denial</h2>
+                                        <i class="fas fa-question-circle fa-3x mt-4"></i>
+                                        <div class="uk-width-expand uk-margin">
+                                            <button type="button" uk-toggle="target: #claimDenial   "
+                                                class="uk-width-expand uk-button uk-button-large me-button-primary">
+                                                Look Up
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    <div id="claimDenial" class="uk-modal-full" uk-modal>
+                                        <div class="uk-modal-dialog">
+                                            <button class="bg-transparent uk-modal-close-full uk-close-large"
+                                                type="button" uk-close></button>
+                                            <div class="uk-grid-collapse uk-child-width-1-3@s" uk-grid>
+                                                <div class="uk-visible@s uk-background-cover"
+                                                    :style="'background-image: url(' + bg_image + ')'"
+                                                    uk-height-viewport>
+                                                </div>
+                                                <div
+                                                    class="uk-position-relative uk-width-expand@m uk-padding-large uk-height-viewport uk-overflow-auto">
+                                                    <claimdenial class="pt-4 uk-position-cover"></claimdenial>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true">
+                                    <div class="uk-text-center uk-card me-card uk-card-body uk-card-default">
+                                        <h2>Submit a Service Request</h2>
+                                        <div class="uk-width-expand uk-margin">
+                                            <button class="uk-width-expand uk-button uk-button-large me-button-primary">
+                                                Submit
+                                            </button>
+                                        </div>
+                                        <div class="me-bottom-left-offset me-icon-focus">
+                                            <i class="fas fa-user-headset fa-3x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <template v-for="item in infoCards.card">
-            <div uk-scrollspy="cls:uk-animation-slide-right-medium; repeat: true"
-                class="uk-section uk-section-secondary uk-section-small" :id="item.link.substring(1)">
+            <div uk-scrollspy="cls: uk-animation-fade uk-animation-fast; repeat: true"
+                class="bg-semi-transparent-dark uk-section uk-section-small me-info-section uk-section-secondary uk-position-relative">
                 <div class="uk-container">
-                    <article class="uk-article">
-                        <h1 class="uk-article-title"><a class="uk-link-reset" href="">{{ item.title }}</a></h1>
-                        <p v-html="item.details.body">
-
-                        </p>
-
-                        <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                    <div :style="'background-image: url(' + selectedPeopleImage + ')'"
+                        class="uk-child-width-expand@m me-info-section-row" uk-grid>
+                        <div class="uk-width-1-6@m">
                             <div>
-                                <template v-if="item.details.read_more.length > 0">
-                                    <a class="uk-button uk-button-text" :href="'#' + item.link.substring(1) + 'RM'"
-                                        uk-toggle>Read
-                                        more</a>
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-child-width-expand@m uk-grid-small" uk-grid
+                                uk-scrollspy="target: > div; cls: uk-animation-slide-right-medium; repeat: true">
+                                <template v-for="item in infoCards.card">
+                                    <div>
+                                        <a :href="item.link" uk-scroll>
+                                            <div
+                                                class="uk-text-center uk-card uk-card-body uk-padding-small me-info-card">
+                                                <div v-html="item.icon">
+                                                </div>
+                                                <div>
+                                                    {{ item.title }}
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </template>
                             </div>
                         </div>
-
-                    </article>
+                    </div>
                 </div>
             </div>
-            <div :id="item.link.substring(1) + 'RM'" uk-modal>
-                <div class="uk-modal-dialog uk-modal-body">
-                    <button class="uk-modal-close-default" type="button" uk-close></button>
-                    <h2 class="uk-modal-title">
-                        {{ item.title }}
-                    </h2>
-                    <p v-html="item.details.read_more">
+        </div>
+        <div class="uk-section-secondary">
+            <template v-for="item in infoCards.card">
+                <div uk-scrollspy="cls:uk-animation-slide-right-medium; repeat: true"
+                    class="uk-section uk-section-secondary uk-section-small" :id="item.link.substring(1)">
+                    <div class="uk-container">
+                        <article class="uk-article">
+                            <h1 class="uk-article-title"><a class="uk-link-reset" href="">{{ item.title }}</a></h1>
+                            <p v-html="item.details.body">
 
-                    </p>
+                            </p>
+
+                            <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                                <div>
+                                    <template v-if="item.details.read_more.length > 0">
+                                        <a class="uk-button uk-button-text" :href="'#' + item.link.substring(1) + 'RM'"
+                                            uk-toggle>Read
+                                            more</a>
+                                    </template>
+                                </div>
+                            </div>
+
+                        </article>
+                    </div>
                 </div>
-            </div>
-        </template>
+                <div :id="item.link.substring(1) + 'RM'" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body">
+                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                        <h2 class="uk-modal-title">
+                            {{ item.title }}
+                        </h2>
+                        <p v-html="item.details.read_more">
+
+                        </p>
+                    </div>
+                </div>
+            </template>
+        </div>
+
     </div>
 
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
