@@ -25,9 +25,13 @@ Vue.component('phone-collection', {
                 }),
                 contentType: "application/json; charset=utf-8"
             }).done(function(e){
-                self.currentPhone = JSON.parse(e.d)[0];
-
-            })
+                if (JSON.parse(e.d).length != 0) {
+                    if (!JSON.parse(e.d)[0].VALUE_NUMBER == '1') {
+                        self.currentPhone = JSON.parse(e.d)[0];
+                        UIkit.modal('#phoneCollection').show()
+                    }
+                }
+            });
         }
     },
     doNotShowPop: function() {
@@ -36,10 +40,9 @@ Vue.component('phone-collection', {
             type: "POST",
             url: "/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/ShowEmpMobilePopup",
             data: JSON.stringify({
-             status: self.doNotShowPass,
+             status: '1',
             }),
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {}
+            contentType: "application/json; charset=utf-8"
         });
     },
     updateEEMobile: function() {
@@ -59,6 +62,7 @@ Vue.component('phone-collection', {
                 timeout: 2500
             });
             UIkit.modal('#phoneCollection').hide();
+            self.doNotShowPop();
         })
     }
 	watch: {
@@ -102,8 +106,8 @@ Vue.component('phone-collection', {
 		// },
 	},
 	created: function () {
-		var self = this;
-		self.showPop = 1;
+        var self = this;
+        self.getEEMobile();
 	},
 	template:
 		'<div id="phoneCollection" uk-modal>\
