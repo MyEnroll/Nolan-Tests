@@ -20,7 +20,13 @@
     <link rel="stylesheet"
         href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/vue-apexcharts.js"></script>
     <link rel="stylesheet" href="style/fsa_home.css">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.css">
 </head>
 
 <body>
@@ -175,15 +181,25 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="uk-width-expand">
+                            <div id="chart">
+                                <apexchart type="line" height="350" :options="chartOptions" :series="series">
+                                </apexchart>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="uk-width-expand ">
                     <div class="uk-background-muted">
 
-                        <div class="">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo natus ipsa officia!
-                            Fugiat
-                            modi rerum quae odio voluptatum assumenda!
+                        <div class="uk-padding">
+                            <ul class="uk-list">
+                                <li>test</li>
+                                <li>test</li>
+                                <li>test</li>
+                                <li>test</li>
+                                <li>test</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
