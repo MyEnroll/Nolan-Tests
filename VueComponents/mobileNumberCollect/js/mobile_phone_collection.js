@@ -6,74 +6,77 @@ Vue.component('phone-collection', {
 			newPhone: '',
 			confirmPhone: '',
 			showPop: 0,
-            doNotShow: false,
-            doNotShowPass: ''
+			doNotShow: false,
+			doNotShowPass: '',
 		};
-    },
-    methods: {
-        neverShow: function() {
-            var self = this;
-            self.doNotShowPop();
-            UIkit.modal('#phoneCollection').hide();
-        },
-        getEEMobile: function() {
-            var self = this;
-            $.ajax({
-                type: "POST",
-                url: "/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/GetEmpMobile",
-                data: JSON.stringify({
-                }),
-                contentType: "application/json; charset=utf-8"
-            }).done(function(e){
-                if (JSON.parse(e.d).length != 0) {
-                    if (!JSON.parse(e.d)[0].VALUE_NUMBER == '1') {
-                        self.currentPhone = JSON.parse(e.d)[0];
-                        UIkit.modal('#phoneCollection').show()
-                    }
-                }
-            });
-        }
-    },
-    doNotShowPop: function() {
-        var self = this;
-        $.ajax({
-            type: "POST",
-            url: "/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/ShowEmpMobilePopup",
-            data: JSON.stringify({
-             status: '1',
-            }),
-            contentType: "application/json; charset=utf-8"
-        });
-    },
-    updateEEMobile: function() {
-        var self = this;
-        $.ajax({
-            type: "POST",
-            url: "/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/UpdateEmpMobile",
-            data: JSON.stringify({
-                mobile: self.confirmPhone,
-            }),
-            contentType: "application/json; charset=utf-8"
-        }).done(function(e){
-            UIkit.notification({
-                message: 'Mobile number updated!',
-                status: 'success',
-                pos: 'top-right',
-                timeout: 2500
-            });
-            UIkit.modal('#phoneCollection').hide();
-            self.doNotShowPop();
-        })
-    }
+	},
+	methods: {
+		neverShow: function () {
+			var self = this;
+			self.doNotShowPop();
+			UIkit.modal('#phoneCollection').hide();
+		},
+		getEEMobile: function () {
+			var self = this;
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/GetEmpMobile',
+				data: JSON.stringify({}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (e) {
+				if (JSON.parse(e.d).length != 0) {
+					if (!JSON.parse(e.d)[0].VALUE_NUMBER == '1') {
+						self.currentPhone = JSON.parse(e.d)[0].MOBILE_NUMBER;
+						UIkit.modal('#phoneCollection').show();
+					}
+				}
+			});
+		},
+		doNotShowPop: function () {
+			var self = this;
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/ShowEmpMobilePopup',
+				data: JSON.stringify({
+					status: '1',
+				}),
+				contentType: 'application/json; charset=utf-8',
+			});
+		},
+		updateEEMobile: function () {
+			var self = this;
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/UpdateEmpMobile',
+				data: JSON.stringify({
+					mobile: self.confirmPhone,
+				}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (e) {
+				UIkit.notification({
+					message: 'Mobile number updated!',
+					status: 'success',
+					pos: 'top-right',
+					timeout: 2500,
+				});
+				UIkit.modal('#phoneCollection').hide();
+				self.doNotShowPop();
+			});
+		},
+	},
+
 	watch: {
-        doNotShow: function() {
-            var self = this;
-            if (self.doNotShow) {
-                self.doNotShowPass = 1
-            } else {
-                self.doNotShowPass = 0
-            }
-        },
+		doNotShow: function () {
+			var self = this;
+			if (self.doNotShow) {
+				self.doNotShowPass = 1;
+			} else {
+				self.doNotShowPass = 0;
+			}
+		},
 		showPop: function () {
 			var self = this;
 			if (self.showPop == 1) {
@@ -106,15 +109,15 @@ Vue.component('phone-collection', {
 		// },
 	},
 	created: function () {
-        var self = this;
-        self.getEEMobile();
+		var self = this;
+		self.getEEMobile();
 	},
 	template:
 		'<div id="phoneCollection" uk-modal>\
     <div class="uk-modal-dialog uk-border-rounded uk-overflow-auto">\
         <button class="uk-modal-close-default" type="button" uk-close></button>\
-        <div class="uk-modal-header">\
-            <h3 class="">Mobile Phone Collection</h3>\
+        <div class="uk-modal-header uk-background-secondary">\
+            <h3 class="text-light">Mobile Phone Collection</h3>\
         </div>\
         <div class="uk-modal-body">\
             <div>\
@@ -126,7 +129,7 @@ Vue.component('phone-collection', {
                 </p>\
             </div>\
             <div>\
-                <table class="uk-table uk-table-small uk-table-responsive uk-table-middle">\
+                <table class="uk-table uk-table-responsive uk-table-middle">\
                     <tbody>\
                         <tr>\
                             <th style="vertical-align:middle" class="uk-table-shrink uk-text-nowrap">\
@@ -179,4 +182,3 @@ Vue.component('phone-collection', {
     </div>\
 </div>',
 });
-new Vue({ el: '#main' });
