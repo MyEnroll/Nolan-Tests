@@ -14,7 +14,46 @@ Vue.component('phone-collection', {
 				},
 			],
 		};
-	},
+    },
+    methods: {
+        getEEMobile: function() {
+            var self = this;
+            $.ajax({
+                type: "POST",
+                url: "/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/GetEmpMobile",
+                data: JSON.stringify({
+                }),
+                contentType: "application/json; charset=utf-8"
+            }).done(function(e){
+
+            });
+        }
+    },
+    doNotShowPop: function() {
+        var self = this;
+        $.ajax({
+            type: "POST",
+            url: "/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/ShowEmpMobilePopup",
+            data: JSON.stringify({
+             status: status_,
+            }),
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {}
+        });
+    },
+    updateEEMobile: function() {
+        var self = this;
+        $.ajax({
+            type: "POST",
+            url: "/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/UpdateEmpMobile",
+            data: JSON.stringify({
+                mobile: self.confirmPhone,
+            }),
+            contentType: "application/json; charset=utf-8"
+        }).done(function(e){
+            
+        })
+    }
 	watch: {
 		showPop: function () {
 			var self = this;
