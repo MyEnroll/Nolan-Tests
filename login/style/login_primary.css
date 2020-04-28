@@ -25,6 +25,10 @@ h6 {
 	color: #4f4f4f;
 }
 
+h2 {
+	font-size: 1.5rem;
+}
+
 .backgroundContainer {
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -40,12 +44,12 @@ h6 {
 }
 
 .bg-semi-transparent-dark {
-	background: rgba(0, 0, 0, 0.7) !important;
+	background: rgba(34, 34, 34, 0.7) !important;
 }
 
 .me-button-primary {
-	background: #fd7e14;
-	font-size: 1.4rem;
+	background: #ffa05f;
+	font-size: 1.05rem;
 	font-weight: 600;
 	text-transform: none;
 	color: #fff;
@@ -53,6 +57,7 @@ h6 {
 	padding: 10px 20px;
 	min-height: 53px;
 	line-height: 1.5;
+	box-shadow: 0px 2px 0px #ba5c1c;
 }
 
 .me-button-orange {
@@ -66,8 +71,17 @@ h6 {
 	width: auto;
 }
 
+.first-time-users-container {
+	border: 1rem solid #ff8d40;
+	border-top-color: #ba5c1c;
+	border-left-color: #e37420;
+	border-right-color: #e37420;
+
+}
+
 .me-button-primary:hover {
 	box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
+	background: #ffc7a1;
 }
 
 .me-muted-link {
