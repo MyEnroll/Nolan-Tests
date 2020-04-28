@@ -2,20 +2,20 @@ Vue.component('phone-collection', {
 	data: function () {
 		return {
 			count: 0,
-			currentPhone: '484-707-0598',
+			currentPhone: '',
 			newPhone: '',
 			confirmPhone: '',
 			showPop: 0,
-			doNotShow: 0,
-			testArray: [
-				{
-					mobile_number: '1234567890',
-					show_popup: '1',
-				},
-			],
+            doNotShow: false,
+            doNotShowPass: ''
 		};
     },
     methods: {
+        neverShow: function() {
+            var self = this;
+            self.doNotShowPop();
+            UIkit.modal('#phoneCollection').hide();
+        },
         getEEMobile: function() {
             var self = this;
             $.ajax({
@@ -25,8 +25,9 @@ Vue.component('phone-collection', {
                 }),
                 contentType: "application/json; charset=utf-8"
             }).done(function(e){
+                self.currentPhone = JSON.parse(e.d)[0];
 
-            });
+            })
         }
     },
     doNotShowPop: function() {
@@ -35,7 +36,7 @@ Vue.component('phone-collection', {
             type: "POST",
             url: "/web_projects/MyEnrollWebService/EmployeeWebMethod.aspx/ShowEmpMobilePopup",
             data: JSON.stringify({
-             status: status_,
+             status: self.doNotShowPass,
             }),
             contentType: "application/json; charset=utf-8",
             success: function (data) {}
@@ -51,10 +52,24 @@ Vue.component('phone-collection', {
             }),
             contentType: "application/json; charset=utf-8"
         }).done(function(e){
-            
+            UIkit.notification({
+                message: 'Mobile number updated!',
+                status: 'success',
+                pos: 'top-right',
+                timeout: 2500
+            });
+            UIkit.modal('#phoneCollection').hide();
         })
     }
 	watch: {
+        doNotShow: function() {
+            var self = this;
+            if (self.doNotShow) {
+                self.doNotShowPass = 1
+            } else {
+                self.doNotShowPass = 0
+            }
+        },
 		showPop: function () {
 			var self = this;
 			if (self.showPop == 1) {
@@ -142,16 +157,16 @@ Vue.component('phone-collection', {
                 <label><input class="uk-checkbox" v-model="doNotShow" type="checkbox"> Do not show me this again</label>\
             </div>\
             <div>\
-              <template v-if="doNotShow == 0">\
+              <template v-if="!doNotShow">\
                 <button class="uk-border-pill uk-margin-left uk-button uk-button-default uk-modal-close" type="button">\
                 Skip\
                 </button>\
-                <button :disabled="newPhone != confirmPhone || newPhone.length == 0 || confirmPhone.length == 0 || newPhone.length < 10 || confirmPhone.length < 10" class="uk-border-pill uk-button uk-button-primary" type="button">\
+                <button :disabled="newPhone != confirmPhone || newPhone.length == 0 || confirmPhone.length == 0 || newPhone.length < 10 || confirmPhone.length < 10" class="uk-border-pill uk-button uk-button-primary" type="button" @click="updateEEMobile">\
                     Submit\
                 </button>\
               </template>\
               <template v-else>\
-                <button class="uk-border-pill uk-margin-left uk-button uk-button-primary uk-modal-close" type="button">\
+                <button class="uk-border-pill uk-margin-left uk-button uk-button-primary uk-modal-close" type="button" @click="neverShow">\
                     Continue\
                 </button>\
                 </template>\
