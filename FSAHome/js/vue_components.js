@@ -1,9 +1,46 @@
+Vue.component('quickbtn', {
+	data: function () {
+		return {
+			quickBtns: [],
+		};
+	},
+	props: ['array'],
+
+	template:
+		'<div :class="\'uk-grid-match uk-child-width-\' + array.props.width + \'@s\'" uk-grid>\
+			<div v-for="item in array.items">\
+				<div class="me-redirect me-card uk-card uk-card-body uk-text-center uk-border-rounded uk-text-center">\
+					<div v-html="item.icon"></div>\
+					<div style="font-size: 1.2rem;" v-html="item.title"></div>\
+				</div>\
+			</div>\
+		</div>',
+});
+Vue.component('resources', {
+	data: function () {
+		return {
+			resourceItems: [],
+		};
+	},
+	props: ['array'],
+
+	template:
+		'<div class="uk-background-muted">\
+		<div class="uk-padding">\
+			<ul class="uk-list">\
+				<li v-for="item in array.items"><a :href="item.url">{{ item.title }}</a></li>\
+			</ul>\
+		</div>\
+	</div>',
+});
+
 var vh = new Vue({
 	el: '#fsaHome',
 	components: {
 		apexchart: VueApexCharts,
 	},
 	data: {
+		fsaHomeItems: null,
 		series: [
 			{
 				name: 'High - 2013',
@@ -74,15 +111,15 @@ var vh = new Vue({
 		},
 	},
 	methods: {
-		getBtns: function () {
+		getItems: function () {
 			var self = this;
-			$.getJSON('data/buttons.json', function (e) {
-				self.quickBtns = e.items;
+			$.getJSON('data/fsaHome.json', function (e) {
+				self.fsaHomeItems = e;
 			});
 		},
 	},
 	created: function () {
 		var self = this;
-		self.getBtns();
+		self.getItems();
 	},
 });

@@ -1,0 +1,66 @@
+{
+    "product": {
+        "title": "Flexible Spending Account",
+        "product": "FSA"
+    },
+    "buttons": {
+        "props": {
+            "width": "1-3"
+        },
+        "items": [{
+                "title": "New Claim",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-play-circle\"></i>"
+            },
+            {
+                "title": "Historical Claims",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-history\"></i>"
+            },
+            {
+                "title": "Debit Card",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-credit-card\"></i>"
+            },
+            {
+                "title": "More Information",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-info-circle\"></i>"
+            }, {
+                "title": "Denied Claims",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-credit-card\"></i>"
+            }, {
+                "title": "Appeal",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-credit-card\"></i>"
+            }
+        ]
+    },
+    "resources": {
+        "props": {
+
+        },
+        "items": [{
+                "title": "FSA Guide",
+                "url": "http://www.fsa-central.com/"
+            },
+            {
+                "title": "Medical Claim Form",
+                "url": "https://www.myenroll.com/claim_form/claim_form_med.pdf"
+            },
+            {
+                "title": "Dependent (Day) Care Claim Form",
+                "url": "https://www.myenroll.com/claim_form/claim_form_dep.pdf"
+            },
+            {
+                "title": "HIPAA Authorization Release",
+                "url": "http://www.me-content.com/mec/system/docs/docs/BAS%20-%20HIPAA%20Authorization%20Release.pdf"
+            },
+            {
+                "title": "Letter of Medical",
+                "url": "http://www.me-content.com/mec/system/docs/docs/Letter%20of%20Medical%20Necessity%20Template.pdf"
+            }
+        ]
+    }
+}
