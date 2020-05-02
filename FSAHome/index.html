@@ -36,9 +36,11 @@
             <div class="uk-container">
                 <div class="uk-grid-match" uk-grid>
                     <div class="uk-width-3-4@s">
-                        <h3>
-                            {{ fsaHomeItems.product.title }} Home
-                        </h3>
+                        <template>
+                            <h3 v-if="fsaHomeItems">
+                                {{ fsaHomeItems.product.title }} Home
+                            </h3>
+                        </template>
                     </div>
                     <div class="uk-width-expand@s">
                         <h3>
@@ -61,9 +63,11 @@
         <!-- dashboard area -->
         <div class="uk-section uk-section-xsmall">
             <div class="uk-container">
-                <h3>
-                    {{ fsaHomeItems.product.title }} Dashboard
-                </h3>
+                <template>
+                    <h3 v-if="fsaHomeItems">
+                        {{ fsaHomeItems.product.title }} Dashboard
+                    </h3>
+                </template>
                 <div class="uk-grid-small uk-grid uk-grid-stack" uk-grid="masonry: true">
                     <div class="uk-width-1-1@s uk-first-column">
                         <ul uk-accordion="" class="uk-accordion">
