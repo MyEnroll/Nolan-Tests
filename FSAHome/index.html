@@ -34,25 +34,22 @@
         <!-- main home page area -->
         <div class="uk-section uk-section-xsmall">
             <div class="uk-container">
-                <div class="uk-grid-match" uk-grid>
+                <div class="uk-grid-match uk-grid-small" uk-grid>
+
                     <div class="uk-width-3-4@s">
                         <template>
                             <h3 v-if="fsaHomeItems">
                                 {{ fsaHomeItems.product.title }} Home
                             </h3>
                         </template>
-                    </div>
-                    <div class="uk-width-expand@s">
-                        <h3>
-                            Resources
-                        </h3>
-                    </div>
-                    <div class="uk-width-3-4@s">
                         <template v-if="fsaHomeItems">
                             <quickbtn :array="fsaHomeItems.buttons"></quickbtn>
                         </template>
                     </div>
                     <div class="uk-width-expand ">
+                        <h3>
+                            Resources
+                        </h3>
                         <template v-if="fsaHomeItems">
                             <resources :array="fsaHomeItems.resources"></resources>
                         </template>
