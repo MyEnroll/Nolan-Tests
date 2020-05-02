@@ -43,11 +43,11 @@ var vh = new Vue({
 		fsaHomeItems: null,
 		series: [
 			{
-				name: 'High - 2013',
+				name: 'HCFSA - 2020',
 				data: [28, 29, 33, 36, 32, 32, 33],
 			},
 			{
-				name: 'Low - 2013',
+				name: 'DCFSA - 2020',
 				data: [12, 11, 14, 18, 17, 13, 13],
 			},
 		],
@@ -75,7 +75,7 @@ var vh = new Vue({
 				curve: 'smooth',
 			},
 			title: {
-				text: 'Average High & Low Temperature',
+				text: 'Average Monthly Claims',
 				align: 'left',
 			},
 			grid: {
@@ -96,7 +96,7 @@ var vh = new Vue({
 			},
 			yaxis: {
 				title: {
-					text: 'Temperature',
+					text: 'Claim Amount',
 				},
 				min: 5,
 				max: 40,
