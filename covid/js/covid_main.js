@@ -158,11 +158,11 @@ var vm = new Vue({
 			self.series = [
 				{
 					name: 'Confirmed Cases',
-					data: self.confirmed.slice(0, 5),
+					data: self.confirmed,
 				},
 				{
 					name: 'Deaths',
-					data: self.death.slice(0, 5),
+					data: self.death,
 				},
 			];
 			self.dailyConfirmed = self.confirmed[0][1];
