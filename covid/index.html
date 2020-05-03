@@ -31,17 +31,18 @@
                 <h3>
                     COVID Tracker
                 </h3>
-                <div>
+                <p class="uk-text-meta">
                     Find the latest data for your state.
-                </div>
+                </p>
                 <div>
 
                     <div class="uk-grid-small uk-child-width-1-1 uk-grid-match" uk-grid>
-                        <div class="uk-width-3-4@s">
+                        <div class="uk-width-1-2@s">
+                            <h4 class="uk-width-1-1">
+                                Today&apos;s Data
+                            </h4>
                             <div class="uk-card uk-card-default">
-                                <div class="uk-card-header">
-                                    Get Started
-                                </div>
+
                                 <div class="uk-card-body">
                                     <div>
                                         <label for="">State</label>
@@ -55,23 +56,39 @@
                             </div>
                         </div>
                         <div class="uk-width-expand">
-                            <div class="uk-child-width-1-1 uk-grid-match uk-grid-small" uk-grid>
+                            <div class="uk-child-width-1-2@s uk-grid-match uk-grid-small" uk-grid>
+                                <h4 class="uk-width-1-1">
+                                    Today&apos;s Data
+                                </h4>
                                 <div>
                                     <div class="uk-card uk-card-primary">
-                                        <div class="uk-card-header">
-                                            Today&apos;s Confirmed Cases
-                                        </div>
-                                        <div class="pt-0 uk-card-body">
+                                        <div class="uk-card-body">
                                             <template v-if="dailyDataState.length > 0">
-                                                <div class="uk-text-large">
-                                                    {{ numberWithCommas(dailyConfirmed) }}
+                                                <div class="mb-2">
+                                                    <div class="">
+                                                        Confirmed Cases
+                                                    </div>
+                                                    <div class="uk-text-large">
+                                                        {{ numberWithCommas(dailyConfirmed) }}
+                                                    </div>
+                                                </div>
+                                            </template>
+                                            <template v-if="dailyDataState.length > 0">
+                                                <div class="mb-2">
+                                                    <div class="">
+                                                        +/- from Yesterday
+                                                    </div>
+                                                    <div class="uk-text-large">
+                                                        <template
+                                                            v-if="confirmedIncrease > 0">+</template>{{ numberWithCommas(confirmedIncrease) }}
+                                                    </div>
                                                 </div>
                                             </template>
 
                                             <template v-else>
-                                                <div class="uk-text-center">
+                                                <div class="uk-position-center">
                                                     <div class="mt-3 spinner-border text-default"
-                                                        style="height:2.25rem;width:2.25rem" role="status">
+                                                        style="height:2.5rem;width:2.5rem" role="status">
                                                         <span class="sr-only">Loading...</span>
                                                     </div>
                                                 </div>
@@ -81,20 +98,33 @@
                                 </div>
                                 <div>
                                     <div class="uk-card uk-card-secondary">
-                                        <div class="uk-card-header">
-                                            Today&apos;s Deaths
-                                        </div>
-                                        <div class="pt-0 uk-card-body">
+                                        <div class="uk-card-body">
                                             <template v-if="dailyDataState.length > 0">
-                                                <div class="uk-text-large">
-                                                    {{ numberWithCommas(dailyDeath) }}
+                                                <div class="mb-2">
+                                                    <div class="">
+                                                        Deaths
+                                                    </div>
+                                                    <div class="uk-text-large">
+                                                        {{ numberWithCommas(dailyDeath) }}
+                                                    </div>
+                                                </div>
+                                            </template>
+                                            <template v-if="dailyDataState.length > 0">
+                                                <div class="mb-2">
+                                                    <div class="">
+                                                        +/- from Yesterday
+                                                    </div>
+                                                    <div class="uk-text-large">
+                                                        <template
+                                                            v-if="deathIncrease > 0">+</template>{{ numberWithCommas(deathIncrease) }}
+                                                    </div>
                                                 </div>
                                             </template>
 
                                             <template v-else>
-                                                <div class="uk-text-center">
+                                                <div class="uk-position-center">
                                                     <div class="mt-3 spinner-border text-default"
-                                                        style="height:2.25rem;width:2.25rem" role="status">
+                                                        style="height:2.5rem;width:2.5rem" role="status">
                                                         <span class="sr-only">Loading...</span>
                                                     </div>
                                                 </div>
@@ -107,7 +137,7 @@
                         <div>
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header">
-                                    Daily
+                                    Curve
                                 </div>
                                 <div class="uk-card-body uk-padding-small">
                                     <div>
@@ -134,7 +164,7 @@
                         <div>
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header">
-                                    Daily Data
+                                    Daily Details
                                 </div>
                                 <div class="uk-card-body">
                                     <div class="uk-overflow-auto">

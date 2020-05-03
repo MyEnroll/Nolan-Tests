@@ -69,6 +69,8 @@ var vm = new Vue({
 		dates: [],
 		dailyConfirmed: '',
 		dailyDeath: '',
+		deathIncrease: '',
+		confirmedIncrease: '',
 		series: [
 			{
 				name: 'Confirmed Cases',
@@ -143,6 +145,10 @@ var vm = new Vue({
 			];
 			self.dailyConfirmed = self.confirmed[0][1];
 			self.dailyDeath = self.death[0][1];
+			self.deathIncrease =
+				self.dailyDataState[0].death - self.dailyDataState[1].death;
+			self.confirmedIncrease =
+				self.dailyDataState[0].positive - self.dailyDataState[1].positive;
 		},
 		selState: function () {
 			var self = this;
@@ -167,6 +173,10 @@ var vm = new Vue({
 			];
 			self.dailyConfirmed = self.confirmed[0][1];
 			self.dailyDeath = self.death[0][1];
+			self.deathIncrease =
+				self.dailyDataState[0].death - self.dailyDataState[1].death;
+			self.confirmedIncrease =
+				self.dailyDataState[0].positive - self.dailyDataState[1].positive;
 		},
 	},
 	computed: {
