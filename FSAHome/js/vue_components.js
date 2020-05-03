@@ -28,7 +28,26 @@ Vue.component('resources', {
 		'<div class="uk-background-muted">\
 		<div class="uk-padding">\
 			<ul class="uk-list">\
-				<li v-for="item in array.items"><a :href="item.url">{{ item.title }}</a></li>\
+				<li v-for="(item,index) in array.items">\
+					<template v-if="item.type == \'link\'">\
+						<a :href="item.url" target="_blank">{{ item.title }}</a>\
+					</template>\
+					<template v-else-if="item.type == \'popup\'">\
+						<a :href="\'#resource\' + index + \'Pop\'" uk-toggle>{{ item.title }}</a>\
+					</template>\
+					<template>\
+						<div :id="\'resource\' + index + \'Pop\'" uk-modal>\
+							<div class="uk-modal-dialog">\
+								<button class="uk-modal-close-default" type="button" uk-close></button>\
+								<div class="uk-modal-header">\
+									<h2 class="uk-modal-title">{{item.title}}</h2>\
+								</div>\
+								<div class="uk-modal-body" v-html="item.body">\
+								</div>\
+							</div>\
+						</div>\
+					</template>\
+				</li>\
 			</ul>\
 		</div>\
 	</div>',
@@ -40,6 +59,7 @@ var vh = new Vue({
 		apexchart: VueApexCharts,
 	},
 	data: {
+		productPage: 'fsa',
 		launchpadItems: null,
 		series: [
 			{
@@ -111,15 +131,21 @@ var vh = new Vue({
 		},
 	},
 	methods: {
-		getItems: function () {
+		getItems: function (f) {
 			var self = this;
-			$.getJSON('data/fsaHome.json', function (e) {
+			$.getJSON('data/' + f + 'Home.json', function (e) {
 				self.launchpadItems = e;
 			});
 		},
 	},
+	watch: {
+		productPage: function (f) {
+			var self = this;
+			self.getItems(f);
+		},
+	},
 	created: function () {
 		var self = this;
-		self.getItems();
+		self.getItems(self.productPage);
 	},
 });

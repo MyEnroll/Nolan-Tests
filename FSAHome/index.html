@@ -31,10 +31,16 @@
 
 <body>
     <div id="launchpadHome">
+        <div class="uk-position-top-right m-3">
+            <select class="uk-select" name="" id="" v-model="productPage">
+                <option value="fsa">FSA</option>
+                <option value="cobra">COBRA</option>
+            </select>
+        </div>
         <!-- main home page area -->
         <div class="uk-section uk-section-xsmall">
             <div class="uk-container">
-                <div class="uk-grid-match uk-grid-small" uk-grid>
+                <div class="uk-grid-match uk-grid-small" uk-grid="masonry: true">
 
                     <div class="uk-width-3-4@s">
                         <template>

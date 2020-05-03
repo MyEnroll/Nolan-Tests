@@ -40,19 +40,27 @@
         },
         "items": [{
                 "title": "Electing Cobra Coverage",
-                "url": "http://www.fsa-central.com/"
+                "url": "",
+                "type": "popup",
+                "body": "<p>To elect coverage, you must complete the election form enclosed in the package that you received in the mail. The completed election form should be returned to CCS by mail, fax or email to:</p><p>Cobra Control Services<br />PO Box 62407<br />King of Prussia PA 19406<br /><a href='tel:1.888.265.2144'>Fax: 888-265-2144</a><br /><a href='mailto:service@cobracontrol.com'>Email: service@cobracontrol.com </a></p>"
             },
             {
                 "title": "Submitting Payments",
-                "url": "https://www.myenroll.com/claim_form/claim_form_med.pdf"
+                "url": "",
+                "type": "popup",
+                "body": "<p>Payment must be made by check or money order payable to Cobra Control Services, LLC.</p><p><strong>Send check to:</strong><br />Cobra Control Services<br />PO Box 417985<br />Boston, MA 02241-7985</p><p>All payments must be sent to CCS by REGULAR US MAIL. Please do not send your check certified or return receipt. The P.O. Box will NOT accept certified, registered or express mail, and if sent this way, your payment may not be considered timely.</p>"
             },
             {
                 "title": "Using your COBRA Coverage",
-                "url": "https://www.myenroll.com/claim_form/claim_form_dep.pdf"
+                "url": "",
+                "type": "popup",
+                "body": "<p>When you elect COBRA coverage, you are choosing to continue coverage under your former group employer&apos;s plan. Many times, you will continue to use the same insurance card you used while on the group health plan as an active employee. Upon receipt of your proper payment, CCS will notify the appropriate parties to reinstate your coverage. The timing of the reactivation of your coverage depends on your plan and the insurance carrier. Most COBRA coverage is reactivated within 7 to 10 business days of CCS&apos; receipt of your proper payment. To verify if your coverage is active, please contact the insurance carrier (the number on the back of your insurance card) directly.</p>"
             },
             {
                 "title": "FAQ",
-                "url": "http://www.me-content.com/mec/system/docs/docs/BAS%20-%20HIPAA%20Authorization%20Release.pdf"
+                "url": "",
+                "type": "popup",
+                "body": ""
             }
         ]
     }

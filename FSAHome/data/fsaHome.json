@@ -44,23 +44,33 @@
         },
         "items": [{
                 "title": "FSA Guide",
-                "url": "http://www.fsa-central.com/"
+                "url": "http://www.fsa-central.com/",
+                "type": "link",
+                "body": ""
             },
             {
                 "title": "Medical Claim Form",
-                "url": "https://www.myenroll.com/claim_form/claim_form_med.pdf"
+                "url": "https://www.myenroll.com/claim_form/claim_form_med.pdf",
+                "type": "link",
+                "body": ""
             },
             {
                 "title": "Dependent (Day) Care Claim Form",
-                "url": "https://www.myenroll.com/claim_form/claim_form_dep.pdf"
+                "url": "https://www.myenroll.com/claim_form/claim_form_dep.pdf",
+                "type": "link",
+                "body": ""
             },
             {
                 "title": "HIPAA Authorization Release",
-                "url": "http://www.me-content.com/mec/system/docs/docs/BAS%20-%20HIPAA%20Authorization%20Release.pdf"
+                "url": "http://www.me-content.com/mec/system/docs/docs/BAS%20-%20HIPAA%20Authorization%20Release.pdf",
+                "type": "link",
+                "body": ""
             },
             {
                 "title": "Letter of Medical",
-                "url": "http://www.me-content.com/mec/system/docs/docs/Letter%20of%20Medical%20Necessity%20Template.pdf"
+                "url": "http://www.me-content.com/mec/system/docs/docs/Letter%20of%20Medical%20Necessity%20Template.pdf",
+                "type": "link",
+                "body": ""
             }
         ]
     }
