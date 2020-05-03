@@ -109,7 +109,8 @@
                                 <div class="uk-card-body uk-padding-small">
                                     <div>
                                         <template v-if="dailyDataState.length > 0">
-                                            <apexchart type="bar" height="350" :options="chartOptions" :series="series">
+                                            <apexchart type="area" height="350" :options="chartOptions"
+                                                :series="series">
                                             </apexchart>
                                         </template>
                                         <template v-else>

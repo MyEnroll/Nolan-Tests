@@ -81,39 +81,22 @@ var vm = new Vue({
 		],
 		chartOptions: {
 			chart: {
-				type: 'bar',
 				height: 350,
-				stacked: true,
-				toolbar: {
-					show: true,
-				},
-				zoom: {
-					enabled: true,
-				},
+				type: 'area',
 			},
-			responsive: [
-				{
-					breakpoint: 480,
-					options: {
-						legend: {
-							show: false,
-						},
-					},
-				},
-			],
-			plotOptions: {
-				bar: {
-					horizontal: false,
-				},
+			dataLabels: {
+				enabled: false,
+			},
+			stroke: {
+				curve: 'smooth',
 			},
 			xaxis: {
 				type: 'datetime',
 			},
-			legend: {
-				show: false,
-			},
-			fill: {
-				opacity: 1,
+			tooltip: {
+				x: {
+					format: 'MM/dd/yyyy',
+				},
 			},
 		},
 	},
@@ -151,11 +134,11 @@ var vm = new Vue({
 			self.series = [
 				{
 					name: 'Confirmed Cases',
-					data: self.confirmed.slice(0, 5),
+					data: self.confirmed,
 				},
 				{
 					name: 'Deaths',
-					data: self.death.slice(0, 5),
+					data: self.death,
 				},
 			];
 			self.dailyConfirmed = self.confirmed[0][1];
