@@ -7,6 +7,7 @@ This page will be updated with new applications for review and approval before m
 
 ### List of Demos
 
+* [COVID Tracker](covid/)
 * [FSA Launchpad](FSAHome/)
 * [Login](login/)
 * [Claim Denial Code Lookup](claimDenialLookup/)
