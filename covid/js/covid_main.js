@@ -67,6 +67,7 @@ var vm = new Vue({
 		confirmed: [],
 		death: [],
 		dates: [],
+		location: '',
 		dailyConfirmed: '',
 		dailyDeath: '',
 		deathIncrease: '',
@@ -121,6 +122,16 @@ var vm = new Vue({
 		},
 		numberWithCommas: function (x) {
 			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		},
+		getLocation: function () {
+			var self = this;
+			var location = navigator.geolocation;
+			if (location) {
+				self.location = location;
+				alert('retrieved location');
+			} else {
+				alert('couldn&apos;t get location');
+			}
 		},
 	},
 	watch: {
