@@ -20,6 +20,8 @@
     <link rel="stylesheet"
         href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.css">
 </head>
 
 <body>
@@ -30,19 +32,96 @@
                     COVID Tracker
                 </h3>
                 <div>
+
                     <div class="uk-grid-small uk-child-width-1-1" uk-grid>
                         <div>
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header">
-                                    Choose your State
+                                    Get Started
                                 </div>
                                 <div class="uk-card-body">
                                     <div>
                                         <label for="">State</label>
                                         <select name="" v-model="selState" id="" class="uk-select">
+                                            <option value="" selected disabled>Select a State...</option>
                                             <option :value="item" v-for="item in stateList">{{ item }}
                                             </option>
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    Daily
+                                </div>
+                                <div class="uk-card-body uk-padding-small">
+                                    <div>
+                                        <apexchart type="bar" height="350" :options="chartOptions" :series="series">
+                                        </apexchart>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header">
+                                    Daily Data
+                                </div>
+                                <div class="uk-card-body">
+                                    <div class="uk-overflow-auto">
+                                        <table class="uk-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Total Tested</th>
+                                                    <th>Confirmed Cases</th>
+                                                    <th>Deaths</th>
+                                                    <th>Ratio Positive/Negative</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="item in dailyDataState">
+                                                    <td>{{ item.date.toString().slice(4,6) }}/{{ item.date.toString().slice(6,8) }}/{{ item.date.toString().slice(0,4) }}
+                                                    </td>
+                                                    <td>
+                                                        {{numberWithCommas(item.totalTestResults)}}
+                                                    </td>
+                                                    <td>
+                                                        <template v-if="item.positive != null">
+                                                            {{numberWithCommas(item.positive)}}
+                                                        </template>
+                                                        <template v-else>
+                                                            0
+                                                        </template>
+                                                    </td>
+                                                    <td>
+                                                        <template v-if="item.death != null">
+                                                            {{numberWithCommas(item.death)}}
+                                                        </template>
+                                                        <template v-else>
+                                                            0
+                                                        </template>
+                                                    </td>
+                                                    <td>
+                                                        <template v-if="item.positive != null">
+                                                            {{numberWithCommas(item.positive)}}
+                                                        </template>
+                                                        <template v-else>
+                                                            0
+                                                        </template>
+                                                        /
+                                                        <template v-if="item.negative != null">
+                                                            {{numberWithCommas(item.negative)}}
+                                                        </template>
+                                                        <template v-else>
+                                                            0
+                                                        </template>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +130,17 @@
                 </div>
             </div>
         </div>
+
     </div>
+    <div id="app" class="uk-section uk-section-small">
+        <div id="chart">
+
+        </div>
+    </div>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/vue-apexcharts.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
     <script src="js/covid_main.js"></script>
 </body>
