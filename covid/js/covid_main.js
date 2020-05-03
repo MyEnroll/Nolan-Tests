@@ -67,6 +67,8 @@ var vm = new Vue({
 		confirmed: [],
 		death: [],
 		dates: [],
+		dailyConfirmed: '',
+		dailyDeath: '',
 		series: [
 			{
 				name: 'Confirmed Cases',
@@ -108,8 +110,7 @@ var vm = new Vue({
 				type: 'datetime',
 			},
 			legend: {
-				position: 'right',
-				offsetY: 40,
+				show: false,
 			},
 			fill: {
 				opacity: 1,
@@ -157,6 +158,32 @@ var vm = new Vue({
 					data: self.death.slice(0, 5),
 				},
 			];
+			self.dailyConfirmed = self.confirmed[0][1];
+			self.dailyDeath = self.death[0][1];
+		},
+		selState: function () {
+			var self = this;
+			self.confirmed = [];
+			self.death = [];
+			$.each(self.dailyDataState, function (key, value) {
+				self.confirmed.push([value.dateChecked, value.positive]);
+			});
+			$.each(self.dailyDataState, function (key, value) {
+				self.death.push([value.dateChecked, value.death]);
+			});
+
+			self.series = [
+				{
+					name: 'Confirmed Cases',
+					data: self.confirmed.slice(0, 5),
+				},
+				{
+					name: 'Deaths',
+					data: self.death.slice(0, 5),
+				},
+			];
+			self.dailyConfirmed = self.confirmed[0][1];
+			self.dailyDeath = self.death[0][1];
 		},
 	},
 	computed: {

@@ -33,8 +33,8 @@
                 </h3>
                 <div>
 
-                    <div class="uk-grid-small uk-child-width-1-1" uk-grid>
-                        <div>
+                    <div class="uk-grid-small uk-child-width-1-1 uk-grid-match" uk-grid>
+                        <div class="uk-width-3-4@s">
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header">
                                     Get Started
@@ -51,6 +51,56 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="uk-width-expand">
+                            <div class="uk-child-width-1-1 uk-grid-match uk-grid-small" uk-grid>
+                                <div>
+                                    <div class="uk-card uk-card-primary">
+                                        <div class="uk-card-header">
+                                            Today&apos;s Confirmed Cases
+                                        </div>
+                                        <div class="pt-0 uk-card-body">
+                                            <template v-if="dailyDataState.length > 0">
+                                                <div class="uk-text-large">
+                                                    {{ numberWithCommas(dailyConfirmed) }}
+                                                </div>
+                                            </template>
+
+                                            <template v-else>
+                                                <div class="uk-text-center">
+                                                    <div class="mt-3 spinner-border text-default"
+                                                        style="height:2.25rem;width:2.25rem" role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="uk-card uk-card-secondary">
+                                        <div class="uk-card-header">
+                                            Today&apos;s Deaths
+                                        </div>
+                                        <div class="pt-0 uk-card-body">
+                                            <template v-if="dailyDataState.length > 0">
+                                                <div class="uk-text-large">
+                                                    {{ numberWithCommas(dailyDeath) }}
+                                                </div>
+                                            </template>
+
+                                            <template v-else>
+                                                <div class="uk-text-center">
+                                                    <div class="mt-3 spinner-border text-default"
+                                                        style="height:2.25rem;width:2.25rem" role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div>
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header">
@@ -58,8 +108,21 @@
                                 </div>
                                 <div class="uk-card-body uk-padding-small">
                                     <div>
-                                        <apexchart type="bar" height="350" :options="chartOptions" :series="series">
-                                        </apexchart>
+                                        <template v-if="dailyDataState.length > 0">
+                                            <apexchart type="bar" height="350" :options="chartOptions" :series="series">
+                                            </apexchart>
+                                        </template>
+                                        <template v-else>
+                                            <div class="uk-text-center">
+                                                <div class="uk-text-lead">
+                                                    Loading
+                                                </div>
+                                                <div class="mt-3 spinner-border text-primary"
+                                                    style="height:2.25rem;width:2.25rem" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </template>
                                     </div>
                                 </div>
                             </div>
@@ -71,57 +134,77 @@
                                 </div>
                                 <div class="uk-card-body">
                                     <div class="uk-overflow-auto">
-                                        <table class="uk-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Date</th>
-                                                    <th>Total Tested</th>
-                                                    <th>Confirmed Cases</th>
-                                                    <th>Deaths</th>
-                                                    <th>Ratio Positive/Negative</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr v-for="item in dailyDataState">
-                                                    <td>{{ item.date.toString().slice(4,6) }}/{{ item.date.toString().slice(6,8) }}/{{ item.date.toString().slice(0,4) }}
-                                                    </td>
-                                                    <td>
-                                                        {{numberWithCommas(item.totalTestResults)}}
-                                                    </td>
-                                                    <td>
-                                                        <template v-if="item.positive != null">
-                                                            {{numberWithCommas(item.positive)}}
-                                                        </template>
-                                                        <template v-else>
-                                                            0
-                                                        </template>
-                                                    </td>
-                                                    <td>
-                                                        <template v-if="item.death != null">
-                                                            {{numberWithCommas(item.death)}}
-                                                        </template>
-                                                        <template v-else>
-                                                            0
-                                                        </template>
-                                                    </td>
-                                                    <td>
-                                                        <template v-if="item.positive != null">
-                                                            {{numberWithCommas(item.positive)}}
-                                                        </template>
-                                                        <template v-else>
-                                                            0
-                                                        </template>
-                                                        /
-                                                        <template v-if="item.negative != null">
-                                                            {{numberWithCommas(item.negative)}}
-                                                        </template>
-                                                        <template v-else>
-                                                            0
-                                                        </template>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <template v-if="dailyDataState.length > 0">
+                                            <table class="uk-table uk-table-responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Total Tested</th>
+                                                        <th>Confirmed Cases</th>
+                                                        <th>Deaths</th>
+                                                        <th>Ratio Positive/Negative</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for="item in dailyDataState">
+                                                        <td>
+                                                            <div class="uk-hidden@m uk-text-bold">Date</div>
+                                                            {{ item.date.toString().slice(4,6) }}/{{ item.date.toString().slice(6,8) }}/{{ item.date.toString().slice(0,4) }}
+                                                        </td>
+                                                        <td>
+                                                            <div class="uk-hidden@m uk-text-bold">Total Tested</div>
+                                                            {{numberWithCommas(item.totalTestResults)}}
+                                                        </td>
+                                                        <td>
+                                                            <div class="uk-hidden@m uk-text-bold">Confirmed Cases</div>
+                                                            <template v-if="item.positive != null">
+                                                                {{numberWithCommas(item.positive)}}
+                                                            </template>
+                                                            <template v-else>
+                                                                0
+                                                            </template>
+                                                        </td>
+                                                        <td>
+                                                            <div class="uk-hidden@m uk-text-bold">Deaths</div>
+                                                            <template v-if="item.death != null">
+                                                                {{numberWithCommas(item.death)}}
+                                                            </template>
+                                                            <template v-else>
+                                                                0
+                                                            </template>
+                                                        </td>
+                                                        <td>
+                                                            <div class="uk-hidden@m uk-text-bold">Ratio
+                                                                Positive/Negative</div>
+                                                            <template v-if="item.positive != null">
+                                                                {{numberWithCommas(item.positive)}}
+                                                            </template>
+                                                            <template v-else>
+                                                                0
+                                                            </template>
+                                                            /
+                                                            <template v-if="item.negative != null">
+                                                                {{numberWithCommas(item.negative)}}
+                                                            </template>
+                                                            <template v-else>
+                                                                0
+                                                            </template>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </template>
+                                        <template v-else>
+                                            <div class="uk-text-center">
+                                                <div class="uk-text-lead">
+                                                    Loading
+                                                </div>
+                                                <div class="mt-3 spinner-border text-primary"
+                                                    style="height:2.25rem;width:2.25rem" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </template>
                                     </div>
                                 </div>
                             </div>
