@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <div id="fsaHome">
+    <div id="launchpadHome">
         <!-- main home page area -->
         <div class="uk-section uk-section-xsmall">
             <div class="uk-container">
@@ -38,20 +38,20 @@
 
                     <div class="uk-width-3-4@s">
                         <template>
-                            <h3 v-if="fsaHomeItems">
-                                {{ fsaHomeItems.product.title }} Home
+                            <h3 v-if="launchpadItems">
+                                {{ launchpadItems.product.title }} Home
                             </h3>
                         </template>
-                        <template v-if="fsaHomeItems">
-                            <quickbtn :array="fsaHomeItems.buttons"></quickbtn>
+                        <template v-if="launchpadItems">
+                            <quickbtn :array="launchpadItems.buttons"></quickbtn>
                         </template>
                     </div>
                     <div class="uk-width-expand ">
                         <h3>
                             Resources
                         </h3>
-                        <template v-if="fsaHomeItems">
-                            <resources :array="fsaHomeItems.resources"></resources>
+                        <template v-if="launchpadItems">
+                            <resources :array="launchpadItems.resources"></resources>
                         </template>
                     </div>
                 </div>
@@ -61,8 +61,8 @@
         <div class="uk-section uk-section-xsmall">
             <div class="uk-container">
                 <template>
-                    <h3 v-if="fsaHomeItems">
-                        {{ fsaHomeItems.product.title }} Dashboard
+                    <h3 v-if="launchpadItems">
+                        {{ launchpadItems.product.title }} Dashboard
                     </h3>
                 </template>
                 <div class="uk-grid-small uk-grid uk-grid-stack" uk-grid="masonry: true">

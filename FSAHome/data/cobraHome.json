@@ -1,0 +1,59 @@
+{
+    "product": {
+        "title": "COBRA",
+        "product": "COBRA",
+        "background": "secondary"
+    },
+    "buttons": {
+        "props": {
+            "width": "1-3"
+        },
+        "items": [{
+                "title": "Make Payment",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-play-circle\"></i>"
+            },
+            {
+                "title": "Print Coupons",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-history\"></i>"
+            },
+            {
+                "title": "Enroll",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-credit-card\"></i>"
+            },
+            {
+                "title": "History",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-info-circle\"></i>"
+            }, {
+                "title": "Admin Information",
+                "url": "www.myenroll.com",
+                "icon": "<i class=\"fa-2x fad fa-credit-card\"></i>"
+            }
+        ]
+    },
+    "resources": {
+        "props": {
+
+        },
+        "items": [{
+                "title": "Electing Cobra Coverage",
+                "url": "http://www.fsa-central.com/"
+            },
+            {
+                "title": "Submitting Payments",
+                "url": "https://www.myenroll.com/claim_form/claim_form_med.pdf"
+            },
+            {
+                "title": "Using your COBRA Coverage",
+                "url": "https://www.myenroll.com/claim_form/claim_form_dep.pdf"
+            },
+            {
+                "title": "FAQ",
+                "url": "http://www.me-content.com/mec/system/docs/docs/BAS%20-%20HIPAA%20Authorization%20Release.pdf"
+            }
+        ]
+    }
+}

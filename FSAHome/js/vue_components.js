@@ -35,12 +35,12 @@ Vue.component('resources', {
 });
 
 var vh = new Vue({
-	el: '#fsaHome',
+	el: '#launchpadHome',
 	components: {
 		apexchart: VueApexCharts,
 	},
 	data: {
-		fsaHomeItems: null,
+		launchpadItems: null,
 		series: [
 			{
 				name: 'HCFSA - 2020',
@@ -114,7 +114,7 @@ var vh = new Vue({
 		getItems: function () {
 			var self = this;
 			$.getJSON('data/fsaHome.json', function (e) {
-				self.fsaHomeItems = e;
+				self.launchpadItems = e;
 			});
 		},
 	},
