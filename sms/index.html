@@ -48,13 +48,16 @@
                             </div>
                             <div>
                                 <label for="">SMS Body</label>
-                                <textarea v-model="body" name="" id="" cols="20" rows="10" maxlength="160"
+                                <textarea v-model="body" name="" id="" cols="20" rows="5" maxlength="160"
                                     class="uk-textarea"></textarea>
+                            </div>
+                            <div class="uk-text-right">
+                                <span>{{ charCount }}</span>
                             </div>
                             <div class="uk-text-right">
                                 <button type="button" @click="resetSMS"
                                     class="uk-button uk-button-default">reset</button>
-                                <button type="button" :disabled="!valid"
+                                <button @click="sendSMS" type="button" :disabled="!valid"
                                     class="uk-button uk-button-primary">Send</button>
                             </div>
                         </div>

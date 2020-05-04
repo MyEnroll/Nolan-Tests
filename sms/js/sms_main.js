@@ -5,6 +5,7 @@ var vm = new Vue({
 		body: '',
 		sending: false,
 		valid: false,
+		charCount: 160,
 	},
 	methods: {
 		validateSMS: function () {
@@ -62,6 +63,10 @@ var vm = new Vue({
 		recipient: function () {
 			var self = this;
 			self.valid = self.validateSMS();
+		},
+		body: function () {
+			var self = this;
+			self.charCount = 160 - self.body.length;
 		},
 	},
 });
