@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="uk-section-muted">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/css/uikit.min.css" />
+    <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/UIKit/uikit/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
+    <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
+</head>
+
+<body>
+    <div id="main" class="uk-section uk-section-muted">
+        <div class="uk-container">
+            <h2>
+                Test SMS
+            </h2>
+            <div>
+                Use the below form to test out our SMS functionality
+            </div>
+            <hr>
+            <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
+                <div>
+                    <div class="uk-card uk-card-default uk-border-rounded">
+                        <div class="uk-card-header">
+                            <h3 class="uk-card-title">
+                                Send SMS
+                            </h3>
+                        </div>
+                        <div class="uk-card-body uk-grid-small uk-child-width-1-1" uk-grid>
+                            <div>
+                                <label for="">Recipient #</label>
+                                <input maxlength="11" v-model="recipient" type="text" name="" inputmode="numeric" id=""
+                                    class="uk-input" placholder="Enter a US phone number">
+                            </div>
+                            <div>
+                                <label for="">SMS Body</label>
+                                <textarea v-model="body" name="" id="" cols="20" rows="10" maxlength="160"
+                                    class="uk-textarea"></textarea>
+                            </div>
+                            <div class="uk-text-right">
+                                <button type="button" @click="resetSMS"
+                                    class="uk-button uk-button-default">reset</button>
+                                <button type="button" :disabled="!valid"
+                                    class="uk-button uk-button-primary">Send</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
+    <script src="js/sms_main.js"></script>
+</body>
+
+</html>
