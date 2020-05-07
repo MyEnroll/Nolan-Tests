@@ -11,6 +11,7 @@ Vue.component('cobradashboard', {
 			dashDataD: [],
 			dashDataE: [],
 			dashDataF: [],
+
 			loaded: [],
 			model: [
 				{
@@ -78,6 +79,15 @@ Vue.component('cobradashboard', {
 				},
 			],
 			chartOptions: {
+				colors: [
+					'#6610f2',
+					'#1e87f0',
+					'#fd7e14',
+					'#17a2b8',
+					'#e83e8c',
+					'#ffc107',
+					'#6610f2',
+				],
 				chart: {
 					type: 'bar',
 					height: 350,
@@ -85,12 +95,15 @@ Vue.component('cobradashboard', {
 				plotOptions: {
 					bar: {
 						horizontal: false,
-						columnWidth: '55%',
 						endingShape: 'flat',
+						dataLabels: {
+							position: 'top',
+							offsetY: -20,
+						},
 					},
 				},
 				dataLabels: {
-					enabled: false,
+					enabled: true,
 				},
 				stroke: {
 					show: true,
@@ -104,6 +117,9 @@ Vue.component('cobradashboard', {
 					title: {
 						text: 'Count',
 					},
+				},
+				legend: {
+					show: false,
 				},
 				fill: {
 					opacity: 1,
@@ -119,6 +135,10 @@ Vue.component('cobradashboard', {
 		},
 	},
 	methods: {
+		getSeriesColor: function (index) {
+			var self = this;
+			return self.chartOptions.colors[index];
+		},
 		getConfig: function () {
 			var self = this;
 			$.getJSON('data/config.json', function (e) {
@@ -384,27 +404,17 @@ Vue.component('cobradashboard', {
 				</h3>\
 				<div id="chart" class="uk-card uk-card-default uk-border-rounded uk-card-body">\
 					<apexchart ref="cobrachart" type="bar" height="350" :options="chartOptions" :series="series"></apexchart>\
-				</div>\
-			</div>\
-			<div>\
-				<h3 class="mt-3">\
-					Report Downloads\
-				</h3>\
-				<div class="mb-3 uk-text-meta">\
-					Each series&apos; as presented in the graph above can be downloaded by clicking one of the links below.\
-				</div>\
-				<div class="uk-card uk-card-default uk-border-rounded uk-card-body">\
 					<ul class="uk-list">\
-						<li v-for="item in config" v-if="loaded.indexOf(item.json)>-1" class="uk-animation-fade uk-animation-fast">\
+						<li v-for="(item,index) in config" v-if="loaded.indexOf(item.json)>-1" class="uk-animation-fade uk-animation-fast">\
 							<button @click="exportCSV(item.report,item.title,true)" class="uk-button">\
 								<div class="uk-flex uk-flex-middle">\
-									<span style="font-size:1.25rem" class="uk-button-primary uk-icon-button uk-margin-small-right" uk-icon="download">\
-									</span>\
+									<span style="font-size:1.25rem;" :style="\'color:\' + getSeriesColor(index)" class="fas fa-square uk-margin-small-right"></span>\
 									<div class="uk-button-text ml-3" style="font-size:1rem">\
 										<span v-html="item.reportAbbr" class="uk-text-bold" style="font-size:1.15rem"></span>\
 										<span class="ml-3" v-html="item.title"></span>\
+										<span class="uk-button uk-button-link">Download Data</span>\
 									</div>\
-									</>\
+									</span>\
 								</div>\
 							</button>\
 						</li>\
