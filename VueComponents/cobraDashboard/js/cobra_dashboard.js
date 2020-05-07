@@ -129,42 +129,120 @@ Vue.component('cobradashboard', {
 		},
 		getData: function () {
 			var self = this;
-			$.getJSON('data/sample.json', function (e) {
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/CobraWebMethod.aspx/GetCovidCOBRAReport',
+				data: JSON.stringify({
+					report_id: 1,
+				}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (e) {
 				self.dashDataA = e;
-			}).done(function () {
 				self.meUpdate();
 				self.loaded.push('dashDataA');
 			});
-			$.getJSON('data/sample2.json', function (e) {
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/CobraWebMethod.aspx/GetCovidCOBRAReport',
+				data: JSON.stringify({
+					report_id: 2,
+				}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (e) {
 				self.dashDataB = e;
-			}).done(function () {
 				self.meUpdate();
 				self.loaded.push('dashDataB');
 			});
-			$.getJSON('data/sample3.json', function (e) {
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/CobraWebMethod.aspx/GetCovidCOBRAReport',
+				data: JSON.stringify({
+					report_id: 3,
+				}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (e) {
 				self.dashDataC = e;
-			}).done(function () {
 				self.meUpdate();
 				self.loaded.push('dashDataC');
 			});
-			$.getJSON('data/sample4.json', function (e) {
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/CobraWebMethod.aspx/GetCovidCOBRAReport',
+				data: JSON.stringify({
+					report_id: 4,
+				}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (e) {
 				self.dashDataD = e;
-			}).done(function () {
 				self.meUpdate();
 				self.loaded.push('dashDataD');
 			});
-			$.getJSON('data/sample5.json', function (e) {
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/CobraWebMethod.aspx/GetCovidCOBRAReport',
+				data: JSON.stringify({
+					report_id: 5,
+				}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (e) {
 				self.dashDataE = e;
-			}).done(function () {
 				self.meUpdate();
 				self.loaded.push('dashDataE');
 			});
-			$.getJSON('data/sample6.json', function (e) {
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/CobraWebMethod.aspx/GetCovidCOBRAReport',
+				data: JSON.stringify({
+					report_id: 6,
+				}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (e) {
 				self.dashDataF = e;
-			}).done(function () {
 				self.meUpdate();
 				self.loaded.push('dashDataF');
 			});
+			// $.getJSON('data/sample.json', function (e) {
+			// 	self.dashDataA = e;
+			// }).done(function () {
+			// 	self.meUpdate();
+			// 	self.loaded.push('dashDataA');
+			// });
+			// $.getJSON('data/sample2.json', function (e) {
+			// 	self.dashDataB = e;
+			// }).done(function () {
+			// 	self.meUpdate();
+			// 	self.loaded.push('dashDataB');
+			// });
+			// $.getJSON('data/sample3.json', function (e) {
+			// 	self.dashDataC = e;
+			// }).done(function () {
+			// 	self.meUpdate();
+			// 	self.loaded.push('dashDataC');
+			// });
+			// $.getJSON('data/sample4.json', function (e) {
+			// 	self.dashDataD = e;
+			// }).done(function () {
+			// 	self.meUpdate();
+			// 	self.loaded.push('dashDataD');
+			// });
+			// $.getJSON('data/sample5.json', function (e) {
+			// 	self.dashDataE = e;
+			// }).done(function () {
+			// 	self.meUpdate();
+			// 	self.loaded.push('dashDataE');
+			// });
+			// $.getJSON('data/sample6.json', function (e) {
+			// 	self.dashDataF = e;
+			// }).done(function () {
+			// 	self.meUpdate();
+			// 	self.loaded.push('dashDataF');
+			// });
 		},
 		meUpdate: function () {
 			var self = this;
