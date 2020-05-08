@@ -233,7 +233,7 @@ Vue.component('cobradashboard', {
 					}),
 					contentType: 'application/json; charset=utf-8',
 				}).done(function (e) {
-					self.dashDataF = e.d;
+					self.dashDataF = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataF');
 				});
