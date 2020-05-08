@@ -80,17 +80,38 @@ Vue.component('cobradashboard', {
 			],
 			chartOptions: {
 				colors: [
-					'#6610f2',
+					'#20c997',
 					'#1e87f0',
 					'#fd7e14',
 					'#17a2b8',
 					'#e83e8c',
 					'#ffc107',
-					'#6610f2',
+					'#6f42c1',
+					'#28a745',
+					'#dc3545',
+					'#17A2B5',
+					'#6c757d',
 				],
+				tooltip: {
+					fillSeriesColor: true,
+					x: {
+						show: false,
+					},
+					y: {
+						title: {
+							formatter: (seriesName) => seriesName,
+						},
+					},
+					followCursor: true,
+				},
 				chart: {
 					type: 'bar',
 					height: 350,
+					background: '#1d2845',
+					foreColor: '#fff',
+					toolbar: {
+						show: false,
+					},
 				},
 				plotOptions: {
 					bar: {
@@ -98,7 +119,7 @@ Vue.component('cobradashboard', {
 						endingShape: 'flat',
 						dataLabels: {
 							position: 'top',
-							offsetY: -20,
+							offsetY: 30,
 						},
 					},
 				},
@@ -134,10 +155,35 @@ Vue.component('cobradashboard', {
 		};
 	},
 	computed: {
-		bigData: function () {
+		dashA1: function () {
 			var self = this;
-			var temp = self.dashDataB;
-			return;
+			return self.dashDataA.filter(function (n) {
+				return n.Series == 'A1';
+			});
+		},
+		dashA2: function () {
+			var self = this;
+			return self.dashDataA.filter(function (n) {
+				return n.Series == 'A2';
+			});
+		},
+		dashA1Billable: function () {
+			var self = this;
+			self.dashDataA.filter(function (n) {
+				return n.Billable == 'Yes' && n.Series == 'A1';
+			});
+		},
+		dashA2Billable: function () {
+			var self = this;
+			self.dashDataA.filter(function (n) {
+				return n.Billable == 'Yes' && n.Series == 'A2';
+			});
+		},
+		dashDBillable: function () {
+			var self = this;
+			self.dashDataD.filter(function (n) {
+				return n.Billable == 'Yes';
+			});
 		},
 	},
 	methods: {
@@ -147,7 +193,9 @@ Vue.component('cobradashboard', {
 		},
 		getConfig: function () {
 			var self = this;
-			$.getJSON('data/config.json', function (e) {
+			$.getJSON('../VueComponents/cobraDashboard/data/config.json?7', function (
+				e,
+			) {
 				self.config = e.queries;
 			}).done(function () {
 				self.meUpdate();
@@ -171,6 +219,18 @@ Vue.component('cobradashboard', {
 					self.dashDataA = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataA');
+					self.config[0].countRec = self.dashDataA.filter(function (n) {
+						return n.Series == 'A1';
+					}).length;
+					self.config[0].countBill = self.dashDataA.filter(function (n) {
+						return n.Series == 'A1' && n.Billable == 'Yes';
+					}).length;
+					self.config[1].countRec = self.dashDataA.filter(function (n) {
+						return n.Series == 'A2';
+					}).length;
+					self.config[1].countBill = self.dashDataA.filter(function (n) {
+						return n.Series == 'A2' && n.Billable == 'Yes';
+					}).length;
 				});
 				$.ajax({
 					type: 'POST',
@@ -184,6 +244,7 @@ Vue.component('cobradashboard', {
 					self.dashDataB = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataB');
+					self.config[2].countRec = self.dashDataB.length;
 				});
 				$.ajax({
 					type: 'POST',
@@ -197,6 +258,7 @@ Vue.component('cobradashboard', {
 					self.dashDataC = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataC');
+					self.config[3].countRec = self.dashDataC.length;
 				});
 				$.ajax({
 					type: 'POST',
@@ -210,6 +272,10 @@ Vue.component('cobradashboard', {
 					self.dashDataD = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataD');
+					self.config[4].countRec = self.dashDataD.length;
+					self.config[4].countBill = self.dashDataD.filter(function (n) {
+						return n.Billable == 'Yes';
+					}).length;
 				});
 				$.ajax({
 					type: 'POST',
@@ -223,6 +289,7 @@ Vue.component('cobradashboard', {
 					self.dashDataE = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataE');
+					self.config[5].countRec = self.dashDataE.length;
 				});
 				$.ajax({
 					type: 'POST',
@@ -236,6 +303,7 @@ Vue.component('cobradashboard', {
 					self.dashDataF = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataF');
+					self.config[6].countRec = self.dashDataF.length;
 				});
 			} else {
 				$.getJSON('data/sample.json', function (e) {
@@ -276,12 +344,22 @@ Vue.component('cobradashboard', {
 				});
 			}
 		},
+		pushConfigCountBill: function (g, h) {
+			var self = this;
+			self.config.filter(function (n) {
+				return n.reportAbbr == g;
+			})[0].count = h;
+		},
 		meUpdate: function () {
 			var self = this;
 			self.$refs.cobrachart.updateSeries([
 				{
-					name: 'A',
-					data: [{ x: '', y: self.dashDataA.length }],
+					name: 'A1',
+					data: [{ x: '', y: self.dashA1.length }],
+				},
+				{
+					name: 'A2',
+					data: [{ x: '', y: self.dashA2.length }],
 				},
 				{
 					name: 'B',
@@ -305,6 +383,7 @@ Vue.component('cobradashboard', {
 				},
 			]);
 		},
+
 		exportCSV: function (report, ReportTitle, ShowLabel) {
 			var self = this;
 			var dt = new Date();
@@ -319,8 +398,10 @@ Vue.component('cobradashboard', {
 				'-' +
 				dt.getFullYear();
 			var JSONData;
-			if (report == 1) {
-				JSONData = self.dashDataA;
+			if (report == 'A1') {
+				JSONData = self.dashA1;
+			} else if (report == 'A2') {
+				JSONData = self.dashA2;
 			} else if (report == 2) {
 				JSONData = self.dashDataB;
 			} else if (report == 3) {
@@ -421,7 +502,7 @@ Vue.component('cobradashboard', {
 					<h3>\
 						COBRA/COVID Dashboard\
 					</h3>\
-					<div id="chart" class="uk-card uk-card-default uk-border-rounded uk-card-body">\
+					<div id="chart" class="uk-card uk-border-rounded uk-card-body uk-card-secondary uk-box-shadow-large" style="background:#1d2845">\
 						<apexchart ref="cobrachart" type="bar" height="350" :options="chartOptions" :series="series"></apexchart>\
 						<div>\
 							<table class="uk-table uk-table-middle uk-table-hover uk-table-divider uk-table-responsive">\
@@ -436,7 +517,9 @@ Vue.component('cobradashboard', {
 										<td>\
 											<span v-html="item.title"></span>\
 										</td>\
-										<td>\
+										<td class="uk-text-nowrap"><span v-if="item.countBill > 0"><b>Billable</b></span></td>\
+										<td class="uk-text-nowrap"><span v-if="item.countRec == 0"><span class="uk-text-meta uk-text-danger">(No Data)</span></span></td>\
+										<td class="uk-text-nowrap">\
 											<div>\
 												<span class="uk-button uk-button-link">Download Data</span>\
 											</div>\

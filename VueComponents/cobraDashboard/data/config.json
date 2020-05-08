@@ -1,39 +1,59 @@
 {
     "queries": [{
-            "title": "TC's with Initial Election Ends within OBP",
+            "title": "Continuant Election Period Ended But Now Have Extended Time Period to Elect",
             "json": "dashDataA",
-            "report": 1,
-            "reportAbbr": "A"
+            "report": "A1",
+            "reportAbbr": "A1",
+            "countBill": "",
+            "countRec": ""
         },
         {
-            "title": "TC's with initial Election Ends after OBP",
+            "title": "Continuant Election Period Ends During Outbreak Period",
+            "json": "dashDataA",
+            "report": "A2",
+            "reportAbbr": "A2",
+            "countBill": "",
+            "countRec": ""
+        },
+        {
+            "title": "Continuant Election Period Ends After Outbreak Period",
             "json": "dashDataB",
             "report": 2,
-            "reportAbbr": "B"
+            "reportAbbr": "B",
+            "countBill": "",
+            "countRec": ""
         },
         {
-            "title": "All C's",
+            "title": "Active COBRA Participants",
             "json": "dashDataC",
             "report": 3,
-            "reportAbbr": "C"
+            "reportAbbr": "C",
+            "countBill": "",
+            "countRec": ""
         },
         {
-            "title": "All XC's (Reinstated to 'C') where original termination date within OBP",
+            "title": "Continuants Whose Coverage Terminated For NonPayment But Now Have Extended Time to Pay",
             "json": "dashDataD",
             "report": 4,
-            "reportAbbr": "D"
+            "reportAbbr": "D",
+            "countBill": "",
+            "countRec": ""
         },
         {
-            "title": "C's with Natural End of 18/29/26 months after OBP",
+            "title": "Continuants Whose Maximum Coverage Period Expires After Outbreak Period",
             "json": "dashDataE",
             "report": 5,
-            "reportAbbr": "E"
+            "reportAbbr": "E",
+            "countBill": "",
+            "countRec": ""
         },
         {
-            "title": "C's with Natural End of 18/29/26 months within OBP",
+            "title": "Continuants Whose Maximum Coverage Period Expires During Outbreak Period",
             "json": "dashDataF",
             "report": 6,
-            "reportAbbr": "F"
+            "reportAbbr": "F",
+            "countBill": "",
+            "countRec": ""
         }
     ]
 }
