@@ -168,7 +168,7 @@ Vue.component('cobradashboard', {
 					}),
 					contentType: 'application/json; charset=utf-8',
 				}).done(function (e) {
-					self.dashDataA = e.d;
+					self.dashDataA = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataA');
 				});
@@ -181,7 +181,7 @@ Vue.component('cobradashboard', {
 					}),
 					contentType: 'application/json; charset=utf-8',
 				}).done(function (e) {
-					self.dashDataB = e.d;
+					self.dashDataB = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataB');
 				});
@@ -194,7 +194,7 @@ Vue.component('cobradashboard', {
 					}),
 					contentType: 'application/json; charset=utf-8',
 				}).done(function (e) {
-					self.dashDataC = e.d;
+					self.dashDataC = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataC');
 				});
@@ -207,7 +207,7 @@ Vue.component('cobradashboard', {
 					}),
 					contentType: 'application/json; charset=utf-8',
 				}).done(function (e) {
-					self.dashDataD = e.d;
+					self.dashDataD = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataD');
 				});
@@ -220,7 +220,7 @@ Vue.component('cobradashboard', {
 					}),
 					contentType: 'application/json; charset=utf-8',
 				}).done(function (e) {
-					self.dashDataE = e.d;
+					self.dashDataE = JSON.parse(e.d);
 					self.meUpdate();
 					self.loaded.push('dashDataE');
 				});
@@ -409,28 +409,43 @@ Vue.component('cobradashboard', {
 		self.getData();
 	},
 	template:
-		'<div class="uk-grid-small uk-child-width-1-1" uk-grid>\
-			<div>\
-				<h3>\
-					COBRA/COVID Dashboard\
-				</h3>\
-				<div id="chart" class="uk-card uk-card-default uk-border-rounded uk-card-body">\
-					<apexchart ref="cobrachart" type="bar" height="350" :options="chartOptions" :series="series"></apexchart>\
-					<ul class="uk-list">\
-						<li v-for="(item,index) in config" v-if="loaded.indexOf(item.json)>-1" class="uk-animation-fade uk-animation-fast">\
-							<button @click="exportCSV(item.report,item.title,true)" class="uk-button">\
-								<div class="uk-flex uk-flex-middle">\
-									<span style="font-size:1.25rem;" :style="\'color:\' + getSeriesColor(index)" class="fas fa-square uk-margin-small-right"></span>\
-									<div class="uk-button-text ml-3" style="font-size:1rem">\
-										<span v-html="item.reportAbbr" class="uk-text-bold" style="font-size:1.15rem"></span>\
-										<span class="ml-3" v-html="item.title"></span>\
-										<span class="uk-button uk-button-link">Download Data</span>\
-									</div>\
-									</span>\
-								</div>\
-							</button>\
-						</li>\
-					</ul>\
+		'<div>\
+			<div v-if="loaded.length < 6" class="m-4 uk-border-rounded uk-card uk-card-default uk-padding-small uk-position-top-right uk-text-center">\
+				<div class="spinner-border text-primary" role="status" style="width: 2.5rem; height: 2.5rem;">\
+					<span class="sr-only">Loading...</span>\
+				</div>\
+				<div class="uk-text-bold">Loading Reports...</div>\
+			</div>\
+			<div class="uk-grid-small uk-child-width-1-1" uk-grid>\
+				<div>\
+					<h3>\
+						COBRA/COVID Dashboard\
+					</h3>\
+					<div id="chart" class="uk-card uk-card-default uk-border-rounded uk-card-body">\
+						<apexchart ref="cobrachart" type="bar" height="350" :options="chartOptions" :series="series"></apexchart>\
+						<div>\
+							<table class="uk-table uk-table-middle uk-table-hover uk-table-divider uk-table-responsive">\
+								<tbody>\
+									<tr v-for="(item,index) in config" v-if="loaded.indexOf(item.json)>-1" class="uk-animation-fade uk-animation-fast" @click="exportCSV(item.report,item.title,true)" style="cursor:pointer;font-size:1rem">\
+										<td>\
+											<span style="font-size:1.25rem;" :style="\'color:\' + getSeriesColor(index)" class="fas fa-square uk-margin-small-right"></span>\
+										</td>\
+										<td>\
+											<span v-html="item.reportAbbr" class="uk-text-bold" style="font-size:1.15rem"></span>\
+										</td>\
+										<td>\
+											<span v-html="item.title"></span>\
+										</td>\
+										<td>\
+											<div>\
+												<span class="uk-button uk-button-link">Download Data</span>\
+											</div>\
+										</td>\
+									</tr>\
+								</tbody>\
+							</table>\
+						</div>\
+					</div>\
 				</div>\
 			</div>\
 		</div>',
