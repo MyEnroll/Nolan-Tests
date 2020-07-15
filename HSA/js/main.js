@@ -141,11 +141,11 @@ var HSAInput = new Vue({
 			$.ajax({
 				type: 'POST',
 				url:
-					'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
+					'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/showHSAMenu',
 				data: JSON.stringify({}),
 				contentType: 'application/json; charset=utf-8',
 			}).done(function (data) {
-				if (data.d[0] == 1) {
+				if (data.d == 1) {
 					self.eeHasAccess = 1;
 					hsaText.eeHasAccess = 1;
 				} else {
@@ -153,6 +153,13 @@ var HSAInput = new Vue({
 					hsaText.eeHasAccess = 0;
 				}
 			});
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
+				data: JSON.stringify({}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (data) {});
 		},
 		getHSAinfo: function () {
 			var self = this;
