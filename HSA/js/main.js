@@ -26,6 +26,8 @@ var HSAInput = new Vue({
 		hsaHost: '',
 		dataLoaded: false,
 		oeLoading: false,
+		eeHasAccess: 2,
+		currentPY: '',
 	},
 	watch: {
 		hsaMaxMod: function () {
@@ -114,9 +116,13 @@ var HSAInput = new Vue({
 		}
 		if (self.hsaHost != 'demo' || self.hsaHost == '') {
 			self.getHSAinfo();
+			self.getHSAMenu();
 		}
 	},
 	methods: {
+		returnHome: function () {
+			parent.OnHomeClick();
+		},
 		parentBack: function () {
 			var self = this;
 			self.oeLoading = true;
@@ -129,6 +135,24 @@ var HSAInput = new Vue({
 		},
 		numberWithCommas: function (x) {
 			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		},
+		getHSAMenu: function () {
+			var self = this;
+			$.ajax({
+				type: 'POST',
+				url:
+					'/web_projects/MyEnrollWebService/TemplateWebMethod.aspx/GET_HSA_EE_Info',
+				data: JSON.stringify({}),
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (data) {
+				if (data.d[0] == 1) {
+					self.eeHasAccess = 1;
+					hsaText.eeHasAccess = 1;
+				} else {
+					self.eeHasAccess = 0;
+					hsaText.eeHasAccess = 0;
+				}
+			});
 		},
 		getHSAinfo: function () {
 			var self = this;
@@ -144,6 +168,7 @@ var HSAInput = new Vue({
 					self.hsaMonthly = JSON.parse(e.d)[0].EE_MONTHLY_CONTRIBUTION;
 					self.hsaERCont = JSON.parse(e.d)[0].ER_MONTHLY_CONTRIBUTION;
 					self.chosenHSAPlan = JSON.parse(e.d)[0].LONG_DESCRIPTION;
+					self.currentPY = JSON.parse(e.d)[0].PROCESSING_YEAR;
 					if (JSON.parse(e.d)[0].FAMILY_STATUS == 0) {
 						self.hsaMaxMod = self.singleMax;
 					} else {
@@ -235,6 +260,7 @@ var HSAInput = new Vue({
 var hsaText = new Vue({
 	el: '#catchUp',
 	data: {
+		eeHasAccess: false,
 		catchUpText:
 			'<div><p>The $1,000 catch-up total allows you to reduce your taxable income while increasing your HSA balances as you get closer to retirement. Keep in mind that this contribution belongs to your household&apos;s HSA holder -- typically you or your spouse.</p><p>If you&apos;re the account holder, and turned 55 or older by December 31 of the tax year, and are not enrolled in Medicare, you&apos;re eligible to contribute an additional $1,000 to your HSA for that year above your annual max. Keep in mind that this is based on the account holder&apos;s age -- no matter how much older you might be than your spouse, if they own the account and are under 55, catch-up contributions can&apos;t be made.</p><p>If you&apos;re married and both you and your spouse have separate HSAs, each of you are eligible to make $1,000 catch-up contributions.</p></div>',
 	},
