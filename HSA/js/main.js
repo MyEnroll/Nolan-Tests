@@ -113,8 +113,12 @@ var HSAInput = new Vue({
 		);
 		if (window.location.href.toLowerCase().indexOf('github') > -1) {
 			self.hsaHost = 'demo';
+		} else if (parent.location.href.toLowerCase().indexOf('enrollment') > -1) {
+			self.hsaHost = 'enrollment';
+		} else {
+			self.hsaHost = 'standalone';
 		}
-		if (self.hsaHost != 'demo' || self.hsaHost == '') {
+		if (self.hsaHost != 'demo') {
 			self.getHSAinfo();
 			self.getHSAMenu();
 		}
