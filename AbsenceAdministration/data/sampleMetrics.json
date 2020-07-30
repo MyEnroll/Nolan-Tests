@@ -1,0 +1,17 @@
+[{
+    "METRIC_TITLE": "Active",
+    "METRIC_VALUE": "22",
+    "METRIC_COLOR": "teal--text accent-4"
+}, {
+    "METRIC_TITLE": "Pending Setup",
+    "METRIC_VALUE": "2",
+    "METRIC_COLOR": "orange--text accent-2"
+}, {
+    "METRIC_TITLE": "Late Pay",
+    "METRIC_VALUE": "3",
+    "METRIC_COLOR": "red--text accent-2"
+}, {
+    "METRIC_TITLE": "Monthly Billable",
+    "METRIC_VALUE": "$13,987.44",
+    "METRIC_COLOR": ""
+}]
