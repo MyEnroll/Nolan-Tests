@@ -7,7 +7,7 @@ This page will be updated with new applications for review and approval before m
 
 ### List of Demos
 
-* [Barcode Reader](barcodereader/)
+* [Barcode Reader](barcodescanner/)
 * [Absence Administration](AbsenceAdministration/)
 * [FSA Modification](FSAModification/)
 * [Vuetify Test](Vuetify/)
