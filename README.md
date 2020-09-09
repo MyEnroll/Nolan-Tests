@@ -7,6 +7,7 @@ This page will be updated with new applications for review and approval before m
 
 ### List of Demos
 
+* [Revise QEL](revise_qel/)
 * [Barcode Reader](barcodescanner/)
 * [Absence Administration](AbsenceAdministration/)
 * [FSA Modification](FSAModification/)
