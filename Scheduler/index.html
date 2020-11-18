@@ -12,10 +12,10 @@
         href="https://www.me-content.com/mec/system/compiledResources/modules/vue-cal/dist/vuecal.css">
     <link rel="stylesheet" href="styles/main.css">
     <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
     <script
         src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
-    </script>
+        </script>
     <script defer src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
     <style>
@@ -37,7 +37,7 @@
                         <div class="uk-text-meta"> {{ contextDate }} </div>
                         <div class="uk-text-meta"> {{ contextTime }} </div>
                     </div>
-    
+
                 </div>
             </li>
             <li v-else>
@@ -50,7 +50,7 @@
                         <div class="uk-text-meta"> {{ contextDate }} </div>
                         <div class="uk-text-meta"> {{ contextTime }} </div>
                     </div>
-    
+
                 </div>
             </li>
             <li>
@@ -63,7 +63,7 @@
                         <div class="uk-text-meta"> {{ contextDate }} </div>
                         <div class="uk-text-meta"> {{ contextTime }} </div>
                     </div>
-    
+
                 </div>
             </li>
             <li>
@@ -76,7 +76,7 @@
                         <div class="uk-text-meta"> {{ contextDate }} </div>
                         <div class="uk-text-meta"> {{ contextTime }} </div>
                     </div>
-    
+
                 </div>
             </li>
         </ul>
@@ -97,7 +97,9 @@
 
             </div>
         </div>
-        <vuecal events-count-on-year-view hide-weekends default-view="day" cell-contextmenu @cell-contextmenu="setTemp" @event-focus="existingApptClick" @cell-click="singleClick" :twelve-hour="twelveHour" :events="events"></vuecal>
+        <vuecal events-count-on-year-view hide-weekends default-view="day" cell-contextmenu @cell-contextmenu="setTemp"
+            @event-focus="existingApptClick" @cell-click="singleClick" :twelve-hour="twelveHour" :events="events">
+        </vuecal>
         <div>
             <a href="#" class="uk-position-top-right fad fa-plus fa-2x"></a>
         </div>

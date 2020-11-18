@@ -9,16 +9,17 @@
         href="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/UIKit/css/uikit.min.css" />
     <script src="https://kit.fontawesome.com/cb64bb34fd.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
     <script
         src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
-    </script>
+        </script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
     <link rel="stylesheet"
         href="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.css">
     <script src="https://www.me-content.com/mec/system/compiledResources/flatpickr/dist/flatpickr.min.js"></script>
-    <link rel="stylesheet" href="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.css">
+    <link rel="stylesheet"
+        href="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.css">
     <style>
         td,
         th {
@@ -56,9 +57,11 @@
         .me-flex-nowrap {
             flex-wrap: nowrap;
         }
+
         .me-width-1-2 {
             display: block;
         }
+
         .me-width-1-2 {
             padding: 15px 30px;
         }
@@ -68,14 +71,16 @@
                 flex-wrap: wrap;
             }
 
-            .me-div-width > div {
+            .me-div-width>div {
                 margin-top: 15px !important;
             }
+
             .me-width-1-2 {
-                display:flex;
+                display: flex;
             }
-            .me-width-1-2 > div {
-                width:50%;
+
+            .me-width-1-2>div {
+                width: 50%;
                 display: inline-block;
             }
         }
@@ -104,7 +109,7 @@
                     </div>
 
                 </div>
-                <div >
+                <div>
                     <div class="uk-card uk-card-default uk-border-rounded">
                         <h3 class="uk-card-header">
                             Current Contribution
@@ -115,7 +120,7 @@
                     </div>
 
                 </div>
-                <div >
+                <div>
                     <div class="uk-card uk-card-default uk-border-rounded">
                         <h3 class="uk-card-header">
                             Spending
@@ -148,7 +153,8 @@
                                         </h5>
                                         <div>
                                             <label for=""></label>
-                                            <input type="number" name="" id="" v-model="allMonthsTrans" class="uk-input">
+                                            <input type="number" name="" id="" v-model="allMonthsTrans"
+                                                class="uk-input">
                                         </div>
                                     </div>
                                 </div>
@@ -156,18 +162,19 @@
                                     uk-grid>
                                     <div>
                                         <div>
-                                            <h5 class="uk-margin-remove" >
+                                            <h5 class="uk-margin-remove">
                                                 January
-                                               
+
                                                 <div class="uk-text-meta uk-hidden@m">
                                                     Transit
                                                 </div>
                                             </h5>
-    
+
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="janTrans" id="janTrans"  v-model="janTrans" class="uk-input monthTransInp">
-                                              
+                                                <input type="number" @click="unlockMonth($event)" name="janTrans"
+                                                    id="janTrans" v-model="janTrans" class="uk-input monthTransInp">
+
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +188,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="febTrans"  v-model="febTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="febTrans"
+                                                    v-model="febTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -195,7 +203,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="marTrans"  v-model="marTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="marTrans"
+                                                    v-model="marTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +218,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="aprTrans"  v-model="aprTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="aprTrans"
+                                                    v-model="aprTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -223,7 +233,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="mayTrans"  v-model="mayTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="mayTrans"
+                                                    v-model="mayTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -237,7 +248,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="juneTrans"  v-model="juneTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="juneTrans"
+                                                    v-model="juneTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -251,7 +263,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="julyTrans"  v-model="julyTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="julyTrans"
+                                                    v-model="julyTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +278,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="augTrans"  v-model="augTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="augTrans"
+                                                    v-model="augTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -279,7 +293,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="sepTrans"  v-model="sepTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="sepTrans"
+                                                    v-model="sepTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -290,7 +305,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="octTrans"  v-model="octTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="octTrans"
+                                                    v-model="octTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -304,7 +320,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="novTrans"  v-model="novTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="novTrans"
+                                                    v-model="novTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
@@ -318,12 +335,13 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="decTrans"  v-model="decTrans" class="uk-input monthTransInp">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="decTrans"
+                                                    v-model="decTrans" class="uk-input monthTransInp">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-    
+
                             </div>
                             <div class="uk-grid-collapse uk-width-auto@m uk-child-width-auto@m" uk-grid>
                                 <div class="uk-width-1-1 uk-visible@m">
@@ -355,10 +373,11 @@
                                                     Parking
                                                 </div>
                                             </h5>
-    
+
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="janPark" v-model="janPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="janPark"
+                                                    v-model="janPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -372,7 +391,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="febPark" v-model="febPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="febPark"
+                                                    v-model="febPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -386,7 +406,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="marPark" v-model="marPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="marPark"
+                                                    v-model="marPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -400,7 +421,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="aprPark" v-model="aprPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="aprPark"
+                                                    v-model="aprPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -414,7 +436,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="mayPark" v-model="mayPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="mayPark"
+                                                    v-model="mayPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -428,7 +451,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="junePark" v-model="junePark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="junePark"
+                                                    v-model="junePark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -442,7 +466,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="julyPark" v-model="julyPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="julyPark"
+                                                    v-model="julyPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -456,7 +481,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="augPark" v-model="augPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="augPark"
+                                                    v-model="augPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -470,7 +496,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="sepPark" v-model="sepPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="sepPark"
+                                                    v-model="sepPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -481,7 +508,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="octPark" v-model="octPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="octPark"
+                                                    v-model="octPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -495,7 +523,8 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="novPark" v-model="novPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="novPark"
+                                                    v-model="novPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
@@ -509,12 +538,13 @@
                                             </h5>
                                             <div>
                                                 <label for=""></label>
-                                                <input type="number" @click="unlockMonth($event)" name="" id="decPark" v-model="decPark" class="uk-input">
+                                                <input type="number" @click="unlockMonth($event)" name="" id="decPark"
+                                                    v-model="decPark" class="uk-input">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-    
+
                             </div>
                         </div>
                     </div>
@@ -527,17 +557,19 @@
                         </h3>
                         <div>
                             <button class="uk-button uk-button-secondary" type="button" @click="addData">Add</button>
-                            <button class="uk-button uk-button-default" type="button" @click="removeData">Remove</button>
+                            <button class="uk-button uk-button-default" type="button"
+                                @click="removeData">Remove</button>
                         </div>
                         <div class="uk-card-body">
                             <template>
-                                <apexchart ref="chart" type="line" height="350" :options="chartOptions" :series="series"></apexchart>
+                                <apexchart ref="chart" type="line" height="350" :options="chartOptions"
+                                    :series="series"></apexchart>
                             </template>
                             <div v-for="item in apexRange">
                                 {{ item }}
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -547,8 +579,10 @@
 
 
 
-    <script src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.min.js"></script>
-    <script src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/vue-apexcharts.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/apexcharts.min.js"></script>
+    <script
+        src="https://www.me-content.com/mec/system/compiledResources/modules/apexcharts/dist/vue-apexcharts.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/vue/dist/vue.js"></script>
     <script src="js/vue_components.js"></script>
 </body>

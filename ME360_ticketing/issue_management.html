@@ -15,11 +15,11 @@
     <!-- BAS Custom -->
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://www.me-content.com/mec/system/compiledResources/frameworks/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script
         src="https://www.me-content.com/mec/system/compiledresources/frameworks/bootstrap/dist/js/bootstrap.bundle.min.js">
-    </script>
+        </script>
     <!-- UIKit -->
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit.min.js"></script>
     <script src="https://www.me-content.com/mec/system/compiledResources/UIKit/js/uikit-icons.min.js"></script>
@@ -122,8 +122,7 @@
             top: 100px;
         }
 
-        .me-main-content {
-        }
+        .me-main-content {}
 
         .me-floating-button {
             bottom: 40px;
@@ -929,7 +928,7 @@
             $('#me-tickets-nav-toggle').children('i').toggleClass('fa-bars fa-chevron-left');
             $('.me-main-content-area ').css('padding-left', '0');
         });
-        $(document).on('change','input[name="meTicketView"]',function() {
+        $(document).on('change', 'input[name="meTicketView"]', function () {
             if ($(this).val() > 0) {
                 $('.me-sidebar-left-container').parent().removeClass('uk-width-1-4');
                 $('#ticketContentArea').addClass('uk-hidden');
